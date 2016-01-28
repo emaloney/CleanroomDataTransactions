@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ An `ErrorType` that represents various errors that can occur when executing
+ `DataTransaction`s.
+ */
 public enum DataTransactionError: ErrorType
 {
     case WrappedError(ErrorType)

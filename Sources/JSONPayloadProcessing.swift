@@ -8,7 +8,16 @@
 
 import Foundation
 
-public func simplePayloadProcessor<T>(jsonObject: AnyObject?)
+/**
+ A `JSONPayloadProcessor` that requires `jsonObject` to be an instance
+ of type `T`.
+ 
+ - parameter jsonObject: An object created from a JSON data structure.
+ 
+ - throws: A `DataTransactionError` if `jsonObject` could not be cast to
+ type `T`.
+ */
+public func requiredPayloadProcessor<T>(jsonObject: AnyObject?)
     throws
     -> T
 {
