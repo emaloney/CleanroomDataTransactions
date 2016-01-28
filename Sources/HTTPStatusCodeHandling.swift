@@ -8,7 +8,6 @@
 
 import Foundation
 import CleanroomConcurrency
-import CleanroomLogger
 
 public func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType, httpRequired: Bool)
     throws
@@ -21,11 +20,7 @@ public func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, p
         }
     }
 
-    let status = http.responseStatus
-
-    Log.debug?.message("HTTP \(status.statusCode): \(status)")
-
-    if status.isErrorResponse {
+    if http.responseStatus.isErrorResponse {
         throw DataTransactionError.HTTPError(http, nil)
     }
 }

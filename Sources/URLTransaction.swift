@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CleanroomLogger
 
 public class URLTransaction: DataTransaction
 {
@@ -39,8 +38,6 @@ public class URLTransaction: DataTransaction
 
     deinit {
         if let task = task {
-            Log.verbose?.message("URLTransaction deallocating with an outstanding NSURLSessionTask for URL <\(task.originalRequest?.URL)>; will cancel it")
-
             task.cancel()
         }
     }

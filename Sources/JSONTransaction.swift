@@ -8,7 +8,6 @@
 
 import Foundation
 import CleanroomConcurrency
-import CleanroomLogger
 
 public class JSONTransaction<JSONDataType>: DelegatingDataTransaction
 {
@@ -44,7 +43,6 @@ public class JSONTransaction<JSONDataType>: DelegatingDataTransaction
         Log.verbose?.trace()
 
         innerTransaction.executeTransaction() { result in
-            Log.verbose?.trace()
 
             switch result {
             case .Failed(let error):
@@ -67,15 +65,9 @@ public class JSONTransaction<JSONDataType>: DelegatingDataTransaction
                         }
 
                         completion(.Succeeded(payload, meta))
-
-                        Log.debug?.message("Successful transaction with \(self.url)")
                     }
                     catch {
                         completion(.Failed(.wrap(error)))
-
-                        let orig = NSString(data: data, encoding: NSUTF8StringEncoding)!
-
-                        Log.error?.message("\(self.url): \(orig)")
                     }
                 }
             }

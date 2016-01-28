@@ -35,13 +35,9 @@
 		3B1C818D1C59D67F006248E4 /* URLTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C81481C59D67F006248E4 /* URLTransaction.swift */; };
 		3B1C818E1C59D67F006248E4 /* URLTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C81481C59D67F006248E4 /* URLTransaction.swift */; };
 		3B1C81C51C59D93C006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C819E1C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
-		3B1C81C61C59D93C006248E4 /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81B71C59D90C006248E4 /* CleanroomLogger.framework */; };
 		3B1C81C71C59D947006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81A01C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
-		3B1C81C81C59D947006248E4 /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81B91C59D90C006248E4 /* CleanroomLogger.framework */; };
 		3B1C81C91C59D94F006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81A21C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
-		3B1C81CA1C59D94F006248E4 /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81BB1C59D90C006248E4 /* CleanroomLogger.framework */; };
 		3B1C81CB1C59D95A006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81A41C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
-		3B1C81CC1C59D95A006248E4 /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81BD1C59D90C006248E4 /* CleanroomLogger.framework */; };
 		3B4E1CA31C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */; };
 		3B4E1CA41C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */; };
 		3B4E1CA51C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */; };
@@ -130,55 +126,6 @@
 			remoteGlobalIDString = 3B00E5A31BA37A420011486D;
 			remoteInfo = "CleanroomConcurrencyUnitTests-tvOS";
 		};
-		3B1C81B61C59D90C006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E55D1BA3782D0011486D;
-			remoteInfo = "CleanroomLogger-iOS";
-		};
-		3B1C81B81C59D90C006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E57C1BA379830011486D;
-			remoteInfo = "CleanroomLogger-OSX";
-		};
-		3B1C81BA1C59D90C006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E59A1BA37A420011486D;
-			remoteInfo = "CleanroomLogger-tvOS";
-		};
-		3B1C81BC1C59D90C006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B78C6CE1BA7634E00173EAC;
-			remoteInfo = "CleanroomLogger-watchOS";
-		};
-		3B1C81BE1C59D90C006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E5671BA3782D0011486D;
-			remoteInfo = "CleanroomLoggerUnitTests-iOS";
-		};
-		3B1C81C01C59D90C006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E5851BA379830011486D;
-			remoteInfo = "CleanroomLoggerUnitTests-OSX";
-		};
-		3B1C81C21C59D90C006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E5A31BA37A420011486D;
-			remoteInfo = "CleanroomLoggerUnitTests-tvOS";
-		};
 		3B1C81CD1C59D96B006248E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
@@ -214,26 +161,12 @@
 			remoteGlobalIDString = 3B00E5991BA37A420011486D;
 			remoteInfo = "CleanroomConcurrency-tvOS";
 		};
-		3B1C81D71C59D98B006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B00E5991BA37A420011486D;
-			remoteInfo = "CleanroomLogger-tvOS";
-		};
 		3B1C81D91C59D995006248E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 3B78C6CD1BA7634E00173EAC;
 			remoteInfo = "CleanroomConcurrency-watchOS";
-		};
-		3B1C81DB1C59D995006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B78C6CD1BA7634E00173EAC;
-			remoteInfo = "CleanroomLogger-watchOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -253,7 +186,6 @@
 		3B1C813E1C59D67F006248E4 /* JSONTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransaction.swift; sourceTree = "<group>"; };
 		3B1C81481C59D67F006248E4 /* URLTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTransaction.swift; sourceTree = "<group>"; };
 		3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanroomConcurrency.xcodeproj; path = Libraries/CleanroomConcurrency/CleanroomConcurrency.xcodeproj; sourceTree = "<group>"; };
-		3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanroomLogger.xcodeproj; path = Libraries/CleanroomLogger/CleanroomLogger.xcodeproj; sourceTree = "<group>"; };
 		3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-iOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBD11BA76428000986DF /* Debug-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-OSX.xcconfig"; sourceTree = "<group>"; };
 		3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-tvOS.xcconfig"; sourceTree = "<group>"; };
@@ -287,7 +219,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B1C81C51C59D93C006248E4 /* CleanroomConcurrency.framework in Frameworks */,
-				3B1C81C61C59D93C006248E4 /* CleanroomLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +235,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B1C81C71C59D947006248E4 /* CleanroomConcurrency.framework in Frameworks */,
-				3B1C81C81C59D947006248E4 /* CleanroomLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +251,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B1C81C91C59D94F006248E4 /* CleanroomConcurrency.framework in Frameworks */,
-				3B1C81CA1C59D94F006248E4 /* CleanroomLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B1C81CB1C59D95A006248E4 /* CleanroomConcurrency.framework in Frameworks */,
-				3B1C81CC1C59D95A006248E4 /* CleanroomLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,13 +365,6 @@
 		3B1C81AC1C59D90C006248E4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B1C81B71C59D90C006248E4 /* CleanroomLogger.framework */,
-				3B1C81B91C59D90C006248E4 /* CleanroomLogger.framework */,
-				3B1C81BB1C59D90C006248E4 /* CleanroomLogger.framework */,
-				3B1C81BD1C59D90C006248E4 /* CleanroomLogger.framework */,
-				3B1C81BF1C59D90C006248E4 /* CleanroomLoggerUnitTests.xctest */,
-				3B1C81C11C59D90C006248E4 /* CleanroomLoggerUnitTests.xctest */,
-				3B1C81C31C59D90C006248E4 /* CleanroomLoggerUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -452,7 +373,6 @@
 			isa = PBXGroup;
 			children = (
 				3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */,
-				3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -515,7 +435,6 @@
 			);
 			dependencies = (
 				3B1C81CE1C59D96B006248E4 /* PBXTargetDependency */,
-				3B1C81D01C59D96B006248E4 /* PBXTargetDependency */,
 			);
 			name = "CleanroomDataTransactions-iOS";
 			productName = "CleanroomDataTransactions-iOS";
@@ -553,7 +472,6 @@
 			);
 			dependencies = (
 				3B1C81D21C59D981006248E4 /* PBXTargetDependency */,
-				3B1C81D41C59D981006248E4 /* PBXTargetDependency */,
 			);
 			name = "CleanroomDataTransactions-OSX";
 			productName = "CleanroomDataTransactions-OSX";
@@ -591,7 +509,6 @@
 			);
 			dependencies = (
 				3B1C81D61C59D98B006248E4 /* PBXTargetDependency */,
-				3B1C81D81C59D98B006248E4 /* PBXTargetDependency */,
 			);
 			name = "CleanroomDataTransactions-tvOS";
 			productName = "CleanroomDataTransactions-tvOS";
@@ -629,7 +546,6 @@
 			);
 			dependencies = (
 				3B1C81DA1C59D995006248E4 /* PBXTargetDependency */,
-				3B1C81DC1C59D995006248E4 /* PBXTargetDependency */,
 			);
 			name = "CleanroomDataTransactions-watchOS";
 			productName = "CleanroomDataTransactions-watchOS";
@@ -681,10 +597,6 @@
 				{
 					ProductGroup = 3B1C81941C59D8FE006248E4 /* Products */;
 					ProjectRef = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-				},
-				{
-					ProductGroup = 3B1C81AC1C59D90C006248E4 /* Products */;
-					ProjectRef = 3B1C81AB1C59D90C006248E4 /* CleanroomLogger.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -748,55 +660,6 @@
 			fileType = wrapper.cfbundle;
 			path = CleanroomConcurrencyUnitTests.xctest;
 			remoteRef = 3B1C81A91C59D8FE006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81B71C59D90C006248E4 /* CleanroomLogger.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleanroomLogger.framework;
-			remoteRef = 3B1C81B61C59D90C006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81B91C59D90C006248E4 /* CleanroomLogger.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleanroomLogger.framework;
-			remoteRef = 3B1C81B81C59D90C006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81BB1C59D90C006248E4 /* CleanroomLogger.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleanroomLogger.framework;
-			remoteRef = 3B1C81BA1C59D90C006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81BD1C59D90C006248E4 /* CleanroomLogger.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleanroomLogger.framework;
-			remoteRef = 3B1C81BC1C59D90C006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81BF1C59D90C006248E4 /* CleanroomLoggerUnitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CleanroomLoggerUnitTests.xctest;
-			remoteRef = 3B1C81BE1C59D90C006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81C11C59D90C006248E4 /* CleanroomLoggerUnitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CleanroomLoggerUnitTests.xctest;
-			remoteRef = 3B1C81C01C59D90C006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81C31C59D90C006248E4 /* CleanroomLoggerUnitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CleanroomLoggerUnitTests.xctest;
-			remoteRef = 3B1C81C21C59D90C006248E4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -965,40 +828,20 @@
 			name = "CleanroomConcurrency-iOS";
 			targetProxy = 3B1C81CD1C59D96B006248E4 /* PBXContainerItemProxy */;
 		};
-		3B1C81D01C59D96B006248E4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CleanroomLogger-iOS";
-			targetProxy = 3B1C81CF1C59D96B006248E4 /* PBXContainerItemProxy */;
-		};
 		3B1C81D21C59D981006248E4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CleanroomConcurrency-OSX";
 			targetProxy = 3B1C81D11C59D981006248E4 /* PBXContainerItemProxy */;
-		};
-		3B1C81D41C59D981006248E4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CleanroomLogger-OSX";
-			targetProxy = 3B1C81D31C59D981006248E4 /* PBXContainerItemProxy */;
 		};
 		3B1C81D61C59D98B006248E4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CleanroomConcurrency-tvOS";
 			targetProxy = 3B1C81D51C59D98B006248E4 /* PBXContainerItemProxy */;
 		};
-		3B1C81D81C59D98B006248E4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CleanroomLogger-tvOS";
-			targetProxy = 3B1C81D71C59D98B006248E4 /* PBXContainerItemProxy */;
-		};
 		3B1C81DA1C59D995006248E4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CleanroomConcurrency-watchOS";
 			targetProxy = 3B1C81D91C59D995006248E4 /* PBXContainerItemProxy */;
-		};
-		3B1C81DC1C59D995006248E4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CleanroomLogger-watchOS";
-			targetProxy = 3B1C81DB1C59D995006248E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

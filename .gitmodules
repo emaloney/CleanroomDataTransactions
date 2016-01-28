@@ -1,6 +1,3 @@
 [submodule "Libraries/CleanroomConcurrency"]
 	path = Libraries/CleanroomConcurrency
 	url = git@github.com:emaloney/CleanroomConcurrency.git
-[submodule "Libraries/CleanroomLogger"]
-	path = Libraries/CleanroomLogger
-	url = git@github.com:emaloney/CleanroomLogger.git
