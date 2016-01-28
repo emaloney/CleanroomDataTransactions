@@ -9,41 +9,42 @@
 import Foundation
 import CleanroomConcurrency
 
-public class JSONTransaction<JSONDataType>: DelegatingDataTransaction
+public class JSONTransaction<JSONDataType>: WrappingDataTransaction
 {
     public typealias DataType = JSONDataType
-    public typealias MetadataType = DelegateTransactionType.MetadataType
+    public typealias MetadataType = WrappedTransactionType.MetadataType
     public typealias Result = TransactionResult<DataType, MetadataType>
     public typealias Callback = (Result) -> Void
-    public typealias DelegateTransactionType = URLTransaction
+    public typealias WrappedTransactionType = URLTransaction
     public typealias JSONPayloadProcessor = (AnyObject?) throws -> DataType
     public typealias MetadataProcessor = (MetadataType?, payload: DataType) throws -> Void
 
-    public var delegateTransaction: DelegateTransactionType? { return innerTransaction }
-    private let innerTransaction: DelegateTransactionType
+    private let wrappedTransaction: WrappedTransactionType
 
-    public var url: NSURL { return innerTransaction.url }
+    public var url: NSURL { return wrappedTransaction.url }
 
     public var jsonReadingOptions = NSJSONReadingOptions(rawValue: 0)
-    public var payloadProcessingFunction: JSONPayloadProcessor = simplePayloadProcessor
+    public var payloadProcessingFunction: JSONPayloadProcessor = requiredPayloadProcessor
     public var metadataProcessingFunction: MetadataProcessor?
-
-    public init(request: NSURLRequest, uploadData: NSData? = nil)
-    {
-        innerTransaction = DelegateTransactionType(request: request, uploadData: uploadData)
-    }
 
     public init(url: NSURL, uploadData: NSData? = nil)
     {
-        innerTransaction = DelegateTransactionType(url: url, uploadData: uploadData)
+        wrappedTransaction = WrappedTransactionType(url: url, uploadData: uploadData)
+    }
+
+    public init(request: NSURLRequest, uploadData: NSData? = nil)
+    {
+        wrappedTransaction = WrappedTransactionType(request: request, uploadData: uploadData)
+    }
+
+    public init(wrapping: WrappedTransactionType)
+    {
+        wrappedTransaction = wrapping
     }
 
     public func executeTransaction(completion: Callback)
     {
-        Log.verbose?.trace()
-
-        innerTransaction.executeTransaction() { result in
-
+        wrappedTransaction.executeTransaction() { result in
             switch result {
             case .Failed(let error):
                 completion(.Failed(error))

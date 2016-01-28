@@ -22,9 +22,11 @@ public class URLTransaction: DataTransaction
 
     private var task: NSURLSessionTask?
 
-    public convenience init(url: NSURL, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
+    public init(url: NSURL, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
     {
-        self.init(request: NSURLRequest(URL: url), uploadData: uploadData, sessionConfiguration: sessionConfiguration)
+        self.request = NSURLRequest(URL: url)
+        self.uploadData = uploadData
+        self.sessionConfiguration = sessionConfiguration
     }
 
     public init(request: NSURLRequest, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())

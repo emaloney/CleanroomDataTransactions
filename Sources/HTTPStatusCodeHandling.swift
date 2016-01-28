@@ -1,4 +1,4 @@
- //
+//
 //  JSONPayloadProcessing.swift
 //  CleanroomDataTransactions
 //
@@ -7,9 +7,20 @@
 //
 
 import Foundation
-import CleanroomConcurrency
 
-public func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType, httpRequired: Bool)
+public func httpOptionalStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType)
+    throws
+{
+    try httpStatusCodeHandler(meta, payload: payload, httpRequired: false)
+}
+
+public func httpRequiredStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType)
+    throws
+{
+    try httpStatusCodeHandler(meta, payload: payload, httpRequired: true)
+}
+
+internal func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType, httpRequired: Bool)
     throws
 {
     guard let http = meta as? HTTPResponseMetadata else {
@@ -25,14 +36,3 @@ public func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, p
     }
 }
 
-public func httpOptionalStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType)
-    throws
-{
-    try httpStatusCodeHandler(meta, payload: payload, httpRequired: false)
-}
-
-public func httpRequiredStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType)
-    throws
-{
-    try httpStatusCodeHandler(meta, payload: payload, httpRequired: true)
-}
