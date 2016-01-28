@@ -46,6 +46,14 @@
 		3B4E1CA41C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */; };
 		3B4E1CA51C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */; };
 		3B4E1CA61C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */; };
+		3B4E1CBA1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CB91C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift */; };
+		3B4E1CBB1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CB91C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift */; };
+		3B4E1CBC1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CB91C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift */; };
+		3B4E1CBD1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CB91C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift */; };
+		3B4E1CC51C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CC41C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift */; };
+		3B4E1CC61C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CC41C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift */; };
+		3B4E1CC71C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CC41C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift */; };
+		3B4E1CC81C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CC41C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift */; };
 		3B78C6B91BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */; };
 		3B78C6BA1BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */; };
 		3B78C6BB1BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */; };
@@ -267,6 +275,8 @@
 		3B38DBE21BA76428000986DF /* tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = tvOS.xcconfig; sourceTree = "<group>"; };
 		3B38DBE31BA76428000986DF /* watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = watchOS.xcconfig; sourceTree = "<group>"; };
 		3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseStatus.swift; sourceTree = "<group>"; };
+		3B4E1CB91C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONPayloadProcessing.swift; sourceTree = "<group>"; };
+		3B4E1CC41C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCodeHandling.swift; sourceTree = "<group>"; };
 		3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanroomDataTransactionsUnitTests.swift; sourceTree = "<group>"; };
 		3B78C6CE1BA7634E00173EAC /* CleanroomDataTransactions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomDataTransactions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -401,7 +411,9 @@
 				3B1C813B1C59D67F006248E4 /* DataTransactionError.swift */,
 				3B1C813C1C59D67F006248E4 /* HTTPResponseMetadata.swift */,
 				3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */,
+				3B4E1CC41C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift */,
 				3B1C813D1C59D67F006248E4 /* ImageFetchTransaction.swift */,
+				3B4E1CB91C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift */,
 				3B1C813E1C59D67F006248E4 /* JSONTransaction.swift */,
 				3B1C81481C59D67F006248E4 /* URLTransaction.swift */,
 			);
@@ -847,10 +859,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B1C81671C59D67F006248E4 /* ImageFetchTransaction.swift in Sources */,
+				3B4E1CC51C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */,
 				3B1C81631C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B1C818B1C59D67F006248E4 /* URLTransaction.swift in Sources */,
 				3B1C815B1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816B1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
+				3B4E1CBA1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
 				3B4E1CA31C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */,
 				3B1C815F1C59D67F006248E4 /* DataTransactionError.swift in Sources */,
 			);
@@ -869,10 +883,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B1C81681C59D67F006248E4 /* ImageFetchTransaction.swift in Sources */,
+				3B4E1CC61C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */,
 				3B1C81641C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B1C818C1C59D67F006248E4 /* URLTransaction.swift in Sources */,
 				3B1C815C1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816C1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
+				3B4E1CBB1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
 				3B4E1CA41C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */,
 				3B1C81601C59D67F006248E4 /* DataTransactionError.swift in Sources */,
 			);
@@ -891,10 +907,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B1C81691C59D67F006248E4 /* ImageFetchTransaction.swift in Sources */,
+				3B4E1CC71C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */,
 				3B1C81651C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B1C818D1C59D67F006248E4 /* URLTransaction.swift in Sources */,
 				3B1C815D1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816D1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
+				3B4E1CBC1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
 				3B4E1CA51C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */,
 				3B1C81611C59D67F006248E4 /* DataTransactionError.swift in Sources */,
 			);
@@ -913,10 +931,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B1C816A1C59D67F006248E4 /* ImageFetchTransaction.swift in Sources */,
+				3B4E1CC81C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */,
 				3B1C81661C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B1C818E1C59D67F006248E4 /* URLTransaction.swift in Sources */,
 				3B1C815E1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816E1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
+				3B4E1CBD1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
 				3B4E1CA61C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */,
 				3B1C81621C59D67F006248E4 /* DataTransactionError.swift in Sources */,
 			);

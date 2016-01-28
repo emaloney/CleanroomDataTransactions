@@ -10,65 +10,6 @@ import Foundation
 import CleanroomConcurrency
 import CleanroomLogger
 
-
-public func simplePayloadProcessor<T>(jsonObject: AnyObject?)
-    throws
-    -> T
-{
-    guard let typed = jsonObject as? T else {
-        throw DataTransactionError.DataFormatError("Expecting JSON data to be a type of \(T.self); got \(jsonObject.dynamicType) instead")
-    }
-    return typed
-}
-
-public func optionalPayloadProcessor<T>(jsonObject: AnyObject?)
-    throws
-    -> T?
-{
-    guard let object = jsonObject else {
-        return nil
-    }
-
-    guard let typed = object as? T else {
-        throw DataTransactionError.DataFormatError("Expecting JSON data to be a type of \(T.self); got \(object.dynamicType) instead")
-    }
-
-    return typed
-}
-
-
-public func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType, httpRequired: Bool)
-    throws
-{
-    guard let http = meta as? HTTPResponseMetadata else {
-        if httpRequired {
-            throw DataTransactionError.HTTPRequired
-        } else {
-            return  // assume success
-        }
-    }
-
-    let status = http.responseStatus
-
-    Log.debug?.message("HTTP \(status.statusCode): \(status)")
-
-    if status.isErrorResponse {
-        throw DataTransactionError.HTTPError(http, nil)
-    }
-}
-
-public func httpOptionalStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType)
-    throws
-{
-    try httpStatusCodeHandler(meta, payload: payload, httpRequired: false)
-}
-
-public func httpRequiredStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType)
-    throws
-{
-    try httpStatusCodeHandler(meta, payload: payload, httpRequired: true)
-}
-
 public class JSONTransaction<JSONDataType>: DelegatingDataTransaction
 {
     public typealias DataType = JSONDataType
