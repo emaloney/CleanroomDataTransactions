@@ -10,12 +10,6 @@ import Foundation
 import CleanroomConcurrency
 import CleanroomLogger
 
-//enum EnvelopeKey: String, JSONDataKey
-//{
-//    case Status = "status"
-//    case Payload = "data"
-//    case Message = "message"
-//}
 
 public func simplePayloadProcessor<T>(jsonObject: AnyObject?)
     throws
@@ -42,26 +36,6 @@ public func optionalPayloadProcessor<T>(jsonObject: AnyObject?)
     return typed
 }
 
-//public func processGiltMobileServicesEnvelope(jsonObject: AnyObject?)
-//    throws
-//    -> NSDictionary
-//{
-//    let data: NSDictionary = try simplePayloadProcessor(jsonObject)
-//
-//    let status = try data.requiredInt(EnvelopeKey.Status)
-//
-//    guard status == 0 else {
-//        throw DataTransactionError.FormatError("Expected \"\(EnvelopeKey.Status.rawValue)\" key to be equal to zero")
-//    }
-//
-//    let payload = try data.requiredDictionary(EnvelopeKey.Payload)
-//
-//    if let message = payload[EnvelopeKey.Message] as? String {
-//        throw DataTransactionError.GenericError(message)
-//    }
-//
-//    return payload
-//}
 
 public func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType, httpRequired: Bool)
     throws
@@ -101,11 +75,7 @@ public class JSONTransaction<JSONDataType>: DelegatingDataTransaction
     public typealias MetadataType = DelegateTransactionType.MetadataType
     public typealias Result = TransactionResult<DataType, MetadataType>
     public typealias Callback = (Result) -> Void
-//#if OFFLINE_MODE
-//    public typealias DelegateTransactionType = OfflineURLTransaction
-//#else
     public typealias DelegateTransactionType = URLTransaction
-//#endif
     public typealias JSONPayloadProcessor = (AnyObject?) throws -> DataType
     public typealias MetadataProcessor = (MetadataType?, payload: DataType) throws -> Void
 
@@ -173,23 +143,6 @@ public class JSONTransaction<JSONDataType>: DelegatingDataTransaction
 }
 
 public typealias JSONDictionaryTransaction = JSONTransaction<NSDictionary>
-
-//public class GiltMobileServicesTransaction: JSONDictionaryTransaction
-//{
-//    public override init(request: NSURLRequest, uploadData: NSData? = nil)
-//    {
-//        super.init(request: request, uploadData: uploadData)
-//
-//        payloadProcessingFunction = processGiltMobileServicesEnvelope
-//    }
-//
-//    public override init(url: NSURL, uploadData: NSData? = nil)
-//    {
-//        super.init(url: url, uploadData: uploadData)
-//
-//        payloadProcessingFunction = processGiltMobileServicesEnvelope
-//    }
-//}
 
 public typealias JSONArrayTransaction = JSONTransaction<NSArray>
 

@@ -27,10 +27,7 @@ public enum DataTransactionError: ErrorType
     case InvalidURL(String)
     case UnexpectedHTTPResponseCode
     case NotAuthorized
-//    case ServerMessageError(ServerMessage, ErrorRecoveryDisposition?)
-//    case ServiceError(ErrorRecoveryDisposition, ErrorResponse)
     case HTTPError(HTTPResponseMetadata, NSData?)
-//    case DataProcessingError(ErrorResponse)
 }
 
 extension DataTransactionError
@@ -45,51 +42,6 @@ extension DataTransactionError
         }
     }
 }
-
-//extension DataTransactionError: RecoverableErrorType
-//{
-//    public var recoveryDisposition: ErrorRecoveryDisposition {
-//        switch self {
-//        case WrappedError(let error):
-//            return error.recoveryDisposition
-//
-//        case ServiceError(let recovery, _):
-//            return recovery
-//
-//        case HTTPError(let recovery, _, _):
-//            return recovery
-//
-//        case ServerMessageError(_, let recovery):
-//            if let recovery = recovery {
-//                return recovery
-//            }
-//            return .TransientError
-//
-//        case NotImplemented,
-//            BadImplementation,
-//            InvalidSlug,
-//            InvalidURL,
-//            UnexpectedHTTPResponseCode,
-//            SessionTaskNotCreated,
-//            HTTPRequired:
-//            return .PermanentError
-//
-//        case FormatError,
-//            GenericError,
-//            NoData,
-//            Canceled,
-//            NotAvailable,
-//            Unauthorized,
-//            Expired,
-//            AlreadyInFlight,
-//            Timeout:
-//            return .TransientError
-//
-//        case DataProcessingError:
-//            return .InputError
-//        }
-//    }
-//}
 
 extension DataTransactionError: CustomStringConvertible
 {
@@ -146,26 +98,8 @@ extension DataTransactionError: CustomStringConvertible
         case .NotAuthorized:
             return "Not authorized to access this resource."
 
-//        case .ServiceError(_, let errorResponse):
-//            if let message = errorResponse.message {
-//                return "Server error: \(message)"
-//            }
-//            else if let code = errorResponse.errorCodes.first {
-//                return "Server error: \(code.localizedStringCode)"
-//            }
-//            else {
-//                return "Unknown server error: \(errorResponse)"
-//            }
-//
-//        case ServerMessageError(let msg, _):
-//            return msg.message
-
         case HTTPError(let meta, _):
-            return "HTTP protocol error \(meta.responseStatusCode)"
-
-//        case .DataProcessingError(let error):
-//            let errorMessage = error.checkoutError?.headline ?? ""
-//            return "DataProcessingError \(errorMessage)"
+            return "HTTP protocol error \(meta.responseStatusCode): \(meta.responseStatus)"
         }
     }
 }

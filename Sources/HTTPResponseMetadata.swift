@@ -7,9 +7,6 @@
 //
 
 import Foundation
-import CleanroomConcurrency
-//import CleanroomDateTime
-import CleanroomLogger
 
 public struct HTTPResponseMetadata
 {
@@ -35,16 +32,3 @@ extension HTTPResponseMetadata
         return HTTPResponseStatus(responseStatusCode)
     }
 }
-
-
-//
-// DISABLING -- this is the only line of code that requires CleanroomDateTime;
-//              in order to minimize unneeded dependencies, we're going to move
-//              it to AppleTart     --ECM 1/28/2016
-//
-//extension HTTPResponseMetadata
-//{
-//    public var serverTime: NSDate? {
-//        return (httpHeaders["Date"] as? String)?.asDateRFC1123()
-//    }
-//}

@@ -17,11 +17,7 @@ public class ImageFetchTransaction: DelegatingDataTransaction
     public typealias MetadataType = DelegateTransactionType.MetadataType
     public typealias Result = TransactionResult<DataType, MetadataType>
     public typealias Callback = (Result) -> Void
-//#if OFFLINE_MODE
-//    public typealias DelegateTransactionType = OfflineURLTransaction
-//#else
     public typealias DelegateTransactionType = URLTransaction
-//#endif
 
     public var url: NSURL { return innerTransaction.url }
 
