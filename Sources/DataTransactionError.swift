@@ -14,28 +14,74 @@ import Foundation
  */
 public enum DataTransactionError: ErrorType
 {
+    /** A `DataTransactionError` that wraps a generic `ErrorType`. */
     case WrappedError(ErrorType)
+
+    /** Represents an error condition not covered by an `ErrorType` or another
+     `DataTransactionError`. */
     case UnknownError(String)
+
     case DataFormatError(String)
+
+    /** The execution path taken by a `DataTransaction` has not been fully
+     implemented. */
     case NotImplemented
+
+    /** The resource requested by the `DataTransaction` is not available. */
     case NotAvailable
+
+    /** The transaction protocol has been implemented incorrectly. */
     case BadImplementation
+
+    /** Failed to create an `NSURLSessionTask` for the transaction. */
     case SessionTaskNotCreated
+
+    /** Use of the HTTP protocol is required for the given transaction, but
+     it was not used. */
     case HTTPRequired
+
+    /** The transaction returned no data. */
     case NoData
+
+    /** The transaction was canceled or deallocated before it could be
+     completed. */
     case Canceled
+
+    /** The transaction is already in the process of being executed and
+     has not yet returned. */
     case AlreadyInFlight
+
+    /** The transaction was aborted because it did not complete in a reasonable
+     time. */
     case Timeout
+
+    /** The transaction expired before it completed. */
     case Expired
-    case InvalidSlug
+
+    /** The given string could not be converted into an `NSURL` instance. */
     case InvalidURL(String)
+
+    /** An unexpected HTTP response code was returned for the transaction. */
     case UnexpectedHTTPResponseCode
+
+    /** Indicates that the caller is not authorized to perform the given 
+     transaction. */
     case NotAuthorized
+
+    /** Indicates an HTTP error response was received. Contains the metadata
+     of the response as well as any response data. */
     case HTTPError(HTTPResponseMetadata, NSData?)
 }
 
 extension DataTransactionError
 {
+    /**
+     Returns a `DataTransactionError` representing the given `ErrorType`.
+
+     - parameter error: The `ErrorType` to (possibly) wrap. If `error` is
+     already a `DataTransactionError`, it is simply returned as-is. Otherwise,
+     `.WrappedError(error)` is returned.
+     */
     public static func wrap(error: ErrorType)
         -> DataTransactionError
     {
@@ -49,6 +95,7 @@ extension DataTransactionError
 
 extension DataTransactionError: CustomStringConvertible
 {
+    /** A string representation of the `DataTransactionError`. */
     public var description: String {
         switch self {
         case .WrappedError(let error):
@@ -89,9 +136,6 @@ extension DataTransactionError: CustomStringConvertible
 
         case .Expired:
             return "The time-limited resource is no longer valid."
-
-        case .InvalidSlug:
-            return "No entity exists with the given slug."
 
         case .InvalidURL(let urlString):
             return "This does not appear to be a valid URL: \(urlString)"

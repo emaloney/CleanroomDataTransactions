@@ -8,20 +8,48 @@
 
 import Foundation
 
+/**
+ Meaningful values for some of the common HTTP response codes.
+ 
+ Note that not every HTTP code is represented here; those that aren't
+ can be stored in the `.Other` case.
+ */
 public enum HTTPResponseStatus
 {
+    /** The `200 OK` response code. */
     case OK
+
+    /** The `201 Created` response code. */
     case Created
+
+    /** The `204 No Content` response code. */
     case NoContent
+
+    /** The `400 Bad Request` response code. */
     case BadRequest
+
+    /** The `401 Unauthorized` response code. */
     case Unauthorized
+
+    /** The `404 Not Found` response code. */
     case NotFound
+
+    /** The `409 Conflict` response code. */
     case Conflict
+
+    /** The `410 Gone` response code. */
     case Gone
+
+    /** The `422 Unprocessable Entity` response code. */
     case UnprocessableEntity
+
+    /** The `502 Bad Gateway` response code. */
     case BadGateway
+
+    /** Represents HTTP response codes not covered by the other cases. */
     case Other(Int)
 
+    /** The numeric HTTP status code. */
     public var statusCode: Int {
         switch self {
         case OK:                    return 200
@@ -38,6 +66,12 @@ public enum HTTPResponseStatus
         }
     }
 
+    /**
+     Initializes an `HTTPResponseStatus` to the value represented by the given
+     `Int`.
+     
+     - parameter statusCode: The HTTP status code.
+     */
     public init(_ statusCode: Int)
     {
         switch statusCode {
@@ -58,14 +92,29 @@ public enum HTTPResponseStatus
 
 extension HTTPResponseStatus
 {
+    /**
+     Represents the five categories of HTTP response codes.
+     */
     public enum Category {
+        /** Indicates an informational (`1xx`) response, possibly pending
+         further information. */
         case Informational
+
+        /** Indicates an successful (`2xx`) response. */
         case Success
+
+        /** Indicates a redirect (`3xx`) response. */
         case Redirection
+
+        /** Indicates a client error (`4xx`) response. */
         case ClientError
+
+        /** Indicates a server error (`5xx`) response, or a response with an
+         error code not falling into one of the ranges above.  */
         case ServerError
     }
 
+    /** Indicates the category of the HTTP response. */
     public var responseCategory: Category {
         switch statusCode {
         case 100..<200: return .Informational
@@ -79,6 +128,7 @@ extension HTTPResponseStatus
 
 extension HTTPResponseStatus
 {
+    /** Indicates whether the receiver represents an error response. */
     public var isErrorResponse: Bool {
         switch responseCategory {
         case .ClientError, .ServerError:    return true

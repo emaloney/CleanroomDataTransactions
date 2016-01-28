@@ -11,7 +11,7 @@ import Foundation
 #if os(iOS) || os(tvOS)
 import UIKit
 
-/** Represents the image type appropriate for the given platform. On iOS and
+/** Represents the image type appropriate for the runtime platform. On iOS and
  tvOS, `PlatformImageType` is `UIImage`; on Mac OS X, it is `NSImage`. */
 public typealias PlatformImageType = UIImage
 #endif
@@ -19,7 +19,7 @@ public typealias PlatformImageType = UIImage
 #if os(OSX)
 import AppKit
 
-/** Represents the image type appropriate for the given platform. On iOS and
+/** Represents the image type appropriate for the runtime platform. On iOS and
  tvOS, `PlatformImageType` is `UIImage`; on Mac OS X, it is `NSImage`. */
 public typealias PlatformImageType = NSImage
 #endif
