@@ -16,19 +16,16 @@ public class URLTransaction: DataTransaction
     public typealias Result = TransactionResult<DataType, MetadataType>
     public typealias Callback = (Result) -> Void
 
-    public var url: NSURL {
-        return request.URL!
-    }
-
+    public var url: NSURL { return request.URL! }
     public let request: NSURLRequest
     public let uploadData: NSData?
     public let sessionConfiguration: NSURLSessionConfiguration
 
     private var task: NSURLSessionTask?
 
-    public convenience init(url: NSURL, uploadData: NSData? = nil)
+    public convenience init(url: NSURL, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
     {
-        self.init(request: NSURLRequest(URL: url), uploadData: uploadData)
+        self.init(request: NSURLRequest(URL: url), uploadData: uploadData, sessionConfiguration: sessionConfiguration)
     }
 
     public init(request: NSURLRequest, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
