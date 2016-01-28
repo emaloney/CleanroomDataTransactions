@@ -1,114 +1,45 @@
-ImageFetchTransaction.swift
-	public class ImageFetchTransaction: DelegatingDataTransaction
-	public var url: NSURL { return innerTransaction.url }
-	public var delegateTransaction: DelegateTransactionType? { return innerTransaction }
-	public init(url: NSURL)
-	public func executeTransaction(completion: Callback)
-HTTPResponseMetadata.swift
-	public struct HTTPResponseMetadata
-	public let url: NSURL
-	public let responseStatusCode: Int
-	public let mimeType: String?
-	public let textEncoding: String?
-	public let httpHeaders: [String: AnyObject]
-	public init(url: NSURL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [NSObject: AnyObject])
-	public struct HTTPResponseMetadata
-	public var responseStatus: HTTPResponseStatus
-URLTransaction.swift
-	public class URLTransaction: DataTransaction
-	public var url: NSURL
-	public let request: NSURLRequest
-	public let uploadData: NSData?
-	public let sessionConfiguration: NSURLSessionConfiguration
-	public convenience init(url: NSURL, uploadData: NSData? = nil)
-	public init(request: NSURLRequest, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
-	public func executeTransaction(completion: Callback)
-DataTransaction.swift
-	public enum TransactionResult<DataType, MetadataType>
-	case Succeeded(DataType, MetadataType)
-	case Failed(DataTransactionError)
-	public protocol DataTransaction
-	func executeTransaction(completion: Callback)
-	public protocol DelegatingDataTransaction: DataTransaction
-	var delegateTransaction: DelegateTransactionType? { get }
-JSONTransaction.swift
-	public func simplePayloadProcessor<T>(jsonObject: AnyObject?)
-    throws
-    -> T
-	public func optionalPayloadProcessor<T>(jsonObject: AnyObject?)
-    throws
-    -> T?
-	public func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType, httpRequired: Bool)
-    throws
+HTTPStatusCodeHandling.swift
 	public func httpOptionalStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType)
     throws
 	public func httpRequiredStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType)
     throws
-	public class JSONTransaction<JSONDataType>: DelegatingDataTransaction
-	public var delegateTransaction: DelegateTransactionType? { return innerTransaction }
-	public var url: NSURL { return innerTransaction.url }
-	public var jsonReadingOptions = NSJSONReadingOptions(rawValue: 0)
-	public var payloadProcessingFunction: JSONPayloadProcessor = simplePayloadProcessor
-	public var metadataProcessingFunction: MetadataProcessor?
-	public init(request: NSURLRequest, uploadData: NSData? = nil)
-	public init(url: NSURL, uploadData: NSData? = nil)
+GenericDataProcessingTransaction.swift
+	public var url: NSURL { return wrappedTransaction.url }
+	public let processData: DataProcessingFunction
+	public init(wrapping: WrappedTransactionType, dataProcessor: DataProcessingFunction)
 	public func executeTransaction(completion: Callback)
-	public class ApiDocTransaction<T>: JSONTransaction<T>
+URLTransaction.swift
+	public class URLTransaction: DataTransaction
+	public var url: NSURL { return request.URL! }
+	public let request: NSURLRequest
+	public let uploadData: NSData?
+	public let sessionConfiguration: NSURLSessionConfiguration
+	public init(url: NSURL, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
+	public init(request: NSURLRequest, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
+	public func executeTransaction(completion: Callback)
+JSONTransaction.swift
+	public class JSONTransaction<JSONDataType>: WrappingDataTransaction
+	public var url: NSURL { return wrappedTransaction.url }
+	public var jsonReadingOptions = NSJSONReadingOptions(rawValue: 0)
+	public var payloadProcessingFunction: JSONPayloadProcessor = requiredPayloadProcessor
+	public var metadataProcessingFunction: MetadataProcessor?
+	public init(url: NSURL, uploadData: NSData? = nil)
+	public init(request: NSURLRequest, uploadData: NSData? = nil)
+	public init(wrapping: WrappedTransactionType)
+	public func executeTransaction(completion: Callback)
+	public class JSONOptionalTransaction<T>: JSONTransaction<T?>
 	public override init(request: NSURLRequest, uploadData: NSData? = nil)
 	public override init(url: NSURL, uploadData: NSData? = nil)
-	public class JSONOptionalTransaction<T>: JSONTransaction<T?>
+ApiDocTransaction.swift
+	public class ApiDocTransaction<T>: JSONTransaction<T>
 	public override init(request: NSURLRequest, uploadData: NSData? = nil)
 	public override init(url: NSURL, uploadData: NSData? = nil)
 	public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
 	public override init(request: NSURLRequest, uploadData: NSData? = nil)
 	public override init(url: NSURL, uploadData: NSData? = nil)
-HTTPResponseStatus.swift
-	public enum HTTPResponseStatus
-	case OK
-	case Created
-	case NoContent
-	case BadRequest
-	case Unauthorized
-	case NotFound
-	case Conflict
-	case Gone
-	case UnprocessableEntity
-	case BadGateway
-	case Other(Int)
-	public var statusCode: Int
-	public init(_ statusCode: Int)
-	public enum HTTPResponseStatus
-	public enum Category
-	case Informational
-	case Success
-	case Redirection
-	case ClientError
-	case ServerError
-	public var responseCategory: Category
-	public enum HTTPResponseStatus
-	public var isErrorResponse: Bool
+JSONPayloadProcessing.swift
+	public func optionalPayloadProcessor<T>(jsonObject: AnyObject?)
+    throws
+    -> T?
 DataTransactionError.swift
-	public enum DataTransactionError: ErrorType
-	case WrappedError(ErrorType)
-	case UnknownError(String)
 	case DataFormatError(String)
-	case NotImplemented
-	case NotAvailable
-	case BadImplementation
-	case SessionTaskNotCreated
-	case HTTPRequired
-	case NoData
-	case Canceled
-	case AlreadyInFlight
-	case Timeout
-	case Expired
-	case InvalidSlug
-	case InvalidURL(String)
-	case UnexpectedHTTPResponseCode
-	case NotAuthorized
-	case HTTPError(HTTPResponseMetadata, NSData?)
-	public enum DataTransactionError : ErrorType
-	public static func wrap(error: ErrorType)
-        -> DataTransactionError
-	public enum DataTransactionError : ErrorType
-	public var description: String

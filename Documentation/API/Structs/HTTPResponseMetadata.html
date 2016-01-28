@@ -14,7 +14,7 @@
     <a title="HTTPResponseMetadata Struct Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (0% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -38,7 +38,10 @@
                 <a href="../Classes/ApiDocTransaction.html">ApiDocTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ImageFetchTransaction.html">ImageFetchTransaction</a>
+                <a href="../Classes/FetchImageTransaction.html">FetchImageTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GenericDataProcessingTransaction.html">GenericDataProcessingTransaction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/JSONOptionalTransaction.html">JSONOptionalTransaction</a>
@@ -75,13 +78,13 @@
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions29httpRequiredStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpRequiredStatusCodeHandler(_:payload:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions21httpStatusCodeHandleru0_rFzTGSqx_7payloadq_12httpRequiredSb_T_">httpStatusCodeHandler(_:payload:httpRequired:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqPs9AnyObject__GSqx_">optionalPayloadProcessor(_:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions22simplePayloadProcessorurFzGSqPs9AnyObject__x">simplePayloadProcessor(_:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions21platformImageFromDataFzCSo6NSDataCSo7UIImage">platformImageFromData(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzGSqPs9AnyObject__x">requiredPayloadProcessor(_:)</a>
               </li>
             </ul>
           </li>
@@ -92,7 +95,7 @@
                 <a href="../Protocols/DataTransaction.html">DataTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/DelegatingDataTransaction.html">DelegatingDataTransaction</a>
+                <a href="../Protocols.html#/s:P25CleanroomDataTransactions23WrappingDataTransaction">WrappingDataTransaction</a>
               </li>
             </ul>
           </li>
@@ -104,13 +107,27 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
         <section>
           <section class="section">
             <h1>HTTPResponseMetadata</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HTTPResponseMetadata</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>MetadataType</code> for <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code>s that communicate via HTTP and HTTPS.</p>
 
           </section>
           <section class="section task-group-section">
@@ -129,8 +146,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The <code>NSURL</code> of the originating HTTP request.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -148,8 +173,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The status code of the HTTP response.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">responseStatusCode</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -167,8 +200,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The MIME type of the HTTP response body, if any.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">mimeType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -186,8 +227,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The text encoding of the HTTP response body, if any.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">textEncoding</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -205,27 +254,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The HTTP response header fields.</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FV25CleanroomDataTransactions20HTTPResponseMetadatacFT3urlCSo5NSURL18responseStatusCodeSi8mimeTypeGSqSS_12textEncodingGSqSS_11httpHeadersGVs10DictionaryCSo8NSObjectPs9AnyObject___S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(url:responseStatusCode:mimeType:textEncoding:httpHeaders:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV25CleanroomDataTransactions20HTTPResponseMetadatacFT3urlCSo5NSURL18responseStatusCodeSi8mimeTypeGSqSS_12textEncodingGSqSS_11httpHeadersGVs10DictionaryCSo8NSObjectPs9AnyObject___S0_">init(url:responseStatusCode:mimeType:textEncoding:httpHeaders:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">httpHeaders</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">]</span></code></pre>
 
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -247,8 +285,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The <code><a href="../Enums/HTTPResponseStatus.html">HTTPResponseStatus</a></code> of the receiver.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">responseStatus</span><span class="p">:</span> <span class="kt">HTTPResponseStatus</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

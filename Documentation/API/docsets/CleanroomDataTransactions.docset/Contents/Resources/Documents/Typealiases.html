@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Enums  Reference</title>
+    <title>Typealiases  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,7 +10,7 @@
     
   </head>
   <body>
-    <a title="Enums  Reference"></a>
+    <a title="Typealiases  Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="index.html">CleanroomDataTransactions Reference</a>
         <img id="carat" src="img/carat.png" />
-        Enums  Reference
+        Typealiases  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -119,8 +119,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Enums</h1>
-            <p>The following enums are available globally.</p>
+            <h1>Typealiases</h1>
+            <p>The following typealiases are available globally.</p>
 
           </section>
           <section class="section task-group-section">
@@ -129,9 +129,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:O25CleanroomDataTransactions17TransactionResult"></a>
-                    <a name="//apple_ref/swift/Enum/TransactionResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O25CleanroomDataTransactions17TransactionResult">TransactionResult</a>
+                    <a name="/s:25CleanroomDataTransactions17PlatformImageType"></a>
+                    <a name="//apple_ref/swift/Alias/PlatformImageType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -139,83 +139,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents the possible outcomes of executing a given <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code>.</p>
+                        <p>Represents the image type appropriate for the runtime platform. On iOS and
+ tvOS, <code>PlatformImageType</code> is <code>UIImage</code>; on Mac OS X, it is <code>NSImage</code>.</p>
 
-                        <a href="Enums/TransactionResult.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TransactionResult</span><span class="o">&lt;</span><span class="kt">DataType</span><span class="p">,</span> <span class="kt">MetadataType</span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:O25CleanroomDataTransactions18HTTPResponseStatus"></a>
-                    <a name="//apple_ref/swift/Enum/HTTPResponseStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O25CleanroomDataTransactions18HTTPResponseStatus">HTTPResponseStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Meaningful values for some of the common HTTP response codes.</p>
-
-<p>Note that not every HTTP code is represented here; those that aren&rsquo;t
-can be stored in the <code>.Other</code> case.</p>
-
-                        <a href="Enums/HTTPResponseStatus.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">HTTPResponseStatus</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:O25CleanroomDataTransactions20DataTransactionError"></a>
-                    <a name="//apple_ref/swift/Enum/DataTransactionError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O25CleanroomDataTransactions20DataTransactionError">DataTransactionError</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>An <code>ErrorType</code> that represents various errors that can occur when executing
-<code><a href="Protocols/DataTransaction.html">DataTransaction</a></code>s.</p>
-
-                        <a href="Enums/DataTransactionError.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DataTransactionError</span><span class="p">:</span> <span class="kt">ErrorType</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PlatformImageType</span> <span class="o">=</span> <span class="kt">UIImage</span></code></pre>
 
                         </div>
                       </div>

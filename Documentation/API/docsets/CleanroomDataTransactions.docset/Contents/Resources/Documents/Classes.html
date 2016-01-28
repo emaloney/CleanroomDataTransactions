@@ -13,7 +13,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">CleanroomDataTransactions Docs</a> (0% documented)</p>
+        <p><a href="index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -37,7 +37,10 @@
                 <a href="Classes/ApiDocTransaction.html">ApiDocTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ImageFetchTransaction.html">ImageFetchTransaction</a>
+                <a href="Classes/FetchImageTransaction.html">FetchImageTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GenericDataProcessingTransaction.html">GenericDataProcessingTransaction</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/JSONOptionalTransaction.html">JSONOptionalTransaction</a>
@@ -74,13 +77,13 @@
                 <a href="Functions.html#/s:F25CleanroomDataTransactions29httpRequiredStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpRequiredStatusCodeHandler(_:payload:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions21httpStatusCodeHandleru0_rFzTGSqx_7payloadq_12httpRequiredSb_T_">httpStatusCodeHandler(_:payload:httpRequired:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqPs9AnyObject__GSqx_">optionalPayloadProcessor(_:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions22simplePayloadProcessorurFzGSqPs9AnyObject__x">simplePayloadProcessor(_:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions21platformImageFromDataFzCSo6NSDataCSo7UIImage">platformImageFromData(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzGSqPs9AnyObject__x">requiredPayloadProcessor(_:)</a>
               </li>
             </ul>
           </li>
@@ -91,7 +94,7 @@
                 <a href="Protocols/DataTransaction.html">DataTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/DelegatingDataTransaction.html">DelegatingDataTransaction</a>
+                <a href="Protocols.html#/s:P25CleanroomDataTransactions23WrappingDataTransaction">WrappingDataTransaction</a>
               </li>
             </ul>
           </li>
@@ -100,6 +103,14 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
               </li>
             </ul>
           </li>
@@ -118,9 +129,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C25CleanroomDataTransactions21ImageFetchTransaction"></a>
-                    <a name="//apple_ref/swift/Class/ImageFetchTransaction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C25CleanroomDataTransactions21ImageFetchTransaction">ImageFetchTransaction</a>
+                    <a name="/s:C25CleanroomDataTransactions21FetchImageTransaction"></a>
+                    <a name="//apple_ref/swift/Class/FetchImageTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions21FetchImageTransaction">FetchImageTransaction</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -128,9 +139,58 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Attempts to construct a platform-appropriate image object by fetching image
+data from the given URL.</p>
 
-                        <a href="Classes/ImageFetchTransaction.html" class="slightly-smaller">See more</a>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <code><a href="Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a></code> represents the image type appropriate for the
+runtime platform. On iOS and tvOS, it maps to <code>UIImage</code>; on Mac OS X, it&rsquo;s
+<code>NSImage</code>.
+
+</div>
+
+                        <a href="Classes/FetchImageTransaction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FetchImageTransaction</span><span class="p">:</span> <span class="kt">GenericDataProcessingTransaction</span><span class="o">&lt;</span><span class="kt">PlatformImageType</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions32GenericDataProcessingTransaction"></a>
+                    <a name="//apple_ref/swift/Class/GenericDataProcessingTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions32GenericDataProcessingTransaction">GenericDataProcessingTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> that uses a <code>DataProcessingFunction</code></p>
+
+                        <a href="Classes/GenericDataProcessingTransaction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GenericDataProcessingTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">WrappingDataTransaction</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -186,26 +246,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C25CleanroomDataTransactions17ApiDocTransaction"></a>
-                    <a name="//apple_ref/swift/Class/ApiDocTransaction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C25CleanroomDataTransactions17ApiDocTransaction">ApiDocTransaction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Classes/ApiDocTransaction.html" class="slightly-smaller">See more</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:C25CleanroomDataTransactions23JSONOptionalTransaction"></a>
                     <a name="//apple_ref/swift/Class/JSONOptionalTransaction" class="dashAnchor"></a>
                     <a class="token" href="#/s:C25CleanroomDataTransactions23JSONOptionalTransaction">JSONOptionalTransaction</a>
@@ -219,6 +259,30 @@
                         <p>Undocumented</p>
 
                         <a href="Classes/JSONOptionalTransaction.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions17ApiDocTransaction"></a>
+                    <a name="//apple_ref/swift/Class/ApiDocTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions17ApiDocTransaction">ApiDocTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/ApiDocTransaction.html" class="slightly-smaller">See more</a>
                       </div>
                     </section>
                   </div>

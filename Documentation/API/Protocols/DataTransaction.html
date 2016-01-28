@@ -14,7 +14,7 @@
     <a title="DataTransaction Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (0% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -38,7 +38,10 @@
                 <a href="../Classes/ApiDocTransaction.html">ApiDocTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ImageFetchTransaction.html">ImageFetchTransaction</a>
+                <a href="../Classes/FetchImageTransaction.html">FetchImageTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GenericDataProcessingTransaction.html">GenericDataProcessingTransaction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/JSONOptionalTransaction.html">JSONOptionalTransaction</a>
@@ -75,13 +78,13 @@
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions29httpRequiredStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpRequiredStatusCodeHandler(_:payload:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions21httpStatusCodeHandleru0_rFzTGSqx_7payloadq_12httpRequiredSb_T_">httpStatusCodeHandler(_:payload:httpRequired:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqPs9AnyObject__GSqx_">optionalPayloadProcessor(_:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions22simplePayloadProcessorurFzGSqPs9AnyObject__x">simplePayloadProcessor(_:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions21platformImageFromDataFzCSo6NSDataCSo7UIImage">platformImageFromData(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzGSqPs9AnyObject__x">requiredPayloadProcessor(_:)</a>
               </li>
             </ul>
           </li>
@@ -92,7 +95,7 @@
                 <a href="../Protocols/DataTransaction.html">DataTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/DelegatingDataTransaction.html">DelegatingDataTransaction</a>
+                <a href="../Protocols.html#/s:P25CleanroomDataTransactions23WrappingDataTransaction">WrappingDataTransaction</a>
               </li>
             </ul>
           </li>
@@ -104,13 +107,27 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
         <section>
           <section class="section">
             <h1>DataTransaction</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DataTransaction</span></code></pre>
+
+                </div>
+              </div>
+            <p>An interface for an asynchronously-executing data transaction.</p>
 
           </section>
           <section class="section task-group-section">
@@ -129,8 +146,148 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Causes the transaction to be executed. The transaction is performed
+asynchronously. When complete, the <code><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction6Result">Result</a></code> is reported to the <code><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction8Callback">Callback</a></code>
+function.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">executeTransaction</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kt">Callback</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A function that will be called upon completion of the transaction.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:P25CleanroomDataTransactions15DataTransaction8DataType"></a>
+                    <a name="//apple_ref/swift/Alias/DataType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P25CleanroomDataTransactions15DataTransaction8DataType">DataType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The data type returned by a successful transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">typealias</span> <span class="kt">DataType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:P25CleanroomDataTransactions15DataTransaction6Result"></a>
+                    <a name="//apple_ref/swift/Alias/Result" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P25CleanroomDataTransactions15DataTransaction6Result">Result</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The result type passed to the transaction completion callback 
+ function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">typealias</span> <span class="kt">Result</span> <span class="o">=</span> <span class="kt">TransactionResult</span><span class="o">&lt;</span><span class="kt">DataType</span><span class="p">,</span> <span class="kt">MetadataType</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:P25CleanroomDataTransactions15DataTransaction12MetadataType"></a>
+                    <a name="//apple_ref/swift/Alias/MetadataType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P25CleanroomDataTransactions15DataTransaction12MetadataType">MetadataType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The metadata type returned along with a successful transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">typealias</span> <span class="kt">MetadataType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:P25CleanroomDataTransactions15DataTransaction8Callback"></a>
+                    <a name="//apple_ref/swift/Alias/Callback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P25CleanroomDataTransactions15DataTransaction8Callback">Callback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of the callback function passed to 
+ <code>executeTransaction()</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">typealias</span> <span class="kt">Callback</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Result</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>URLTransaction Class Reference</title>
+    <title>GenericDataProcessingTransaction Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/URLTransaction" class="dashAnchor"></a>
-    <a title="URLTransaction Class Reference"></a>
+    <a name="//apple_ref/swift/Class/GenericDataProcessingTransaction" class="dashAnchor"></a>
+    <a title="GenericDataProcessingTransaction Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomDataTransactions Reference</a>
         <img id="carat" src="../img/carat.png" />
-        URLTransaction Class Reference
+        GenericDataProcessingTransaction Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -120,8 +120,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>URLTransaction</h1>
-            <p>Undocumented</p>
+            <h1>GenericDataProcessingTransaction</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GenericDataProcessingTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">WrappingDataTransaction</span></code></pre>
+
+                </div>
+              </div>
+            <p>A <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code> that uses a <code>DataProcessingFunction</code></p>
 
           </section>
           <section class="section task-group-section">
@@ -130,9 +136,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC25CleanroomDataTransactions14URLTransaction3urlCSo5NSURL"></a>
+                    <a name="/s:vC25CleanroomDataTransactions32GenericDataProcessingTransaction3urlCSo5NSURL"></a>
                     <a name="//apple_ref/swift/Property/url" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions14URLTransaction3urlCSo5NSURL">url</a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions32GenericDataProcessingTransaction3urlCSo5NSURL">url</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -143,15 +149,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GenericDataProcessingTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">WrappingDataTransaction</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC25CleanroomDataTransactions14URLTransaction7requestCSo12NSURLRequest"></a>
-                    <a name="//apple_ref/swift/Property/request" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions14URLTransaction7requestCSo12NSURLRequest">request</a>
+                    <a name="/s:vC25CleanroomDataTransactions32GenericDataProcessingTransaction11processDataFzCSo6NSDatax"></a>
+                    <a name="//apple_ref/swift/Property/processData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions32GenericDataProcessingTransaction11processDataFzCSo6NSDatax">processData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -162,15 +176,23 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GenericDataProcessingTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">WrappingDataTransaction</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC25CleanroomDataTransactions14URLTransaction10uploadDataGSqCSo6NSData_"></a>
-                    <a name="//apple_ref/swift/Property/uploadData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions14URLTransaction10uploadDataGSqCSo6NSData_">uploadData</a>
+                    <a name="/s:FC25CleanroomDataTransactions32GenericDataProcessingTransactioncFT8wrappingCS_14URLTransaction13dataProcessorFzCSo6NSDatax_GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(wrapping:dataProcessor:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions32GenericDataProcessingTransactioncFT8wrappingCS_14URLTransaction13dataProcessorFzCSo6NSDatax_GS0_x_">init(wrapping:dataProcessor:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -181,24 +203,13 @@
                         <p>Undocumented</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC25CleanroomDataTransactions14URLTransaction20sessionConfigurationCSo25NSURLSessionConfiguration"></a>
-                    <a name="//apple_ref/swift/Property/sessionConfiguration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions14URLTransaction20sessionConfigurationCSo25NSURLSessionConfiguration">sessionConfiguration</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GenericDataProcessingTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">WrappingDataTransaction</span></code></pre>
 
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -206,47 +217,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions14URLTransactioncFT3urlCSo5NSURL10uploadDataGSqCSo6NSData_20sessionConfigurationCSo25NSURLSessionConfiguration_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(url:uploadData:sessionConfiguration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions14URLTransactioncFT3urlCSo5NSURL10uploadDataGSqCSo6NSData_20sessionConfigurationCSo25NSURLSessionConfiguration_S0_">init(url:uploadData:sessionConfiguration:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC25CleanroomDataTransactions14URLTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData_20sessionConfigurationCSo25NSURLSessionConfiguration_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(request:uploadData:sessionConfiguration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions14URLTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData_20sessionConfigurationCSo25NSURLSessionConfiguration_S0_">init(request:uploadData:sessionConfiguration:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC25CleanroomDataTransactions14URLTransaction18executeTransactionFFGOS_17TransactionResultCSo6NSDataVS_20HTTPResponseMetadata_T_T_"></a>
+                    <a name="/s:FC25CleanroomDataTransactions32GenericDataProcessingTransaction18executeTransactionFFGOS_17TransactionResultxVS_20HTTPResponseMetadata_T_T_"></a>
                     <a name="//apple_ref/swift/Method/executeTransaction(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions14URLTransaction18executeTransactionFFGOS_17TransactionResultCSo6NSDataVS_20HTTPResponseMetadata_T_T_">executeTransaction(_:)</a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions32GenericDataProcessingTransaction18executeTransactionFFGOS_17TransactionResultxVS_20HTTPResponseMetadata_T_T_">executeTransaction(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -256,6 +229,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">GenericDataProcessingTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">WrappingDataTransaction</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

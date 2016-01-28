@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>URLTransaction Class Reference</title>
+    <title>FetchImageTransaction Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/URLTransaction" class="dashAnchor"></a>
-    <a title="URLTransaction Class Reference"></a>
+    <a name="//apple_ref/swift/Class/FetchImageTransaction" class="dashAnchor"></a>
+    <a title="FetchImageTransaction Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomDataTransactions Reference</a>
         <img id="carat" src="../img/carat.png" />
-        URLTransaction Class Reference
+        FetchImageTransaction Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -120,8 +120,23 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>URLTransaction</h1>
-            <p>Undocumented</p>
+            <h1>FetchImageTransaction</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FetchImageTransaction</span><span class="p">:</span> <span class="kt">GenericDataProcessingTransaction</span><span class="o">&lt;</span><span class="kt">PlatformImageType</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>Attempts to construct a platform-appropriate image object by fetching image
+data from the given URL.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <code><a href="../Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a></code> represents the image type appropriate for the
+runtime platform. On iOS and tvOS, it maps to <code>UIImage</code>; on Mac OS X, it&rsquo;s
+<code>NSImage</code>.
+
+</div>
 
           </section>
           <section class="section task-group-section">
@@ -130,9 +145,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC25CleanroomDataTransactions14URLTransaction3urlCSo5NSURL"></a>
-                    <a name="//apple_ref/swift/Property/url" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions14URLTransaction3urlCSo5NSURL">url</a>
+                    <a name="/s:FC25CleanroomDataTransactions21FetchImageTransactioncFT3urlCSo5NSURL_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(url:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions21FetchImageTransactioncFT3urlCSo5NSURL_S0_">init(url:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -140,122 +155,37 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initializes a <code><a href="../Classes/FetchImageTransaction.html">FetchImageTransaction</a></code> to retrieve image data from the 
+specified URL.</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC25CleanroomDataTransactions14URLTransaction7requestCSo12NSURLRequest"></a>
-                    <a name="//apple_ref/swift/Property/request" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions14URLTransaction7requestCSo12NSURLRequest">request</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">)</span></code></pre>
 
+                        </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC25CleanroomDataTransactions14URLTransaction10uploadDataGSqCSo6NSData_"></a>
-                    <a name="//apple_ref/swift/Property/uploadData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions14URLTransaction10uploadDataGSqCSo6NSData_">uploadData</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URL from which to fetch image data.</p>
 
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC25CleanroomDataTransactions14URLTransaction20sessionConfigurationCSo25NSURLSessionConfiguration"></a>
-                    <a name="//apple_ref/swift/Property/sessionConfiguration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions14URLTransaction20sessionConfigurationCSo25NSURLSessionConfiguration">sessionConfiguration</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC25CleanroomDataTransactions14URLTransactioncFT3urlCSo5NSURL10uploadDataGSqCSo6NSData_20sessionConfigurationCSo25NSURLSessionConfiguration_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(url:uploadData:sessionConfiguration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions14URLTransactioncFT3urlCSo5NSURL10uploadDataGSqCSo6NSData_20sessionConfigurationCSo25NSURLSessionConfiguration_S0_">init(url:uploadData:sessionConfiguration:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC25CleanroomDataTransactions14URLTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData_20sessionConfigurationCSo25NSURLSessionConfiguration_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(request:uploadData:sessionConfiguration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions14URLTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData_20sessionConfigurationCSo25NSURLSessionConfiguration_S0_">init(request:uploadData:sessionConfiguration:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC25CleanroomDataTransactions14URLTransaction18executeTransactionFFGOS_17TransactionResultCSo6NSDataVS_20HTTPResponseMetadata_T_T_"></a>
-                    <a name="//apple_ref/swift/Method/executeTransaction(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions14URLTransaction18executeTransactionFFGOS_17TransactionResultCSo6NSDataVS_20HTTPResponseMetadata_T_T_">executeTransaction(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
