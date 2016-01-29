@@ -34,6 +34,14 @@
 		3B1C81C71C59D947006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81A01C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
 		3B1C81C91C59D94F006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81A21C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
 		3B1C81CB1C59D95A006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81A41C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
+		3B3346F41C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346F31C5C035A00A11BFB /* JSONOptionalTransaction.swift */; };
+		3B3346F51C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346F31C5C035A00A11BFB /* JSONOptionalTransaction.swift */; };
+		3B3346F61C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346F31C5C035A00A11BFB /* JSONOptionalTransaction.swift */; };
+		3B3346F71C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346F31C5C035A00A11BFB /* JSONOptionalTransaction.swift */; };
+		3B3346FC1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346FB1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift */; };
+		3B3346FD1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346FB1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift */; };
+		3B3346FE1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346FB1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift */; };
+		3B3346FF1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346FB1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift */; };
 		3B4E1CA31C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */; };
 		3B4E1CA41C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */; };
 		3B4E1CA51C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CA21C59E24F00C4A7F3 /* HTTPResponseStatus.swift */; };
@@ -185,6 +193,8 @@
 		3B1C813E1C59D67F006248E4 /* JSONTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransaction.swift; sourceTree = "<group>"; };
 		3B1C81481C59D67F006248E4 /* URLTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTransaction.swift; sourceTree = "<group>"; };
 		3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanroomConcurrency.xcodeproj; path = Libraries/CleanroomConcurrency/CleanroomConcurrency.xcodeproj; sourceTree = "<group>"; };
+		3B3346F31C5C035A00A11BFB /* JSONOptionalTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONOptionalTransaction.swift; sourceTree = "<group>"; };
+		3B3346FB1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiDocOptionalTransaction.swift; sourceTree = "<group>"; };
 		3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-iOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBD11BA76428000986DF /* Debug-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-OSX.xcconfig"; sourceTree = "<group>"; };
 		3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-tvOS.xcconfig"; sourceTree = "<group>"; };
@@ -387,6 +397,7 @@
 		3B4E1CD51C5AAFD000C4A7F3 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				3B3346F31C5C035A00A11BFB /* JSONOptionalTransaction.swift */,
 				3B4E1CB91C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift */,
 				3B1C813E1C59D67F006248E4 /* JSONTransaction.swift */,
 			);
@@ -405,6 +416,7 @@
 		3B4E1CE71C5ABBE500C4A7F3 /* ApiDoc */ = {
 			isa = PBXGroup;
 			children = (
+				3B3346FB1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift */,
 				3B4E1CE21C5ABBE300C4A7F3 /* ApiDocTransaction.swift */,
 			);
 			name = ApiDoc;
@@ -754,6 +766,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3346F41C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */,
 				3B4E1CD81C5AB1C700C4A7F3 /* FetchImageTransaction.swift in Sources */,
 				3B4E1CC51C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */,
 				3B1C81631C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
@@ -766,6 +779,7 @@
 				3B4E1CE31C5ABBE300C4A7F3 /* ApiDocTransaction.swift in Sources */,
 				3B4E1CBA1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
 				3B4E1CA31C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */,
+				3B3346FC1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */,
 				3B1C815F1C59D67F006248E4 /* DataTransactionError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -782,6 +796,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3346F51C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */,
 				3B4E1CD91C5AB1C700C4A7F3 /* FetchImageTransaction.swift in Sources */,
 				3B4E1CC61C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */,
 				3B1C81641C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
@@ -794,6 +809,7 @@
 				3B4E1CE41C5ABBE300C4A7F3 /* ApiDocTransaction.swift in Sources */,
 				3B4E1CBB1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
 				3B4E1CA41C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */,
+				3B3346FD1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */,
 				3B1C81601C59D67F006248E4 /* DataTransactionError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,6 +826,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3346F61C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */,
 				3B4E1CDA1C5AB1C700C4A7F3 /* FetchImageTransaction.swift in Sources */,
 				3B4E1CC71C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */,
 				3B1C81651C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
@@ -822,6 +839,7 @@
 				3B4E1CE51C5ABBE300C4A7F3 /* ApiDocTransaction.swift in Sources */,
 				3B4E1CBC1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
 				3B4E1CA51C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */,
+				3B3346FE1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */,
 				3B1C81611C59D67F006248E4 /* DataTransactionError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -842,8 +860,10 @@
 				3B4E1CC81C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */,
 				3B1C81661C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B4E1CD31C5AAD3500C4A7F3 /* WrappingDataTransaction.swift in Sources */,
+				3B3346FF1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */,
 				3B4E1CCE1C5A909500C4A7F3 /* GenericDataProcessingTransaction.swift in Sources */,
 				3B1C818E1C59D67F006248E4 /* URLTransaction.swift in Sources */,
+				3B3346F71C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */,
 				3B1C815E1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816E1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
 				3B4E1CBD1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
