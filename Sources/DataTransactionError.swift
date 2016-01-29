@@ -17,10 +17,11 @@ public enum DataTransactionError: ErrorType
     /** A `DataTransactionError` that wraps a generic `ErrorType`. */
     case WrappedError(ErrorType)
 
-    /** Represents an error condition not covered by an `ErrorType` or another
-     `DataTransactionError`. */
-    case UnknownError(String)
+    /** Contains an error message returned by a service. */
+    case ServiceError(String)
 
+    /** An error indicating that data is not in the expected format. Contains
+     a message with additional details. */
     case DataFormatError(String)
 
     /** The execution path taken by a `DataTransaction` has not been fully
@@ -101,8 +102,8 @@ extension DataTransactionError: CustomStringConvertible
         case .WrappedError(let error):
             return "\(error)"
 
-        case .UnknownError(let errorDescription):
-            return errorDescription
+        case .ServiceError(let errorDescription):
+            return "Service error: \(errorDescription)"
 
         case .DataFormatError(let errorDescription):
             return "Data format error: \(errorDescription)"
