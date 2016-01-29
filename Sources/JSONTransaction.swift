@@ -14,22 +14,34 @@ import CleanroomConcurrency
  a JSON document.
  
  Because the root object of a JSON document may be one of several types,
- a successful `JSONTransaction` produces the generic `JSONDataType`. The
- `JSONPayloadProcessor` function is used to produce the expected type.
+ a successful `JSONTransaction` produces the generic type `T`. The
+ `PayloadProcessingFunction` function is used to produce the expected type.
  */
-public class JSONTransaction<JSONDataType>: WrappingDataTransaction
+public class JSONTransaction<T>: WrappingDataTransaction
 {
-    public typealias DataType = JSONDataType
+    public typealias DataType = T
     public typealias MetadataType = WrappedTransactionType.MetadataType
     public typealias Result = TransactionResult<DataType, MetadataType>
     public typealias Callback = (Result) -> Void
     public typealias WrappedTransactionType = URLTransaction
 
-    /** The signature of the JSON payload processing function. */
-    public typealias JSONPayloadProcessor = (AnyObject?) throws -> DataType
+    /** The signature of the transaction metadata validation function. This
+     function throws an exception if validation fails, causing the transaction
+     itself to fail. */
+    public typealias MetadataValidationFunction = (MetadataType, data: NSData?) throws -> Void
 
-    /** The signature of the transaction metadata processing function. */
-    public typealias MetadataProcessor = (MetadataType?, payload: DataType) throws -> Void
+    /** The signature of the JSON payload processing function. This function 
+     attempts to convert the JSON data into the transaction payload of the
+     type specified by receiver's `DataType`. The function throws an exception
+     if payload processing fails, causing the transaction itself to fail. */
+    public typealias PayloadProcessingFunction = (AnyObject?) throws -> DataType
+
+    /** If the payload processor succeeds, the resulting `DataType` and the
+     transaction's metadata are passed to the payload validator, giving the
+     transaction one final change to sanity-check the data and bail if there's
+     a problem. The function throws an exception if payload validation fails,
+     causing the transaction itself to fail. */
+    public typealias PayloadValidationFunction = (DataType, metadata: MetadataType) throws -> Void
 
     /** The URL of the wrapped `DataTransaction`. */
     public var url: NSURL { return wrappedTransaction.url }
@@ -37,13 +49,20 @@ public class JSONTransaction<JSONDataType>: WrappingDataTransaction
     /** The options to use when reading JSON. */
     public var jsonReadingOptions = NSJSONReadingOptions(rawValue: 0)
 
-    /** A `JSONPayloadProcessor` function used to convert the JSON data into an
-     object of the generic type `JSONDataType`. */
-    public var payloadProcessingFunction: JSONPayloadProcessor = requiredPayloadProcessor
+    /** An optional `MetadataValidationFunction` function that will be called 
+     before attempting to process the transaction's payload. This function is 
+     given the first chance to abort the transaction if there's a problem. */
+    public var validateMetadata: MetadataValidationFunction?
 
-    /** A `MetadataProcessor` function used to interpret the transaction
-     metadata returned by the wrapped transaction. */
-    public var metadataProcessingFunction: MetadataProcessor?
+    /** A `PayloadProcessingFunction` function used to convert the JSON data
+     into an object of the generic type `T`. This is called if and only if
+     `validateMetadata()` did not throw an exception. */
+    public var processPayload: PayloadProcessingFunction = requiredPayloadProcessor
+
+    /** An optional `PayloadValidationFunction` function used to interpret the 
+     transaction metadata returned by the wrapped transaction. This is called 
+     if and only if only if `processPayload()` did not throw an exception.*/
+    public var validatePayload: PayloadValidationFunction?
 
     private let wrappedTransaction: WrappedTransactionType
 
@@ -111,11 +130,11 @@ public class JSONTransaction<JSONDataType>: WrappingDataTransaction
                             json = nil
                         }
 
-                        let payload = try self.payloadProcessingFunction(json)
+                        try self.validateMetadata?(meta, data: data)
 
-                        if let metadataProcessor = self.metadataProcessingFunction {
-                            try metadataProcessor(meta, payload: payload)
-                        }
+                        let payload = try self.processPayload(json)
+
+                        try self.validatePayload?(payload, metadata: meta)
 
                         completion(.Succeeded(payload, meta))
                     }

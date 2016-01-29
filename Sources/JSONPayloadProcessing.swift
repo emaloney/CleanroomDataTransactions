@@ -7,7 +7,7 @@
 //
 
 /**
- A `JSONPayloadProcessor` that requires `jsonObject` to be an instance
+ A `PayloadProcessingFunction` that requires `jsonObject` to be an instance
  of type `T`.
  
  - parameter jsonObject: An object created from a JSON data structure.
@@ -28,8 +28,8 @@ public func requiredPayloadProcessor<T>(jsonObject: AnyObject?)
 }
 
 /**
- A `JSONPayloadProcessor` that accepts an optional `jsonObject` expected to be
- of type `T`.
+ A `PayloadProcessingFunction` that accepts an optional `jsonObject` expected
+ to be of type `T`.
 
  - parameter jsonObject: An optional object created from a JSON data structure.
 

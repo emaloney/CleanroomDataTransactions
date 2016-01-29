@@ -8,19 +8,46 @@
 
 import Foundation
 
-public func httpOptionalStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType)
+/**
+ A `MetadataValidationFunction` that expects its `MetadataType` to be `nil`
+ or an instance of `HTTPResponseMetadata`.
+ 
+ - parameter meta: An optional `MetadataType`.
+ 
+ - parameter data: An optional `NSData` instance containing the transaction's
+ raw response body.
+
+ - throws: `DataTransactionError.HTTPError` if `meta` is an instance of
+ `HTTPResponseMetadata` that represents either a client or server error.
+ */
+public func httpOptionalStatusCodeValidator<MetadataType>(meta: MetadataType?, data: NSData?)
     throws
 {
-    try httpStatusCodeHandler(meta, payload: payload, httpRequired: false)
+    try httpStatusCodeValidator(meta, data: data, httpRequired: false)
 }
 
-public func httpRequiredStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType)
+/**
+ A `MetadataValidationFunction` that expects its `MetadataType` to be an
+ instance of `HTTPResponseMetadata`.
+
+ - parameter meta: An optional `MetadataType`.
+
+ - parameter data: An optional `NSData` instance containing the transaction's
+ raw response body.
+
+ - throws: `DataTransactionError.HTTPRequired` if `meta` is not an instance
+ of `HTTPResponseMetadata`.
+ 
+ - throws: `DataTransactionError.HTTPError` if `meta` is an instance of
+ `HTTPResponseMetadata` that represents either a client or server error.
+ */
+public func httpRequiredStatusCodeValidator<MetadataType>(meta: MetadataType?, data: NSData?)
     throws
 {
-    try httpStatusCodeHandler(meta, payload: payload, httpRequired: true)
+    try httpStatusCodeValidator(meta, data: data, httpRequired: true)
 }
 
-internal func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?, payload: DataType, httpRequired: Bool)
+internal func httpStatusCodeValidator<MetadataType>(meta: MetadataType?, data: NSData?, httpRequired: Bool)
     throws
 {
     guard let http = meta as? HTTPResponseMetadata else {
@@ -32,7 +59,7 @@ internal func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?,
     }
 
     if http.responseStatus.isError {
-        throw DataTransactionError.HTTPError(http, nil)
+        throw DataTransactionError.HTTPError(http, data)
     }
 }
 
