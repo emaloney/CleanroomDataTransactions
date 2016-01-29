@@ -14,7 +14,7 @@
     <a title="ApiDocOptionalTransaction Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -72,10 +72,10 @@
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions29httpOptionalStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpOptionalStatusCodeHandler(_:payload:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpOptionalStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions29httpRequiredStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpRequiredStatusCodeHandler(_:payload:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpRequiredStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqPs9AnyObject__GSqx_">optionalPayloadProcessor(_:)</a>
@@ -111,6 +111,30 @@
             <a href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions22ApiDocArrayTransaction">ApiDocArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions27ApiDocDictionaryTransaction">ApiDocDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction">ApiDocOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions35ApiDocOptionalDictionaryTransaction">ApiDocOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions20JSONArrayTransaction">JSONArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions33JSONOptionalDictionaryTransaction">JSONOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
               </li>
             </ul>
@@ -121,31 +145,30 @@
         <section>
           <section class="section">
             <h1>ApiDocOptionalTransaction</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ApiDocOptionalTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">JSONOptionalTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>A generic <code><a href="../Classes/JSONTransaction.html">JSONTransaction</a></code> implementation that accepts an optional payload 
+from an <a href="http://apidoc.me/">apidoc.me</a>-style RESTful JSON network service.</p>
+
+<p>If the wrapped transaction returns data, the transaction tries to parse it
+as JSON data yielding the generic type <code>T</code>.</p>
+
+<p>If no payload if received, the transaction succeeds with a <code>nil</code> payload.</p>
+
+<p>If a JSON payload is received that results in an instance of the generic
+type <code>T</code>, the transaction succeeds with that payload.</p>
+
+<p>If a payload is received, but it could not be interpreted as an instance
+of the generic type <code>T</code>, the transaction fails.</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData__GS0_x_"></a>
-                    <a name="//apple_ref/swift/Method/init(request:uploadData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData__GS0_x_">init(request:uploadData:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -159,8 +182,159 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initializes an <code><a href="../Classes/ApiDocOptionalTransaction.html">ApiDocOptionalTransaction</a></code> to connect to the network 
+service at the given URL.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URL of the network service.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uploadData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional binary data to send to the network service.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData__GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(request:uploadData:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData__GS0_x_">init(request:uploadData:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes an <code><a href="../Classes/ApiDocOptionalTransaction.html">ApiDocOptionalTransaction</a></code> to issue the specified request 
+to the network service.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">NSURLRequest</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>NSURLRequest</code> to issue to the network service.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uploadData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional binary data to send to the network service.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT8wrappingCS_14URLTransaction_GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(wrapping:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT8wrappingCS_14URLTransaction_GS0_x_">init(wrapping:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes an <code><a href="../Classes/ApiDocOptionalTransaction.html">ApiDocOptionalTransaction</a></code> that wraps the specified 
+transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">wrapping</span><span class="p">:</span> <span class="kt">WrappedTransactionType</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>wrapping</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>DataTransaction</code> to wrap within the <code>JSONTransaction</code> instance being initialized.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

@@ -13,7 +13,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
+        <p><a href="index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -71,10 +71,10 @@
             <a href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions29httpOptionalStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpOptionalStatusCodeHandler(_:payload:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpOptionalStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions29httpRequiredStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpRequiredStatusCodeHandler(_:payload:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpRequiredStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqPs9AnyObject__GSqx_">optionalPayloadProcessor(_:)</a>
@@ -110,6 +110,30 @@
             <a href="Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions22ApiDocArrayTransaction">ApiDocArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions27ApiDocDictionaryTransaction">ApiDocDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction">ApiDocOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions35ApiDocOptionalDictionaryTransaction">ApiDocOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions20JSONArrayTransaction">JSONArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions33JSONOptionalDictionaryTransaction">JSONOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
               </li>
             </ul>
@@ -124,6 +148,49 @@
 
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions23JSONOptionalTransaction"></a>
+                    <a name="//apple_ref/swift/Class/JSONOptionalTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions23JSONOptionalTransaction">JSONOptionalTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A generic <code><a href="Classes/JSONTransaction.html">JSONTransaction</a></code> implementation that accepts an optional payload.</p>
+
+<p>If the wrapped transaction returns data, the transaction tries to parse it
+as JSON data yielding the generic type <code>T</code>.</p>
+
+<p>If no payload if received, the transaction succeeds with a <code>nil</code> payload.</p>
+
+<p>If a JSON payload is received that results in an instance of the generic
+type <code>T</code>, the transaction succeeds with that payload.</p>
+
+<p>If a payload is received, but it could not be interpreted as an instance
+of the generic type <code>T</code>, the transaction fails.</p>
+
+                        <a href="Classes/JSONOptionalTransaction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">JSONOptionalTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">?</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -180,7 +247,8 @@ runtime platform. On iOS and tvOS, it maps to <code>UIImage</code>; on Mac OS X,
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> that uses a <code>DataProcessingFunction</code></p>
+                        <p>A <code><a href="Protocols.html#/s:P25CleanroomDataTransactions23WrappingDataTransaction">WrappingDataTransaction</a></code> that uses a <code>DataProcessingFunction</code> to convert 
+the <code>DataType</code> of the wrapped <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> into type <code>T</code>.</p>
 
                         <a href="Classes/GenericDataProcessingTransaction.html" class="slightly-smaller">See more</a>
                       </div>
@@ -212,9 +280,22 @@ runtime platform. On iOS and tvOS, it maps to <code>UIImage</code>; on Mac OS X,
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> that uses an <code>NSURLRequest</code> to request data from
+(and potentially send data to) a service at a given URL.</p>
+
+<p>A successful transaction produces an <code>NSData</code> instance, and if the request
+was sent via HTTP or HTTPS, the transaction metadata will contain an
+<code><a href="Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></code> instance.</p>
 
                         <a href="Classes/URLTransaction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">URLTransaction</span><span class="p">:</span> <span class="kt">DataTransaction</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -236,29 +317,22 @@ runtime platform. On iOS and tvOS, it maps to <code>UIImage</code>; on Mac OS X,
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Uses a wrapped <code><a href="Classes/URLTransaction.html">URLTransaction</a></code> to connect to a network service to retrieve
+a JSON document.</p>
+
+<p>Because the root object of a JSON document may be one of several types,
+a successful <code>JSONTransaction</code> produces the generic type <code>T</code>. The
+<code>PayloadProcessingFunction</code> function is used to produce the expected type.</p>
 
                         <a href="Classes/JSONTransaction.html" class="slightly-smaller">See more</a>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C25CleanroomDataTransactions23JSONOptionalTransaction"></a>
-                    <a name="//apple_ref/swift/Class/JSONOptionalTransaction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C25CleanroomDataTransactions23JSONOptionalTransaction">JSONOptionalTransaction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">WrappingDataTransaction</span></code></pre>
 
-                        <a href="Classes/JSONOptionalTransaction.html" class="slightly-smaller">See more</a>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -280,13 +354,30 @@ runtime platform. On iOS and tvOS, it maps to <code>UIImage</code>; on Mac OS X,
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Uses a wrapped <code><a href="Classes/URLTransaction.html">URLTransaction</a></code> to connect to an 
+<a href="http://apidoc.me/">apidoc.me</a>-style RESTful JSON network service.</p>
+
+<p>Because the root object of a JSON document may be one of several types,
+a successful <code>ApiDocTransaction</code> produces the generic <code>JSONDataType</code>. The
+<code>PayloadProcessingFunction</code> function is used to produce the expected type.</p>
 
                         <a href="Classes/ApiDocTransaction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ApiDocTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -300,9 +391,29 @@ runtime platform. On iOS and tvOS, it maps to <code>UIImage</code>; on Mac OS X,
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A generic <code><a href="Classes/JSONTransaction.html">JSONTransaction</a></code> implementation that accepts an optional payload 
+from an <a href="http://apidoc.me/">apidoc.me</a>-style RESTful JSON network service.</p>
+
+<p>If the wrapped transaction returns data, the transaction tries to parse it
+as JSON data yielding the generic type <code>T</code>.</p>
+
+<p>If no payload if received, the transaction succeeds with a <code>nil</code> payload.</p>
+
+<p>If a JSON payload is received that results in an instance of the generic
+type <code>T</code>, the transaction succeeds with that payload.</p>
+
+<p>If a payload is received, but it could not be interpreted as an instance
+of the generic type <code>T</code>, the transaction fails.</p>
 
                         <a href="Classes/ApiDocOptionalTransaction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ApiDocOptionalTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">JSONOptionalTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

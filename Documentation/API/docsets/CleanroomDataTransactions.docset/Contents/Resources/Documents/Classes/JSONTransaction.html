@@ -14,7 +14,7 @@
     <a title="JSONTransaction Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -72,10 +72,10 @@
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions29httpOptionalStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpOptionalStatusCodeHandler(_:payload:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpOptionalStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions29httpRequiredStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpRequiredStatusCodeHandler(_:payload:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpRequiredStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqPs9AnyObject__GSqx_">optionalPayloadProcessor(_:)</a>
@@ -111,6 +111,30 @@
             <a href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions22ApiDocArrayTransaction">ApiDocArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions27ApiDocDictionaryTransaction">ApiDocDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction">ApiDocOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions35ApiDocOptionalDictionaryTransaction">ApiDocOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions20JSONArrayTransaction">JSONArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions33JSONOptionalDictionaryTransaction">JSONOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
               </li>
             </ul>
@@ -121,7 +145,18 @@
         <section>
           <section class="section">
             <h1>JSONTransaction</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">WrappingDataTransaction</span></code></pre>
+
+                </div>
+              </div>
+            <p>Uses a wrapped <code><a href="../Classes/URLTransaction.html">URLTransaction</a></code> to connect to a network service to retrieve
+a JSON document.</p>
+
+<p>Because the root object of a JSON document may be one of several types,
+a successful <code>JSONTransaction</code> produces the generic type <code>T</code>. The
+<code>PayloadProcessingFunction</code> function is used to produce the expected type.</p>
 
           </section>
           <section class="section task-group-section">
@@ -140,8 +175,106 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The URL of the wrapped <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code>.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span> <span class="p">{</span> <span class="k">return</span> <span class="n">wrappedTransaction</span><span class="o">.</span><span class="n">url</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15JSONTransaction25PayloadProcessingFunction"></a>
+                    <a name="//apple_ref/swift/Alias/PayloadProcessingFunction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15JSONTransaction25PayloadProcessingFunction">PayloadProcessingFunction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of the JSON payload processing function. This function 
+ attempts to convert the JSON data into the transaction payload of the
+ type specified by receiver&rsquo;s <code>DataType</code>. The function throws an exception
+ if payload processing fails, causing the transaction itself to fail.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadProcessingFunction</span> <span class="o">=</span> <span class="p">(</span><span class="kt">AnyObject</span><span class="p">?)</span> <span class="n">throws</span> <span class="o">-&gt;</span> <span class="kt">DataType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15JSONTransaction25PayloadValidationFunction"></a>
+                    <a name="//apple_ref/swift/Alias/PayloadValidationFunction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15JSONTransaction25PayloadValidationFunction">PayloadValidationFunction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If the payload processor succeeds, the resulting <code>DataType</code> and the
+ transaction&rsquo;s metadata are passed to the payload validator, giving the
+ transaction one final change to sanity-check the data and bail if there&rsquo;s
+ a problem. The function throws an exception if payload validation fails,
+ causing the transaction itself to fail.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadValidationFunction</span> <span class="o">=</span> <span class="p">(</span><span class="kt">DataType</span><span class="p">,</span> <span class="nv">metadata</span><span class="p">:</span> <span class="kt">MetadataType</span><span class="p">)</span> <span class="n">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15JSONTransaction26MetadataValidationFunction"></a>
+                    <a name="//apple_ref/swift/Alias/MetadataValidationFunction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15JSONTransaction26MetadataValidationFunction">MetadataValidationFunction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of the transaction metadata validation function. This
+ function throws an exception if validation fails, causing the transaction
+ itself to fail.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">MetadataValidationFunction</span> <span class="o">=</span> <span class="p">(</span><span class="kt">MetadataType</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">?)</span> <span class="n">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -159,8 +292,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The options to use when reading JSON.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">jsonReadingOptions</span> <span class="o">=</span> <span class="kt">NSJSONReadingOptions</span><span class="p">(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -168,9 +309,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC25CleanroomDataTransactions15JSONTransaction25payloadProcessingFunctionFzGSqPs9AnyObject__x"></a>
-                    <a name="//apple_ref/swift/Property/payloadProcessingFunction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions15JSONTransaction25payloadProcessingFunctionFzGSqPs9AnyObject__x">payloadProcessingFunction</a>
+                    <a name="/s:vC25CleanroomDataTransactions15JSONTransaction16validateMetadataGSqFzTVS_20HTTPResponseMetadata4dataGSqCSo6NSData__T__"></a>
+                    <a name="//apple_ref/swift/Property/validateMetadata" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15JSONTransaction16validateMetadataGSqFzTVS_20HTTPResponseMetadata4dataGSqCSo6NSData__T__">validateMetadata</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -178,8 +319,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>An optional <code><a href="../Classes/JSONTransaction.html#/s:C25CleanroomDataTransactions15JSONTransaction26MetadataValidationFunction">MetadataValidationFunction</a></code> function that will be called 
+ before attempting to process the transaction&rsquo;s payload. This function is 
+ given the first chance to abort the transaction if there&rsquo;s a problem.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">validateMetadata</span><span class="p">:</span> <span class="kt">MetadataValidationFunction</span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -187,9 +338,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC25CleanroomDataTransactions15JSONTransaction26metadataProcessingFunctionGSqFzTGSqVS_20HTTPResponseMetadata_7payloadx_T__"></a>
-                    <a name="//apple_ref/swift/Property/metadataProcessingFunction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions15JSONTransaction26metadataProcessingFunctionGSqFzTGSqVS_20HTTPResponseMetadata_7payloadx_T__">metadataProcessingFunction</a>
+                    <a name="/s:vC25CleanroomDataTransactions15JSONTransaction14processPayloadFzGSqPs9AnyObject__x"></a>
+                    <a name="//apple_ref/swift/Property/processPayload" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15JSONTransaction14processPayloadFzGSqPs9AnyObject__x">processPayload</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -197,8 +348,47 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A <code><a href="../Classes/JSONTransaction.html#/s:C25CleanroomDataTransactions15JSONTransaction25PayloadProcessingFunction">PayloadProcessingFunction</a></code> function used to convert the JSON data
+ into an object of the generic type <code>T</code>. This is called if and only if
+ <code>validateMetadata()</code> did not throw an exception.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">processPayload</span><span class="p">:</span> <span class="kt">PayloadProcessingFunction</span> <span class="o">=</span> <span class="n">requiredPayloadProcessor</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15JSONTransaction15validatePayloadGSqFzTx8metadataVS_20HTTPResponseMetadata_T__"></a>
+                    <a name="//apple_ref/swift/Property/validatePayload" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15JSONTransaction15validatePayloadGSqFzTx8metadataVS_20HTTPResponseMetadata_T__">validatePayload</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An optional <code><a href="../Classes/JSONTransaction.html#/s:C25CleanroomDataTransactions15JSONTransaction25PayloadValidationFunction">PayloadValidationFunction</a></code> function used to interpret the 
+ transaction metadata returned by the wrapped transaction. This is called 
+ if and only if only if <code>processPayload()</code> did not throw an exception.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">validatePayload</span><span class="p">:</span> <span class="kt">PayloadValidationFunction</span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -216,8 +406,50 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initializes a <code><a href="../Classes/JSONTransaction.html">JSONTransaction</a></code> to connect to the network service at the
+given URL.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URL of the network service.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uploadData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional binary data to send to the network service.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -235,8 +467,50 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initializes a <code><a href="../Classes/JSONTransaction.html">JSONTransaction</a></code> to issue the specified request to the
+network service.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">NSURLRequest</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>NSURLRequest</code> to issue to the network service.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uploadData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional binary data to send to the network service.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -254,8 +528,36 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initializes a <code><a href="../Classes/JSONTransaction.html">JSONTransaction</a></code> that wraps the specified transaction.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">wrapping</span><span class="p">:</span> <span class="kt">WrappedTransactionType</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>wrapping</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>DataTransaction</code> to wrap within the <code>JSONTransaction</code> instance being initialized.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -273,8 +575,38 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Causes the transaction to be executed. The transaction may be performed
+asynchronously. When complete, the <code>Result</code> is reported to the <code>Callback</code>
+function.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">executeTransaction</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kt">Callback</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A function that will be called upon completion of the transaction.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

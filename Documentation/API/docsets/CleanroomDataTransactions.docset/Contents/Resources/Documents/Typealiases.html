@@ -13,7 +13,7 @@
     <a title="Typealiases  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
+        <p><a href="index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -71,10 +71,10 @@
             <a href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions29httpOptionalStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpOptionalStatusCodeHandler(_:payload:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpOptionalStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions29httpRequiredStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpRequiredStatusCodeHandler(_:payload:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpRequiredStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqPs9AnyObject__GSqx_">optionalPayloadProcessor(_:)</a>
@@ -110,6 +110,30 @@
             <a href="Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions22ApiDocArrayTransaction">ApiDocArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions27ApiDocDictionaryTransaction">ApiDocDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction">ApiDocOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions35ApiDocOptionalDictionaryTransaction">ApiDocOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions20JSONArrayTransaction">JSONArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions33JSONOptionalDictionaryTransaction">JSONOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
               </li>
             </ul>
@@ -124,6 +148,126 @@
 
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/JSONOptionalArrayTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A concrete <code><a href="Classes/JSONOptionalTransaction.html">JSONOptionalTransaction</a></code> type that accepts an optional JSON
+payload that—if present—is expected to yield an <code>NSArray</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONOptionalArrayTransaction</span> <span class="o">=</span> <span class="kt">JSONOptionalTransaction</span><span class="o">&lt;</span><span class="kt">NSArray</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:25CleanroomDataTransactions33JSONOptionalDictionaryTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/JSONOptionalDictionaryTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions33JSONOptionalDictionaryTransaction">JSONOptionalDictionaryTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A concrete <code><a href="Classes/JSONOptionalTransaction.html">JSONOptionalTransaction</a></code> type that accepts an optional JSON 
+payload that—if present—is expected to yield an <code>NSDictionary</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONOptionalDictionaryTransaction</span> <span class="o">=</span> <span class="kt">JSONOptionalTransaction</span><span class="o">&lt;</span><span class="kt">NSDictionary</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:25CleanroomDataTransactions20JSONArrayTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/JSONArrayTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions20JSONArrayTransaction">JSONArrayTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A concrete <code><a href="Classes/JSONTransaction.html">JSONTransaction</a></code> type that attempts to generate an <code>NSArray</code>
+from JSON data returned by the wrapped transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONArrayTransaction</span> <span class="o">=</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">NSArray</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:25CleanroomDataTransactions25JSONDictionaryTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/JSONDictionaryTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A concrete <code><a href="Classes/JSONTransaction.html">JSONTransaction</a></code> type that attempts to generate an <code>NSDictionary</code>
+from JSON data returned by the wrapped transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONDictionaryTransaction</span> <span class="o">=</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">NSDictionary</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -148,6 +292,126 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PlatformImageType</span> <span class="o">=</span> <span class="kt">UIImage</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:25CleanroomDataTransactions22ApiDocArrayTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/ApiDocArrayTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions22ApiDocArrayTransaction">ApiDocArrayTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A concrete <code><a href="Classes/ApiDocTransaction.html">ApiDocTransaction</a></code> type that attempts to generate an <code>NSArray</code>
+from JSON data returned by the wrapped transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ApiDocArrayTransaction</span> <span class="o">=</span> <span class="kt">ApiDocTransaction</span><span class="o">&lt;</span><span class="kt">NSArray</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:25CleanroomDataTransactions27ApiDocDictionaryTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/ApiDocDictionaryTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions27ApiDocDictionaryTransaction">ApiDocDictionaryTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A concrete <code><a href="Classes/ApiDocTransaction.html">ApiDocTransaction</a></code> type that attempts to generate an <code>NSDictionary</code>
+from JSON data returned by the wrapped transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ApiDocDictionaryTransaction</span> <span class="o">=</span> <span class="kt">ApiDocTransaction</span><span class="o">&lt;</span><span class="kt">NSDictionary</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/ApiDocOptionalArrayTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction">ApiDocOptionalArrayTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A concrete <code><a href="Classes/ApiDocOptionalTransaction.html">ApiDocOptionalTransaction</a></code> type that accepts an optional JSON
+payload that—if present—is expected to yield an <code>NSArray</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ApiDocOptionalArrayTransaction</span> <span class="o">=</span> <span class="kt">ApiDocOptionalTransaction</span><span class="o">&lt;</span><span class="kt">NSArray</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:25CleanroomDataTransactions35ApiDocOptionalDictionaryTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/ApiDocOptionalDictionaryTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions35ApiDocOptionalDictionaryTransaction">ApiDocOptionalDictionaryTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A concrete <code><a href="Classes/ApiDocOptionalTransaction.html">ApiDocOptionalTransaction</a></code> type that accepts an optional JSON
+payload that—if present—is expected to yield an <code>NSDictionary</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ApiDocOptionalDictionaryTransaction</span> <span class="o">=</span> <span class="kt">ApiDocOptionalTransaction</span><span class="o">&lt;</span><span class="kt">NSDictionary</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>

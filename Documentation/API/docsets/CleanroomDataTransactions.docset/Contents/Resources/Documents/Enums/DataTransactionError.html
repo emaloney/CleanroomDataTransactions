@@ -14,7 +14,7 @@
     <a title="DataTransactionError Enum Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (66% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -72,10 +72,10 @@
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions29httpOptionalStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpOptionalStatusCodeHandler(_:payload:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpOptionalStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions29httpRequiredStatusCodeHandleru0_rFzTGSqx_7payloadq__T_">httpRequiredStatusCodeHandler(_:payload:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpRequiredStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqPs9AnyObject__GSqx_">optionalPayloadProcessor(_:)</a>
@@ -110,6 +110,30 @@
           <li class="nav-group-name">
             <a href="../Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions22ApiDocArrayTransaction">ApiDocArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions27ApiDocDictionaryTransaction">ApiDocDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction">ApiDocOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions35ApiDocOptionalDictionaryTransaction">ApiDocOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions20JSONArrayTransaction">JSONArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions33JSONOptionalDictionaryTransaction">JSONOptionalDictionaryTransaction</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
               </li>
@@ -168,9 +192,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO25CleanroomDataTransactions20DataTransactionError12UnknownErrorFMS0_FSSS0_"></a>
-                    <a name="//apple_ref/swift/Element/UnknownError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO25CleanroomDataTransactions20DataTransactionError12UnknownErrorFMS0_FSSS0_">UnknownError</a>
+                    <a name="/s:FO25CleanroomDataTransactions20DataTransactionError12ServiceErrorFMS0_FSSS0_"></a>
+                    <a name="//apple_ref/swift/Element/ServiceError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions20DataTransactionError12ServiceErrorFMS0_FSSS0_">ServiceError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -178,15 +202,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents an error condition not covered by an <code>ErrorType</code> or another
- <code><a href="../Enums/DataTransactionError.html">DataTransactionError</a></code>.</p>
+                        <p>Contains an error message returned by a service.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">UnknownError</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">ServiceError</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -210,14 +233,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>An error indicating that data is not in the expected format. Contains
+ a message with additional details.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DataTransactionError</span><span class="p">:</span> <span class="kt">ErrorType</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">DataFormatError</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
