@@ -128,11 +128,27 @@ extension HTTPResponseStatus
 
 extension HTTPResponseStatus
 {
-    /** Indicates whether the receiver represents an error response. */
-    public var isErrorResponse: Bool {
-        switch responseCategory {
-        case .ClientError, .ServerError:    return true
-        default:                            return false
-        }
-    }
+    /** Indicates whether the receiver's `responseCategory` is 
+     `.Informational`. */
+    public var isInformational: Bool { return responseCategory == .Informational }
+
+    /** Indicates whether the receiver's `responseCategory` is
+     `.Success`. */
+    public var isSuccess: Bool { return responseCategory == .Success }
+
+    /** Indicates whether the receiver's `responseCategory` is
+     `.Redirection`. */
+    public var isRedirect: Bool { return responseCategory == .Redirection }
+
+    /** Indicates whether the receiver's `responseCategory` is
+     `.ClientError`. */
+    public var isClientError: Bool { return responseCategory == .ClientError }
+
+    /** Indicates whether the receiver's `responseCategory` is
+     `.ServerError`. */
+    public var isServerError: Bool { return responseCategory == .ServerError }
+
+    /** Indicates whether the receiver represents a `.ClientError` or
+     `.ServerError`. */
+    public var isError: Bool { return isClientError || isServerError }
 }

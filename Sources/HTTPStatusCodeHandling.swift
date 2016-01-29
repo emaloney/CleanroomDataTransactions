@@ -31,7 +31,7 @@ internal func httpStatusCodeHandler<MetadataType, DataType>(meta: MetadataType?,
         }
     }
 
-    if http.responseStatus.isErrorResponse {
+    if http.responseStatus.isError {
         throw DataTransactionError.HTTPError(http, nil)
     }
 }
