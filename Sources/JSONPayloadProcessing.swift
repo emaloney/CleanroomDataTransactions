@@ -6,14 +6,14 @@
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  A `JSONPayloadProcessor` that requires `jsonObject` to be an instance
  of type `T`.
  
  - parameter jsonObject: An object created from a JSON data structure.
  
+ - returns: An instance of type `T`.
+
  - throws: A `DataTransactionError` if `jsonObject` could not be cast to
  type `T`.
  */
@@ -27,6 +27,17 @@ public func requiredPayloadProcessor<T>(jsonObject: AnyObject?)
     return typed
 }
 
+/**
+ A `JSONPayloadProcessor` that accepts an optional `jsonObject` expected to be
+ of type `T`.
+
+ - parameter jsonObject: An optional object created from a JSON data structure.
+
+ - returns: An instance of type `T`, or `nil` if `jsonObject` is `nil`.
+
+ - throws: A `DataTransactionError` if `jsonObject` is non-`nil` and could not
+ be cast to type `T`.
+ */
 public func optionalPayloadProcessor<T>(jsonObject: AnyObject?)
     throws
     -> T?

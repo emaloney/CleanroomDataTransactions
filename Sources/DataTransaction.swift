@@ -40,7 +40,7 @@ public protocol DataTransaction
     typealias Callback = (Result) -> Void
 
     /**
-     Causes the transaction to be executed. The transaction is performed
+     Causes the transaction to be executed. The transaction may be performed
      asynchronously. When complete, the `Result` is reported to the `Callback`
      function.
      

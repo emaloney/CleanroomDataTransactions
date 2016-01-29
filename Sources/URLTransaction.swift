@@ -8,6 +8,14 @@
 
 import Foundation
 
+/**
+ A `DataTransaction` that uses an `NSURLRequest` to request data from
+ (and potentially send data to) a service at a given URL.
+ 
+ A successful transaction produces an `NSData` instance, and if the request
+ was sent via HTTP or HTTPS, the transaction metadata will contain an
+ `HTTPResponseMetadata` instance.
+ */
 public class URLTransaction: DataTransaction
 {
     public typealias DataType = NSData
@@ -15,13 +23,34 @@ public class URLTransaction: DataTransaction
     public typealias Result = TransactionResult<DataType, MetadataType>
     public typealias Callback = (Result) -> Void
 
+    /** The URL of the network service that will be sent the request when
+     the transaction is executed. */
     public var url: NSURL { return request.URL! }
+
+    /** The `NSURLRequest` that will be issued when the transaction is 
+     executed. */
     public let request: NSURLRequest
+
+    /** Optional data to send to the service when executing the
+     transaction. */
     public let uploadData: NSData?
+
+    /** The `NSURLSessionConfiguration` used to create the `NSURLSession`
+     for the transaction's request. */
     public let sessionConfiguration: NSURLSessionConfiguration
 
     private var task: NSURLSessionTask?
 
+    /** 
+     Initializes a new transaction that will connect to the given URL.
+     
+     - parameter url: The URL of the network service.
+     
+     - parameter uploadData: Optional data to send to the network service.
+     
+     - parameter sessionConfiguration: The `NSURLSessionConfiguration` used to 
+     create the `NSURLSession` for the transaction's request.
+     */
     public init(url: NSURL, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
     {
         self.request = NSURLRequest(URL: url)
@@ -29,6 +58,16 @@ public class URLTransaction: DataTransaction
         self.sessionConfiguration = sessionConfiguration
     }
 
+    /**
+     Initializes a new transaction that will send to the given request.
+
+     - parameter request: The request to send to the network service.
+
+     - parameter uploadData: Optional data to send to the network service.
+
+     - parameter sessionConfiguration: The `NSURLSessionConfiguration` used to
+     create the `NSURLSession` for the transaction's request.
+     */
     public init(request: NSURLRequest, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
     {
         precondition(request.URL != nil)
@@ -44,6 +83,14 @@ public class URLTransaction: DataTransaction
         }
     }
 
+    /**
+     Causes the transaction to be executed. The transaction may be performed
+     asynchronously. When complete, the `Result` is reported to the `Callback`
+     function.
+     
+     - parameter completion: A function that will be called upon completion
+     of the transaction.
+     */
     public func executeTransaction(completion: Callback)
     {
         guard task == nil else {
