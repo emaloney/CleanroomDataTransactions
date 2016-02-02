@@ -95,6 +95,9 @@
                 <a href="../Protocols/DataTransaction.html">DataTransaction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/QueueProvider.html">QueueProvider</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols.html#/s:P25CleanroomDataTransactions23WrappingDataTransaction">WrappingDataTransaction</a>
               </li>
             </ul>
@@ -102,6 +105,9 @@
           <li class="nav-group-name">
             <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a>
               </li>
@@ -217,9 +223,9 @@ the <code>DataType</code> of the wrapped <code><a href="../Protocols/DataTransac
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions32GenericDataProcessingTransactioncFT8wrappingCS_14URLTransaction13dataProcessorFzCSo6NSDatax_GS0_x_"></a>
-                    <a name="//apple_ref/swift/Method/init(wrapping:dataProcessor:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions32GenericDataProcessingTransactioncFT8wrappingCS_14URLTransaction13dataProcessorFzCSo6NSDatax_GS0_x_">init(wrapping:dataProcessor:)</a>
+                    <a name="/s:FC25CleanroomDataTransactions32GenericDataProcessingTransactioncFT8wrappingCS_14URLTransaction13dataProcessorFzCSo6NSDatax13queueProviderPS_13QueueProvider__GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(wrapping:dataProcessor:queueProvider:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions32GenericDataProcessingTransactioncFT8wrappingCS_14URLTransaction13dataProcessorFzCSo6NSDatax13queueProviderPS_13QueueProvider__GS0_x_">init(wrapping:dataProcessor:queueProvider:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -236,7 +242,7 @@ and uses the specified <code>DataProcessingFunction</code> to produce the approp
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">wrapping</span><span class="p">:</span> <span class="kt">WrappedTransactionType</span><span class="p">,</span> <span class="nv">dataProcessor</span><span class="p">:</span> <span class="kt">DataProcessingFunction</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">wrapping</span><span class="p">:</span> <span class="kt">WrappedTransactionType</span><span class="p">,</span> <span class="nv">dataProcessor</span><span class="p">:</span> <span class="kt">DataProcessingFunction</span><span class="p">,</span> <span class="nv">queueProvider</span><span class="p">:</span> <span class="kt">QueueProvider</span> <span class="o">=</span> <span class="kt">DefaultQueueProvider</span><span class="o">.</span><span class="n">instance</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -266,6 +272,19 @@ and uses the specified <code>DataProcessingFunction</code> to produce the approp
                               <td>
                                 <div>
                                   <p>The <code>DataProcessingFunction</code> that will be used to produce the <code>DataType</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queueProvider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Used to supply a GCD queue for asynchronous operations when needed.</p>
 
                                 </div>
                               </td>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>HTTPResponseMetadata Struct Reference</title>
+    <title>QueueProvider Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/HTTPResponseMetadata" class="dashAnchor"></a>
-    <a title="HTTPResponseMetadata Struct Reference"></a>
+    <a name="//apple_ref/swift/Protocol/QueueProvider" class="dashAnchor"></a>
+    <a title="QueueProvider Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomDataTransactions Reference</a>
         <img id="carat" src="../img/carat.png" />
-        HTTPResponseMetadata Struct Reference
+        QueueProvider Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -150,14 +150,19 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>HTTPResponseMetadata</h1>
+            <h1>QueueProvider</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HTTPResponseMetadata</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">QueueProvider</span></code></pre>
 
                 </div>
               </div>
-            <p>The <code>MetadataType</code> for <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code>s that communicate via HTTP and HTTPS.</p>
+            <p>Certain <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code>s perform asynchronous operations using Grand Central
+Dispatch. Such <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code>s will typically be given a <code>QueueProvider</code>
+at instantiation to supply a <code>dispatch_queue_t</code> when needed.</p>
+
+<p>By supplying a <code>QueueProvider</code> rather than a specific queue, reusable
+<code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code>s can be supplied with different queues over time.</p>
 
           </section>
           <section class="section task-group-section">
@@ -166,9 +171,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV25CleanroomDataTransactions20HTTPResponseMetadata3urlCSo5NSURL"></a>
-                    <a name="//apple_ref/swift/Property/url" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV25CleanroomDataTransactions20HTTPResponseMetadata3urlCSo5NSURL">url</a>
+                    <a name="/s:vP25CleanroomDataTransactions13QueueProvider5queuePSo17OS_dispatch_queue_"></a>
+                    <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP25CleanroomDataTransactions13QueueProvider5queuePSo17OS_dispatch_queue_">queue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -176,153 +181,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>NSURL</code> of the originating HTTP request.</p>
+                        <p>Returns a <code>dispatch_queue_t</code> to be used for asynchronous operations.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vV25CleanroomDataTransactions20HTTPResponseMetadata18responseStatusCodeSi"></a>
-                    <a name="//apple_ref/swift/Property/responseStatusCode" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV25CleanroomDataTransactions20HTTPResponseMetadata18responseStatusCodeSi">responseStatusCode</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The status code of the HTTP response.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">responseStatusCode</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vV25CleanroomDataTransactions20HTTPResponseMetadata8mimeTypeGSqSS_"></a>
-                    <a name="//apple_ref/swift/Property/mimeType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV25CleanroomDataTransactions20HTTPResponseMetadata8mimeTypeGSqSS_">mimeType</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The MIME type of the HTTP response body, if any.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">mimeType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vV25CleanroomDataTransactions20HTTPResponseMetadata12textEncodingGSqSS_"></a>
-                    <a name="//apple_ref/swift/Property/textEncoding" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV25CleanroomDataTransactions20HTTPResponseMetadata12textEncodingGSqSS_">textEncoding</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The text encoding of the HTTP response body, if any.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">textEncoding</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vV25CleanroomDataTransactions20HTTPResponseMetadata11httpHeadersGVs10DictionarySSPs9AnyObject__"></a>
-                    <a name="//apple_ref/swift/Property/httpHeaders" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV25CleanroomDataTransactions20HTTPResponseMetadata11httpHeadersGVs10DictionarySSPs9AnyObject__">httpHeaders</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The HTTP response header fields.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">httpHeaders</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">]</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vV25CleanroomDataTransactions20HTTPResponseMetadata14responseStatusOS_18HTTPResponseStatus"></a>
-                    <a name="//apple_ref/swift/Property/responseStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV25CleanroomDataTransactions20HTTPResponseMetadata14responseStatusOS_18HTTPResponseStatus">responseStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code><a href="../Enums/HTTPResponseStatus.html">HTTPResponseStatus</a></code> of the receiver.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">responseStatus</span><span class="p">:</span> <span class="kt">HTTPResponseStatus</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

@@ -95,6 +95,9 @@
                 <a href="../Protocols/DataTransaction.html">DataTransaction</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Protocols/QueueProvider.html">QueueProvider</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols.html#/s:P25CleanroomDataTransactions23WrappingDataTransaction">WrappingDataTransaction</a>
               </li>
             </ul>
@@ -102,6 +105,9 @@
           <li class="nav-group-name">
             <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a>
               </li>
@@ -172,9 +178,9 @@ of the generic type <code>T</code>, the transaction fails.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT3urlCSo5NSURL10uploadDataGSqCSo6NSData__GS0_x_"></a>
-                    <a name="//apple_ref/swift/Method/init(url:uploadData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT3urlCSo5NSURL10uploadDataGSqCSo6NSData__GS0_x_">init(url:uploadData:)</a>
+                    <a name="/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT3urlCSo5NSURL10uploadDataGSqCSo6NSData_13queueProviderPS_13QueueProvider__GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(url:uploadData:queueProvider:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT3urlCSo5NSURL10uploadDataGSqCSo6NSData_13queueProviderPS_13QueueProvider__GS0_x_">init(url:uploadData:queueProvider:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -190,7 +196,7 @@ service at the given URL.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">queueProvider</span><span class="p">:</span> <span class="kt">QueueProvider</span> <span class="o">=</span> <span class="kt">DefaultQueueProvider</span><span class="o">.</span><span class="n">instance</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -224,6 +230,19 @@ service at the given URL.</p>
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queueProvider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Used to supply a GCD queue for asynchronous operations when needed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -233,9 +252,9 @@ service at the given URL.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData__GS0_x_"></a>
-                    <a name="//apple_ref/swift/Method/init(request:uploadData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData__GS0_x_">init(request:uploadData:)</a>
+                    <a name="/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData_13queueProviderPS_13QueueProvider__GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(request:uploadData:queueProvider:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT7requestCSo12NSURLRequest10uploadDataGSqCSo6NSData_13queueProviderPS_13QueueProvider__GS0_x_">init(request:uploadData:queueProvider:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -251,7 +270,7 @@ to the network service.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">NSURLRequest</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">NSURLRequest</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">NSData</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">queueProvider</span><span class="p">:</span> <span class="kt">QueueProvider</span> <span class="o">=</span> <span class="kt">DefaultQueueProvider</span><span class="o">.</span><span class="n">instance</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -285,6 +304,19 @@ to the network service.</p>
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queueProvider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Used to supply a GCD queue for asynchronous operations when needed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -294,9 +326,9 @@ to the network service.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT8wrappingCS_14URLTransaction_GS0_x_"></a>
-                    <a name="//apple_ref/swift/Method/init(wrapping:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT8wrappingCS_14URLTransaction_GS0_x_">init(wrapping:)</a>
+                    <a name="/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT8wrappingCS_14URLTransaction13queueProviderPS_13QueueProvider__GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(wrapping:queueProvider:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions25ApiDocOptionalTransactioncFT8wrappingCS_14URLTransaction13queueProviderPS_13QueueProvider__GS0_x_">init(wrapping:queueProvider:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -312,7 +344,7 @@ transaction.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">wrapping</span><span class="p">:</span> <span class="kt">WrappedTransactionType</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">wrapping</span><span class="p">:</span> <span class="kt">WrappedTransactionType</span><span class="p">,</span> <span class="nv">queueProvider</span><span class="p">:</span> <span class="kt">QueueProvider</span> <span class="o">=</span> <span class="kt">DefaultQueueProvider</span><span class="o">.</span><span class="n">instance</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -329,6 +361,19 @@ transaction.</p>
                               <td>
                                 <div>
                                   <p>The <code>DataTransaction</code> to wrap within the <code>JSONTransaction</code> instance being initialized.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queueProvider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Used to supply a GCD queue for asynchronous operations when needed.</p>
 
                                 </div>
                               </td>
