@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CleanroomConcurrency
 
 /**
  Uses a wrapped `URLTransaction` to connect to a network service to retrieve

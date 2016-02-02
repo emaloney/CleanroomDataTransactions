@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CleanroomConcurrency
 
 /**
  A `WrappingDataTransaction` that uses a `DataProcessingFunction` to convert 

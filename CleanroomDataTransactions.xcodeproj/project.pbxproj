@@ -68,9 +68,21 @@
 		3B4E1CE41C5ABBE300C4A7F3 /* ApiDocTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CE21C5ABBE300C4A7F3 /* ApiDocTransaction.swift */; };
 		3B4E1CE51C5ABBE300C4A7F3 /* ApiDocTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CE21C5ABBE300C4A7F3 /* ApiDocTransaction.swift */; };
 		3B4E1CE61C5ABBE300C4A7F3 /* ApiDocTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E1CE21C5ABBE300C4A7F3 /* ApiDocTransaction.swift */; };
+		3B6FB1131C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */; };
+		3B6FB1141C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */; };
+		3B6FB1151C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */; };
+		3B6FB1161C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */; };
+		3B6FB1181C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */; };
+		3B6FB1191C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */; };
+		3B6FB11A1C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */; };
+		3B6FB11B1C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */; };
 		3B78C6B91BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */; };
 		3B78C6BA1BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */; };
 		3B78C6BB1BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */; };
+		3BA8DD0C1C616732005DC1A4 /* QueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8DD0B1C616732005DC1A4 /* QueueProvider.swift */; };
+		3BA8DD0D1C616732005DC1A4 /* QueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8DD0B1C616732005DC1A4 /* QueueProvider.swift */; };
+		3BA8DD0E1C616732005DC1A4 /* QueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8DD0B1C616732005DC1A4 /* QueueProvider.swift */; };
+		3BA8DD0F1C616732005DC1A4 /* QueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA8DD0B1C616732005DC1A4 /* QueueProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,8 +153,11 @@
 		3B4E1CD71C5AB1C700C4A7F3 /* FetchImageTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchImageTransaction.swift; sourceTree = "<group>"; };
 		3B4E1CDC1C5AB4C000C4A7F3 /* ImageConstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConstruction.swift; sourceTree = "<group>"; };
 		3B4E1CE21C5ABBE300C4A7F3 /* ApiDocTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiDocTransaction.swift; sourceTree = "<group>"; };
+		3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultQueueProvider.swift; sourceTree = "<group>"; };
+		3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueAsyncFunctionExtension.swift; sourceTree = "<group>"; };
 		3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanroomDataTransactionsUnitTests.swift; sourceTree = "<group>"; };
 		3B78C6CE1BA7634E00173EAC /* CleanroomDataTransactions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomDataTransactions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BA8DD0B1C616732005DC1A4 /* QueueProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +284,7 @@
 				3B1C81481C59D67F006248E4 /* URLTransaction.swift */,
 				3B4E1CCF1C5AAD3500C4A7F3 /* WrappingDataTransaction.swift */,
 				3B4E1CE71C5ABBE500C4A7F3 /* ApiDoc */,
+				3B6FB10E1C61675A001F50BF /* AsyncQueues */,
 				3B4E1CD41C5AAFCA00C4A7F3 /* HTTP */,
 				3B4E1CD61C5AAFD500C4A7F3 /* Images */,
 				3B4E1CD51C5AAFD000C4A7F3 /* JSON */,
@@ -312,6 +328,16 @@
 				3B4E1CE21C5ABBE300C4A7F3 /* ApiDocTransaction.swift */,
 			);
 			name = ApiDoc;
+			sourceTree = "<group>";
+		};
+		3B6FB10E1C61675A001F50BF /* AsyncQueues */ = {
+			isa = PBXGroup;
+			children = (
+				3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */,
+				3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */,
+				3BA8DD0B1C616732005DC1A4 /* QueueProvider.swift */,
+			);
+			name = AsyncQueues;
 			sourceTree = "<group>";
 		};
 		3BCBACE11BA369AD007F1C90 = {
@@ -601,6 +627,7 @@
 				3B1C81631C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B4E1CD01C5AAD3500C4A7F3 /* WrappingDataTransaction.swift in Sources */,
 				3B4E1CCB1C5A909500C4A7F3 /* GenericDataProcessingTransaction.swift in Sources */,
+				3B6FB1181C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */,
 				3B1C818B1C59D67F006248E4 /* URLTransaction.swift in Sources */,
 				3B1C815B1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816B1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
@@ -608,7 +635,9 @@
 				3B4E1CE31C5ABBE300C4A7F3 /* ApiDocTransaction.swift in Sources */,
 				3B4E1CBA1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
 				3B4E1CA31C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */,
+				3B6FB1131C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */,
 				3B3346FC1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */,
+				3BA8DD0C1C616732005DC1A4 /* QueueProvider.swift in Sources */,
 				3B1C815F1C59D67F006248E4 /* DataTransactionError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +660,7 @@
 				3B1C81641C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B4E1CD11C5AAD3500C4A7F3 /* WrappingDataTransaction.swift in Sources */,
 				3B4E1CCC1C5A909500C4A7F3 /* GenericDataProcessingTransaction.swift in Sources */,
+				3B6FB1191C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */,
 				3B1C818C1C59D67F006248E4 /* URLTransaction.swift in Sources */,
 				3B1C815C1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816C1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
@@ -638,7 +668,9 @@
 				3B4E1CE41C5ABBE300C4A7F3 /* ApiDocTransaction.swift in Sources */,
 				3B4E1CBB1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
 				3B4E1CA41C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */,
+				3B6FB1141C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */,
 				3B3346FD1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */,
+				3BA8DD0D1C616732005DC1A4 /* QueueProvider.swift in Sources */,
 				3B1C81601C59D67F006248E4 /* DataTransactionError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,6 +693,7 @@
 				3B1C81651C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B4E1CD21C5AAD3500C4A7F3 /* WrappingDataTransaction.swift in Sources */,
 				3B4E1CCD1C5A909500C4A7F3 /* GenericDataProcessingTransaction.swift in Sources */,
+				3B6FB11A1C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */,
 				3B1C818D1C59D67F006248E4 /* URLTransaction.swift in Sources */,
 				3B1C815D1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816D1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
@@ -668,7 +701,9 @@
 				3B4E1CE51C5ABBE300C4A7F3 /* ApiDocTransaction.swift in Sources */,
 				3B4E1CBC1C5A7E9900C4A7F3 /* JSONPayloadProcessing.swift in Sources */,
 				3B4E1CA51C59E24F00C4A7F3 /* HTTPResponseStatus.swift in Sources */,
+				3B6FB1151C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */,
 				3B3346FE1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */,
+				3BA8DD0E1C616732005DC1A4 /* QueueProvider.swift in Sources */,
 				3B1C81611C59D67F006248E4 /* DataTransactionError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,8 +722,11 @@
 			files = (
 				3B4E1CE61C5ABBE300C4A7F3 /* ApiDocTransaction.swift in Sources */,
 				3B4E1CC81C5A7F1200C4A7F3 /* HTTPStatusCodeHandling.swift in Sources */,
+				3BA8DD0F1C616732005DC1A4 /* QueueProvider.swift in Sources */,
 				3B1C81661C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
+				3B6FB1161C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */,
 				3B4E1CD31C5AAD3500C4A7F3 /* WrappingDataTransaction.swift in Sources */,
+				3B6FB11B1C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */,
 				3B3346FF1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */,
 				3B4E1CCE1C5A909500C4A7F3 /* GenericDataProcessingTransaction.swift in Sources */,
 				3B1C818E1C59D67F006248E4 /* URLTransaction.swift in Sources */,
