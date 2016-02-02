@@ -33,10 +33,13 @@ public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
 
      - parameter uploadData: Optional binary data to send to the network
      service.
+
+     - parameter queueProvider: Used to supply a GCD queue for asynchronous
+     operations when needed.
      */
-    public override init(url: NSURL, uploadData: NSData? = nil)
+    public override init(url: NSURL, uploadData: NSData? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
-        super.init(url: url, uploadData: uploadData)
+        super.init(url: url, uploadData: uploadData, queueProvider: queueProvider)
 
         validateMetadata = httpRequiredStatusCodeValidator
         processPayload = optionalPayloadProcessor
@@ -50,10 +53,13 @@ public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
 
      - parameter uploadData: Optional binary data to send to the network
      service.
+
+     - parameter queueProvider: Used to supply a GCD queue for asynchronous
+     operations when needed.
      */
-    public override init(request: NSURLRequest, uploadData: NSData? = nil)
+    public override init(request: NSURLRequest, uploadData: NSData? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
-        super.init(request: request, uploadData: uploadData)
+        super.init(request: request, uploadData: uploadData, queueProvider: queueProvider)
 
         validateMetadata = httpRequiredStatusCodeValidator
         processPayload = optionalPayloadProcessor
@@ -65,10 +71,13 @@ public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
 
      - parameter wrapping: The `DataTransaction` to wrap within the
      `JSONTransaction` instance being initialized.
+
+     - parameter queueProvider: Used to supply a GCD queue for asynchronous
+     operations when needed.
      */
-    public override init(wrapping: WrappedTransactionType)
+    public override init(wrapping: WrappedTransactionType, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
-        super.init(wrapping: wrapping)
+        super.init(wrapping: wrapping, queueProvider: queueProvider)
 
         validateMetadata = httpRequiredStatusCodeValidator
         processPayload = optionalPayloadProcessor

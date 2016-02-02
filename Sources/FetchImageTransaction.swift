@@ -23,9 +23,12 @@ public class FetchImageTransaction: GenericDataProcessingTransaction<PlatformIma
      specified URL.
      
      - parameter url: The URL from which to fetch image data.
+
+     - parameter queueProvider: Used to supply a GCD queue for asynchronous
+     operations when needed.
      */
-    public init(url: NSURL)
+    public init(url: NSURL, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
-        super.init(wrapping: URLTransaction(url: url), dataProcessor: platformImageFromData)
+        super.init(wrapping: URLTransaction(url: url), dataProcessor: platformImageFromData, queueProvider: queueProvider)
     }
 }

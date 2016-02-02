@@ -63,6 +63,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
      if and only if only if `processPayload()` did not throw an exception.*/
     public var validatePayload: PayloadValidationFunction?
 
+    private let queueProvider: QueueProvider
     private let wrappedTransaction: WrappedTransactionType
 
     /**
@@ -73,9 +74,13 @@ public class JSONTransaction<T>: WrappingDataTransaction
      
      - parameter uploadData: Optional binary data to send to the network
      service.
+     
+     - parameter queueProvider: Used to supply a GCD queue for asynchronous 
+     operations when needed.
      */
-    public init(url: NSURL, uploadData: NSData? = nil)
+    public init(url: NSURL, uploadData: NSData? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
+        self.queueProvider = queueProvider
         wrappedTransaction = WrappedTransactionType(url: url, uploadData: uploadData)
     }
 
@@ -87,9 +92,13 @@ public class JSONTransaction<T>: WrappingDataTransaction
 
      - parameter uploadData: Optional binary data to send to the network
      service.
+
+     - parameter queueProvider: Used to supply a GCD queue for asynchronous
+     operations when needed.
      */
-    public init(request: NSURLRequest, uploadData: NSData? = nil)
+    public init(request: NSURLRequest, uploadData: NSData? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
+        self.queueProvider = queueProvider
         wrappedTransaction = WrappedTransactionType(request: request, uploadData: uploadData)
     }
 
@@ -98,10 +107,14 @@ public class JSONTransaction<T>: WrappingDataTransaction
 
      - parameter wrapping: The `DataTransaction` to wrap within the
      `JSONTransaction` instance being initialized.
+
+     - parameter queueProvider: Used to supply a GCD queue for asynchronous
+     operations when needed.
      */
-    public init(wrapping: WrappedTransactionType)
+    public init(wrapping: WrappedTransactionType, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         wrappedTransaction = wrapping
+        self.queueProvider = queueProvider
     }
 
     /**
@@ -120,7 +133,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
                 completion(.Failed(error))
 
             case .Succeeded(let data, let meta):
-                async {
+                self.queueProvider.queue.async {
                     do {
                         let json: AnyObject?
                         if data.length > 0 {

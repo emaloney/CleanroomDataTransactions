@@ -30,6 +30,7 @@ public class GenericDataProcessingTransaction<T>: WrappingDataTransaction
     public let processData: DataProcessingFunction
 
     private let wrappedTransaction: WrappedTransactionType
+    private let queueProvider: QueueProvider
 
     /**
      Initializes a new instance that wraps the given `WrappedTransactionType`
@@ -41,11 +42,15 @@ public class GenericDataProcessingTransaction<T>: WrappingDataTransaction
      
      - parameter dataProcessor: The `DataProcessingFunction` that will be used
      to produce the `DataType`.
+
+     - parameter queueProvider: Used to supply a GCD queue for asynchronous
+     operations when needed.
      */
-    public init(wrapping: WrappedTransactionType, dataProcessor: DataProcessingFunction)
+    public init(wrapping: WrappedTransactionType, dataProcessor: DataProcessingFunction, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         wrappedTransaction = wrapping
         processData = dataProcessor
+        self.queueProvider = queueProvider
     }
 
     /**
@@ -61,7 +66,7 @@ public class GenericDataProcessingTransaction<T>: WrappingDataTransaction
         wrappedTransaction.executeTransaction() { result in
             switch result {
             case .Succeeded(let data, let meta):
-                async {
+                self.queueProvider.queue.async {
                     do {
                         let processed = try self.processData(data)
                         completion(.Succeeded(processed, meta))
