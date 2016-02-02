@@ -30,10 +30,6 @@
 		3B1C818C1C59D67F006248E4 /* URLTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C81481C59D67F006248E4 /* URLTransaction.swift */; };
 		3B1C818D1C59D67F006248E4 /* URLTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C81481C59D67F006248E4 /* URLTransaction.swift */; };
 		3B1C818E1C59D67F006248E4 /* URLTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1C81481C59D67F006248E4 /* URLTransaction.swift */; };
-		3B1C81C51C59D93C006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C819E1C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
-		3B1C81C71C59D947006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81A01C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
-		3B1C81C91C59D94F006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81A21C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
-		3B1C81CB1C59D95A006248E4 /* CleanroomConcurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1C81A41C59D8FE006248E4 /* CleanroomConcurrency.framework */; };
 		3B3346F41C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346F31C5C035A00A11BFB /* JSONOptionalTransaction.swift */; };
 		3B3346F51C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346F31C5C035A00A11BFB /* JSONOptionalTransaction.swift */; };
 		3B3346F61C5C035A00A11BFB /* JSONOptionalTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3346F31C5C035A00A11BFB /* JSONOptionalTransaction.swift */; };
@@ -99,83 +95,6 @@
 			remoteGlobalIDString = 3B00E5991BA37A420011486D;
 			remoteInfo = "CleanroomDataTransactions-tvOS";
 		};
-		3B1C819D1C59D8FE006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E55D1BA3782D0011486D;
-			remoteInfo = "CleanroomConcurrency-iOS";
-		};
-		3B1C819F1C59D8FE006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E57C1BA379830011486D;
-			remoteInfo = "CleanroomConcurrency-OSX";
-		};
-		3B1C81A11C59D8FE006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E59A1BA37A420011486D;
-			remoteInfo = "CleanroomConcurrency-tvOS";
-		};
-		3B1C81A31C59D8FE006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B78C6CE1BA7634E00173EAC;
-			remoteInfo = "CleanroomConcurrency-watchOS";
-		};
-		3B1C81A51C59D8FE006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E5671BA3782D0011486D;
-			remoteInfo = "CleanroomConcurrencyUnitTests-iOS";
-		};
-		3B1C81A71C59D8FE006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E5851BA379830011486D;
-			remoteInfo = "CleanroomConcurrencyUnitTests-OSX";
-		};
-		3B1C81A91C59D8FE006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B00E5A31BA37A420011486D;
-			remoteInfo = "CleanroomConcurrencyUnitTests-tvOS";
-		};
-		3B1C81CD1C59D96B006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B00E55C1BA3782D0011486D;
-			remoteInfo = "CleanroomConcurrency-iOS";
-		};
-		3B1C81D11C59D981006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B00E57B1BA379830011486D;
-			remoteInfo = "CleanroomConcurrency-OSX";
-		};
-		3B1C81D51C59D98B006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B00E5991BA37A420011486D;
-			remoteInfo = "CleanroomConcurrency-tvOS";
-		};
-		3B1C81D91C59D995006248E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B78C6CD1BA7634E00173EAC;
-			remoteInfo = "CleanroomConcurrency-watchOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -192,7 +111,6 @@
 		3B1C813C1C59D67F006248E4 /* HTTPResponseMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseMetadata.swift; sourceTree = "<group>"; };
 		3B1C813E1C59D67F006248E4 /* JSONTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransaction.swift; sourceTree = "<group>"; };
 		3B1C81481C59D67F006248E4 /* URLTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTransaction.swift; sourceTree = "<group>"; };
-		3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanroomConcurrency.xcodeproj; path = Libraries/CleanroomConcurrency/CleanroomConcurrency.xcodeproj; sourceTree = "<group>"; };
 		3B3346F31C5C035A00A11BFB /* JSONOptionalTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONOptionalTransaction.swift; sourceTree = "<group>"; };
 		3B3346FB1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiDocOptionalTransaction.swift; sourceTree = "<group>"; };
 		3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-iOS.xcconfig"; sourceTree = "<group>"; };
@@ -232,7 +150,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B1C81C51C59D93C006248E4 /* CleanroomConcurrency.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +165,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B1C81C71C59D947006248E4 /* CleanroomConcurrency.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +180,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B1C81C91C59D94F006248E4 /* CleanroomConcurrency.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +195,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B1C81CB1C59D95A006248E4 /* CleanroomConcurrency.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,28 +276,6 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		3B1C81941C59D8FE006248E4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3B1C819E1C59D8FE006248E4 /* CleanroomConcurrency.framework */,
-				3B1C81A01C59D8FE006248E4 /* CleanroomConcurrency.framework */,
-				3B1C81A21C59D8FE006248E4 /* CleanroomConcurrency.framework */,
-				3B1C81A41C59D8FE006248E4 /* CleanroomConcurrency.framework */,
-				3B1C81A61C59D8FE006248E4 /* CleanroomConcurrencyUnitTests.xctest */,
-				3B1C81A81C59D8FE006248E4 /* CleanroomConcurrencyUnitTests.xctest */,
-				3B1C81AA1C59D8FE006248E4 /* CleanroomConcurrencyUnitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3B1C81C41C59D910006248E4 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
 		3B4E1CD41C5AAFCA00C4A7F3 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,7 +319,6 @@
 			children = (
 				3B1C81331C59D67F006248E4 /* Sources */,
 				3B00E4D51BA36B840011486D /* Tests */,
-				3B1C81C41C59D910006248E4 /* Libraries */,
 				3B00E4B91BA36B840011486D /* BuildControl */,
 				3B00E55E1BA3782D0011486D /* Products */,
 			);
@@ -479,7 +370,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				3B1C81CE1C59D96B006248E4 /* PBXTargetDependency */,
 			);
 			name = "CleanroomDataTransactions-iOS";
 			productName = "CleanroomDataTransactions-iOS";
@@ -516,7 +406,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				3B1C81D21C59D981006248E4 /* PBXTargetDependency */,
 			);
 			name = "CleanroomDataTransactions-OSX";
 			productName = "CleanroomDataTransactions-OSX";
@@ -553,7 +442,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				3B1C81D61C59D98B006248E4 /* PBXTargetDependency */,
 			);
 			name = "CleanroomDataTransactions-tvOS";
 			productName = "CleanroomDataTransactions-tvOS";
@@ -590,7 +478,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				3B1C81DA1C59D995006248E4 /* PBXTargetDependency */,
 			);
 			name = "CleanroomDataTransactions-watchOS";
 			productName = "CleanroomDataTransactions-watchOS";
@@ -638,12 +525,6 @@
 			mainGroup = 3BCBACE11BA369AD007F1C90;
 			productRefGroup = 3B00E55E1BA3782D0011486D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 3B1C81941C59D8FE006248E4 /* Products */;
-					ProjectRef = 3B1C81931C59D8FE006248E4 /* CleanroomConcurrency.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				3B00E55C1BA3782D0011486D /* CleanroomDataTransactions-iOS */,
@@ -656,58 +537,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		3B1C819E1C59D8FE006248E4 /* CleanroomConcurrency.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleanroomConcurrency.framework;
-			remoteRef = 3B1C819D1C59D8FE006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81A01C59D8FE006248E4 /* CleanroomConcurrency.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleanroomConcurrency.framework;
-			remoteRef = 3B1C819F1C59D8FE006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81A21C59D8FE006248E4 /* CleanroomConcurrency.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleanroomConcurrency.framework;
-			remoteRef = 3B1C81A11C59D8FE006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81A41C59D8FE006248E4 /* CleanroomConcurrency.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleanroomConcurrency.framework;
-			remoteRef = 3B1C81A31C59D8FE006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81A61C59D8FE006248E4 /* CleanroomConcurrencyUnitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CleanroomConcurrencyUnitTests.xctest;
-			remoteRef = 3B1C81A51C59D8FE006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81A81C59D8FE006248E4 /* CleanroomConcurrencyUnitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CleanroomConcurrencyUnitTests.xctest;
-			remoteRef = 3B1C81A71C59D8FE006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B1C81AA1C59D8FE006248E4 /* CleanroomConcurrencyUnitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CleanroomConcurrencyUnitTests.xctest;
-			remoteRef = 3B1C81A91C59D8FE006248E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3B00E55B1BA3782D0011486D /* Resources */ = {
@@ -889,26 +718,6 @@
 			isa = PBXTargetDependency;
 			target = 3B00E5991BA37A420011486D /* CleanroomDataTransactions-tvOS */;
 			targetProxy = 3B00E5A51BA37A420011486D /* PBXContainerItemProxy */;
-		};
-		3B1C81CE1C59D96B006248E4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CleanroomConcurrency-iOS";
-			targetProxy = 3B1C81CD1C59D96B006248E4 /* PBXContainerItemProxy */;
-		};
-		3B1C81D21C59D981006248E4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CleanroomConcurrency-OSX";
-			targetProxy = 3B1C81D11C59D981006248E4 /* PBXContainerItemProxy */;
-		};
-		3B1C81D61C59D98B006248E4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CleanroomConcurrency-tvOS";
-			targetProxy = 3B1C81D51C59D98B006248E4 /* PBXContainerItemProxy */;
-		};
-		3B1C81DA1C59D995006248E4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CleanroomConcurrency-watchOS";
-			targetProxy = 3B1C81D91C59D995006248E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
