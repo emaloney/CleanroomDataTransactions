@@ -135,14 +135,15 @@ public class JSONTransaction<T>: WrappingDataTransaction
             case .Succeeded(let data, let meta):
                 self.queueProvider.queue.async {
                     do {
+                        
+                        try self.validateMetadata?(meta, data: data)
+                        
                         let json: AnyObject?
                         if data.length > 0 {
                             json = try NSJSONSerialization.JSONObjectWithData(data, options: self.jsonReadingOptions)
                         } else {
                             json = nil
                         }
-
-                        try self.validateMetadata?(meta, data: data)
 
                         let payload = try self.processPayload(json)
 
