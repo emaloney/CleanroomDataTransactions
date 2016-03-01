@@ -17,5 +17,5 @@ public protocol WrappingDataTransaction: DataTransaction
 {
     /** The `DataTransaction` type to which a `WrappingDataTransaction` may
      delegate some of its work. */
-    associatedtype WrappedTransactionType: DataTransaction
+    typealias WrappedTransactionType: DataTransaction
 }

@@ -26,18 +26,18 @@ public enum TransactionResult<DataType, MetadataType>
 public protocol DataTransaction
 {
     /** The data type returned by a successful transaction. */
-    associatedtype DataType
+    typealias DataType
 
     /** The metadata type returned along with a successful transaction. */
-    associatedtype MetadataType
+    typealias MetadataType
 
     /** The result type passed to the transaction completion callback 
      function. */
-    associatedtype Result = TransactionResult<DataType, MetadataType>
+    typealias Result = TransactionResult<DataType, MetadataType>
 
     /** The signature of the callback function passed to 
      `executeTransaction()`. */
-    associatedtype Callback = (Result) -> Void
+    typealias Callback = (Result) -> Void
 
     /**
      Causes the transaction to be executed. The transaction may be performed
