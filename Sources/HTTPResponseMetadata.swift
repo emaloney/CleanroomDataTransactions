@@ -39,7 +39,7 @@ extension HTTPResponseMetadata
 
 extension HTTPResponseMetadata
 {
-    internal init(url: NSURL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [NSObject: AnyObject])
+    public init(url: NSURL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [NSObject: AnyObject])
     {
         self.url = url
         self.responseStatusCode = responseStatusCode
