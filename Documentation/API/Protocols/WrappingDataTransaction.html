@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DefaultQueueProvider Struct Reference</title>
+    <title>WrappingDataTransaction Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/DefaultQueueProvider" class="dashAnchor"></a>
-    <a title="DefaultQueueProvider Struct Reference"></a>
+    <a name="//apple_ref/swift/Protocol/WrappingDataTransaction" class="dashAnchor"></a>
+    <a title="WrappingDataTransaction Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomDataTransactions Docs</a> (99% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomDataTransactions Reference</a>
         <img id="carat" src="../img/carat.png" />
-        DefaultQueueProvider Struct Reference
+        WrappingDataTransaction Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -150,16 +150,18 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>DefaultQueueProvider</h1>
+            <h1>WrappingDataTransaction</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultQueueProvider</span><span class="p">:</span> <span class="kt">QueueProvider</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">WrappingDataTransaction</span><span class="p">:</span> <span class="kt">DataTransaction</span></code></pre>
 
                 </div>
               </div>
-            <p>A default <code><a href="../Protocols/QueueProvider.html">QueueProvider</a></code> implementation that always supplies the same
-concurrent <code>dispatch_queue_t</code> throughout the lifetime of the running 
-executable.</p>
+            <p>Represents a <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code> that wraps another <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code> of
+a potentially different type.</p>
+
+<p>When a <code>WrappingDataTransaction</code> is executed, it may also execute the
+wrapped <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code> in order to perform some of its work.</p>
 
           </section>
           <section class="section task-group-section">
@@ -168,9 +170,9 @@ executable.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvV25CleanroomDataTransactions20DefaultQueueProvider8instanceS0_"></a>
-                    <a name="//apple_ref/swift/Variable/instance" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvV25CleanroomDataTransactions20DefaultQueueProvider8instanceS0_">instance</a>
+                    <a name="/s:vP25CleanroomDataTransactions23WrappingDataTransaction18wrappedTransactionGSqwx22WrappedTransactionType_"></a>
+                    <a name="//apple_ref/swift/Property/wrappedTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP25CleanroomDataTransactions23WrappingDataTransaction18wrappedTransactionGSqwx22WrappedTransactionType_">wrappedTransaction</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -178,42 +180,15 @@ executable.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the singleton <em>(gasp!)</em> instance of the 
- <code><a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a></code>.</p>
+                        <p>The underlying transaction used by a <code><a href="../Protocols/WrappingDataTransaction.html">WrappingDataTransaction</a></code> for
+ lower-level processing.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">instance</span> <span class="o">=</span> <span class="kt">DefaultQueueProvider</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vV25CleanroomDataTransactions20DefaultQueueProvider5queuePSo17OS_dispatch_queue_"></a>
-                    <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV25CleanroomDataTransactions20DefaultQueueProvider5queuePSo17OS_dispatch_queue_">queue</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Returns a <code>dispatch_queue_t</code> to be used for asynchronous operations.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">wrappedTransaction</span><span class="p">:</span> <span class="kt">WrappedTransactionType</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
