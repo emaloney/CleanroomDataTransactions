@@ -27,18 +27,7 @@ public struct HTTPResponseMetadata
 
     /** The HTTP response header fields. */
     public let httpHeaders: [String: AnyObject]
-}
 
-extension HTTPResponseMetadata
-{
-    /** The `HTTPResponseStatus` of the receiver. */
-    public var responseStatus: HTTPResponseStatus {
-        return HTTPResponseStatus(responseStatusCode)
-    }
-}
-
-extension HTTPResponseMetadata
-{
     public init(url: NSURL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [NSObject: AnyObject])
     {
         self.url = url
@@ -46,5 +35,13 @@ extension HTTPResponseMetadata
         self.mimeType = mimeType
         self.textEncoding = textEncoding
         self.httpHeaders = httpHeaders as! [String: AnyObject]
+    }
+}
+
+extension HTTPResponseMetadata
+{
+    /** The `HTTPResponseStatus` of the receiver. */
+    public var responseStatus: HTTPResponseStatus {
+        return HTTPResponseStatus(responseStatusCode)
     }
 }
