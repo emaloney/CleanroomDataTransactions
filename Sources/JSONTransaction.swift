@@ -43,7 +43,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
     public typealias PayloadValidationFunction = (DataType, metadata: MetadataType) throws -> Void
 
     /** The URL of the wrapped `DataTransaction`. */
-    public var url: NSURL { return wrappedTransaction.url }
+    public var url: NSURL { return _wrappedTransaction.url }
 
     /** The options to use when reading JSON. */
     public var jsonReadingOptions = NSJSONReadingOptions(rawValue: 0)
@@ -63,8 +63,14 @@ public class JSONTransaction<T>: WrappingDataTransaction
      if and only if only if `processPayload()` did not throw an exception.*/
     public var validatePayload: PayloadValidationFunction?
 
+    /** The underlying transaction used by a `WrappingDataTransaction` for
+     lower-level processing. */
+    public var wrappedTransaction: WrappedTransactionType? {
+        return _wrappedTransaction
+    }
+    private let _wrappedTransaction: WrappedTransactionType
+
     private let queueProvider: QueueProvider
-    private let wrappedTransaction: WrappedTransactionType
 
     /**
      Initializes a `JSONTransaction` to connect to the network service at the
@@ -81,7 +87,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
     public init(url: NSURL, uploadData: NSData? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         self.queueProvider = queueProvider
-        wrappedTransaction = WrappedTransactionType(url: url, uploadData: uploadData)
+        _wrappedTransaction = WrappedTransactionType(url: url, uploadData: uploadData)
     }
 
     /**
@@ -99,7 +105,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
     public init(request: NSURLRequest, uploadData: NSData? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         self.queueProvider = queueProvider
-        wrappedTransaction = WrappedTransactionType(request: request, uploadData: uploadData)
+        _wrappedTransaction = WrappedTransactionType(request: request, uploadData: uploadData)
     }
 
     /**
@@ -113,7 +119,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
      */
     public init(wrapping: WrappedTransactionType, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
-        wrappedTransaction = wrapping
+        _wrappedTransaction = wrapping
         self.queueProvider = queueProvider
     }
 
@@ -127,7 +133,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
      */
     public func executeTransaction(completion: Callback)
     {
-        wrappedTransaction.executeTransaction() { result in
+        _wrappedTransaction.executeTransaction() { result in
             switch result {
             case .Failed(let error):
                 completion(.Failed(error))

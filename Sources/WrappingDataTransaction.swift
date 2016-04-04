@@ -18,4 +18,8 @@ public protocol WrappingDataTransaction: DataTransaction
     /** The `DataTransaction` type to which a `WrappingDataTransaction` may
      delegate some of its work. */
     associatedtype WrappedTransactionType: DataTransaction
+
+    /** The underlying transaction used by a `WrappingDataTransaction` for
+     lower-level processing. */
+    var wrappedTransaction: WrappedTransactionType? { get }
 }
