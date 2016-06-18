@@ -22,7 +22,7 @@ public class GenericDataProcessingTransaction<T>: WrappingDataTransaction
     public typealias DataProcessingFunction = (WrappedTransactionType.DataType) throws -> DataType
 
     /** The URL of the wrapped `DataTransaction`. */
-    public var url: NSURL { return _wrappedTransaction.url }
+    public var url: URL { return _wrappedTransaction.url as URL }
 
     /**  The `DataProcessingFunction` that will be used to produce the
      receiver's `DataType` upon successful completion of the wrapped
@@ -69,21 +69,23 @@ public class GenericDataProcessingTransaction<T>: WrappingDataTransaction
      */
     public func executeTransaction(completion: Callback)
     {
+        let queue = queueProvider.queue
+
         _wrappedTransaction.executeTransaction() { result in
             switch result {
-            case .Succeeded(let data, let meta):
-                self.queueProvider.queue.async {
+            case .succeeded(let data, let meta):
+                queue.async {
                     do {
                         let processed = try self.processData(data)
-                        completion(.Succeeded(processed, meta))
+                        completion(.succeeded(processed, meta))
                     }
                     catch {
-                        completion(.Failed(.wrap(error)))
+                        completion(.failed(.wrap(error)))
                     }
                 }
 
-            case .Failed(let error):
-                completion(.Failed(error))
+            case .failed(let error):
+                completion(.failed(error))
             }
         }
     }

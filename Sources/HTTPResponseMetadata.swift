@@ -14,7 +14,7 @@ import Foundation
 public struct HTTPResponseMetadata
 {
     /** The `NSURL` of the originating HTTP request. */
-    public let url: NSURL
+    public let url: URL
 
     /** The status code of the HTTP response. */
     public let responseStatusCode: Int
@@ -28,7 +28,7 @@ public struct HTTPResponseMetadata
     /** The HTTP response header fields. */
     public let httpHeaders: [String: AnyObject]
 
-    public init(url: NSURL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [NSObject: AnyObject])
+    public init(url: URL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [NSObject: AnyObject])
     {
         self.url = url
         self.responseStatusCode = responseStatusCode

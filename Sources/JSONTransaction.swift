@@ -27,26 +27,26 @@ public class JSONTransaction<T>: WrappingDataTransaction
     /** The signature of the transaction metadata validation function. This
      function throws an exception if validation fails, causing the transaction
      itself to fail. */
-    public typealias MetadataValidationFunction = (MetadataType, data: NSData?) throws -> Void
+    public typealias MetadataValidationFunction = (metadata: MetadataType, data: Data?) throws -> Void
 
     /** The signature of the JSON payload processing function. This function 
      attempts to convert the JSON data into the transaction payload of the
      type specified by receiver's `DataType`. The function throws an exception
      if payload processing fails, causing the transaction itself to fail. */
-    public typealias PayloadProcessingFunction = (AnyObject?) throws -> DataType
+    public typealias PayloadProcessingFunction = (payload: AnyObject?) throws -> DataType
 
     /** If the payload processor succeeds, the resulting `DataType` and the
      transaction's metadata are passed to the payload validator, giving the
      transaction one final change to sanity-check the data and bail if there's
      a problem. The function throws an exception if payload validation fails,
      causing the transaction itself to fail. */
-    public typealias PayloadValidationFunction = (DataType, metadata: MetadataType) throws -> Void
+    public typealias PayloadValidationFunction = (data: DataType, metadata: MetadataType) throws -> Void
 
     /** The URL of the wrapped `DataTransaction`. */
-    public var url: NSURL { return _wrappedTransaction.url }
+    public var url: URL { return _wrappedTransaction.url as URL }
 
     /** The options to use when reading JSON. */
-    public var jsonReadingOptions = NSJSONReadingOptions(rawValue: 0)
+    public var jsonReadingOptions = JSONSerialization.ReadingOptions(rawValue: 0)
 
     /** An optional `MetadataValidationFunction` function that will be called 
      before attempting to process the transaction's payload. This function is 
@@ -84,7 +84,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
      - parameter queueProvider: Used to supply a GCD queue for asynchronous 
      operations when needed.
      */
-    public init(url: NSURL, uploadData: NSData? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public init(url: URL, uploadData: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         self.queueProvider = queueProvider
         _wrappedTransaction = WrappedTransactionType(url: url, uploadData: uploadData)
@@ -94,7 +94,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
      Initializes a `JSONTransaction` to issue the specified request to the
      network service.
 
-     - parameter request: The `NSURLRequest` to issue to the network service.
+     - parameter request: The `URLRequest` to issue to the network service.
 
      - parameter uploadData: Optional binary data to send to the network
      service.
@@ -102,7 +102,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
      operations when needed.
      */
-    public init(request: NSURLRequest, uploadData: NSData? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public init(request: URLRequest, uploadData: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         self.queueProvider = queueProvider
         _wrappedTransaction = WrappedTransactionType(request: request, uploadData: uploadData)
@@ -135,30 +135,30 @@ public class JSONTransaction<T>: WrappingDataTransaction
     {
         _wrappedTransaction.executeTransaction() { result in
             switch result {
-            case .Failed(let error):
-                completion(.Failed(error))
+            case .failed(let error):
+                completion(.failed(error))
 
-            case .Succeeded(let data, let meta):
+            case .succeeded(let data, let meta):
                 self.queueProvider.queue.async {
                     do {
                         
-                        try self.validateMetadata?(meta, data: data)
+                        try self.validateMetadata?(metadata: meta, data: data)
                         
                         let json: AnyObject?
-                        if data.length > 0 {
-                            json = try NSJSONSerialization.JSONObjectWithData(data, options: self.jsonReadingOptions)
+                        if data.count > 0 {
+                            json = try JSONSerialization.jsonObject(with: data, options: self.jsonReadingOptions)
                         } else {
                             json = nil
                         }
 
-                        let payload = try self.processPayload(json)
+                        let payload = try self.processPayload(payload: json)
 
-                        try self.validatePayload?(payload, metadata: meta)
+                        try self.validatePayload?(data: payload, metadata: meta)
 
-                        completion(.Succeeded(payload, meta))
+                        completion(.succeeded(payload, meta))
                     }
                     catch {
-                        completion(.Failed(.wrap(error)))
+                        completion(.failed(.wrap(error)))
                     }
                 }
             }

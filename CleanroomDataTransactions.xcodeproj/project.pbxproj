@@ -72,10 +72,6 @@
 		3B6FB1141C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */; };
 		3B6FB1151C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */; };
 		3B6FB1161C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */; };
-		3B6FB1181C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */; };
-		3B6FB1191C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */; };
-		3B6FB11A1C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */; };
-		3B6FB11B1C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */; };
 		3B78C6B91BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */; };
 		3B78C6BA1BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */; };
 		3B78C6BB1BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */; };
@@ -154,7 +150,6 @@
 		3B4E1CDC1C5AB4C000C4A7F3 /* ImageConstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConstruction.swift; sourceTree = "<group>"; };
 		3B4E1CE21C5ABBE300C4A7F3 /* ApiDocTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiDocTransaction.swift; sourceTree = "<group>"; };
 		3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultQueueProvider.swift; sourceTree = "<group>"; };
-		3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueAsyncFunctionExtension.swift; sourceTree = "<group>"; };
 		3B78C6B81BA762FD00173EAC /* CleanroomDataTransactionsUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanroomDataTransactionsUnitTests.swift; sourceTree = "<group>"; };
 		3B78C6CE1BA7634E00173EAC /* CleanroomDataTransactions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomDataTransactions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA8DD0B1C616732005DC1A4 /* QueueProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueProvider.swift; sourceTree = "<group>"; };
@@ -334,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				3B6FB1121C616CBB001F50BF /* DefaultQueueProvider.swift */,
-				3B6FB1171C616D1C001F50BF /* QueueAsyncFunctionExtension.swift */,
 				3BA8DD0B1C616732005DC1A4 /* QueueProvider.swift */,
 			);
 			name = AsyncQueues;
@@ -520,9 +514,11 @@
 				TargetAttributes = {
 					3B00E55C1BA3782D0011486D = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					3B00E5661BA3782D0011486D = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					3B00E57B1BA379830011486D = {
 						CreatedOnToolsVersion = 7.1;
@@ -627,7 +623,6 @@
 				3B1C81631C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B4E1CD01C5AAD3500C4A7F3 /* WrappingDataTransaction.swift in Sources */,
 				3B4E1CCB1C5A909500C4A7F3 /* GenericDataProcessingTransaction.swift in Sources */,
-				3B6FB1181C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */,
 				3B1C818B1C59D67F006248E4 /* URLTransaction.swift in Sources */,
 				3B1C815B1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816B1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
@@ -660,7 +655,6 @@
 				3B1C81641C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B4E1CD11C5AAD3500C4A7F3 /* WrappingDataTransaction.swift in Sources */,
 				3B4E1CCC1C5A909500C4A7F3 /* GenericDataProcessingTransaction.swift in Sources */,
-				3B6FB1191C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */,
 				3B1C818C1C59D67F006248E4 /* URLTransaction.swift in Sources */,
 				3B1C815C1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816C1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
@@ -693,7 +687,6 @@
 				3B1C81651C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B4E1CD21C5AAD3500C4A7F3 /* WrappingDataTransaction.swift in Sources */,
 				3B4E1CCD1C5A909500C4A7F3 /* GenericDataProcessingTransaction.swift in Sources */,
-				3B6FB11A1C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */,
 				3B1C818D1C59D67F006248E4 /* URLTransaction.swift in Sources */,
 				3B1C815D1C59D67F006248E4 /* DataTransaction.swift in Sources */,
 				3B1C816D1C59D67F006248E4 /* JSONTransaction.swift in Sources */,
@@ -726,7 +719,6 @@
 				3B1C81661C59D67F006248E4 /* HTTPResponseMetadata.swift in Sources */,
 				3B6FB1161C616CBB001F50BF /* DefaultQueueProvider.swift in Sources */,
 				3B4E1CD31C5AAD3500C4A7F3 /* WrappingDataTransaction.swift in Sources */,
-				3B6FB11B1C616D1C001F50BF /* QueueAsyncFunctionExtension.swift in Sources */,
 				3B3346FF1C5C044F00A11BFB /* ApiDocOptionalTransaction.swift in Sources */,
 				3B4E1CCE1C5A909500C4A7F3 /* GenericDataProcessingTransaction.swift in Sources */,
 				3B1C818E1C59D67F006248E4 /* URLTransaction.swift in Sources */,
@@ -802,6 +794,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -845,6 +838,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -892,6 +886,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -927,6 +922,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

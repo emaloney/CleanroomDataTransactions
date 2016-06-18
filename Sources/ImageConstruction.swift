@@ -25,7 +25,7 @@ public typealias PlatformImageType = NSImage
 #endif
 
 /**
- Attempts to convert an `NSData` instance into an image object appropriate for
+ Attempts to convert an `Data` instance into an image object appropriate for
  the current platform. Used by the `FetchImageTransaction` to construct images
  from transaction data.
  
@@ -36,12 +36,12 @@ public typealias PlatformImageType = NSImage
  - throws: A `DataTransactionError` if `data` could not be converted into a
  `PlatformImageType`.
  */
-public func platformImageFromData(data: NSData)
+public func platformImage(fromData data: Data)
     throws
     -> PlatformImageType
 {
     guard let image = PlatformImageType(data: data) else {
-        throw DataTransactionError.DataFormatError("Couldn't construct \(PlatformImageType.self) from data containing \(data.length) bytes")
+        throw DataTransactionError.dataFormatError("Couldn't construct \(PlatformImageType.self) from data containing \(data.count) bytes")
     }
     return image
 }

@@ -14,16 +14,16 @@ import Foundation
  
  - parameter meta: An optional `MetadataType`.
  
- - parameter data: An optional `NSData` instance containing the transaction's
+ - parameter data: An optional `Data` instance containing the transaction's
  raw response body.
 
  - throws: `DataTransactionError.HTTPError` if `meta` is an instance of
  `HTTPResponseMetadata` that represents either a client or server error.
  */
-public func httpOptionalStatusCodeValidator<MetadataType>(meta: MetadataType?, data: NSData?)
+public func httpOptionalStatusCodeValidator<MetadataType>(metadata: MetadataType?, data: Data?)
     throws
 {
-    try httpStatusCodeValidator(meta, data: data, httpRequired: false)
+    try httpStatusCodeValidator(metadata: metadata, data: data, httpRequired: false)
 }
 
 /**
@@ -32,7 +32,7 @@ public func httpOptionalStatusCodeValidator<MetadataType>(meta: MetadataType?, d
 
  - parameter meta: An optional `MetadataType`.
 
- - parameter data: An optional `NSData` instance containing the transaction's
+ - parameter data: An optional `Data` instance containing the transaction's
  raw response body.
 
  - throws: `DataTransactionError.HTTPRequired` if `meta` is not an instance
@@ -41,25 +41,25 @@ public func httpOptionalStatusCodeValidator<MetadataType>(meta: MetadataType?, d
  - throws: `DataTransactionError.HTTPError` if `meta` is an instance of
  `HTTPResponseMetadata` that represents either a client or server error.
  */
-public func httpRequiredStatusCodeValidator<MetadataType>(meta: MetadataType?, data: NSData?)
+public func httpRequiredStatusCodeValidator<MetadataType>(metadata: MetadataType?, data: Data?)
     throws
 {
-    try httpStatusCodeValidator(meta, data: data, httpRequired: true)
+    try httpStatusCodeValidator(metadata: metadata, data: data, httpRequired: true)
 }
 
-internal func httpStatusCodeValidator<MetadataType>(meta: MetadataType?, data: NSData?, httpRequired: Bool)
+internal func httpStatusCodeValidator<MetadataType>(metadata: MetadataType?, data: Data?, httpRequired: Bool)
     throws
 {
-    guard let http = meta as? HTTPResponseMetadata else {
+    guard let http = metadata as? HTTPResponseMetadata else {
         if httpRequired {
-            throw DataTransactionError.HTTPRequired
+            throw DataTransactionError.httpRequired
         } else {
             return  // assume success
         }
     }
 
     if http.responseStatus.isError {
-        throw DataTransactionError.HTTPError(http, data)
+        throw DataTransactionError.httpError(http, data)
     }
 }
 

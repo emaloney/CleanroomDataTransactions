@@ -10,7 +10,7 @@ import Foundation
 
 /**
  A default `QueueProvider` implementation that always supplies the same
- concurrent `dispatch_queue_t` throughout the lifetime of the running 
+ concurrent `DispatchQueue` throughout the lifetime of the running 
  executable.
  */
 public struct DefaultQueueProvider: QueueProvider
@@ -19,11 +19,11 @@ public struct DefaultQueueProvider: QueueProvider
      `DefaultQueueProvider`. */
     public static let instance = DefaultQueueProvider()
 
-    /** Returns a `dispatch_queue_t` to be used for asynchronous operations. */
-    public var queue: dispatch_queue_t
+    /** Returns a `DispatchQueue` to be used for asynchronous operations. */
+    public var queue: DispatchQueue
 
     private init()
     {
-        queue = dispatch_queue_create("CleanroomDataTransactions.DefaultQueueProvider", DISPATCH_QUEUE_CONCURRENT)
+        queue = DispatchQueue(label: "CleanroomDataTransactions.DefaultQueueProvider", attributes: DispatchQueueAttributes.concurrent)
     }
 }

@@ -17,12 +17,12 @@
  - throws: A `DataTransactionError` if `jsonObject` could not be cast to
  type `T`.
  */
-public func requiredPayloadProcessor<T>(jsonObject: AnyObject?)
+public func requiredPayloadProcessor<T>(_ jsonObject: AnyObject?)
     throws
     -> T
 {
     guard let typed = jsonObject as? T else {
-        throw DataTransactionError.DataFormatError("Expecting JSON data to be a type of \(T.self); got \(jsonObject.dynamicType) instead")
+        throw DataTransactionError.dataFormatError("Expecting JSON data to be a type of \(T.self); got \(jsonObject.dynamicType) instead")
     }
     return typed
 }
@@ -38,7 +38,7 @@ public func requiredPayloadProcessor<T>(jsonObject: AnyObject?)
  - throws: A `DataTransactionError` if `jsonObject` is non-`nil` and could not
  be cast to type `T`.
  */
-public func optionalPayloadProcessor<T>(jsonObject: AnyObject?)
+public func optionalPayloadProcessor<T>(_ jsonObject: AnyObject?)
     throws
     -> T?
 {
@@ -47,7 +47,7 @@ public func optionalPayloadProcessor<T>(jsonObject: AnyObject?)
     }
 
     guard let typed = object as? T else {
-        throw DataTransactionError.DataFormatError("Expecting JSON data to be a type of \(T.self); got \(object.dynamicType) instead")
+        throw DataTransactionError.dataFormatError("Expecting JSON data to be a type of \(T.self); got \(object.dynamicType) instead")
     }
 
     return typed

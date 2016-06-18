@@ -9,37 +9,37 @@
 import Foundation
 
 /**
- A `DataTransaction` that uses an `NSURLRequest` to request data from
+ A `DataTransaction` that uses an `URLRequest` to request data from
  (and potentially send data to) a service at a given URL.
  
- A successful transaction produces an `NSData` instance, and if the request
+ A successful transaction produces an `Data` instance, and if the request
  was sent via HTTP or HTTPS, the transaction metadata will contain an
  `HTTPResponseMetadata` instance.
  */
 public class URLTransaction: DataTransaction
 {
-    public typealias DataType = NSData
+    public typealias DataType = Data
     public typealias MetadataType = HTTPResponseMetadata
     public typealias Result = TransactionResult<DataType, MetadataType>
     public typealias Callback = (Result) -> Void
 
     /** The URL of the network service that will be sent the request when
      the transaction is executed. */
-    public var url: NSURL { return request.URL! }
+    public var url: URL { return request.url! }
 
-    /** The `NSURLRequest` that will be issued when the transaction is 
+    /** The `URLRequest` that will be issued when the transaction is 
      executed. */
-    public let request: NSURLRequest
+    public let request: URLRequest
 
     /** Optional data to send to the service when executing the
      transaction. */
-    public let uploadData: NSData?
+    public let uploadData: Data?
 
     /** The `NSURLSessionConfiguration` used to create the `NSURLSession`
      for the transaction's request. */
-    public let sessionConfiguration: NSURLSessionConfiguration
+    public let sessionConfiguration: URLSessionConfiguration
 
-    private var task: NSURLSessionTask?
+    private var task: URLSessionTask?
 
     /** 
      Initializes a new transaction that will connect to the given URL.
@@ -51,9 +51,9 @@ public class URLTransaction: DataTransaction
      - parameter sessionConfiguration: The `NSURLSessionConfiguration` used to 
      create the `NSURLSession` for the transaction's request.
      */
-    public init(url: NSURL, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
+    public init(url: URL, uploadData: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default())
     {
-        self.request = NSURLRequest(URL: url)
+        self.request = URLRequest(url: url)
         self.uploadData = uploadData
         self.sessionConfiguration = sessionConfiguration
     }
@@ -68,9 +68,9 @@ public class URLTransaction: DataTransaction
      - parameter sessionConfiguration: The `NSURLSessionConfiguration` used to
      create the `NSURLSession` for the transaction's request.
      */
-    public init(request: NSURLRequest, uploadData: NSData? = nil, sessionConfiguration: NSURLSessionConfiguration = .defaultSessionConfiguration())
+    public init(request: URLRequest, uploadData: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default())
     {
-        precondition(request.URL != nil)
+        precondition(request.url != nil)
 
         self.request = request
         self.uploadData = uploadData
@@ -94,49 +94,49 @@ public class URLTransaction: DataTransaction
     public func executeTransaction(completion: Callback)
     {
         guard task == nil else {
-            completion(.Failed(.AlreadyInFlight))
+            completion(.failed(.alreadyInFlight))
             return
         }
         
         // create a delegate-free session & fire the request
-        let session = NSURLSession(configuration: sessionConfiguration)
+        let session = URLSession(configuration: sessionConfiguration)
 
-        let handler: (NSData?, NSURLResponse?, NSError?) -> Void = { [weak self] data, response, error in
+        let handler: (Data?, URLResponse?, NSError?) -> Void = { [weak self] data, response, error in
             guard let strongSelf = self else {
-                completion(.Failed(.Canceled))
+                completion(.failed(.canceled))
                 return
             }
 
             strongSelf.task = nil
 
             guard error == nil else {
-                completion(.Failed(.wrap(error!)))
+                completion(.failed(.wrap(error!)))
                 return
             }
 
             guard let data = data else {
-                completion(.Failed(.NoData))
+                completion(.failed(.noData))
                 return
             }
 
-            guard let httpResp = response as? NSHTTPURLResponse else {
-                completion(.Failed(.HTTPRequired))
+            guard let httpResp = response as? HTTPURLResponse else {
+                completion(.failed(.httpRequired))
                 return
             }
 
-            let meta = HTTPResponseMetadata(url: httpResp.URL ?? strongSelf.url, responseStatusCode: httpResp.statusCode, mimeType: httpResp.MIMEType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields)
+            let meta = HTTPResponseMetadata(url: httpResp.url ?? strongSelf.url, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields)
 
-            completion(.Succeeded(data, meta))
+            completion(.succeeded(data, meta))
         }
 
         if let uploadData = uploadData {
-            task = session.uploadTaskWithRequest(request, fromData: uploadData, completionHandler: handler)
+            task = session.uploadTask(with: request, from: uploadData, completionHandler: handler)
         } else {
-            task = session.dataTaskWithRequest(request, completionHandler: handler)
+            task = session.dataTask(with: request, completionHandler: handler)
         }
 
         guard let task = task else {
-            completion(.Failed(.SessionTaskNotCreated))
+            completion(.failed(.sessionTaskNotCreated))
             return
         }
 

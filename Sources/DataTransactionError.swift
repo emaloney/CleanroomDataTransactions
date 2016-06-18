@@ -12,66 +12,66 @@ import Foundation
  An `ErrorType` that represents various errors that can occur when executing
  `DataTransaction`s.
  */
-public enum DataTransactionError: ErrorType
+public enum DataTransactionError: ErrorProtocol
 {
     /** A `DataTransactionError` that wraps a generic `ErrorType`. */
-    case WrappedError(ErrorType)
+    case wrappedError(ErrorProtocol)
 
     /** Contains an error message returned by a service. */
-    case ServiceError(String)
+    case serviceError(String)
 
     /** An error indicating that data is not in the expected format. Contains
      a message with additional details. */
-    case DataFormatError(String)
+    case dataFormatError(String)
 
     /** The execution path taken by a `DataTransaction` has not been fully
      implemented. */
-    case NotImplemented
+    case notImplemented
 
     /** The resource requested by the `DataTransaction` is not available. */
-    case NotAvailable
+    case notAvailable
 
     /** The transaction protocol has been implemented incorrectly. */
-    case BadImplementation
+    case badImplementation
 
     /** Failed to create an `NSURLSessionTask` for the transaction. */
-    case SessionTaskNotCreated
+    case sessionTaskNotCreated
 
     /** Use of the HTTP protocol is required for the given transaction, but
      it was not used. */
-    case HTTPRequired
+    case httpRequired
 
     /** The transaction returned no data. */
-    case NoData
+    case noData
 
     /** The transaction was canceled or deallocated before it could be
      completed. */
-    case Canceled
+    case canceled
 
     /** The transaction is already in the process of being executed and
      has not yet returned. */
-    case AlreadyInFlight
+    case alreadyInFlight
 
     /** The transaction was aborted because it did not complete in a reasonable
      time. */
-    case Timeout
+    case timeout
 
     /** The transaction expired before it completed. */
-    case Expired
+    case expired
 
     /** The given string could not be converted into an `NSURL` instance. */
-    case InvalidURL(String)
+    case invalidURL(String)
 
     /** An unexpected HTTP response code was returned for the transaction. */
-    case UnexpectedHTTPResponseCode
+    case unexpectedHTTPResponseCode
 
     /** Indicates that the caller is not authorized to perform the given 
      transaction. */
-    case NotAuthorized
+    case notAuthorized
 
     /** Indicates an HTTP error response was received. Contains the metadata
      of the response as well as any response data. */
-    case HTTPError(HTTPResponseMetadata, NSData?)
+    case httpError(HTTPResponseMetadata, Data?)
 }
 
 extension DataTransactionError
@@ -83,13 +83,13 @@ extension DataTransactionError
      already a `DataTransactionError`, it is simply returned as-is. Otherwise,
      `.WrappedError(error)` is returned.
      */
-    public static func wrap(error: ErrorType)
+    public static func wrap(_ error: ErrorProtocol)
         -> DataTransactionError
     {
         if let error = error as? DataTransactionError {
             return error
         } else {
-            return .WrappedError(error)
+            return .wrappedError(error)
         }
     }
 }
@@ -99,55 +99,55 @@ extension DataTransactionError: CustomStringConvertible
     /** A string representation of the `DataTransactionError`. */
     public var description: String {
         switch self {
-        case .WrappedError(let error):
+        case .wrappedError(let error):
             return "\(error)"
 
-        case .ServiceError(let errorDescription):
+        case .serviceError(let errorDescription):
             return "Service error: \(errorDescription)"
 
-        case .DataFormatError(let errorDescription):
+        case .dataFormatError(let errorDescription):
             return "Data format error: \(errorDescription)"
 
-        case .NotImplemented:
+        case .notImplemented:
             return "Nobody has written the code for the thing you’re trying to do."
 
-        case .NotAvailable:
+        case .notAvailable:
             return "What you seek does not exist or is not currently available."
 
-        case .BadImplementation:
+        case .badImplementation:
             return "Something isn’t right; in fact, one might go so far as to say that something is wrong."
 
-        case .SessionTaskNotCreated:
+        case .sessionTaskNotCreated:
             return "Could not create the task needed to perform this operation."
 
-        case .HTTPRequired:
+        case .httpRequired:
             return "HTTP is required for this operation"
 
-        case .NoData:
+        case .noData:
             return "No data was returned for the request being processed."
 
-        case .Canceled:
+        case .canceled:
             return "The request was canceled or deallocated."
 
-        case .AlreadyInFlight:
+        case .alreadyInFlight:
             return "The thing you are trying to do is already being done."
 
-        case .Timeout:
+        case .timeout:
             return "Been waiting too long; have given up."
 
-        case .Expired:
+        case .expired:
             return "The time-limited resource is no longer valid."
 
-        case .InvalidURL(let urlString):
+        case .invalidURL(let urlString):
             return "This does not appear to be a valid URL: \(urlString)"
 
-        case .UnexpectedHTTPResponseCode:
+        case .unexpectedHTTPResponseCode:
             return "Received an HTTP response code that wasn't expected."
 
-        case .NotAuthorized:
+        case .notAuthorized:
             return "Not authorized to access this resource."
 
-        case HTTPError(let meta, _):
+        case .httpError(let meta, _):
             return "HTTP protocol error \(meta.responseStatusCode): \(meta.responseStatus)"
         }
     }

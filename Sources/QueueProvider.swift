@@ -11,13 +11,13 @@ import Foundation
 /**
  Certain `DataTransaction`s perform asynchronous operations using Grand Central
  Dispatch. Such `DataTransaction`s will typically be given a `QueueProvider`
- at instantiation to supply a `dispatch_queue_t` when needed.
+ at instantiation to supply a `DispatchQueue` when needed.
  
  By supplying a `QueueProvider` rather than a specific queue, reusable
  `DataTransaction`s can be supplied with different queues over time.
  */
 public protocol QueueProvider
 {
-    /** Returns a `dispatch_queue_t` to be used for asynchronous operations. */
-    var queue: dispatch_queue_t { get }
+    /** Returns a `DispatchQueue` to be used for asynchronous operations. */
+    var queue: DispatchQueue { get }
 }

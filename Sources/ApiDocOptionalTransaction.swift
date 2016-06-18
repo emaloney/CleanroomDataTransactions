@@ -37,7 +37,7 @@ public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
      operations when needed.
      */
-    public override init(url: NSURL, uploadData: NSData? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public override init(url: URL, uploadData: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         super.init(url: url, uploadData: uploadData, queueProvider: queueProvider)
 
@@ -49,7 +49,7 @@ public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
      Initializes an `ApiDocOptionalTransaction` to issue the specified request 
      to the network service.
 
-     - parameter request: The `NSURLRequest` to issue to the network service.
+     - parameter request: The `URLRequest` to issue to the network service.
 
      - parameter uploadData: Optional binary data to send to the network
      service.
@@ -57,7 +57,7 @@ public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
      operations when needed.
      */
-    public override init(request: NSURLRequest, uploadData: NSData? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public override init(request: URLRequest, uploadData: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         super.init(request: request, uploadData: uploadData, queueProvider: queueProvider)
 

@@ -17,52 +17,52 @@ import Foundation
 public enum HTTPResponseStatus
 {
     /** The `200 OK` response code. */
-    case OK
+    case ok
 
     /** The `201 Created` response code. */
-    case Created
+    case created
 
     /** The `204 No Content` response code. */
-    case NoContent
+    case noContent
 
     /** The `400 Bad Request` response code. */
-    case BadRequest
+    case badRequest
 
     /** The `401 Unauthorized` response code. */
-    case Unauthorized
+    case unauthorized
 
     /** The `404 Not Found` response code. */
-    case NotFound
+    case notFound
 
     /** The `409 Conflict` response code. */
-    case Conflict
+    case conflict
 
     /** The `410 Gone` response code. */
-    case Gone
+    case gone
 
     /** The `422 Unprocessable Entity` response code. */
-    case UnprocessableEntity
+    case unprocessableEntity
 
     /** The `502 Bad Gateway` response code. */
-    case BadGateway
+    case badGateway
 
     /** Represents HTTP response codes not covered by the other cases. */
-    case Other(Int)
+    case other(Int)
 
     /** The numeric HTTP status code. */
     public var statusCode: Int {
         switch self {
-        case OK:                    return 200
-        case Created:               return 201
-        case NoContent:             return 204
-        case BadRequest:            return 400
-        case Unauthorized:          return 401
-        case NotFound:              return 404
-        case Conflict:              return 409
-        case Gone:                  return 410
-        case UnprocessableEntity:	return 422
-        case BadGateway:            return 502
-        case Other(let code):       return code
+        case ok:                    return 200
+        case created:               return 201
+        case noContent:             return 204
+        case badRequest:            return 400
+        case unauthorized:          return 401
+        case notFound:              return 404
+        case conflict:              return 409
+        case gone:                  return 410
+        case unprocessableEntity:	return 422
+        case badGateway:            return 502
+        case other(let code):       return code
         }
     }
 
@@ -75,17 +75,17 @@ public enum HTTPResponseStatus
     public init(_ statusCode: Int)
     {
         switch statusCode {
-        case 200:	self = OK
-        case 201:	self = Created
-        case 204:	self = NoContent
-        case 400:	self = BadRequest
-        case 401:	self = Unauthorized
-        case 404:	self = NotFound
-        case 409:	self = Conflict
-        case 410:	self = Gone
-        case 422:	self = UnprocessableEntity
-        case 502:	self = BadGateway
-        default:    self = Other(statusCode)
+        case 200:	self = ok
+        case 201:	self = created
+        case 204:	self = noContent
+        case 400:	self = badRequest
+        case 401:	self = unauthorized
+        case 404:	self = notFound
+        case 409:	self = conflict
+        case 410:	self = gone
+        case 422:	self = unprocessableEntity
+        case 502:	self = badGateway
+        default:    self = other(statusCode)
         }
     }
 }
@@ -98,30 +98,30 @@ extension HTTPResponseStatus
     public enum Category {
         /** Indicates an informational (`1xx`) response, possibly pending
          further information. */
-        case Informational
+        case informational
 
         /** Indicates an successful (`2xx`) response. */
-        case Success
+        case success
 
         /** Indicates a redirect (`3xx`) response. */
-        case Redirection
+        case redirection
 
         /** Indicates a client error (`4xx`) response. */
-        case ClientError
+        case clientError
 
         /** Indicates a server error (`5xx`) response, or a response with an
          error code not falling into one of the ranges above.  */
-        case ServerError
+        case serverError
     }
 
     /** Indicates the category of the HTTP response. */
     public var responseCategory: Category {
         switch statusCode {
-        case 100..<200: return .Informational
-        case 200..<300: return .Success
-        case 300..<400: return .Redirection
-        case 400..<500: return .ClientError
-        default:        return .ServerError
+        case 100..<200: return .informational
+        case 200..<300: return .success
+        case 300..<400: return .redirection
+        case 400..<500: return .clientError
+        default:        return .serverError
         }
     }
 }
@@ -130,23 +130,23 @@ extension HTTPResponseStatus
 {
     /** Indicates whether the receiver's `responseCategory` is 
      `.Informational`. */
-    public var isInformational: Bool { return responseCategory == .Informational }
+    public var isInformational: Bool { return responseCategory == .informational }
 
     /** Indicates whether the receiver's `responseCategory` is
      `.Success`. */
-    public var isSuccess: Bool { return responseCategory == .Success }
+    public var isSuccess: Bool { return responseCategory == .success }
 
     /** Indicates whether the receiver's `responseCategory` is
      `.Redirection`. */
-    public var isRedirect: Bool { return responseCategory == .Redirection }
+    public var isRedirect: Bool { return responseCategory == .redirection }
 
     /** Indicates whether the receiver's `responseCategory` is
      `.ClientError`. */
-    public var isClientError: Bool { return responseCategory == .ClientError }
+    public var isClientError: Bool { return responseCategory == .clientError }
 
     /** Indicates whether the receiver's `responseCategory` is
      `.ServerError`. */
-    public var isServerError: Bool { return responseCategory == .ServerError }
+    public var isServerError: Bool { return responseCategory == .serverError }
 
     /** Indicates whether the receiver represents a `.ClientError` or
      `.ServerError`. */
