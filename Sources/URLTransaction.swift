@@ -51,7 +51,7 @@ public class URLTransaction: DataTransaction
      - parameter sessionConfiguration: The `NSURLSessionConfiguration` used to 
      create the `NSURLSession` for the transaction's request.
      */
-    public init(url: URL, uploadData: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default())
+    public init(url: URL, uploadData: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default)
     {
         self.request = URLRequest(url: url)
         self.uploadData = uploadData
@@ -68,7 +68,7 @@ public class URLTransaction: DataTransaction
      - parameter sessionConfiguration: The `NSURLSessionConfiguration` used to
      create the `NSURLSession` for the transaction's request.
      */
-    public init(request: URLRequest, uploadData: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default())
+    public init(request: URLRequest, uploadData: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default)
     {
         precondition(request.url != nil)
 

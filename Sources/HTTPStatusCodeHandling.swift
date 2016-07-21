@@ -20,10 +20,10 @@ import Foundation
  - throws: `DataTransactionError.HTTPError` if `meta` is an instance of
  `HTTPResponseMetadata` that represents either a client or server error.
  */
-public func httpOptionalStatusCodeValidator<MetadataType>(metadata: MetadataType?, data: Data?)
+public func httpOptionalStatusCodeValidator<MetadataType>(_ metadata: MetadataType?, data: Data?)
     throws
 {
-    try httpStatusCodeValidator(metadata: metadata, data: data, httpRequired: false)
+    try httpStatusCodeValidator(metadata, data: data, httpRequired: false)
 }
 
 /**
@@ -41,13 +41,13 @@ public func httpOptionalStatusCodeValidator<MetadataType>(metadata: MetadataType
  - throws: `DataTransactionError.HTTPError` if `meta` is an instance of
  `HTTPResponseMetadata` that represents either a client or server error.
  */
-public func httpRequiredStatusCodeValidator<MetadataType>(metadata: MetadataType?, data: Data?)
+public func httpRequiredStatusCodeValidator<MetadataType>(_ metadata: MetadataType?, data: Data?)
     throws
 {
-    try httpStatusCodeValidator(metadata: metadata, data: data, httpRequired: true)
+    try httpStatusCodeValidator(metadata, data: data, httpRequired: true)
 }
 
-internal func httpStatusCodeValidator<MetadataType>(metadata: MetadataType?, data: Data?, httpRequired: Bool)
+internal func httpStatusCodeValidator<MetadataType>(_ metadata: MetadataType?, data: Data?, httpRequired: Bool)
     throws
 {
     guard let http = metadata as? HTTPResponseMetadata else {

@@ -33,11 +33,11 @@ public protocol DataTransaction
 
     /** The result type passed to the transaction completion callback 
      function. */
-    typealias Result = TransactionResult<DataType, MetadataType>
+    associatedtype Result = TransactionResult<DataType, MetadataType>
 
     /** The signature of the callback function passed to 
      `executeTransaction()`. */
-    typealias Callback = (Result) -> Void
+    associatedtype Callback = (Result) -> Void
 
     /**
      Causes the transaction to be executed. The transaction may be performed
