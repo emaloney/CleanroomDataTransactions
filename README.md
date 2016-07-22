@@ -7,6 +7,7 @@ A protocol-independent and format-agnostic Swift library for performing one-way 
 CleanroomDataTransactions is part of [the Cleanroom Project](https://github.com/gilt/Cleanroom) from [Gilt Tech](http://tech.gilt.com).
 
 
+
 ### Swift 2.2 compatibility
 
 The `master` branch of this project is **Swift 2.2 compliant** and therefore **requires Xcode 7.3 or higher** to compile.
