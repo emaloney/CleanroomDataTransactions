@@ -1,2 +1,0 @@
-HTTPResponseMetadata.swift
-	public init(url: NSURL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [NSObject: AnyObject])

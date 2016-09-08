@@ -64,6 +64,9 @@
                 <a href="../Enums/HTTPResponseStatus.html">HTTPResponseStatus</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/HTTPResponseStatus/Category.html">– Category</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/TransactionResult.html">TransactionResult</a>
               </li>
             </ul>
@@ -547,7 +550,7 @@ can be stored in the <code>.Other</code> case.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes an <code><a href="../Enums/HTTPResponseStatus.html">HTTPResponseStatus</a></code> to the value represented by the given
+                        <p>Initializes an <code>HTTPResponseStatus</code> to the value represented by the given
 <code>Int</code>.</p>
 
                       </div>
@@ -634,7 +637,7 @@ can be stored in the <code>.Other</code> case.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">responseCategory</span><span class="p">:</span> <span class="kt">Category</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">responseCategory</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPResponseStatus/Category.html">Category</a></span></code></pre>
 
                         </div>
                       </div>
@@ -666,7 +669,7 @@ can be stored in the <code>.Other</code> case.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isInformational</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">return</span> <span class="n">responseCategory</span> <span class="o">==</span> <span class="o">.</span><span class="kt">Informational</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isInformational</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -694,7 +697,7 @@ can be stored in the <code>.Other</code> case.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSuccess</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">return</span> <span class="n">responseCategory</span> <span class="o">==</span> <span class="o">.</span><span class="kt">Success</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSuccess</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -722,7 +725,7 @@ can be stored in the <code>.Other</code> case.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isRedirect</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">return</span> <span class="n">responseCategory</span> <span class="o">==</span> <span class="o">.</span><span class="kt">Redirection</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isRedirect</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -750,7 +753,7 @@ can be stored in the <code>.Other</code> case.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isClientError</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">return</span> <span class="n">responseCategory</span> <span class="o">==</span> <span class="o">.</span><span class="kt">ClientError</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isClientError</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -778,7 +781,7 @@ can be stored in the <code>.Other</code> case.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isServerError</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">return</span> <span class="n">responseCategory</span> <span class="o">==</span> <span class="o">.</span><span class="kt">ServerError</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isServerError</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -806,7 +809,7 @@ can be stored in the <code>.Other</code> case.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isError</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">return</span> <span class="n">isClientError</span> <span class="o">||</span> <span class="n">isServerError</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isError</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -819,7 +822,7 @@ can be stored in the <code>.Other</code> case.</p>
         </section>
         <section id="footer">
           <p>© 2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
