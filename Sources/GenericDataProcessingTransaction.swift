@@ -52,7 +52,7 @@ public class GenericDataProcessingTransaction<T>: WrappingDataTransaction
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
      operations when needed.
      */
-    public init(wrapping: WrappedTransactionType, dataProcessor: DataProcessingFunction, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public init(wrapping: WrappedTransactionType, dataProcessor: @escaping DataProcessingFunction, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         _wrappedTransaction = wrapping
         processData = dataProcessor
@@ -67,7 +67,7 @@ public class GenericDataProcessingTransaction<T>: WrappingDataTransaction
      - parameter completion: A function that will be called upon completion
      of the transaction.
      */
-    public func executeTransaction(completion: Callback)
+    public func executeTransaction(completion: @escaping Callback)
     {
         let queue = queueProvider.queue
 

@@ -52,17 +52,17 @@ public enum HTTPResponseStatus
     /** The numeric HTTP status code. */
     public var statusCode: Int {
         switch self {
-        case ok:                    return 200
-        case created:               return 201
-        case noContent:             return 204
-        case badRequest:            return 400
-        case unauthorized:          return 401
-        case notFound:              return 404
-        case conflict:              return 409
-        case gone:                  return 410
-        case unprocessableEntity:	return 422
-        case badGateway:            return 502
-        case other(let code):       return code
+        case .ok:                   return 200
+        case .created:              return 201
+        case .noContent:            return 204
+        case .badRequest:           return 400
+        case .unauthorized:         return 401
+        case .notFound:             return 404
+        case .conflict:             return 409
+        case .gone:                 return 410
+        case .unprocessableEntity:  return 422
+        case .badGateway:           return 502
+        case .other(let code):      return code
         }
     }
 
@@ -75,17 +75,17 @@ public enum HTTPResponseStatus
     public init(_ statusCode: Int)
     {
         switch statusCode {
-        case 200:	self = ok
-        case 201:	self = created
-        case 204:	self = noContent
-        case 400:	self = badRequest
-        case 401:	self = unauthorized
-        case 404:	self = notFound
-        case 409:	self = conflict
-        case 410:	self = gone
-        case 422:	self = unprocessableEntity
-        case 502:	self = badGateway
-        default:    self = other(statusCode)
+        case 200:	self = .ok
+        case 201:	self = .created
+        case 204:	self = .noContent
+        case 400:	self = .badRequest
+        case 401:	self = .unauthorized
+        case 404:	self = .notFound
+        case 409:	self = .conflict
+        case 410:	self = .gone
+        case 422:	self = .unprocessableEntity
+        case 502:	self = .badGateway
+        case _:     self = .other(statusCode)
         }
     }
 }
@@ -121,7 +121,7 @@ extension HTTPResponseStatus
         case 200..<300: return .success
         case 300..<400: return .redirection
         case 400..<500: return .clientError
-        default:        return .serverError
+        case _:         return .serverError
         }
     }
 }

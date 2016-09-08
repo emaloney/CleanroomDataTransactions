@@ -91,7 +91,7 @@ public class URLTransaction: DataTransaction
      - parameter completion: A function that will be called upon completion
      of the transaction.
      */
-    public func executeTransaction(completion: Callback)
+    public func executeTransaction(completion: @escaping Callback)
     {
         guard task == nil else {
             completion(.failed(.alreadyInFlight))
@@ -124,15 +124,15 @@ public class URLTransaction: DataTransaction
                 return
             }
 
-            let meta = HTTPResponseMetadata(url: httpResp.url ?? strongSelf.url, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields)
+            let meta = HTTPResponseMetadata(url: httpResp.url ?? strongSelf.url, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields as [NSObject : AnyObject])
 
             completion(.succeeded(data, meta))
         }
 
         if let uploadData = uploadData {
-            task = session.uploadTask(with: request, from: uploadData, completionHandler: handler)
+            task = session.uploadTask(with: request, from: uploadData, completionHandler: handler as! (Data?, URLResponse?, Error?) -> Void)
         } else {
-            task = session.dataTask(with: request, completionHandler: handler)
+            task = session.dataTask(with: request, completionHandler: handler as! (Data?, URLResponse?, Error?) -> Void)
         }
 
         guard let task = task else {

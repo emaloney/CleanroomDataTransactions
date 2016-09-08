@@ -12,10 +12,10 @@ import Foundation
  An `ErrorType` that represents various errors that can occur when executing
  `DataTransaction`s.
  */
-public enum DataTransactionError: ErrorProtocol
+public enum DataTransactionError: Error
 {
     /** A `DataTransactionError` that wraps a generic `ErrorType`. */
-    case wrappedError(ErrorProtocol)
+    case wrappedError(Error)
 
     /** Contains an error message returned by a service. */
     case serviceError(String)
@@ -83,7 +83,7 @@ extension DataTransactionError
      already a `DataTransactionError`, it is simply returned as-is. Otherwise,
      `.WrappedError(error)` is returned.
      */
-    public static func wrap(_ error: ErrorProtocol)
+    public static func wrap(_ error: Error)
         -> DataTransactionError
     {
         if let error = error as? DataTransactionError {

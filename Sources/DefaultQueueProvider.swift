@@ -24,6 +24,6 @@ public struct DefaultQueueProvider: QueueProvider
 
     private init()
     {
-        queue = DispatchQueue(label: "CleanroomDataTransactions.DefaultQueueProvider", attributes: DispatchQueueAttributes.concurrent)
+        queue = DispatchQueue(label: "CleanroomDataTransactions.DefaultQueueProvider", attributes: .concurrent)
     }
 }

@@ -27,20 +27,20 @@ public class JSONTransaction<T>: WrappingDataTransaction
     /** The signature of the transaction metadata validation function. This
      function throws an exception if validation fails, causing the transaction
      itself to fail. */
-    public typealias MetadataValidationFunction = (metadata: MetadataType, data: Data?) throws -> Void
+    public typealias MetadataValidationFunction = (MetadataType, Data?) throws -> Void
 
     /** The signature of the JSON payload processing function. This function 
      attempts to convert the JSON data into the transaction payload of the
      type specified by receiver's `DataType`. The function throws an exception
      if payload processing fails, causing the transaction itself to fail. */
-    public typealias PayloadProcessingFunction = (payload: AnyObject?) throws -> DataType
+    public typealias PayloadProcessingFunction = (Any?) throws -> DataType
 
     /** If the payload processor succeeds, the resulting `DataType` and the
      transaction's metadata are passed to the payload validator, giving the
      transaction one final change to sanity-check the data and bail if there's
      a problem. The function throws an exception if payload validation fails,
      causing the transaction itself to fail. */
-    public typealias PayloadValidationFunction = (data: DataType, metadata: MetadataType) throws -> Void
+    public typealias PayloadValidationFunction = (DataType, MetadataType) throws -> Void
 
     /** The URL of the wrapped `DataTransaction`. */
     public var url: URL { return _wrappedTransaction.url as URL }
@@ -131,7 +131,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
      - parameter completion: A function that will be called upon completion
      of the transaction.
      */
-    public func executeTransaction(completion: Callback)
+    public func executeTransaction(completion: @escaping Callback)
     {
         _wrappedTransaction.executeTransaction() { result in
             switch result {
@@ -142,18 +142,18 @@ public class JSONTransaction<T>: WrappingDataTransaction
                 self.queueProvider.queue.async {
                     do {
                         
-                        try self.validateMetadata?(metadata: meta, data: data)
+                        try self.validateMetadata?(meta, data)
                         
-                        let json: AnyObject?
+                        let json: Any?
                         if data.count > 0 {
                             json = try JSONSerialization.jsonObject(with: data, options: self.jsonReadingOptions)
                         } else {
                             json = nil
                         }
 
-                        let payload = try self.processPayload(payload: json)
+                        let payload = try self.processPayload(json)
 
-                        try self.validatePayload?(data: payload, metadata: meta)
+                        try self.validatePayload?(payload, meta)
 
                         completion(.succeeded(payload, meta))
                     }
