@@ -26,6 +26,13 @@ Branch|Build status
 [`swift3`](https://github.com/emaloney/CleanroomDataTransactions/tree/swift3)|[![Build status: swift3 branch](https://travis-ci.org/emaloney/CleanroomDataTransactions.svg?branch=swift3)](https://travis-ci.org/emaloney/CleanroomDataTransactions)
 
 
+### License
+
+CleanroomDataTransactions is distributed under [the MIT license](https://github.com/emaloney/CleanroomDataTransactions/blob/master/LICENSE).
+
+CleanroomDataTransactions is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or apologies. *Caveat developer.*
+
+
 ### Adding CleanroomDataTransactions to your project
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
