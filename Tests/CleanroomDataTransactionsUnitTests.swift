@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import CleanroomDataTransactions
+import CleanroomDataTransactions
 
 class CleanroomDataTransactionsUnitTests: XCTestCase {
     
