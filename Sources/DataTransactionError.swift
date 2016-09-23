@@ -24,6 +24,11 @@ public enum DataTransactionError: ErrorType
      a message with additional details. */
     case DataFormatError(String)
 
+    /** An error indicating that JSON data is not in the expected format.
+     Contains a message with additional details, as well as an optional
+     `NSData` instance containing the source data of the JSON. */
+    case JSONFormatError(String, NSData?)
+
     /** The execution path taken by a `DataTransaction` has not been fully
      implemented. */
     case NotImplemented
@@ -107,6 +112,9 @@ extension DataTransactionError: CustomStringConvertible
 
         case .DataFormatError(let errorDescription):
             return "Data format error: \(errorDescription)"
+
+        case .JSONFormatError(let errorDescription, _):
+            return "JSON error: \(errorDescription)"
 
         case .NotImplemented:
             return "Nobody has written the code for the thing you’re trying to do."
