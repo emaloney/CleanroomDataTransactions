@@ -1,6 +1,6 @@
 language: objective-c
 xcode_project: CleanroomDataTransactions.xcodeproj
-osx_image: xcode8 
+osx_image: xcode8
 
 git:
   depth: 1
@@ -24,13 +24,12 @@ script:
 after_failure:
   - test -f "CleanroomDataTransactions-iOS-build.log" && tail -n 2500 "CleanroomDataTransactions-iOS-build.log"
   - test -f "CleanroomDataTransactions-iOS-test.log" && tail -n 2500 "CleanroomDataTransactions-iOS-test.log"
-  - test -f "CleanroomDataTransactions-iOS-test.log" && LINE=$(( $( cat "CleanroomDataTransactions-iOS-test.log" | grep -n "IDETestOperationsObserverDebug. Writing diagnostic log for test session to." | awk -F':' '{print $1}' ) + 1 )) && LOG_FILE=$( head -n $LINE "CleanroomDataTransactions-iOS-test.log" | tail -n 1 ) && cat "$LOG_FILE"
+  - test -f "CleanroomDataTransactions-iOS-test.log" && LINE_BEFORE=`cat "CleanroomDataTransactions-iOS-test.log" | grep -n "IDETestOperationsObserverDebug. Writing diagnostic log for test session to." | awk -F':' '{print $1}'` && LINE=`expr $LINE_BEFORE + 1` && LOG_FILE=`head -n $LINE "CleanroomDataTransactions-iOS-test.log" | tail -n 1` && cat "$LOG_FILE"
   - test -f "CleanroomDataTransactions-macOS-build.log" && tail -n 2500 "CleanroomDataTransactions-macOS-build.log"
   - test -f "CleanroomDataTransactions-macOS-test.log" && tail -n 2500 "CleanroomDataTransactions-macOS-test.log"
-  - test -f "CleanroomDataTransactions-macOS-test.log" && LINE=$(( $( cat "CleanroomDataTransactions-macOS-test.log" | grep -n "IDETestOperationsObserverDebug. Writing diagnostic log for test session to." | awk -F':' '{print $1}' ) + 1 )) && LOG_FILE=$( head -n $LINE "CleanroomDataTransactions-macOS-test.log" | tail -n 1 ) && cat "$LOG_FILE"
+  - test -f "CleanroomDataTransactions-macOS-test.log" && LINE_BEFORE=`cat "CleanroomDataTransactions-macOS-test.log" | grep -n "IDETestOperationsObserverDebug. Writing diagnostic log for test session to." | awk -F':' '{print $1}'` && LINE=`expr $LINE_BEFORE + 1` && LOG_FILE=`head -n $LINE "CleanroomDataTransactions-macOS-test.log" | tail -n 1` && cat "$LOG_FILE"
   - test -f "CleanroomDataTransactions-tvOS-build.log" && tail -n 2500 "CleanroomDataTransactions-tvOS-build.log"
   - test -f "CleanroomDataTransactions-tvOS-test.log" && tail -n 2500 "CleanroomDataTransactions-tvOS-test.log"
-  - test -f "CleanroomDataTransactions-tvOS-test.log" && LINE=$(( $( cat "CleanroomDataTransactions-tvOS-test.log" | grep -n "IDETestOperationsObserverDebug. Writing diagnostic log for test session to." | awk -F':' '{print $1}' ) + 1 )) && LOG_FILE=$( head -n $LINE "CleanroomDataTransactions-macOS-tvOS.log" | tail -n 1 ) && cat "$LOG_FILE"
+  - test -f "CleanroomDataTransactions-tvOS-test.log" && LINE_BEFORE=`cat "CleanroomDataTransactions-tvOS-test.log" | grep -n "IDETestOperationsObserverDebug. Writing diagnostic log for test session to." | awk -F':' '{print $1}'` && LINE=`expr $LINE_BEFORE + 1` && LOG_FILE=`head -n $LINE "CleanroomDataTransactions-tvOS-test.log" | tail -n 1` && cat "$LOG_FILE"
   - test -f "CleanroomDataTransactions-watchOS-build.log" && tail -n 2500 "CleanroomDataTransactions-watchOS-build.log"
-
 
