@@ -16,7 +16,7 @@ import UIKit
 public typealias PlatformImageType = UIImage
 #endif
 
-#if os(OSX)
+#if os(macOS)
 import AppKit
 
 /** Represents the image type appropriate for the runtime platform. On iOS and
