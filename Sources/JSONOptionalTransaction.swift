@@ -82,12 +82,12 @@ public class JSONOptionalTransaction<T>: JSONTransaction<T?>
 
 /**
  A concrete `JSONOptionalTransaction` type that accepts an optional JSON 
- payload that—if present—is expected to yield an `NSDictionary`.
+ payload that—if present—is expected to yield a `[String: Any]`.
  */
-public typealias JSONOptionalDictionaryTransaction = JSONOptionalTransaction<NSDictionary>
+public typealias JSONOptionalDictionaryTransaction = JSONOptionalTransaction<[String: Any]>
 
 /**
  A concrete `JSONOptionalTransaction` type that accepts an optional JSON
- payload that—if present—is expected to yield an `NSArray`.
+ payload that—if present—is expected to yield a `[Any]`.
  */
-public typealias JSONOptionalArrayTransaction = JSONOptionalTransaction<NSArray>
+public typealias JSONOptionalArrayTransaction = JSONOptionalTransaction<[Any]>

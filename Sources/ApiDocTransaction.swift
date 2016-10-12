@@ -74,13 +74,13 @@ public class ApiDocTransaction<T>: JSONTransaction<T>
 }
 
 /**
- A concrete `ApiDocTransaction` type that attempts to generate an `NSDictionary`
+ A concrete `ApiDocTransaction` type that attempts to generate a `[String: Any]`
  from JSON data returned by the wrapped transaction.
  */
-public typealias ApiDocDictionaryTransaction = ApiDocTransaction<NSDictionary>
+public typealias ApiDocDictionaryTransaction = ApiDocTransaction<[String: Any]>
 
 /**
- A concrete `ApiDocTransaction` type that attempts to generate an `NSArray`
+ A concrete `ApiDocTransaction` type that attempts to generate a `[Any]`
  from JSON data returned by the wrapped transaction.
  */
-public typealias ApiDocArrayTransaction = ApiDocTransaction<NSArray>
+public typealias ApiDocArrayTransaction = ApiDocTransaction<[Any]>

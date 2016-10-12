@@ -86,12 +86,12 @@ public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
 
 /**
  A concrete `ApiDocOptionalTransaction` type that accepts an optional JSON
- payload that—if present—is expected to yield an `NSDictionary`.
+ payload that—if present—is expected to yield a `[String: Any]`.
  */
-public typealias ApiDocOptionalDictionaryTransaction = ApiDocOptionalTransaction<NSDictionary>
+public typealias ApiDocOptionalDictionaryTransaction = ApiDocOptionalTransaction<[String: Any]>
 
 /**
  A concrete `ApiDocOptionalTransaction` type that accepts an optional JSON
- payload that—if present—is expected to yield an `NSArray`.
+ payload that—if present—is expected to yield a `[Any]`.
  */
-public typealias ApiDocOptionalArrayTransaction = ApiDocOptionalTransaction<NSArray>
+public typealias ApiDocOptionalArrayTransaction = ApiDocOptionalTransaction<[Any]>

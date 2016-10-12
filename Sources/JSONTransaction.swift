@@ -141,7 +141,6 @@ public class JSONTransaction<T>: WrappingDataTransaction
             case .succeeded(let data, let meta):
                 self.queueProvider.queue.async {
                     do {
-                        
                         try self.validateMetadata?(meta, data)
                         
                         let json: Any?
@@ -167,13 +166,13 @@ public class JSONTransaction<T>: WrappingDataTransaction
 }
 
 /**
- A concrete `JSONTransaction` type that attempts to generate an `NSDictionary`
+ A concrete `JSONTransaction` type that attempts to generate an `[String: Any]`
  from JSON data returned by the wrapped transaction.
  */
-public typealias JSONDictionaryTransaction = JSONTransaction<NSDictionary>
+public typealias JSONDictionaryTransaction = JSONTransaction<[String: Any]>
 
 /**
- A concrete `JSONTransaction` type that attempts to generate an `NSArray`
+ A concrete `JSONTransaction` type that attempts to generate an `[Any]`
  from JSON data returned by the wrapped transaction.
  */
-public typealias JSONArrayTransaction = JSONTransaction<NSArray>
+public typealias JSONArrayTransaction = JSONTransaction<[Any]>
