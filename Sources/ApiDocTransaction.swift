@@ -30,9 +30,9 @@ public class ApiDocTransaction<T>: JSONTransaction<T>
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
      operations when needed.
      */
-    public override init(url: URL, uploadData: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public override init(url: URL, upload data: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
-        super.init(url: url, uploadData: uploadData, queueProvider: queueProvider)
+        super.init(url: url, upload: data, queueProvider: queueProvider)
 
         validateMetadata = httpRequiredStatusCodeValidator
     }
@@ -49,9 +49,9 @@ public class ApiDocTransaction<T>: JSONTransaction<T>
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
      operations when needed.
      */
-    public override init(request: URLRequest, uploadData: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public override init(request: URLRequest, upload data: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
-        super.init(request: request, uploadData: uploadData, queueProvider: queueProvider)
+        super.init(request: request, upload: data, queueProvider: queueProvider)
 
         validateMetadata = httpRequiredStatusCodeValidator
     }

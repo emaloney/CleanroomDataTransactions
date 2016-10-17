@@ -67,3 +67,10 @@ public extension Dictionary
         return stringByHttpFormEncoding.data(using: .utf8)
     }
 }
+
+public extension Dictionary
+{
+    public var dataByJsonEncoding: Data? {
+        return try? JSONSerialization.data(withJSONObject: self, options: [])
+    }
+}

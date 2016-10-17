@@ -84,10 +84,10 @@ public class JSONTransaction<T>: WrappingDataTransaction
      - parameter queueProvider: Used to supply a GCD queue for asynchronous 
      operations when needed.
      */
-    public init(url: URL, uploadData: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public init(url: URL, upload data: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         self.queueProvider = queueProvider
-        _wrappedTransaction = WrappedTransactionType(url: url, uploadData: uploadData)
+        _wrappedTransaction = WrappedTransactionType(url: url, upload: data)
     }
 
     /**
@@ -102,10 +102,10 @@ public class JSONTransaction<T>: WrappingDataTransaction
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
      operations when needed.
      */
-    public init(request: URLRequest, uploadData: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public init(request: URLRequest, upload data: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
     {
         self.queueProvider = queueProvider
-        _wrappedTransaction = WrappedTransactionType(request: request, uploadData: uploadData)
+        _wrappedTransaction = WrappedTransactionType(request: request, upload: data)
     }
 
     /**

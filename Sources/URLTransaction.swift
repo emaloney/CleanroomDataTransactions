@@ -51,10 +51,10 @@ public class URLTransaction: DataTransaction
      - parameter sessionConfiguration: The `URLSessionConfiguration` used to
      create the `URLSession` for the transaction's request.
      */
-    public init(url: URL, uploadData: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default)
+    public init(url: URL, upload data: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default)
     {
         self.request = URLRequest(url: url)
-        self.uploadData = uploadData
+        self.uploadData = data
         self.sessionConfiguration = sessionConfiguration
     }
 
@@ -68,12 +68,12 @@ public class URLTransaction: DataTransaction
      - parameter sessionConfiguration: The `URLSessionConfiguration` used to
      create the `URLSession` for the transaction's request.
      */
-    public init(request: URLRequest, uploadData: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default)
+    public init(request: URLRequest, upload data: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default)
     {
         precondition(request.url != nil)
 
         self.request = request
-        self.uploadData = uploadData
+        self.uploadData = data
         self.sessionConfiguration = sessionConfiguration
     }
 
@@ -101,7 +101,7 @@ public class URLTransaction: DataTransaction
         // create a delegate-free session & fire the request
         let session = URLSession(configuration: sessionConfiguration)
 
-        let handler: (Data?, URLResponse?, NSError?) -> Void = { [weak self] data, response, error in
+        let handler: (Data?, URLResponse?, Error?) -> Void = { [weak self] data, response, error in
             guard let strongSelf = self else {
                 completion(.failed(.canceled))
                 return
@@ -130,9 +130,9 @@ public class URLTransaction: DataTransaction
         }
 
         if let uploadData = uploadData {
-            task = session.uploadTask(with: request, from: uploadData, completionHandler: handler as! (Data?, URLResponse?, Error?) -> Void)
+            task = session.uploadTask(with: request, from: uploadData, completionHandler: handler)
         } else {
-            task = session.dataTask(with: request, completionHandler: handler as! (Data?, URLResponse?, Error?) -> Void)
+            task = session.dataTask(with: request, completionHandler: handler)
         }
 
         guard let task = task else {
