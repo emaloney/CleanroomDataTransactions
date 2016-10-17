@@ -1,0 +1,12 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/HTTPResponseMetadata.swift",
+      "line": 31,
+      "symbol": "HTTPResponseMetadata.init(url:responseStatusCode:mimeType:textEncoding:httpHeaders:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions"
+}

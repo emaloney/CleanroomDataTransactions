@@ -63,6 +63,9 @@
                 <a href="Enums/HTTPResponseStatus.html">HTTPResponseStatus</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/HTTPResponseStatus/Category.html">– Category</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/TransactionResult.html">TransactionResult</a>
               </li>
             </ul>
@@ -71,19 +74,19 @@
             <a href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpOptionalStatusCodeValidator(_:data:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_">httpOptionalStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpRequiredStatusCodeValidator(_:data:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_">httpRequiredStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqPs9AnyObject__GSqx_">optionalPayloadProcessor(_:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqP__GSqx_">optionalPayloadProcessor(_:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions21platformImageFromDataFzCSo6NSDataCSo7UIImage">platformImageFromData(_:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions13platformImageFzT8fromDataV10Foundation4Data_CSo7NSImage">platformImage(fromData:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzGSqPs9AnyObject__x">requiredPayloadProcessor(_:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzGSqP__x">requiredPayloadProcessor(_:)</a>
               </li>
             </ul>
           </li>
@@ -159,42 +162,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:P25CleanroomDataTransactions23WrappingDataTransaction"></a>
-                    <a name="//apple_ref/swift/Protocol/WrappingDataTransaction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P25CleanroomDataTransactions23WrappingDataTransaction">WrappingDataTransaction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Represents a <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> that wraps another <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> of
-a potentially different type.</p>
-
-<p>When a <code>WrappingDataTransaction</code> is executed, it may also execute the
-wrapped <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> in order to perform some of its work.</p>
-
-                        <a href="Protocols/WrappingDataTransaction.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">WrappingDataTransaction</span><span class="p">:</span> <span class="kt">DataTransaction</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:P25CleanroomDataTransactions15DataTransaction"></a>
                     <a name="//apple_ref/swift/Protocol/DataTransaction" class="dashAnchor"></a>
                     <a class="token" href="#/s:P25CleanroomDataTransactions15DataTransaction">DataTransaction</a>
@@ -227,6 +194,42 @@ wrapped <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:P25CleanroomDataTransactions23WrappingDataTransaction"></a>
+                    <a name="//apple_ref/swift/Protocol/WrappingDataTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P25CleanroomDataTransactions23WrappingDataTransaction">WrappingDataTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents a <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> that wraps another <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> of
+a potentially different type.</p>
+
+<p>When a <code>WrappingDataTransaction</code> is executed, it may also execute the
+wrapped <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> in order to perform some of its work.</p>
+
+                        <a href="Protocols/WrappingDataTransaction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">WrappingDataTransaction</span><span class="p">:</span> <span class="kt"><a href="Protocols/DataTransaction.html">DataTransaction</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:P25CleanroomDataTransactions13QueueProvider"></a>
                     <a name="//apple_ref/swift/Protocol/QueueProvider" class="dashAnchor"></a>
                     <a class="token" href="#/s:P25CleanroomDataTransactions13QueueProvider">QueueProvider</a>
@@ -239,7 +242,7 @@ wrapped <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code
                       <div class="abstract">
                         <p>Certain <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code>s perform asynchronous operations using Grand Central
 Dispatch. Such <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code>s will typically be given a <code>QueueProvider</code>
-at instantiation to supply a <code>dispatch_queue_t</code> when needed.</p>
+at instantiation to supply a <code>DispatchQueue</code> when needed.</p>
 
 <p>By supplying a <code>QueueProvider</code> rather than a specific queue, reusable
 <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code>s can be supplied with different queues over time.</p>
@@ -263,7 +266,7 @@ at instantiation to supply a <code>dispatch_queue_t</code> when needed.</p>
         </section>
         <section id="footer">
           <p>© 2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

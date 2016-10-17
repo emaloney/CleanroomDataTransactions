@@ -11,7 +11,7 @@ CleanroomDataTransactions is part of [the Cleanroom Project](https://github.com/
 
 **Important:** This is the `swift3` branch. It uses **Swift 3.0** and **requires Xcode 8** to compile.
 
-The `swift3` branch is still under active development. Expect breaking changes to the API, the build system and/or the project structure at any time. **Be sure to lock against a specific commit if you simultaneously require Swift 3 and stability.**
+This branch is still under active development. Expect breaking changes to the API, the build system and/or the project structure at any time. **Be sure to lock against a specific commit if you simultaneously require Swift 3 and stability.**
 
 If you need Swift 2.3 compatibility, use the [`master`](https://github.com/emaloney/CleanroomDataTransactions) branch, which requires Xcode 8.
 
@@ -34,16 +34,25 @@ CleanroomDataTransactions is provided for your use—free-of-charge—on an as-i
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-You’ll need to [integrate CleanroomDataTransactions into your project](https://github.com/emaloney/CleanroomDataTransactions/blob/swift3/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomDataTransactions/swift3/Documentation/API/index.html) it provides. You can choose:
+The simplest way to integrate CleanroomDataTransactions is with the [Carthage](https://github.com/Carthage/Carthage) dependency manager.
 
-- [Manual integration](https://github.com/emaloney/CleanroomDataTransactions/blob/swift3/INTEGRATION.md#manual-integration), wherein you embed CleanroomDataTransactions’s Xcode project within your own, **_or_**
-- [Using the Carthage dependency manager](https://github.com/emaloney/CleanroomDataTransactions/blob/swift3/INTEGRATION.md#carthage-integration) to build a framework that you then embed in your application.
+First, add this line to your [`Cartfile`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
-Once integrated, just add the following `import` statement to any Swift file where you want to use CleanroomDataTransactions:
+```
+github "emaloney/CleanroomDataTransactions" ~> 0.2.0
+```
+
+Then, use the `carthage` command to [update your dependencies](https://github.com/Carthage/Carthage#upgrading-frameworks).
+
+Finally, you’ll need to [integrate CleanroomDataTransactions into your project](https://github.com/emaloney/CleanroomDataTransactions/blob/swift3/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomDataTransactions/swift3/Documentation/API/index.html) it provides.
+
+Once successfully integrated, just add the following `import` statement to any Swift file where you want to use CleanroomDataTransactions:
 
 ```swift
 import CleanroomDataTransactions
 ```
+
+See [the Integration document](https://github.com/emaloney/CleanroomDataTransactions/blob/swift3/INTEGRATION.md) for additional details on integrating CleanroomDataTransactions into your project.
 
 
 ### API documentation
