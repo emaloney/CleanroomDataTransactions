@@ -13,7 +13,7 @@ import Foundation
  */
 public struct HTTPResponseMetadata
 {
-    /** The `NSURL` of the originating HTTP request. */
+    /** The `URL` of the originating HTTP request. */
     public let url: URL
 
     /** The status code of the HTTP response. */
@@ -26,15 +26,15 @@ public struct HTTPResponseMetadata
     public let textEncoding: String?
 
     /** The HTTP response header fields. */
-    public let httpHeaders: [String: AnyObject]
+    public let httpHeaders: [String: String]
 
-    public init(url: URL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [NSObject: AnyObject])
+    public init(url: URL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [String: String])
     {
         self.url = url
         self.responseStatusCode = responseStatusCode
         self.mimeType = mimeType
         self.textEncoding = textEncoding
-        self.httpHeaders = httpHeaders as! [String: AnyObject]
+        self.httpHeaders = httpHeaders
     }
 }
 

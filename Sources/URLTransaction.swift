@@ -35,7 +35,7 @@ public class URLTransaction: DataTransaction
      transaction. */
     public let uploadData: Data?
 
-    /** The `NSURLSessionConfiguration` used to create the `NSURLSession`
+    /** The `URLSessionConfiguration` used to create the `URLSession`
      for the transaction's request. */
     public let sessionConfiguration: URLSessionConfiguration
 
@@ -48,8 +48,8 @@ public class URLTransaction: DataTransaction
      
      - parameter uploadData: Optional data to send to the network service.
      
-     - parameter sessionConfiguration: The `NSURLSessionConfiguration` used to 
-     create the `NSURLSession` for the transaction's request.
+     - parameter sessionConfiguration: The `URLSessionConfiguration` used to
+     create the `URLSession` for the transaction's request.
      */
     public init(url: URL, uploadData: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default)
     {
@@ -65,8 +65,8 @@ public class URLTransaction: DataTransaction
 
      - parameter uploadData: Optional data to send to the network service.
 
-     - parameter sessionConfiguration: The `NSURLSessionConfiguration` used to
-     create the `NSURLSession` for the transaction's request.
+     - parameter sessionConfiguration: The `URLSessionConfiguration` used to
+     create the `URLSession` for the transaction's request.
      */
     public init(request: URLRequest, uploadData: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default)
     {
@@ -124,7 +124,7 @@ public class URLTransaction: DataTransaction
                 return
             }
 
-            let meta = HTTPResponseMetadata(url: httpResp.url ?? strongSelf.url, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields as [NSObject : AnyObject])
+            let meta = HTTPResponseMetadata(url: httpResp.url ?? strongSelf.url, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields as! [String: String])
 
             completion(.succeeded(data, meta))
         }

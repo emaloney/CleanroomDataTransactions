@@ -6,6 +6,8 @@
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
+import Foundation
+
 /**
  A `PayloadProcessingFunction` that requires `jsonObject` to be an instance
  of type `T`.
@@ -17,12 +19,12 @@
  - throws: A `DataTransactionError` if `jsonObject` could not be cast to
  type `T`.
  */
-public func requiredPayloadProcessor<T>(_ jsonObject: Any?)
+public func requiredPayloadProcessor<T>(jsonObject: Any?, jsonData: Data?)
     throws
     -> T
 {
     guard let typed = jsonObject as? T else {
-        throw DataTransactionError.dataFormatError("Expecting JSON data to be a type of \(T.self); got \(type(of: jsonObject)) instead")
+        throw DataTransactionError.jsonFormatError("Expecting JSON data to be a type of \(T.self); got \(type(of: jsonObject)) instead", jsonData)
     }
     return typed
 }
@@ -38,7 +40,7 @@ public func requiredPayloadProcessor<T>(_ jsonObject: Any?)
  - throws: A `DataTransactionError` if `jsonObject` is non-`nil` and could not
  be cast to type `T`.
  */
-public func optionalPayloadProcessor<T>(_ jsonObject: Any?)
+public func optionalPayloadProcessor<T>(jsonObject: Any?, jsonData: Data?)
     throws
     -> T?
 {
@@ -47,7 +49,7 @@ public func optionalPayloadProcessor<T>(_ jsonObject: Any?)
     }
 
     guard let typed = object as? T else {
-        throw DataTransactionError.dataFormatError("Expecting JSON data to be a type of \(T.self); got \(type(of: object)) instead")
+        throw DataTransactionError.jsonFormatError("Expecting JSON data to be a type of \(T.self); got \(type(of: object)) instead", jsonData)
     }
 
     return typed

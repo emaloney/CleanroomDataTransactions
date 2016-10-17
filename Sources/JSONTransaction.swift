@@ -33,14 +33,14 @@ public class JSONTransaction<T>: WrappingDataTransaction
      attempts to convert the JSON data into the transaction payload of the
      type specified by receiver's `DataType`. The function throws an exception
      if payload processing fails, causing the transaction itself to fail. */
-    public typealias PayloadProcessingFunction = (Any?) throws -> DataType
+    public typealias PayloadProcessingFunction = (Any?, Data?) throws -> DataType
 
     /** If the payload processor succeeds, the resulting `DataType` and the
      transaction's metadata are passed to the payload validator, giving the
      transaction one final change to sanity-check the data and bail if there's
      a problem. The function throws an exception if payload validation fails,
      causing the transaction itself to fail. */
-    public typealias PayloadValidationFunction = (DataType, MetadataType) throws -> Void
+    public typealias PayloadValidationFunction = (DataType, Data?, MetadataType) throws -> Void
 
     /** The URL of the wrapped `DataTransaction`. */
     public var url: URL { return _wrappedTransaction.url as URL }
@@ -150,9 +150,9 @@ public class JSONTransaction<T>: WrappingDataTransaction
                             json = nil
                         }
 
-                        let payload = try self.processPayload(json)
+                        let payload = try self.processPayload(json, data)
 
-                        try self.validatePayload?(payload, meta)
+                        try self.validatePayload?(payload, data, meta)
 
                         completion(.succeeded(payload, meta))
                     }

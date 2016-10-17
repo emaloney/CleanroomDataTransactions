@@ -24,6 +24,11 @@ public enum DataTransactionError: Error
      a message with additional details. */
     case dataFormatError(String)
 
+    /** An error indicating that JSON data is not in the expected format.
+     Contains a message with additional details, as well as an optional
+     `Data` instance containing the source data of the JSON. */
+    case jsonFormatError(String, Any?)
+
     /** The execution path taken by a `DataTransaction` has not been fully
      implemented. */
     case notImplemented
@@ -34,7 +39,7 @@ public enum DataTransactionError: Error
     /** The transaction protocol has been implemented incorrectly. */
     case badImplementation
 
-    /** Failed to create an `NSURLSessionTask` for the transaction. */
+    /** Failed to create a `URLSessionTask` for the transaction. */
     case sessionTaskNotCreated
 
     /** Use of the HTTP protocol is required for the given transaction, but
@@ -59,7 +64,7 @@ public enum DataTransactionError: Error
     /** The transaction expired before it completed. */
     case expired
 
-    /** The given string could not be converted into an `NSURL` instance. */
+    /** The given string could not be converted into a `URL` instance. */
     case invalidURL(String)
 
     /** An unexpected HTTP response code was returned for the transaction. */
@@ -107,6 +112,9 @@ extension DataTransactionError: CustomStringConvertible
 
         case .dataFormatError(let errorDescription):
             return "Data format error: \(errorDescription)"
+
+        case .jsonFormatError(let errorDescription, _):
+            return "JSON error: \(errorDescription)"
 
         case .notImplemented:
             return "Nobody has written the code for the thing you’re trying to do."
