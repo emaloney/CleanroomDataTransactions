@@ -75,19 +75,19 @@
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpOptionalStatusCodeValidator(_:data:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzT4metaGSqx_4dataGSqCSo6NSData__T_">httpOptionalStatusCodeValidator(meta:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqCSo6NSData__T_">httpRequiredStatusCodeValidator(_:data:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzT4metaGSqx_4dataGSqCSo6NSData__T_">httpRequiredStatusCodeValidator(meta:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqPs9AnyObject__GSqx_">optionalPayloadProcessor(_:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzT10jsonObjectGSqPs9AnyObject__8jsonDataGSqCSo6NSData__GSqx_">optionalPayloadProcessor(jsonObject:jsonData:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions21platformImageFromDataFzCSo6NSDataCSo7UIImage">platformImageFromData(_:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions21platformImageFromDataFzT4dataCSo6NSData_CSo7UIImage">platformImageFromData(data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzGSqPs9AnyObject__x">requiredPayloadProcessor(_:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzT10jsonObjectGSqPs9AnyObject__8jsonDataGSqCSo6NSData__x">requiredPayloadProcessor(jsonObject:jsonData:)</a>
               </li>
             </ul>
           </li>
@@ -170,9 +170,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO25CleanroomDataTransactions20DataTransactionError12WrappedErrorFMS0_FPs9ErrorType_S0_"></a>
+                    <a name="/s:FO25CleanroomDataTransactions20DataTransactionError12WrappedErrorERR"></a>
                     <a name="//apple_ref/swift/Element/WrappedError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO25CleanroomDataTransactions20DataTransactionError12WrappedErrorFMS0_FPs9ErrorType_S0_">WrappedError</a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions20DataTransactionError12WrappedErrorERR">WrappedError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -251,6 +251,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="k">case</span> <span class="kt">DataFormatError</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO25CleanroomDataTransactions20DataTransactionError15JSONFormatErrorFMS0_FTSSGSqCSo6NSData__S0_"></a>
+                    <a name="//apple_ref/swift/Element/JSONFormatError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions20DataTransactionError15JSONFormatErrorFMS0_FTSSGSqCSo6NSData__S0_">JSONFormatError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An error indicating that JSON data is not in the expected format.
+ Contains a message with additional details, as well as an optional
+ <code>NSData</code> instance containing the source data of the JSON.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">JSONFormatError</span><span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">NSData</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -705,9 +738,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFO25CleanroomDataTransactions20DataTransactionError4wrapFPs9ErrorType_S0_"></a>
-                    <a name="//apple_ref/swift/Method/wrap(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFO25CleanroomDataTransactions20DataTransactionError4wrapFPs9ErrorType_S0_">wrap(_:)</a>
+                    <a name="/s:ZFO25CleanroomDataTransactions20DataTransactionError4wrapERR"></a>
+                    <a name="//apple_ref/swift/Method/wrap(error:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFO25CleanroomDataTransactions20DataTransactionError4wrapERR">wrap(error:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -787,7 +820,7 @@
         </section>
         <section id="footer">
           <p>© 2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
