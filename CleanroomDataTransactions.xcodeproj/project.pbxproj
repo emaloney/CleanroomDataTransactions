@@ -26,6 +26,7 @@
 		3B475CC61DB46D6A0047D397 /* WrappingDataTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475CB51DB46D6A0047D397 /* WrappingDataTransaction.swift */; };
 		3B475CC91DB46D790047D397 /* CleanroomDataTransactionsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475CC81DB46D790047D397 /* CleanroomDataTransactionsUnitTests.swift */; };
 		3B90590D1DAECB5200B4EEC0 /* CleanroomDataTransactions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9059031DAECB5200B4EEC0 /* CleanroomDataTransactions.framework */; };
+		3BF4691E1DB53EB900625500 /* EncodingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4691D1DB53EB900625500 /* EncodingExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 		3B90592B1DAECD9800B4EEC0 /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
 		3B90592C1DAECD9800B4EEC0 /* Info-Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Tests.plist"; sourceTree = "<group>"; };
+		3BF4691D1DB53EB900625500 /* EncodingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				3B475CA71DB46D6A0047D397 /* DataTransaction.swift */,
 				3B475CA81DB46D6A0047D397 /* DataTransactionError.swift */,
 				3B475CA91DB46D6A0047D397 /* DefaultQueueProvider.swift */,
+				3BF4691D1DB53EB900625500 /* EncodingExtensions.swift */,
 				3B475CAA1DB46D6A0047D397 /* FetchImageTransaction.swift */,
 				3B475CAB1DB46D6A0047D397 /* GenericDataProcessingTransaction.swift */,
 				3B475CAC1DB46D6A0047D397 /* HTTPResponseMetadata.swift */,
@@ -283,6 +286,7 @@
 				3B475CC61DB46D6A0047D397 /* WrappingDataTransaction.swift in Sources */,
 				3B475CC41DB46D6A0047D397 /* QueueProvider.swift in Sources */,
 				3B475CC11DB46D6A0047D397 /* JSONOptionalTransaction.swift in Sources */,
+				3BF4691E1DB53EB900625500 /* EncodingExtensions.swift in Sources */,
 				3B475CBD1DB46D6A0047D397 /* HTTPResponseMetadata.swift in Sources */,
 				3B475CBE1DB46D6A0047D397 /* HTTPResponseStatus.swift in Sources */,
 				3B475CBB1DB46D6A0047D397 /* FetchImageTransaction.swift in Sources */,
