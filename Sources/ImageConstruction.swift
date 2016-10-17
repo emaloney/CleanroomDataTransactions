@@ -12,7 +12,8 @@ import Foundation
 import UIKit
 
 /** Represents the image type appropriate for the runtime platform. On iOS and
- tvOS, `PlatformImageType` is `UIImage`; on Mac OS X, it is `NSImage`. */
+ tvOS, `PlatformImageType` is `UIImage`; on macOS, `NSImage`; and on watchOS,
+ `WKImage`. */
 public typealias PlatformImageType = UIImage
 #endif
 
@@ -20,8 +21,33 @@ public typealias PlatformImageType = UIImage
 import AppKit
 
 /** Represents the image type appropriate for the runtime platform. On iOS and
- tvOS, `PlatformImageType` is `UIImage`; on Mac OS X, it is `NSImage`. */
+ tvOS, `PlatformImageType` is `UIImage`; on macOS, `NSImage`; and on watchOS,
+ `WKImage`. */
 public typealias PlatformImageType = NSImage
+#endif
+
+#if os(watchOS)
+import WatchKit
+
+/** Represents the image type appropriate for the runtime platform. On iOS and
+ tvOS, `PlatformImageType` is `UIImage`; on macOS, `NSImage`; and on watchOS,
+ `WKImage`. */
+public typealias PlatformImageType = WKImage
+
+// compatibility shim
+extension WKImage
+{
+    /**
+     A compatibility shim for the `PlatformImageType`; proxies this call
+     to `self.init(imageData: data)`.
+     
+     - parameter data: The image data.
+     */
+    public convenience init?(data: Data)
+    {
+        self.init(imageData: data)
+    }
+}
 #endif
 
 /**
