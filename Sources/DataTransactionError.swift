@@ -26,7 +26,7 @@ public enum DataTransactionError: Error
 
     /** An error indicating that JSON data is not in the expected format.
      Contains a message with additional details, as well as an optional
-     `Data` instance containing the source data of the JSON. */
+     object instance containing the source data of the JSON. */
     case jsonFormatError(String, Any?)
 
     /** The execution path taken by a `DataTransaction` has not been fully
