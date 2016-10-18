@@ -1,6 +1,69 @@
 {
   "warnings": [
     {
+      "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/EncodingExtensions.swift",
+      "line": 13,
+      "symbol": "String.stringByUrlPathEncoding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/EncodingExtensions.swift",
+      "line": 17,
+      "symbol": "String.dataByUrlPathEncoding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/EncodingExtensions.swift",
+      "line": 21,
+      "symbol": "String.stringByHttpFormEncoding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/EncodingExtensions.swift",
+      "line": 25,
+      "symbol": "String.dataByHttpFormEncoding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/EncodingExtensions.swift",
+      "line": 32,
+      "symbol": "Dictionary.stringByUrlPathEncoding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/EncodingExtensions.swift",
+      "line": 47,
+      "symbol": "Dictionary.dataByUrlPathEncoding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/EncodingExtensions.swift",
+      "line": 51,
+      "symbol": "Dictionary.stringByHttpFormEncoding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/EncodingExtensions.swift",
+      "line": 66,
+      "symbol": "Dictionary.dataByHttpFormEncoding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/EncodingExtensions.swift",
+      "line": 73,
+      "symbol": "Dictionary.dataByJsonEncoding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/emaloney/Documents/Code/CleanroomProject/CleanroomDataTransactions/Sources/HTTPResponseMetadata.swift",
       "line": 31,
       "symbol": "HTTPResponseMetadata.init(url:responseStatusCode:mimeType:textEncoding:httpHeaders:)",

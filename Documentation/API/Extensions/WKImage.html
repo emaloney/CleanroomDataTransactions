@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FetchImageTransaction Class Reference</title>
+    <title>WKImage Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/FetchImageTransaction" class="dashAnchor"></a>
-    <a title="FetchImageTransaction Class Reference"></a>
+    <a name="//apple_ref/swift/Extension/WKImage" class="dashAnchor"></a>
+    <a title="WKImage Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomDataTransactions Docs</a> (93% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomDataTransactions Reference</a>
         <img id="carat" src="../img/carat.png" />
-        FetchImageTransaction Class Reference
+        WKImage Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -167,23 +167,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>FetchImageTransaction</h1>
-              <div class="declaration">
-                <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FetchImageTransaction</span><span class="p">:</span> <span class="kt"><a href="../Classes/GenericDataProcessingTransaction.html">GenericDataProcessingTransaction</a></span><span class="o">&lt;</span><span class="kt"><a href="../Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a></span><span class="o">&gt;</span></code></pre>
-
-                </div>
-              </div>
-            <p>Attempts to construct a platform-appropriate image object by fetching image
-data from the given URL.</p>
-
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    <code><a href="../Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a></code> represents the image type appropriate for the
-runtime platform. On iOS and tvOS, it maps to <code>UIImage</code>; on Mac OS X, it&rsquo;s
-<code>NSImage</code>.
-
-</div>
+            <h1>WKImage</h1>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -192,9 +177,9 @@ runtime platform. On iOS and tvOS, it maps to <code>UIImage</code>; on Mac OS X,
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions21FetchImageTransactioncFT3urlV10Foundation3URL13queueProviderPS_13QueueProvider__S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(url:queueProvider:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions21FetchImageTransactioncFT3urlV10Foundation3URL13queueProviderPS_13QueueProvider__S0_">init(url:queueProvider:)</a>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Method/init(data:)" class="dashAnchor"></a>
+                    <a class="token" href="#/">init(data:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -202,50 +187,8 @@ runtime platform. On iOS and tvOS, it maps to <code>UIImage</code>; on Mac OS X,
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a <code>FetchImageTransaction</code> to retrieve image data from the 
-specified URL.</p>
+                        <p>Undocumented</p>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">queueProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/QueueProvider.html">QueueProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a></span><span class="o">.</span><span class="n">instance</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>url</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The URL from which to fetch image data.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>queueProvider</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Used to supply a GCD queue for asynchronous operations when needed.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>

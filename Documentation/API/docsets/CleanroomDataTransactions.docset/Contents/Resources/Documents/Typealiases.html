@@ -13,7 +13,7 @@
     <a title="Typealiases  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">CleanroomDataTransactions Docs</a> (99% documented)</p>
+        <p><a href="index.html">CleanroomDataTransactions Docs</a> (93% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -71,6 +71,20 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/WKImage.html">WKImage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -80,13 +94,13 @@
                 <a href="Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_">httpRequiredStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqP__GSqx_">optionalPayloadProcessor(_:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__GSqx_">optionalPayloadProcessor(jsonObject:jsonData:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="Functions.html#/s:F25CleanroomDataTransactions13platformImageFzT8fromDataV10Foundation4Data_CSo7NSImage">platformImage(fromData:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzGSqP__x">requiredPayloadProcessor(_:)</a>
+                <a href="Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__x">requiredPayloadProcessor(jsonObject:jsonData:)</a>
               </li>
             </ul>
           </li>
@@ -282,34 +296,6 @@ from JSON data returned by the wrapped transaction.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction"></a>
-                    <a name="//apple_ref/swift/Alias/ApiDocOptionalArrayTransaction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction">ApiDocOptionalArrayTransaction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A concrete <code><a href="Classes/ApiDocOptionalTransaction.html">ApiDocOptionalTransaction</a></code> type that accepts an optional JSON
-payload that—if present—is expected to yield a <code>[Any]</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ApiDocOptionalArrayTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/ApiDocOptionalTransaction.html">ApiDocOptionalTransaction</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Any</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:25CleanroomDataTransactions35ApiDocOptionalDictionaryTransaction"></a>
                     <a name="//apple_ref/swift/Alias/ApiDocOptionalDictionaryTransaction" class="dashAnchor"></a>
                     <a class="token" href="#/s:25CleanroomDataTransactions35ApiDocOptionalDictionaryTransaction">ApiDocOptionalDictionaryTransaction</a>
@@ -335,16 +321,12 @@ payload that—if present—is expected to yield a <code>[String: Any]</code>.</
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction"></a>
-                    <a name="//apple_ref/swift/Alias/JSONOptionalArrayTransaction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+                    <a name="/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/ApiDocOptionalArrayTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction">ApiDocOptionalArrayTransaction</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -352,7 +334,7 @@ payload that—if present—is expected to yield a <code>[String: Any]</code>.</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A concrete <code><a href="Classes/JSONOptionalTransaction.html">JSONOptionalTransaction</a></code> type that accepts an optional JSON
+                        <p>A concrete <code><a href="Classes/ApiDocOptionalTransaction.html">ApiDocOptionalTransaction</a></code> type that accepts an optional JSON
 payload that—if present—is expected to yield a <code>[Any]</code>.</p>
 
                       </div>
@@ -360,13 +342,17 @@ payload that—if present—is expected to yield a <code>[Any]</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONOptionalArrayTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/JSONOptionalTransaction.html">JSONOptionalTransaction</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Any</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ApiDocOptionalArrayTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/ApiDocOptionalTransaction.html">ApiDocOptionalTransaction</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Any</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -395,6 +381,34 @@ payload that—if present—is expected to yield a <code>[String: Any]</code>.</
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/JSONOptionalArrayTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A concrete <code><a href="Classes/JSONOptionalTransaction.html">JSONOptionalTransaction</a></code> type that accepts an optional JSON
+payload that—if present—is expected to yield a <code>[Any]</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONOptionalArrayTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/JSONOptionalTransaction.html">JSONOptionalTransaction</a></span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Any</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -413,7 +427,8 @@ payload that—if present—is expected to yield a <code>[String: Any]</code>.</
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Represents the image type appropriate for the runtime platform. On iOS and
- tvOS, <code>PlatformImageType</code> is <code>UIImage</code>; on Mac OS X, it is <code>NSImage</code>.</p>
+ tvOS, <code>PlatformImageType</code> is <code>UIImage</code>; on macOS, <code>NSImage</code>; and on watchOS,
+ <code>WKImage</code>.</p>
 
                       </div>
                       <div class="declaration">

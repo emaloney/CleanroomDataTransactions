@@ -14,7 +14,7 @@
     <a title="URLTransaction Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (99% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (93% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -72,6 +72,20 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/WKImage.html">WKImage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -81,13 +95,13 @@
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_">httpRequiredStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqP__GSqx_">optionalPayloadProcessor(_:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__GSqx_">optionalPayloadProcessor(jsonObject:jsonData:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions13platformImageFzT8fromDataV10Foundation4Data_CSo7NSImage">platformImage(fromData:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzGSqP__x">requiredPayloadProcessor(_:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__x">requiredPayloadProcessor(jsonObject:jsonData:)</a>
               </li>
             </ul>
           </li>
@@ -268,7 +282,7 @@ was sent via HTTP or HTTPS, the transaction metadata will contain an
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>NSURLSessionConfiguration</code> used to create the <code>NSURLSession</code>
+                        <p>The <code>URLSessionConfiguration</code> used to create the <code>URLSession</code>
  for the transaction&rsquo;s request.</p>
 
                       </div>
@@ -286,9 +300,9 @@ was sent via HTTP or HTTPS, the transaction metadata will contain an
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions14URLTransactioncFT3urlV10Foundation3URL10uploadDataGSqVS1_4Data_20sessionConfigurationCSo23URLSessionConfiguration_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(url:uploadData:sessionConfiguration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions14URLTransactioncFT3urlV10Foundation3URL10uploadDataGSqVS1_4Data_20sessionConfigurationCSo23URLSessionConfiguration_S0_">init(url:uploadData:sessionConfiguration:)</a>
+                    <a name="/s:FC25CleanroomDataTransactions14URLTransactioncFT3urlV10Foundation3URL6uploadGSqVS1_4Data_20sessionConfigurationCSo23URLSessionConfiguration_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(url:upload:sessionConfiguration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions14URLTransactioncFT3urlV10Foundation3URL6uploadGSqVS1_4Data_20sessionConfigurationCSo23URLSessionConfiguration_S0_">init(url:upload:sessionConfiguration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -303,7 +317,7 @@ was sent via HTTP or HTTPS, the transaction metadata will contain an
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sessionConfiguration</span><span class="p">:</span> <span class="kt">URLSessionConfiguration</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="n">upload</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sessionConfiguration</span><span class="p">:</span> <span class="kt">URLSessionConfiguration</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -313,9 +327,9 @@ was sent via HTTP or HTTPS, the transaction metadata will contain an
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions14URLTransactioncFT7requestV10Foundation10URLRequest10uploadDataGSqVS1_4Data_20sessionConfigurationCSo23URLSessionConfiguration_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(request:uploadData:sessionConfiguration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions14URLTransactioncFT7requestV10Foundation10URLRequest10uploadDataGSqVS1_4Data_20sessionConfigurationCSo23URLSessionConfiguration_S0_">init(request:uploadData:sessionConfiguration:)</a>
+                    <a name="/s:FC25CleanroomDataTransactions14URLTransactioncFT7requestV10Foundation10URLRequest6uploadGSqVS1_4Data_20sessionConfigurationCSo23URLSessionConfiguration_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(request:upload:sessionConfiguration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions14URLTransactioncFT7requestV10Foundation10URLRequest6uploadGSqVS1_4Data_20sessionConfigurationCSo23URLSessionConfiguration_S0_">init(request:upload:sessionConfiguration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -330,7 +344,7 @@ was sent via HTTP or HTTPS, the transaction metadata will contain an
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sessionConfiguration</span><span class="p">:</span> <span class="kt">URLSessionConfiguration</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="n">upload</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sessionConfiguration</span><span class="p">:</span> <span class="kt">URLSessionConfiguration</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -372,7 +386,7 @@ was sent via HTTP or HTTPS, the transaction metadata will contain an
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>NSURLSessionConfiguration</code> used to create the <code>NSURLSession</code> for the transaction’s request.</p>
+                                  <p>The <code>URLSessionConfiguration</code> used to create the <code>URLSession</code> for the transaction’s request.</p>
 
                                 </div>
                               </td>

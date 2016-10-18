@@ -14,7 +14,7 @@
     <a title="JSONTransaction Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (99% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (93% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -72,6 +72,20 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/WKImage.html">WKImage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -81,13 +95,13 @@
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_">httpRequiredStatusCodeValidator(_:data:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzGSqP__GSqx_">optionalPayloadProcessor(_:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__GSqx_">optionalPayloadProcessor(jsonObject:jsonData:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:F25CleanroomDataTransactions13platformImageFzT8fromDataV10Foundation4Data_CSo7NSImage">platformImage(fromData:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzGSqP__x">requiredPayloadProcessor(_:)</a>
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__x">requiredPayloadProcessor(jsonObject:jsonData:)</a>
               </li>
             </ul>
           </li>
@@ -221,7 +235,36 @@ a successful <code>JSONTransaction</code> produces the generic type <code>T</cod
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadProcessingFunction</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">DataType</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadProcessingFunction</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Data</span><span class="p">?)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">DataType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15JSONTransaction26MetadataValidationFunction"></a>
+                    <a name="//apple_ref/swift/Alias/MetadataValidationFunction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15JSONTransaction26MetadataValidationFunction">MetadataValidationFunction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of the transaction metadata validation function. This
+ function throws an exception if validation fails, causing the transaction
+ itself to fail.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">MetadataValidationFunction</span> <span class="o">=</span> <span class="p">(</span><span class="kt">MetadataType</span><span class="p">,</span> <span class="kt">Data</span><span class="p">?)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -252,36 +295,7 @@ a successful <code>JSONTransaction</code> produces the generic type <code>T</cod
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadValidationFunction</span> <span class="o">=</span> <span class="p">(</span><span class="kt">DataType</span><span class="p">,</span> <span class="kt">MetadataType</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C25CleanroomDataTransactions15JSONTransaction26MetadataValidationFunction"></a>
-                    <a name="//apple_ref/swift/Alias/MetadataValidationFunction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C25CleanroomDataTransactions15JSONTransaction26MetadataValidationFunction">MetadataValidationFunction</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The signature of the transaction metadata validation function. This
- function throws an exception if validation fails, causing the transaction
- itself to fail.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">MetadataValidationFunction</span> <span class="o">=</span> <span class="p">(</span><span class="kt">MetadataType</span><span class="p">,</span> <span class="kt">Data</span><span class="p">?)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadValidationFunction</span> <span class="o">=</span> <span class="p">(</span><span class="kt">DataType</span><span class="p">,</span> <span class="kt">Data</span><span class="p">?,</span> <span class="kt">MetadataType</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -347,9 +361,9 @@ a successful <code>JSONTransaction</code> produces the generic type <code>T</cod
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC25CleanroomDataTransactions15JSONTransaction14processPayloadFzGSqP__x"></a>
+                    <a name="/s:vC25CleanroomDataTransactions15JSONTransaction14processPayloadFzTGSqP__GSqV10Foundation4Data__x"></a>
                     <a name="//apple_ref/swift/Property/processPayload" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions15JSONTransaction14processPayloadFzGSqP__x">processPayload</a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15JSONTransaction14processPayloadFzTGSqP__GSqV10Foundation4Data__x">processPayload</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -376,9 +390,9 @@ a successful <code>JSONTransaction</code> produces the generic type <code>T</cod
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC25CleanroomDataTransactions15JSONTransaction15validatePayloadGSqFzTxVS_20HTTPResponseMetadata_T__"></a>
+                    <a name="/s:vC25CleanroomDataTransactions15JSONTransaction15validatePayloadGSqFzTxGSqV10Foundation4Data_VS_20HTTPResponseMetadata_T__"></a>
                     <a name="//apple_ref/swift/Property/validatePayload" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC25CleanroomDataTransactions15JSONTransaction15validatePayloadGSqFzTxVS_20HTTPResponseMetadata_T__">validatePayload</a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15JSONTransaction15validatePayloadGSqFzTxGSqV10Foundation4Data_VS_20HTTPResponseMetadata_T__">validatePayload</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -433,9 +447,9 @@ a successful <code>JSONTransaction</code> produces the generic type <code>T</cod
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions15JSONTransactioncFT3urlV10Foundation3URL10uploadDataGSqVS1_4Data_13queueProviderPS_13QueueProvider__GS0_x_"></a>
-                    <a name="//apple_ref/swift/Method/init(url:uploadData:queueProvider:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions15JSONTransactioncFT3urlV10Foundation3URL10uploadDataGSqVS1_4Data_13queueProviderPS_13QueueProvider__GS0_x_">init(url:uploadData:queueProvider:)</a>
+                    <a name="/s:FC25CleanroomDataTransactions15JSONTransactioncFT3urlV10Foundation3URL6uploadGSqVS1_4Data_13queueProviderPS_13QueueProvider__GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(url:upload:queueProvider:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions15JSONTransactioncFT3urlV10Foundation3URL6uploadGSqVS1_4Data_13queueProviderPS_13QueueProvider__GS0_x_">init(url:upload:queueProvider:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -451,7 +465,7 @@ given URL.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">queueProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/QueueProvider.html">QueueProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a></span><span class="o">.</span><span class="n">instance</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="n">upload</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">queueProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/QueueProvider.html">QueueProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a></span><span class="o">.</span><span class="n">instance</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -507,9 +521,9 @@ given URL.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions15JSONTransactioncFT7requestV10Foundation10URLRequest10uploadDataGSqVS1_4Data_13queueProviderPS_13QueueProvider__GS0_x_"></a>
-                    <a name="//apple_ref/swift/Method/init(request:uploadData:queueProvider:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions15JSONTransactioncFT7requestV10Foundation10URLRequest10uploadDataGSqVS1_4Data_13queueProviderPS_13QueueProvider__GS0_x_">init(request:uploadData:queueProvider:)</a>
+                    <a name="/s:FC25CleanroomDataTransactions15JSONTransactioncFT7requestV10Foundation10URLRequest6uploadGSqVS1_4Data_13queueProviderPS_13QueueProvider__GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(request:upload:queueProvider:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions15JSONTransactioncFT7requestV10Foundation10URLRequest6uploadGSqVS1_4Data_13queueProviderPS_13QueueProvider__GS0_x_">init(request:upload:queueProvider:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -525,7 +539,7 @@ network service.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">queueProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/QueueProvider.html">QueueProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a></span><span class="o">.</span><span class="n">instance</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="n">upload</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">queueProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/QueueProvider.html">QueueProvider</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a></span><span class="o">.</span><span class="n">instance</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
