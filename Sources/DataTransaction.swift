@@ -31,13 +31,13 @@ public protocol DataTransaction
     /** The metadata type returned along with a successful transaction. */
     associatedtype MetadataType
 
-    /** The result type passed to the transaction completion callback 
+    /** The result type passed to the transaction completion callback
      function. */
-    typealias Result = TransactionResult<DataType, MetadataType>
+    associatedtype Result = TransactionResult<DataType, MetadataType>
 
-    /** The signature of the callback function passed to 
+    /** The signature of the callback function passed to
      `executeTransaction()`. */
-    typealias Callback = (Result) -> Void
+    associatedtype Callback = (Result) -> Void
 
     /**
      Causes the transaction to be executed. The transaction may be performed
@@ -47,5 +47,5 @@ public protocol DataTransaction
      - parameter completion: A function that will be called upon completion
      of the transaction.
      */
-    func executeTransaction(completion: @escaping Callback)
+    func executeTransaction(completion: @escaping (TransactionResult<DataType, MetadataType>) -> Void)
 }
