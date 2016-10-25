@@ -23,7 +23,7 @@ import Foundation
  If a payload is received, but it could not be interpreted as an instance
  of the generic type `T`, the transaction fails.
  */
-public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
+open class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
 {
     /**
      Initializes an `ApiDocOptionalTransaction` to connect to the network 
@@ -31,7 +31,7 @@ public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
 
      - parameter url: The URL of the network service.
 
-     - parameter uploadData: Optional binary data to send to the network
+     - parameter data: Optional binary data to send to the network
      service.
 
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
@@ -51,7 +51,7 @@ public class ApiDocOptionalTransaction<T>: JSONOptionalTransaction<T>
 
      - parameter request: The `URLRequest` to issue to the network service.
 
-     - parameter uploadData: Optional binary data to send to the network
+     - parameter data: Optional binary data to send to the network
      service.
 
      - parameter queueProvider: Used to supply a GCD queue for asynchronous

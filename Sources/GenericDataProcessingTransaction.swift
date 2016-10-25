@@ -12,7 +12,7 @@ import Foundation
  A `WrappingDataTransaction` that uses a `DataProcessingFunction` to convert 
  the `DataType` of the wrapped `DataTransaction` into type `T`.
  */
-public class GenericDataProcessingTransaction<T>: WrappingDataTransaction
+open class GenericDataProcessingTransaction<T>: WrappingDataTransaction
 {
     public typealias DataType = T
     public typealias MetadataType = WrappedTransactionType.MetadataType
@@ -67,7 +67,7 @@ public class GenericDataProcessingTransaction<T>: WrappingDataTransaction
      - parameter completion: A function that will be called upon completion
      of the transaction.
      */
-    public func executeTransaction(completion: @escaping Callback)
+    open func executeTransaction(completion: @escaping Callback)
     {
         let queue = queueProvider.queue
 

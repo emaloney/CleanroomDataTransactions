@@ -16,7 +16,7 @@ import Foundation
  a successful `JSONTransaction` produces the generic type `T`. The
  `PayloadProcessingFunction` function is used to produce the expected type.
  */
-public class JSONTransaction<T>: WrappingDataTransaction
+open class JSONTransaction<T>: WrappingDataTransaction
 {
     public typealias DataType = T
     public typealias MetadataType = WrappedTransactionType.MetadataType
@@ -78,7 +78,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
      
      - parameter url: The URL of the network service.
      
-     - parameter uploadData: Optional binary data to send to the network
+     - parameter data: Optional binary data to send to the network
      service.
      
      - parameter queueProvider: Used to supply a GCD queue for asynchronous 
@@ -96,7 +96,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
 
      - parameter request: The `URLRequest` to issue to the network service.
 
-     - parameter uploadData: Optional binary data to send to the network
+     - parameter data: Optional binary data to send to the network
      service.
 
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
@@ -131,7 +131,7 @@ public class JSONTransaction<T>: WrappingDataTransaction
      - parameter completion: A function that will be called upon completion
      of the transaction.
      */
-    public func executeTransaction(completion: @escaping Callback)
+    open func executeTransaction(completion: @escaping Callback)
     {
         _wrappedTransaction.executeTransaction() { result in
             switch result {

@@ -16,7 +16,7 @@ import Foundation
  runtime platform. On iOS and tvOS, it maps to `UIImage`; on Mac OS X, it's
  `NSImage`.
  */
-public class FetchImageTransaction: GenericDataProcessingTransaction<PlatformImageType>
+open class FetchImageTransaction: GenericDataProcessingTransaction<PlatformImageType>
 {
     /**
      Initializes a `FetchImageTransaction` to retrieve image data from the 

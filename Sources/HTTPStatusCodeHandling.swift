@@ -17,7 +17,7 @@ import Foundation
  - parameter data: An optional `Data` instance containing the transaction's
  raw response body.
 
- - throws: `DataTransactionError.HTTPError` if `meta` is an instance of
+ - throws: `DataTransactionError.httpError` if `meta` is an instance of
  `HTTPResponseMetadata` that represents either a client or server error.
  */
 public func httpOptionalStatusCodeValidator<MetadataType>(_ metadata: MetadataType?, data: Data?)
@@ -35,10 +35,10 @@ public func httpOptionalStatusCodeValidator<MetadataType>(_ metadata: MetadataTy
  - parameter data: An optional `Data` instance containing the transaction's
  raw response body.
 
- - throws: `DataTransactionError.HTTPRequired` if `meta` is not an instance
+ - throws: `DataTransactionError.httpRequired` if `meta` is not an instance
  of `HTTPResponseMetadata`.
  
- - throws: `DataTransactionError.HTTPError` if `meta` is an instance of
+ - throws: `DataTransactionError.httpError` if `meta` is an instance of
  `HTTPResponseMetadata` that represents either a client or server error.
  */
 public func httpRequiredStatusCodeValidator<MetadataType>(_ metadata: MetadataType?, data: Data?)

@@ -16,7 +16,7 @@ import Foundation
  was sent via HTTP or HTTPS, the transaction metadata will contain an
  `HTTPResponseMetadata` instance.
  */
-public class URLTransaction: DataTransaction
+open class URLTransaction: DataTransaction
 {
     public typealias DataType = Data
     public typealias MetadataType = HTTPResponseMetadata
@@ -46,7 +46,7 @@ public class URLTransaction: DataTransaction
      
      - parameter url: The URL of the network service.
      
-     - parameter uploadData: Optional data to send to the network service.
+     - parameter data: Optional data to send to the network service.
      
      - parameter sessionConfiguration: The `URLSessionConfiguration` used to
      create the `URLSession` for the transaction's request.
@@ -63,7 +63,7 @@ public class URLTransaction: DataTransaction
 
      - parameter request: The request to send to the network service.
 
-     - parameter uploadData: Optional data to send to the network service.
+     - parameter data: Optional data to send to the network service.
 
      - parameter sessionConfiguration: The `URLSessionConfiguration` used to
      create the `URLSession` for the transaction's request.
@@ -91,7 +91,7 @@ public class URLTransaction: DataTransaction
      - parameter completion: A function that will be called upon completion
      of the transaction.
      */
-    public func executeTransaction(completion: @escaping Callback)
+    open func executeTransaction(completion: @escaping Callback)
     {
         guard task == nil else {
             completion(.failed(.alreadyInFlight))
