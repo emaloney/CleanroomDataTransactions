@@ -202,7 +202,7 @@ function.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">executeTransaction</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction8Callback">Callback</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">executeTransaction</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/TransactionResult.html">TransactionResult</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction8DataType">DataType</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction12MetadataType">MetadataType</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -259,9 +259,9 @@ function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:P25CleanroomDataTransactions15DataTransaction8DataType"></a>
-                    <a name="//apple_ref/swift/Alias/DataType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P25CleanroomDataTransactions15DataTransaction8DataType">DataType</a>
+                    <a name="/s:P25CleanroomDataTransactions15DataTransaction6Result"></a>
+                    <a name="//apple_ref/swift/Alias/Result" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P25CleanroomDataTransactions15DataTransaction6Result">Result</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -269,14 +269,15 @@ function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The data type returned by a successful transaction.</p>
+                        <p>The result type passed to the transaction completion callback
+ function.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">associatedtype</span> <span class="kt">DataType</span></code></pre>
+                          <pre class="highlight"><code><span class="k">associatedtype</span> <span class="kt">Result</span> <span class="o">=</span> <span class="kt"><a href="../Enums/TransactionResult.html">TransactionResult</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction8DataType">DataType</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction12MetadataType">MetadataType</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -296,7 +297,7 @@ function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The signature of the callback function passed to 
+                        <p>The signature of the callback function passed to
  <code>executeTransaction()</code>.</p>
 
                       </div>
@@ -304,7 +305,7 @@ function.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">typealias</span> <span class="kt">Callback</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction6Result">Result</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight"><code><span class="k">associatedtype</span> <span class="kt">Callback</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction6Result">Result</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -314,9 +315,9 @@ function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:P25CleanroomDataTransactions15DataTransaction6Result"></a>
-                    <a name="//apple_ref/swift/Alias/Result" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P25CleanroomDataTransactions15DataTransaction6Result">Result</a>
+                    <a name="/s:P25CleanroomDataTransactions15DataTransaction8DataType"></a>
+                    <a name="//apple_ref/swift/Alias/DataType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P25CleanroomDataTransactions15DataTransaction8DataType">DataType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -324,15 +325,14 @@ function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The result type passed to the transaction completion callback 
- function.</p>
+                        <p>The data type returned by a successful transaction.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">typealias</span> <span class="kt">Result</span> <span class="o">=</span> <span class="kt"><a href="../Enums/TransactionResult.html">TransactionResult</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction8DataType">DataType</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/DataTransaction.html#/s:P25CleanroomDataTransactions15DataTransaction12MetadataType">MetadataType</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">associatedtype</span> <span class="kt">DataType</span></code></pre>
 
                         </div>
                       </div>
