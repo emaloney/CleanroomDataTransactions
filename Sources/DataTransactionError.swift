@@ -156,7 +156,7 @@ extension DataTransactionError: CustomStringConvertible
             return "Not authorized to access this resource."
 
         case .httpError(let meta, _):
-            return "HTTP protocol error \(meta.responseStatusCode): \(meta.responseStatus)"
+            return "HTTP error \(meta.responseStatusCode): \(meta.responseStatus) returned by \(meta.url)"
         }
     }
 }
