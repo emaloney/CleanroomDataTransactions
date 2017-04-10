@@ -43,14 +43,13 @@ Then, use the `carthage` command to [update your dependencies](https://github.co
 
 Finally, you’ll need to [integrate CleanroomDataTransactions into your project](https://github.com/emaloney/CleanroomDataTransactions/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomDataTransactions/master/Documentation/API/index.html) it provides.
 
-Once successfully integrated, just add the following `import` statement to any Swift file where you want to use CleanroomDataTransactions:
+Once successfully integrated, just add the following statement to any Swift file where you want to use CleanroomDataTransactions:
 
 ```swift
 import CleanroomDataTransactions
 ```
 
 See [the Integration document](https://github.com/emaloney/CleanroomDataTransactions/blob/master/INTEGRATION.md) for additional details on integrating CleanroomDataTransactions into your project.
-
 
 ### API documentation
 
@@ -77,5 +76,4 @@ If you’d like to contribute to this or any other Cleanroom Project repo, pleas
 
 ### Acknowledgements
 
-[API documentation for CleanroomDataTransactions](https://rawgit.com/emaloney/CleanroomDataTransactions/master/Documentation/API/index.html) is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
-
+API documentation is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
