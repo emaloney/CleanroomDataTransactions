@@ -193,7 +193,7 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns a version of the receiver wherein characters not allowed in
- a URL path are escaped with percent encoding.</p>
+ the path component of a URL are escaped with percent encoding.</p>
 
                       </div>
                       <div class="declaration">
@@ -210,9 +210,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS18urlPathEncodedDataGSqV10Foundation4Data_"></a>
+                    <a name="/s:vE25CleanroomDataTransactionsSS18urlPathEncodedDataV10Foundation4Data"></a>
                     <a name="//apple_ref/swift/Property/urlPathEncodedData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS18urlPathEncodedDataGSqV10Foundation4Data_">urlPathEncodedData</a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS18urlPathEncodedDataV10Foundation4Data">urlPathEncodedData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -221,14 +221,15 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns a version of the receiver in UTF-8 encoded <code>Data</code> wherein 
- characters not allowed in a URL path are escaped with percent encoding.</p>
+ characters not allowed in the path component of a URL are escaped with
+ percent encoding.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlPathEncodedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlPathEncodedData</span><span class="p">:</span> <span class="kt">Data</span></code></pre>
 
                         </div>
                       </div>
@@ -238,9 +239,66 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS15httpFormEncodedSS"></a>
-                    <a name="//apple_ref/swift/Property/httpFormEncoded" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS15httpFormEncodedSS">httpFormEncoded</a>
+                    <a name="/s:vE25CleanroomDataTransactionsSS15urlQueryEncodedSS"></a>
+                    <a name="//apple_ref/swift/Property/urlQueryEncoded" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS15urlQueryEncodedSS">urlQueryEncoded</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a version of the receiver wherein characters not allowed in
+ the query string of a URL are escaped with percent encoding.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlQueryEncoded</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE25CleanroomDataTransactionsSS19urlQueryEncodedDataV10Foundation4Data"></a>
+                    <a name="//apple_ref/swift/Property/urlQueryEncodedData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS19urlQueryEncodedDataV10Foundation4Data">urlQueryEncodedData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a version of the receiver in UTF-8 encoded <code>Data</code> wherein 
+ characters not allowed in the query string of a URL are escaped with 
+ percent encoding.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlQueryEncodedData</span><span class="p">:</span> <span class="kt">Data</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vE25CleanroomDataTransactionsSS14urlFormEncodedSS"></a>
+                    <a name="//apple_ref/swift/Property/urlFormEncoded" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS14urlFormEncodedSS">urlFormEncoded</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -249,14 +307,15 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns a version of the receiver wherein characters that are not valid
- in HTTP form values are escaped with percent encoding.</p>
+ in HTTP form values are escaped with percent encoding. This format is
+ typically used with the <code>application/x-www-form-urlencoded</code> MIME type.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">httpFormEncoded</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlFormEncoded</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -266,9 +325,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS19httpFormEncodedDataGSqV10Foundation4Data_"></a>
-                    <a name="//apple_ref/swift/Property/httpFormEncodedData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS19httpFormEncodedDataGSqV10Foundation4Data_">httpFormEncodedData</a>
+                    <a name="/s:vE25CleanroomDataTransactionsSS18urlFormEncodedDataV10Foundation4Data"></a>
+                    <a name="//apple_ref/swift/Property/urlFormEncodedData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS18urlFormEncodedDataV10Foundation4Data">urlFormEncodedData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -278,14 +337,15 @@
                       <div class="abstract">
                         <p>Returns a version of the receiver in UTF-8 encoded <code>Data</code> wherein
  characters that are not valid in HTTP form values are escaped with percent
- encoding.</p>
+ encoding. This format is typically used with the 
+ <code>application/x-www-form-urlencoded</code> MIME type.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">httpFormEncodedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlFormEncodedData</span><span class="p">:</span> <span class="kt">Data</span></code></pre>
 
                         </div>
                       </div>
