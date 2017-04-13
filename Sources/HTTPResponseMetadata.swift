@@ -28,6 +28,20 @@ public struct HTTPResponseMetadata
     /** The HTTP response header fields. */
     public let httpHeaders: [String: String]
 
+    /**
+     Initializes an `HTTPResponseMetadata` instance.
+     
+     - parameter url: The `URL` of the originating HTTP request.
+     
+     - parameter responseStatusCode: The status code of the HTTP response.
+     
+     - parameter mimeType: The MIME type of the HTTP response body, if any.
+     
+     - parameter textEncoding: The text encoding of the HTTP response body, if 
+     any.
+     
+     - parameter httpHeaders: The HTTP response header fields.
+     */
     public init(url: URL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [String: String])
     {
         self.url = url
