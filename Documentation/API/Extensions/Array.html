@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>DefaultQueueProvider Struct Reference</title>
+    <title>Array Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,11 +10,11 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/DefaultQueueProvider" class="dashAnchor"></a>
-    <a title="DefaultQueueProvider Struct Reference"></a>
+    <a name="//apple_ref/swift/Extension/Array" class="dashAnchor"></a>
+    <a title="Array Extension Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (93% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomDataTransactions Reference</a>
         <img id="carat" src="../img/carat.png" />
-        DefaultQueueProvider Struct Reference
+        Array Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -75,7 +75,13 @@
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DispatchQueue.html">DispatchQueue</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/String.html">String</a>
@@ -112,9 +118,6 @@
                 <a href="../Protocols/DataTransaction.html">DataTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/QueueProvider.html">QueueProvider</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/WrappingDataTransaction.html">WrappingDataTransaction</a>
               </li>
             </ul>
@@ -122,9 +125,6 @@
           <li class="nav-group-name">
             <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a>
               </li>
@@ -167,17 +167,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>DefaultQueueProvider</h1>
+            <h1>Array</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultQueueProvider</span><span class="p">:</span> <span class="kt"><a href="../Protocols/QueueProvider.html">QueueProvider</a></span></code></pre>
+                  <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">Element</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">RandomAccessCollection</span><span class="p">,</span> <span class="kt">MutableCollection</span></code></pre>
 
                 </div>
               </div>
-            <p>A default <code><a href="../Protocols/QueueProvider.html">QueueProvider</a></code> implementation that always supplies the same
-concurrent <code>DispatchQueue</code> throughout the lifetime of the running 
-executable.</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -185,9 +182,9 @@ executable.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvV25CleanroomDataTransactions20DefaultQueueProvider8instanceS0_"></a>
-                    <a name="//apple_ref/swift/Variable/instance" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvV25CleanroomDataTransactions20DefaultQueueProvider8instanceS0_">instance</a>
+                    <a name="/s:vE25CleanroomDataTransactionsSa15jsonEncodedDataGSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Property/jsonEncodedData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSa15jsonEncodedDataGSqV10Foundation4Data_">jsonEncodedData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -195,42 +192,14 @@ executable.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the singleton <em>(gasp!)</em> instance of the 
- <code>DefaultQueueProvider</code>.</p>
+                        <p>Encodes the receiver as JSON <code>Data</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">instance</span> <span class="o">=</span> <span class="kt">DefaultQueueProvider</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vV25CleanroomDataTransactions20DefaultQueueProvider5queueCSo13DispatchQueue"></a>
-                    <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV25CleanroomDataTransactions20DefaultQueueProvider5queueCSo13DispatchQueue">queue</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Returns a <code>DispatchQueue</code> to be used for asynchronous operations.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">queue</span><span class="p">:</span> <span class="kt">DispatchQueue</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">jsonEncodedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -243,7 +212,7 @@ executable.</p>
         </section>
         <section id="footer">
           <p>© 2016-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

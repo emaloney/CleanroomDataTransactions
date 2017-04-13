@@ -14,7 +14,7 @@
     <a title="String Extension Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (93% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -75,7 +75,13 @@
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DispatchQueue.html">DispatchQueue</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/String.html">String</a>
@@ -112,9 +118,6 @@
                 <a href="../Protocols/DataTransaction.html">DataTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/QueueProvider.html">QueueProvider</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/WrappingDataTransaction.html">WrappingDataTransaction</a>
               </li>
             </ul>
@@ -122,9 +125,6 @@
           <li class="nav-group-name">
             <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a>
               </li>
@@ -182,9 +182,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS23stringByUrlPathEncodingSS"></a>
-                    <a name="//apple_ref/swift/Property/stringByUrlPathEncoding" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS23stringByUrlPathEncodingSS">stringByUrlPathEncoding</a>
+                    <a name="/s:vE25CleanroomDataTransactionsSS14urlPathEncodedSS"></a>
+                    <a name="//apple_ref/swift/Property/urlPathEncoded" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS14urlPathEncodedSS">urlPathEncoded</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -192,14 +192,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns a version of the receiver wherein characters not allowed in
+ a URL path are escaped with percent encoding.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlPathEncoded</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -209,9 +210,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS21dataByUrlPathEncodingGSqV10Foundation4Data_"></a>
-                    <a name="//apple_ref/swift/Property/dataByUrlPathEncoding" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS21dataByUrlPathEncodingGSqV10Foundation4Data_">dataByUrlPathEncoding</a>
+                    <a name="/s:vE25CleanroomDataTransactionsSS18urlPathEncodedDataGSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Property/urlPathEncodedData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS18urlPathEncodedDataGSqV10Foundation4Data_">urlPathEncodedData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -219,14 +220,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns a version of the receiver in UTF-8 encoded <code>Data</code> wherein 
+ characters not allowed in a URL path are escaped with percent encoding.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlPathEncodedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -236,9 +238,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS24stringByHttpFormEncodingSS"></a>
-                    <a name="//apple_ref/swift/Property/stringByHttpFormEncoding" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS24stringByHttpFormEncodingSS">stringByHttpFormEncoding</a>
+                    <a name="/s:vE25CleanroomDataTransactionsSS15httpFormEncodedSS"></a>
+                    <a name="//apple_ref/swift/Property/httpFormEncoded" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS15httpFormEncodedSS">httpFormEncoded</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -246,14 +248,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns a version of the receiver wherein characters that are not valid
+ in HTTP form values are escaped with percent encoding.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">httpFormEncoded</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -263,9 +266,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS22dataByHttpFormEncodingGSqV10Foundation4Data_"></a>
-                    <a name="//apple_ref/swift/Property/dataByHttpFormEncoding" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS22dataByHttpFormEncodingGSqV10Foundation4Data_">dataByHttpFormEncoding</a>
+                    <a name="/s:vE25CleanroomDataTransactionsSS19httpFormEncodedDataGSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Property/httpFormEncodedData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS19httpFormEncodedDataGSqV10Foundation4Data_">httpFormEncodedData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -273,14 +276,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns a version of the receiver in UTF-8 encoded <code>Data</code> wherein
+ characters that are not valid in HTTP form values are escaped with percent
+ encoding.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">httpFormEncodedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -293,7 +298,7 @@
         </section>
         <section id="footer">
           <p>© 2016-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

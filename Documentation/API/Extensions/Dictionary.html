@@ -14,7 +14,7 @@
     <a title="Dictionary Extension Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (93% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -75,7 +75,13 @@
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DispatchQueue.html">DispatchQueue</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Extensions/String.html">String</a>
@@ -112,9 +118,6 @@
                 <a href="../Protocols/DataTransaction.html">DataTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/QueueProvider.html">QueueProvider</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/WrappingDataTransaction.html">WrappingDataTransaction</a>
               </li>
             </ul>
@@ -122,9 +125,6 @@
           <li class="nav-group-name">
             <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Structs/DefaultQueueProvider.html">DefaultQueueProvider</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a>
               </li>
@@ -182,9 +182,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsVs10Dictionary23stringByUrlPathEncodingSS"></a>
-                    <a name="//apple_ref/swift/Property/stringByUrlPathEncoding" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsVs10Dictionary23stringByUrlPathEncodingSS">stringByUrlPathEncoding</a>
+                    <a name="/s:vE25CleanroomDataTransactionsVs10Dictionary14urlPathEncodedSS"></a>
+                    <a name="//apple_ref/swift/Property/urlPathEncoded" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsVs10Dictionary14urlPathEncodedSS">urlPathEncoded</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -192,14 +192,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns the contents of the receiver in a URL path encoded <code>String</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Collection</span><span class="p">,</span> <span class="kt">ExpressibleByDictionaryLiteral</span> <span class="k">where</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlPathEncoded</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -209,9 +209,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsVs10Dictionary21dataByUrlPathEncodingGSqV10Foundation4Data_"></a>
-                    <a name="//apple_ref/swift/Property/dataByUrlPathEncoding" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsVs10Dictionary21dataByUrlPathEncodingGSqV10Foundation4Data_">dataByUrlPathEncoding</a>
+                    <a name="/s:vE25CleanroomDataTransactionsVs10Dictionary18urlPathEncodedDataGSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Property/urlPathEncodedData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsVs10Dictionary18urlPathEncodedDataGSqV10Foundation4Data_">urlPathEncodedData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -219,14 +219,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns UTF-8 <code>Data</code> containing a URL path encoded version of the
+receiver.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Collection</span><span class="p">,</span> <span class="kt">ExpressibleByDictionaryLiteral</span> <span class="k">where</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlPathEncodedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -236,9 +237,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsVs10Dictionary24stringByHttpFormEncodingSS"></a>
-                    <a name="//apple_ref/swift/Property/stringByHttpFormEncoding" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsVs10Dictionary24stringByHttpFormEncodingSS">stringByHttpFormEncoding</a>
+                    <a name="/s:vE25CleanroomDataTransactionsVs10Dictionary15httpFormEncodedSS"></a>
+                    <a name="//apple_ref/swift/Property/httpFormEncoded" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsVs10Dictionary15httpFormEncodedSS">httpFormEncoded</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -246,14 +247,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns the contents of the receiver in an HTTP form encoded <code>String</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Collection</span><span class="p">,</span> <span class="kt">ExpressibleByDictionaryLiteral</span> <span class="k">where</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">httpFormEncoded</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -263,9 +264,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsVs10Dictionary22dataByHttpFormEncodingGSqV10Foundation4Data_"></a>
-                    <a name="//apple_ref/swift/Property/dataByHttpFormEncoding" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsVs10Dictionary22dataByHttpFormEncodingGSqV10Foundation4Data_">dataByHttpFormEncoding</a>
+                    <a name="/s:vE25CleanroomDataTransactionsVs10Dictionary19httpFormEncodedDataGSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Property/httpFormEncodedData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsVs10Dictionary19httpFormEncodedDataGSqV10Foundation4Data_">httpFormEncodedData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -273,14 +274,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns UTF-8 <code>Data</code> containing a version of the receiver encoded
+as HTTP form data.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Collection</span><span class="p">,</span> <span class="kt">ExpressibleByDictionaryLiteral</span> <span class="k">where</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">httpFormEncodedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -294,9 +296,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsVs10Dictionary18dataByJsonEncodingGSqV10Foundation4Data_"></a>
-                    <a name="//apple_ref/swift/Property/dataByJsonEncoding" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsVs10Dictionary18dataByJsonEncodingGSqV10Foundation4Data_">dataByJsonEncoding</a>
+                    <a name="/s:vE25CleanroomDataTransactionsVs10Dictionary15jsonEncodedDataGSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Property/jsonEncodedData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vE25CleanroomDataTransactionsVs10Dictionary15jsonEncodedDataGSqV10Foundation4Data_">jsonEncodedData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -304,14 +306,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Encodes the receiver as JSON <code>Data</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Collection</span><span class="p">,</span> <span class="kt">ExpressibleByDictionaryLiteral</span> <span class="k">where</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">jsonEncodedData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -324,7 +326,7 @@
         </section>
         <section id="footer">
           <p>© 2016-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
