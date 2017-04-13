@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Dispatch
 
 /**
  Uses a wrapped `URLTransaction` to connect to an 
@@ -27,12 +28,16 @@ open class ApiDocTransaction<T>: JSONTransaction<T>
      - parameter data: Optional binary data to send to the network
      service.
 
-     - parameter queueProvider: Used to supply a GCD queue for asynchronous
-     operations when needed.
+     - parameter sessionConfiguration: A `URLSessionConfiguration` that will
+     be used for the `URLSession` that governs the transaction's network
+     request.
+     
+     - parameter processingQueue: A `DispatchQueue` to use for processing the
+     response from the server.
      */
-    public override init(url: URL, upload data: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public override init(url: URL, upload data: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default, processingQueue: DispatchQueue = .transactionProcessing)
     {
-        super.init(url: url, upload: data, queueProvider: queueProvider)
+        super.init(url: url, upload: data, sessionConfiguration: sessionConfiguration, processingQueue: processingQueue)
 
         validateMetadata = httpRequiredStatusCodeValidator
     }
@@ -46,12 +51,16 @@ open class ApiDocTransaction<T>: JSONTransaction<T>
      - parameter data: Optional binary data to send to the network
      service.
 
-     - parameter queueProvider: Used to supply a GCD queue for asynchronous
-     operations when needed.
+     - parameter sessionConfiguration: A `URLSessionConfiguration` that will
+     be used for the `URLSession` that governs the transaction's network
+     request.
+     
+     - parameter processingQueue: A `DispatchQueue` to use for processing the
+     response from the server.
      */
-    public override init(request: URLRequest, upload data: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public override init(request: URLRequest, upload data: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default, processingQueue: DispatchQueue = .transactionProcessing)
     {
-        super.init(request: request, upload: data, queueProvider: queueProvider)
+        super.init(request: request, upload: data, sessionConfiguration: sessionConfiguration, processingQueue: processingQueue)
 
         validateMetadata = httpRequiredStatusCodeValidator
     }
@@ -62,12 +71,12 @@ open class ApiDocTransaction<T>: JSONTransaction<T>
      - parameter wrapping: The `DataTransaction` to wrap within the
      `JSONTransaction` instance being initialized.
 
-     - parameter queueProvider: Used to supply a GCD queue for asynchronous
-     operations when needed.
+     - parameter processingQueue: A `DispatchQueue` to use for processing the
+     response from the server.
      */
-    public override init(wrapping: WrappedTransactionType, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public override init(wrapping: WrappedTransactionType, processingQueue: DispatchQueue = .transactionProcessing)
     {
-        super.init(wrapping: wrapping, queueProvider: queueProvider)
+        super.init(wrapping: wrapping, processingQueue: processingQueue)
 
         validateMetadata = httpRequiredStatusCodeValidator
     }

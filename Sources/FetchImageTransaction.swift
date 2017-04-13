@@ -27,8 +27,8 @@ open class FetchImageTransaction: GenericDataProcessingTransaction<PlatformImage
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
      operations when needed.
      */
-    public init(url: URL, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public init(url: URL, processingQueue: DispatchQueue = .transactionProcessing)
     {
-        super.init(wrapping: URLTransaction(url: url), dataProcessor: platformImage(fromData:), queueProvider: queueProvider)
+        super.init(wrapping: URLTransaction(url: url), dataProcessor: platformImage(fromData:), processingQueue: processingQueue)
     }
 }

@@ -29,16 +29,13 @@ open class URLTransaction: DataTransaction
 
     /** The `URLRequest` that will be issued when the transaction is 
      executed. */
-    public let request: URLRequest
+    public private(set) var request: URLRequest
 
     /** Optional data to send to the service when executing the
      transaction. */
     public let uploadData: Data?
 
-    /** The `URLSessionConfiguration` used to create the `URLSession`
-     for the transaction's request. */
-    public let sessionConfiguration: URLSessionConfiguration
-
+    private let sessionConfiguration: URLSessionConfiguration
     private var task: URLSessionTask?
 
     /** 
@@ -48,8 +45,9 @@ open class URLTransaction: DataTransaction
      
      - parameter data: Optional data to send to the network service.
      
-     - parameter sessionConfiguration: The `URLSessionConfiguration` used to
-     create the `URLSession` for the transaction's request.
+     - parameter sessionConfiguration: A `URLSessionConfiguration` that will
+     be used for the `URLSession` that governs the transaction's network 
+     request.
      */
     public init(url: URL, upload data: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default)
     {
@@ -65,8 +63,9 @@ open class URLTransaction: DataTransaction
 
      - parameter data: Optional data to send to the network service.
 
-     - parameter sessionConfiguration: The `URLSessionConfiguration` used to
-     create the `URLSession` for the transaction's request.
+     - parameter sessionConfiguration: A `URLSessionConfiguration` that will
+     be used for the `URLSession` that governs the transaction's network
+     request.
      */
     public init(request: URLRequest, upload data: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default)
     {
@@ -97,7 +96,7 @@ open class URLTransaction: DataTransaction
             completion(.failed(.alreadyInFlight))
             return
         }
-        
+
         // create a delegate-free session & fire the request
         let session = URLSession(configuration: sessionConfiguration)
 

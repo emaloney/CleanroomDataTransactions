@@ -70,7 +70,7 @@ open class JSONTransaction<T>: WrappingDataTransaction
     }
     private let _wrappedTransaction: WrappedTransactionType
 
-    private let queueProvider: QueueProvider
+    private let processingQueue: DispatchQueue
 
     /**
      Initializes a `JSONTransaction` to connect to the network service at the
@@ -80,14 +80,18 @@ open class JSONTransaction<T>: WrappingDataTransaction
      
      - parameter data: Optional binary data to send to the network
      service.
-     
-     - parameter queueProvider: Used to supply a GCD queue for asynchronous 
-     operations when needed.
+
+     - parameter sessionConfiguration: A `URLSessionConfiguration` that will
+     be used for the `URLSession` that governs the transaction's network
+     request.
+
+     - parameter processingQueue: A `DispatchQueue` to use for processing the
+     response from the server.
      */
-    public init(url: URL, upload data: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public init(url: URL, upload data: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default, processingQueue: DispatchQueue = .transactionProcessing)
     {
-        self.queueProvider = queueProvider
-        _wrappedTransaction = WrappedTransactionType(url: url, upload: data)
+        self.processingQueue = processingQueue
+        _wrappedTransaction = WrappedTransactionType(url: url, upload: data, sessionConfiguration: sessionConfiguration)
     }
 
     /**
@@ -99,13 +103,17 @@ open class JSONTransaction<T>: WrappingDataTransaction
      - parameter data: Optional binary data to send to the network
      service.
 
-     - parameter queueProvider: Used to supply a GCD queue for asynchronous
-     operations when needed.
+     - parameter sessionConfiguration: A `URLSessionConfiguration` that will
+     be used for the `URLSession` that governs the transaction's network
+     request.
+     
+     - parameter processingQueue: A `DispatchQueue` to use for processing the
+     response from the server.
      */
-    public init(request: URLRequest, upload data: Data? = nil, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public init(request: URLRequest, upload data: Data? = nil, sessionConfiguration: URLSessionConfiguration = .default, processingQueue: DispatchQueue = .transactionProcessing)
     {
-        self.queueProvider = queueProvider
-        _wrappedTransaction = WrappedTransactionType(request: request, upload: data)
+        self.processingQueue = processingQueue
+        _wrappedTransaction = WrappedTransactionType(request: request, upload: data, sessionConfiguration: sessionConfiguration)
     }
 
     /**
@@ -117,10 +125,10 @@ open class JSONTransaction<T>: WrappingDataTransaction
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
      operations when needed.
      */
-    public init(wrapping: WrappedTransactionType, queueProvider: QueueProvider = DefaultQueueProvider.instance)
+    public init(wrapping: WrappedTransactionType, processingQueue: DispatchQueue = .transactionProcessing)
     {
         _wrappedTransaction = wrapping
-        self.queueProvider = queueProvider
+        self.processingQueue = processingQueue
     }
 
     /**
@@ -139,7 +147,7 @@ open class JSONTransaction<T>: WrappingDataTransaction
                 completion(.failed(error))
 
             case .succeeded(let data, let meta):
-                self.queueProvider.queue.async {
+                self.processingQueue.async {
                     do {
                         try self.validateMetadata?(meta, data)
                         
