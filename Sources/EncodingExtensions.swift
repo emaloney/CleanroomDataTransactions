@@ -11,61 +11,84 @@ import Foundation
 extension String
 {
     /** Returns a version of the receiver wherein characters not allowed in
-     a URL path are escaped with percent encoding. */
+     the path component of a URL are escaped with percent encoding. */
     public var urlPathEncoded: String {
         return addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? self
     }
 
     /** Returns a version of the receiver in UTF-8 encoded `Data` wherein 
-     characters not allowed in a URL path are escaped with percent encoding. */
-    public var urlPathEncodedData: Data? {
-        return urlPathEncoded.data(using: .utf8)
+     characters not allowed in the path component of a URL are escaped with
+     percent encoding. */
+    public var urlPathEncodedData: Data {
+        return urlPathEncoded.utf8Data
+    }
+
+    /** Returns a version of the receiver wherein characters not allowed in
+     the query string of a URL are escaped with percent encoding. */
+    public var urlQueryEncoded: String {
+        return addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? self
+    }
+
+    /** Returns a version of the receiver in UTF-8 encoded `Data` wherein 
+     characters not allowed in the query string of a URL are escaped with 
+     percent encoding. */
+    public var urlQueryEncodedData: Data {
+        return urlQueryEncoded.utf8Data
     }
 
     /** Returns a version of the receiver wherein characters that are not valid
-     in HTTP form values are escaped with percent encoding. */
-    public var httpFormEncoded: String {
+     in HTTP form values are escaped with percent encoding. This format is
+     typically used with the `application/x-www-form-urlencoded` MIME type. */
+    public var urlFormEncoded: String {
         return addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: "!*'();:@&=+$,/?%#[]").inverted) ?? self
     }
 
     /** Returns a version of the receiver in UTF-8 encoded `Data` wherein
      characters that are not valid in HTTP form values are escaped with percent
-     encoding. */
-    public var httpFormEncodedData: Data? {
-        return httpFormEncoded.data(using: .utf8)
+     encoding. This format is typically used with the 
+     `application/x-www-form-urlencoded` MIME type. */
+    public var urlFormEncodedData: Data {
+        return urlFormEncoded.utf8Data
+    }
+
+    fileprivate var utf8Data: Data {
+        return data(using: .utf8, allowLossyConversion: true)!  // lossy shouldn't ever happen with UTF8
     }
 }
 
-extension Dictionary
+extension Dictionary where Key == String
 {
-    /**
-     Returns the contents of the receiver in a URL path encoded `String`.
-     */
+    /** Encodes the receiver as a URL path encoded `String`. */
     public var urlPathEncoded: String {
         return encoded { $0.urlPathEncoded }
     }
 
-    /**
-     Returns UTF-8 `Data` containing a URL path encoded version of the
-     receiver.
-     */
-    public var urlPathEncodedData: Data? {
-        return urlPathEncoded.data(using: .utf8)
+    /** Encodes the receiver as URL path encoded `Data` containing
+     UTF-8 characters. */
+    public var urlPathEncodedData: Data {
+        return urlPathEncoded.utf8Data
     }
 
-    /**
-     Returns the contents of the receiver in an HTTP form encoded `String`.
-     */
-   public var httpFormEncoded: String {
-        return encoded { $0.httpFormEncoded }
+    /** Encodes the receiver as a query string encoded `String`. */
+    public var urlQueryEncoded: String {
+        return encoded { $0.urlQueryEncoded }
     }
 
-    /**
-     Returns UTF-8 `Data` containing a version of the receiver encoded
-     as HTTP form data.
-     */
-    public var httpFormEncodedData: Data? {
-        return httpFormEncoded.data(using: .utf8)
+    /** Encodes the receiver as query string encoded `Data` containing
+     UTF-8 characters. */
+    public var urlQueryEncodedData: Data {
+        return urlQueryEncoded.utf8Data
+    }
+
+    /** Encodes the receiver as a URL form encoded `String`. */
+    public var urlFormEncoded: String {
+        return encoded { $0.urlFormEncoded }
+    }
+
+    /** Encodes the receiver as URL form encoded `Data` containing
+     UTF-8 characters. */
+    public var urlFormEncodedData: Data {
+        return urlFormEncoded.utf8Data
     }
 
     private func encoded(using encodingFunction: (String) -> String)
@@ -73,13 +96,17 @@ extension Dictionary
     {
         var encoded = [String]()
         for (key, value) in self {
-            guard let keyStr = key as? String else { continue }
-
             if let valStr = value as? String {
-                encoded += ["\(encodingFunction(keyStr))=\(encodingFunction(valStr))"]
+                encoded += ["\(encodingFunction(key))=\(encodingFunction(valStr))"]
             }
             else if let valBool = value as? Bool, valBool {
-                encoded += ["\(encodingFunction(keyStr))"]
+                encoded += ["\(encodingFunction(key))"]
+            }
+            else if let valConv = value as? LosslessStringConvertible {
+                encoded += ["\(encodingFunction(key))=\(encodingFunction(valConv.description))"]
+            }
+            else {
+                encoded += ["\(encodingFunction(key))=\(encodingFunction(String(describing: value)))"]
             }
         }
         return encoded.joined(separator: "&")
