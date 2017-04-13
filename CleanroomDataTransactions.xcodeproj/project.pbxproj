@@ -57,14 +57,14 @@
 		3B475CB51DB46D6A0047D397 /* WrappingDataTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrappingDataTransaction.swift; sourceTree = "<group>"; };
 		3B9059031DAECB5200B4EEC0 /* CleanroomDataTransactions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomDataTransactions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B90590C1DAECB5200B4EEC0 /* CleanroomDataTransactionsUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomDataTransactionsUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
-		3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
-		3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
-		3B90592B1DAECD9800B4EEC0 /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
 		3B90592C1DAECD9800B4EEC0 /* Info-Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Tests.plist"; sourceTree = "<group>"; };
 		3BE9C6571E9F2382002F2412 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
+		3BE9C6591E9F406B002F2412 /* Info-Target.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Target.plist"; sourceTree = "<group>"; };
+		3BE9C65A1E9F4088002F2412 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		3BE9C65B1E9F4088002F2412 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		3BE9C65C1E9F4088002F2412 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		3BE9C65D1E9F4088002F2412 /* Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Target.xcconfig; sourceTree = "<group>"; };
+		3BE9C65E1E9F4088002F2412 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 		3BF4691D1DB53EB900625500 /* EncodingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				3B9059241DAECB9E00B4EEC0 /* config */,
-				3B90592B1DAECD9800B4EEC0 /* Info-Framework.plist */,
+				3BE9C6591E9F406B002F2412 /* Info-Target.plist */,
 				3B90592C1DAECD9800B4EEC0 /* Info-Tests.plist */,
 			);
 			path = BuildControl;
@@ -151,11 +151,11 @@
 		3B9059241DAECB9E00B4EEC0 /* config */ = {
 			isa = PBXGroup;
 			children = (
-				3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */,
-				3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */,
-				3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */,
-				3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */,
-				3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */,
+				3BE9C65A1E9F4088002F2412 /* Debug.xcconfig */,
+				3BE9C65B1E9F4088002F2412 /* Project.xcconfig */,
+				3BE9C65C1E9F4088002F2412 /* Release.xcconfig */,
+				3BE9C65D1E9F4088002F2412 /* Target.xcconfig */,
+				3BE9C65E1E9F4088002F2412 /* Tests.xcconfig */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 /* Begin XCBuildConfiguration section */
 		3B9059151DAECB5200B4EEC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */;
+			baseConfigurationReference = 3BE9C65B1E9F4088002F2412 /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -363,7 +363,7 @@
 		};
 		3B9059161DAECB5200B4EEC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */;
+			baseConfigurationReference = 3BE9C65B1E9F4088002F2412 /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -407,7 +407,7 @@
 		};
 		3B9059181DAECB5200B4EEC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */;
+			baseConfigurationReference = 3BE9C65A1E9F4088002F2412 /* Debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -421,7 +421,7 @@
 		};
 		3B9059191DAECB5200B4EEC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */;
+			baseConfigurationReference = 3BE9C65C1E9F4088002F2412 /* Release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -435,7 +435,7 @@
 		};
 		3B90591B1DAECB5200B4EEC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */;
+			baseConfigurationReference = 3BE9C65E1E9F4088002F2412 /* Tests.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				SWIFT_VERSION = 3.0;
@@ -444,7 +444,7 @@
 		};
 		3B90591C1DAECB5200B4EEC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */;
+			baseConfigurationReference = 3BE9C65E1E9F4088002F2412 /* Tests.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
