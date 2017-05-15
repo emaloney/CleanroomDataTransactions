@@ -125,6 +125,11 @@ open class URLTransaction: DataTransaction
 
             let meta = HTTPResponseMetadata(url: httpResp.url ?? strongSelf.url, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields as! [String: String])
 
+            guard !meta.responseStatus.isError else {
+                completion(.failed(.httpError(meta, data)))
+                return
+            }
+
             completion(.succeeded(data, meta))
         }
 
