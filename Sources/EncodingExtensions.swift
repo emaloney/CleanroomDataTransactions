@@ -128,3 +128,11 @@ extension Array
         return try? JSONSerialization.data(withJSONObject: self, options: [])
     }
 }
+
+extension Data
+{
+    /** Encodes the receiver as a UTF-8 `String`. */
+    public var asStringUTF8: String? {
+        return String(data: self, encoding: .utf8)
+    }
+}
