@@ -68,7 +68,7 @@ public enum DataTransactionError: Error
     case invalidURL(String)
 
     /** An unexpected HTTP response code was returned for the transaction. */
-    case unexpectedHTTPResponseCode
+    case unexpectedHTTPResponseCode(Int)
 
     /** Indicates that the caller is not authorized to perform the given 
      transaction. */
@@ -149,14 +149,19 @@ extension DataTransactionError: CustomStringConvertible
         case .invalidURL(let urlString):
             return "This does not appear to be a valid URL: \(urlString)"
 
-        case .unexpectedHTTPResponseCode:
-            return "Received an HTTP response code that wasn't expected."
+        case .unexpectedHTTPResponseCode(let code):
+            return "Received an HTTP response code (\(code)) that wasn't expected."
 
         case .notAuthorized:
             return "Not authorized to access this resource."
 
-        case .httpError(let meta, _):
-            return "HTTP error \(meta.responseStatusCode): \(meta.responseStatus) returned by \(meta.url)"
+        case .httpError(let meta, let data):
+            if let data = data, !data.isEmpty {
+                let dataStr = data.asStringUTF8 ?? "(data could not be converted to a UTF-8 string)"
+                return "HTTP error \(meta.responseStatusCode) returned by \(meta.url) with \(data.count) bytes of data: \(dataStr)"
+            } else {
+                return "HTTP error \(meta.responseStatusCode) returned by \(meta.url)"
+            }
         }
     }
 }
