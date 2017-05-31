@@ -16,26 +16,35 @@ import Foundation
  was sent via HTTP or HTTPS, the transaction metadata will contain an
  `HTTPResponseMetadata` instance.
  */
-open class HTTPTransaction: DataTransaction
+open class HTTPTransaction<T>: DataTransaction
 {
-    public typealias DataType = Data
+    public typealias DataType = T
     public typealias MetadataType = HTTPResponseMetadata
 
     /** The signature of a function used to construct `URL` instances for 
      the transaction. */
-    public typealias URLConstructor = (HTTPTransaction) throws -> URL
+    public typealias URLConstructor = (HTTPTransaction<T>) throws -> URL
 
     /** The signature of a function used to construct `URLRequest`s for
      the transaction. */
-    public typealias RequestConstructor = (HTTPTransaction, URL) throws -> URLRequest
+    public typealias RequestConstructor = (HTTPTransaction<T>, URL) throws -> URLRequest
 
     /** The signature of a function used to configure the `URLRequest` prior to
      issuing the transaction. */
-    public typealias RequestConfigurator = (HTTPTransaction, inout URLRequest) throws -> Void
+    public typealias RequestConfigurator = (HTTPTransaction<T>, inout URLRequest) throws -> Void
 
     /** The signature of a function used to validate the response received
      by an HTTP transaction. */
-    public typealias ResponseValidator = (HTTPTransaction, HTTPURLResponse, HTTPResponseMetadata, Data) throws -> Void
+    public typealias ResponseValidator = (HTTPTransaction<T>, HTTPURLResponse, HTTPResponseMetadata, Data) throws -> Void
+
+    /** The signature of a payload processing function. This function accepts
+     binary `Data` and attempts to convert it to `DataType`. */
+    public typealias PayloadProcessor = (HTTPTransaction<T>, Data, HTTPResponseMetadata) throws -> T
+
+    /** If the payload processor succeeds, the results are passed to the
+     payload validator, giving the transaction one final chance to sanity-check
+     the data and bail if there's a problem. */
+    public typealias PayloadValidator = (HTTPTransaction<T>, T, Data, HTTPResponseMetadata) throws -> Void
 
     /** Indicates the type of transaction provided by the implementation. */
     public enum TransactionType {
@@ -84,6 +93,20 @@ open class HTTPTransaction: DataTransaction
      the transaction. The default implementation does nothing. */
     public var configureRequest: RequestConfigurator = { _, _ in }
 
+    /**  The `PayloadProcessor` that will be used to produce the receiver's
+     `DataType` upon successful completion of the transaction. */
+    public var processPayload: PayloadProcessor = { txn, data, _ in
+        guard let payload = data as? T else {
+            throw DataTransactionError.dataFormatError("Expected payload to be \(T.self) for a \(type(of: txn)) transaction (targeting \(txn.urlPath)); got a \(type(of: data)) instead.")
+        }
+        return payload
+    }
+
+    /**  The `PayloadValidator` that will be used to validate the `DataType`
+     produced by the `PayloadProcessor` upon successful completion of the
+     transaction. */
+    public var validatePayload: PayloadValidator = { _, _, _, _ in }
+
     /** The `URLSessionConfiguration` used to create the `URLSession` for
      the transaction. */
     public var sessionConfiguration: URLSessionConfiguration = .default
@@ -96,7 +119,9 @@ open class HTTPTransaction: DataTransaction
         }
     }
 
+    private var pinnedTransaction: HTTPTransaction<T>?
     private var task: URLSessionTask?
+    private let processingQueue: DispatchQueue
 
     /** 
      Initializes a new transaction that will connect to the given service.
@@ -113,18 +138,37 @@ open class HTTPTransaction: DataTransaction
      - parameter transactionType: Specifies the transaction type.
      
      - parameter data: Optional data to send to the network service.
+     
+     - parameter queue: A `DispatchQueue` to use for processing transaction
+     responses.
      */
-    public init(scheme: String = NSURLProtectionSpaceHTTPS, host: String, urlPath: String, transactionType: TransactionType = .api, upload data: Data? = nil)
+    public init(scheme: String = NSURLProtectionSpaceHTTPS, host: String, urlPath: String, transactionType: TransactionType = .api, upload data: Data? = nil, processingQueue queue: DispatchQueue = .transactionProcessing)
     {
         self.scheme = scheme
         self.host = host
         self.urlPath = urlPath
         self.transactionType = transactionType
         self.uploadData = data
+        self.processingQueue = queue
     }
 
     deinit {
         task?.cancel()
+    }
+
+    public func cancel()
+    {
+        task?.cancel()
+        task = nil
+        pinnedTransaction = nil
+    }
+
+    private func call(_ completion: @escaping Callback, with result: Result)
+    {
+        completion(result)
+
+        task = nil
+        pinnedTransaction = nil
     }
 
     /**
@@ -142,6 +186,8 @@ open class HTTPTransaction: DataTransaction
                 throw DataTransactionError.alreadyInFlight
             }
 
+            pinnedTransaction = self
+            
             // create and configure the request
             let url = try constructURL(self)
             var req = try constructRequest(self, url)
@@ -150,34 +196,36 @@ open class HTTPTransaction: DataTransaction
             // create a delegate-free session & fire the request
             let session = URLSession(configuration: sessionConfiguration)
 
-            let handler: (Data?, URLResponse?, Error?) -> Void = { [weak self] data, response, error in
-                do {
-                    guard let `self` = self else {
-                        throw DataTransactionError.canceled
+            let handler: (Data?, URLResponse?, Error?) -> Void = { [weak self, queue = processingQueue] data, response, error in
+                queue.async {
+                    do {
+                        guard let `self` = self else {
+                            throw DataTransactionError.canceled
+                        }
+
+                        guard error == nil else {
+                            throw error!
+                        }
+
+                        guard let data = data else {
+                            throw DataTransactionError.noData
+                        }
+
+                        guard let httpResp = response as? HTTPURLResponse else {
+                            throw DataTransactionError.httpRequired
+                        }
+
+                        let meta = HTTPResponseMetadata(url: url, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields as! [String: String])
+
+                        try self.validateResponse(self, httpResp, meta, data)
+
+                        let payload = try self.processPayload(self, data, meta)
+                        try self.validatePayload(self, payload, data, meta)
+                        self.call(completion, with: .succeeded(payload, meta))
                     }
-
-                    self.task = nil
-
-                    guard error == nil else {
-                        throw error!
+                    catch {
+                        self?.call(completion, with: .failed(.wrap(error)))
                     }
-
-                    guard let data = data else {
-                        throw DataTransactionError.noData
-                    }
-
-                    guard let httpResp = response as? HTTPURLResponse else {
-                        throw DataTransactionError.httpRequired
-                    }
-
-                    let meta = HTTPResponseMetadata(url: url, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields as! [String: String])
-
-                    try self.validateResponse(self, httpResp, meta, data)
-
-                    completion(.succeeded(data, meta))
-                }
-                catch {
-                    completion(.failed(.wrap(error)))
                 }
             }
 
@@ -194,9 +242,7 @@ open class HTTPTransaction: DataTransaction
             task.resume()   // this kicks off the HTTP request
         }
         catch {
-            completion(.failed(.wrap(error)))
+            call(completion, with: .failed(.wrap(error)))
         }
-
     }
 }
-

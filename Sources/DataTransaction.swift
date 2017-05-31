@@ -44,8 +44,16 @@ public protocol DataTransaction
      asynchronously. When complete, the `Result` is reported to the `Callback`
      function.
      
+     Unless the `cancel()` function is called prior to completion, the
+     transaction will remain in memory until the `Callback` is executed.
+     
      - parameter completion: A function that will be called upon completion
      of the transaction.
      */
     func executeTransaction(completion: @escaping Callback)
+
+    /**
+     Attempts to cancel the transaction prior to completion.
+     */
+    func cancel()
 }

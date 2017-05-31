@@ -14,7 +14,7 @@ import Foundation
  Because the root object of a JSON document may be one of several types,
  a successful `JSONTransaction` produces the generic type `T`.
  */
-open class JSONTransaction<T>: GenericPayloadTransaction<T>
+open class JSONTransaction<T>: HTTPTransaction<T>
 {
     /**
      Initializes a `JSONTransaction` to connect to the network service at the
@@ -34,18 +34,16 @@ open class JSONTransaction<T>: GenericPayloadTransaction<T>
 
      - parameter data: Optional binary data to send to the network
      service.
-
-     - parameter processingQueue: A `DispatchQueue` to use for processing the
-     response from the server.
      */
-    public init(scheme: String = NSURLProtectionSpaceHTTPS, host: String, urlPath: String, upload data: Data? = nil, processingQueue: DispatchQueue = .transactionProcessing)
+    public init(scheme: String = NSURLProtectionSpaceHTTPS, host: String, urlPath: String, upload data: Data? = nil)
     {
-        super.init(scheme: scheme, host: host, urlPath: urlPath, transactionType: .api, upload: data, processingQueue: processingQueue) { _, data, _ in
+        super.init(scheme: scheme, host: host, urlPath: urlPath, transactionType: .api, upload: data)
 
+        self.processPayload = { _, data, _ in
             let json = try JSONSerialization.jsonObject(with: data, options: [])
 
-            guard let payload = json as? PayloadType else {
-                throw DataTransactionError.jsonFormatError("Expecting JSON data to be a type of \(PayloadType.self); got \(type(of: json)) instead", data)
+            guard let payload = json as? T else {
+                throw DataTransactionError.jsonFormatError("Expecting JSON data to be a type of \(T.self); got \(type(of: json)) instead", data)
             }
 
             return payload
