@@ -10,25 +10,33 @@ import Foundation
 
 /**
  Attempts to construct a platform-appropriate image object by fetching image
- data from the given URL.
+ data from the given service.
  
  - note: `PlatformImageType` represents the image type appropriate for the
  runtime platform. On iOS and tvOS, it maps to `UIImage`; on Mac OS X, it's
  `NSImage`.
  */
-open class FetchImageTransaction: GenericDataProcessingTransaction<PlatformImageType>
+open class FetchImageTransaction: GenericPayloadTransaction<PlatformImageType>
 {
     /**
      Initializes a `FetchImageTransaction` to retrieve image data from the 
      specified URL.
      
-     - parameter url: The URL from which to fetch image data.
+     - parameter scheme: The protocol scheme used to communicate with
+     the service.
+
+     - parameter host: The hostname of the service.
+
+     - parameter urlPath: The path portion of the URL at which the network
+     service is hosted.
 
      - parameter queueProvider: Used to supply a GCD queue for asynchronous
      operations when needed.
      */
-    public init(url: URL, processingQueue: DispatchQueue = .transactionProcessing)
+    public init(scheme: String = NSURLProtectionSpaceHTTPS, host: String, urlPath: String, processingQueue: DispatchQueue = .transactionProcessing)
     {
-        super.init(wrapping: URLTransaction(url: url), dataProcessor: platformImage(fromData:), processingQueue: processingQueue)
+        super.init(scheme: scheme, host: host, urlPath: urlPath, transactionType: .media, processingQueue: processingQueue) { _, data, _ in
+            return try platformImage(fromData: data)
+        }
     }
 }

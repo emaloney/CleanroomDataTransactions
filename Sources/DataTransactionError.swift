@@ -74,9 +74,9 @@ public enum DataTransactionError: Error
      transaction. */
     case notAuthorized
 
-    /** Indicates an HTTP error response was received. Contains the metadata
-     of the response as well as any response data. */
-    case httpError(HTTPResponseMetadata, Data?)
+    /** Indicates an HTTP error response was received. Contains the response,
+     its metadata, and the body of the response. */
+    case httpError(HTTPURLResponse, HTTPResponseMetadata, Data)
 }
 
 extension DataTransactionError
@@ -155,8 +155,8 @@ extension DataTransactionError: CustomStringConvertible
         case .notAuthorized:
             return "Not authorized to access this resource."
 
-        case .httpError(let meta, let data):
-            if let data = data, !data.isEmpty {
+        case .httpError(_, let meta, let data):
+            if !data.isEmpty {
                 let dataStr = data.asStringUTF8 ?? "(data could not be converted to a UTF-8 string)"
                 return "HTTP error \(meta.responseStatusCode) returned by \(meta.url) with \(data.count) bytes of data: \(dataStr)"
             } else {
