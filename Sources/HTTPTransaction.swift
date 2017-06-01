@@ -55,14 +55,8 @@ open class HTTPTransaction<T>: DataTransaction
         case media
     }
 
-    /** The protocol scheme used by the service. */
-    public let scheme: String
-
-    /** The hostname of the service. */
-    public let host: String
-
-    /** The path portion of the service URL. */
-    public let urlPath: String
+    /** The URL of the service to be used by the transaction. */
+    public let url: URL
 
     /** Optional data to send to the service when executing the
      transaction. */
@@ -72,14 +66,10 @@ open class HTTPTransaction<T>: DataTransaction
     public let transactionType: TransactionType
 
     /** A function called to construct the `URL` used for the transaction.
-     The default implementation constructs the `URL` using the `scheme`,
-     `host` and `urlPath` of the transaction. */
+     The default implementation simply returns the value of the transaction's
+     `url` property. */
     public var constructURL: URLConstructor = { txn in
-        let urlStr = "\(txn.scheme)://\(txn.host)\(txn.urlPath)"
-        guard let url = URL(string: urlStr) else {
-            throw DataTransactionError.invalidURL(urlStr)
-        }
-        return url
+        return txn.url
     }
 
     /** A function called to construct the `URLRequest` used to execute the
@@ -97,7 +87,7 @@ open class HTTPTransaction<T>: DataTransaction
      `DataType` upon successful completion of the transaction. */
     public var processPayload: PayloadProcessor = { txn, data, _ in
         guard let payload = data as? T else {
-            throw DataTransactionError.dataFormatError("Expected payload to be \(T.self) for a \(type(of: txn)) transaction (targeting \(txn.urlPath)); got a \(type(of: data)) instead.")
+            throw DataTransactionError.dataFormatError("Expected payload to be \(T.self) for a \(type(of: txn)) transaction (targeting \(txn.url)); got a \(type(of: data)) instead.")
         }
         return payload
     }
@@ -126,27 +116,18 @@ open class HTTPTransaction<T>: DataTransaction
     /** 
      Initializes a new transaction that will connect to the given service.
      
-     - parameter scheme: The protocol scheme used to communicate with
-     the service.
+     - parameter url: The URL to use for conducting the transaction.
 
-     - parameter host: The hostname of the service.
-
-     - parameter urlPath: The path portion of the URL at which the network
-     service is hosted. If non-empty, this string _must_ begin with a slash
-     ("`/`") character.
-     
      - parameter transactionType: Specifies the transaction type.
      
-     - parameter data: Optional data to send to the network service.
+     - parameter data: Optional data to send to the service.
      
      - parameter queue: A `DispatchQueue` to use for processing transaction
      responses.
      */
-    public init(scheme: String = NSURLProtectionSpaceHTTPS, host: String, urlPath: String, transactionType: TransactionType = .api, upload data: Data? = nil, processingQueue queue: DispatchQueue = .transactionProcessing)
+    public init(url: URL, transactionType: TransactionType = .api, upload data: Data? = nil, processingQueue queue: DispatchQueue = .transactionProcessing)
     {
-        self.scheme = scheme
-        self.host = host
-        self.urlPath = urlPath
+        self.url = url
         self.transactionType = transactionType
         self.uploadData = data
         self.processingQueue = queue
@@ -156,7 +137,7 @@ open class HTTPTransaction<T>: DataTransaction
         task?.cancel()
     }
 
-    public func cancel()
+    open func cancel()
     {
         task?.cancel()
         task = nil
@@ -171,14 +152,6 @@ open class HTTPTransaction<T>: DataTransaction
         pinnedTransaction = nil
     }
 
-    /**
-     Causes the transaction to be executed. The transaction may be performed
-     asynchronously. When complete, the `Result` is reported to the `Callback`
-     function.
-     
-     - parameter completion: A function that will be called upon completion
-     of the transaction.
-     */
     open func executeTransaction(completion: @escaping Callback)
     {
         do {

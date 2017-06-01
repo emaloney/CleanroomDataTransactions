@@ -20,34 +20,46 @@ open class JSONTransaction<T>: HTTPTransaction<T>
      Initializes a `JSONTransaction` to connect to the network service at the
      given URL.
      
-     - parameter scheme: The protocol scheme used to communicate with
-     the service.
-
-     - parameter host: The hostname of the service.
-
-     - parameter urlPath: The path portion of the URL at which the network
-    /** An optional `PayloadValidationFunction` function used to interpret the 
-     transaction metadata returned by the wrapped transaction. This is called 
-     if and only if only if `processPayload()` did not throw an exception.*/
-    public var validatePayload: PayloadValidationFunction?
-     service is hosted.
+     - parameter url: The URL to use for conducting the transaction.
 
      - parameter data: Optional binary data to send to the network
      service.
      */
-    public init(scheme: String = NSURLProtectionSpaceHTTPS, host: String, urlPath: String, upload data: Data? = nil)
+    public init(url: URL, upload data: Data? = nil)
     {
-        super.init(scheme: scheme, host: host, urlPath: urlPath, transactionType: .api, upload: data)
+        super.init(url: url, transactionType: .api, upload: data)
 
-        self.processPayload = { _, data, _ in
-            let json = try JSONSerialization.jsonObject(with: data, options: [])
+        self.processPayload = extractPayloadFromJSON
+    }
 
-            guard let payload = json as? T else {
-                throw DataTransactionError.jsonFormatError("Expecting JSON data to be a type of \(T.self); got \(type(of: json)) instead", data)
-            }
+    open func extractPayloadFromJSON(transaction: HTTPTransaction<T>, data: Data, meta: HTTPResponseMetadata)
+        throws
+        -> T
+    {
+        let json = try jsonObject(from: data)
 
-            return payload
+        return try processJSON(json, from: data)
+    }
+
+    open func jsonObject(from data: Data)
+        throws
+        -> Any
+    {
+        return try JSONSerialization.jsonObject(with: data, options: [])
+    }
+
+    open func processJSON(_ jsonObject: Any, from data: Data)
+        throws
+        -> T
+    {
+        // this implementation is a simple cast; many implementations
+        // will require more specialized parsing. in such cases, this
+        // should be overridden in a subclass
+        guard let payload = jsonObject as? T else {
+            throw DataTransactionError.jsonFormatError("Expecting JSON data to be a type of \(T.self); got \(type(of: jsonObject)) instead", data)
         }
+
+        return payload
     }
 }
 
