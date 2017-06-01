@@ -139,9 +139,9 @@ open class HTTPTransaction<T>: DataTransaction
 
     open func cancel()
     {
+        pinnedTransaction = nil
         task?.cancel()
         task = nil
-        pinnedTransaction = nil
     }
 
     private func call(_ completion: @escaping Callback, with result: Result)
