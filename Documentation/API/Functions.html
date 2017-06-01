@@ -13,7 +13,7 @@
     <a title="Functions  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
+        <p><a href="index.html">CleanroomDataTransactions Docs</a> (98% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -31,25 +31,16 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/ApiDocOptionalTransaction.html">ApiDocOptionalTransaction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/ApiDocTransaction.html">ApiDocTransaction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/FetchImageTransaction.html">FetchImageTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/GenericDataProcessingTransaction.html">GenericDataProcessingTransaction</a>
+                <a href="Classes/HTTPTransaction.html">HTTPTransaction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/JSONOptionalTransaction.html">JSONOptionalTransaction</a>
+                <a href="Classes/HTTPTransaction/TransactionType.html">– TransactionType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/JSONTransaction.html">JSONTransaction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/URLTransaction.html">URLTransaction</a>
               </li>
             </ul>
           </li>
@@ -97,19 +88,7 @@
             <a href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_">httpOptionalStatusCodeValidator(_:data:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_">httpRequiredStatusCodeValidator(_:data:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__GSqx_">optionalPayloadProcessor(jsonObject:jsonData:)</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Functions.html#/s:F25CleanroomDataTransactions13platformImageFzT8fromDataV10Foundation4Data_CSo7NSImage">platformImage(fromData:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Functions.html#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__x">requiredPayloadProcessor(jsonObject:jsonData:)</a>
               </li>
             </ul>
           </li>
@@ -119,9 +98,6 @@
               <li class="nav-group-task">
                 <a href="Protocols/DataTransaction.html">DataTransaction</a>
               </li>
-              <li class="nav-group-task">
-                <a href="Protocols/WrappingDataTransaction.html">WrappingDataTransaction</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -130,25 +106,30 @@
               <li class="nav-group-task">
                 <a href="Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Structs/JSONKey.html">JSONKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Subscripts.html">Subscripts</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Subscripts.html#/s:iE25CleanroomDataTransactionsVs10Dictionary9subscriptFVS_7JSONKeyGSqq__">subscript(_:)</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Typealiases.html">Typealiases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Typealiases.html#/s:25CleanroomDataTransactions22ApiDocArrayTransaction">ApiDocArrayTransaction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:25CleanroomDataTransactions27ApiDocDictionaryTransaction">ApiDocDictionaryTransaction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:25CleanroomDataTransactions30ApiDocOptionalArrayTransaction">ApiDocOptionalArrayTransaction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Typealiases.html#/s:25CleanroomDataTransactions35ApiDocOptionalDictionaryTransaction">ApiDocOptionalDictionaryTransaction</a>
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:25CleanroomDataTransactions20JSONArrayTransaction">JSONArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
@@ -174,283 +155,6 @@
 
           </section>
           <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__x"></a>
-                    <a name="//apple_ref/swift/Function/requiredPayloadProcessor(jsonObject:jsonData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:F25CleanroomDataTransactions24requiredPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__x">requiredPayloadProcessor(jsonObject:jsonData:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code>PayloadProcessingFunction</code> that requires <code>jsonObject</code> to be an instance
-of type <code>T</code>.</p>
-
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    <p>A <code><a href="Enums/DataTransactionError.html">DataTransactionError</a></code> if <code>jsonObject</code> could not be cast to
-type <code>T</code>.</p>
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">requiredPayloadProcessor</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">jsonObject</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">jsonData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?)</span>
-    <span class="k">throws</span>
-    <span class="o">-&gt;</span> <span class="kt">T</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>jsonObject</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An object created from a JSON data structure.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>An instance of type <code>T</code>.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__GSqx_"></a>
-                    <a name="//apple_ref/swift/Function/optionalPayloadProcessor(jsonObject:jsonData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:F25CleanroomDataTransactions24optionalPayloadProcessorurFzT10jsonObjectGSqP__8jsonDataGSqV10Foundation4Data__GSqx_">optionalPayloadProcessor(jsonObject:jsonData:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code>PayloadProcessingFunction</code> that accepts an optional <code>jsonObject</code> expected
-to be of type <code>T</code>.</p>
-
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    <p>A <code><a href="Enums/DataTransactionError.html">DataTransactionError</a></code> if <code>jsonObject</code> is non-<code>nil</code> and could not
-be cast to type <code>T</code>.</p>
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">optionalPayloadProcessor</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">jsonObject</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">jsonData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?)</span>
-    <span class="k">throws</span>
-    <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>jsonObject</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An optional object created from a JSON data structure.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>An instance of type <code>T</code>, or <code>nil</code> if <code>jsonObject</code> is <code>nil</code>.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_"></a>
-                    <a name="//apple_ref/swift/Function/httpOptionalStatusCodeValidator(_:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:F25CleanroomDataTransactions31httpOptionalStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_">httpOptionalStatusCodeValidator(_:data:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code>MetadataValidationFunction</code> that expects its <code>MetadataType</code> to be <code>nil</code>
-or an instance of <code><a href="Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></code>.</p>
-
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    <p><code><a href="Enums/DataTransactionError.html#/s:FO25CleanroomDataTransactions20DataTransactionError9httpErrorFMS0_FTVS_20HTTPResponseMetadataGSqV10Foundation4Data__S0_">DataTransactionError.httpError</a></code> if <code>meta</code> is an instance of
-<code><a href="Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></code> that represents either a client or server error.</p>
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">httpOptionalStatusCodeValidator</span><span class="o">&lt;</span><span class="kt">MetadataType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">metadata</span><span class="p">:</span> <span class="kt">MetadataType</span><span class="p">?,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?)</span>
-    <span class="k">throws</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>meta</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An optional <code>MetadataType</code>.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>data</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An optional <code>Data</code> instance containing the transaction’s raw response body.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_"></a>
-                    <a name="//apple_ref/swift/Function/httpRequiredStatusCodeValidator(_:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:F25CleanroomDataTransactions31httpRequiredStatusCodeValidatorurFzTGSqx_4dataGSqV10Foundation4Data__T_">httpRequiredStatusCodeValidator(_:data:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code>MetadataValidationFunction</code> that expects its <code>MetadataType</code> to be an
-instance of <code><a href="Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></code>.</p>
-
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    <p><code><a href="Enums/DataTransactionError.html#/s:FO25CleanroomDataTransactions20DataTransactionError12httpRequiredFMS0_S0_">DataTransactionError.httpRequired</a></code> if <code>meta</code> is not an instance
-of <code><a href="Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></code>.</p>
-
-</div>
-
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    <p><code><a href="Enums/DataTransactionError.html#/s:FO25CleanroomDataTransactions20DataTransactionError9httpErrorFMS0_FTVS_20HTTPResponseMetadataGSqV10Foundation4Data__S0_">DataTransactionError.httpError</a></code> if <code>meta</code> is an instance of
-<code><a href="Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></code> that represents either a client or server error.</p>
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">httpRequiredStatusCodeValidator</span><span class="o">&lt;</span><span class="kt">MetadataType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">metadata</span><span class="p">:</span> <span class="kt">MetadataType</span><span class="p">?,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?)</span>
-    <span class="k">throws</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>meta</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An optional <code>MetadataType</code>.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>data</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An optional <code>Data</code> instance containing the transaction’s raw response body.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div class="task-group">
               <ul>
                 <li class="item">

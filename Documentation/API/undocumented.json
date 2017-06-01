@@ -1,6 +1,26 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/emaloney/Documents/Code/web/clients/PaymentServiceClient/Carthage/Checkouts/CleanroomDataTransactions/Sources/JSONTransaction.swift",
+      "line": 35,
+      "symbol": "JSONTransaction.extractPayloadFromJSON(transaction:data:meta:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/web/clients/PaymentServiceClient/Carthage/Checkouts/CleanroomDataTransactions/Sources/JSONTransaction.swift",
+      "line": 44,
+      "symbol": "JSONTransaction.jsonObject(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/web/clients/PaymentServiceClient/Carthage/Checkouts/CleanroomDataTransactions/Sources/JSONTransaction.swift",
+      "line": 51,
+      "symbol": "JSONTransaction.processJSON(_:from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
   ],
-  "source_directory": "/Users/emaloney/Documents/Code/client/GiltOnTheGo/Carthage/Checkouts/CleanroomDataTransactions"
+  "source_directory": "/Users/emaloney/Documents/Code/web/clients/PaymentServiceClient/Carthage/Checkouts/CleanroomDataTransactions"
 }
