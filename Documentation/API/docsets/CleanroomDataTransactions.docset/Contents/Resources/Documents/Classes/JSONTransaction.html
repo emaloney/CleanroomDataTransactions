@@ -14,7 +14,7 @@
     <a title="JSONTransaction Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (98% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -161,12 +161,74 @@
             <p>Connects to a network service to retrieve a JSON document.</p>
 
 <p>Because the root object of a JSON document may be one of several types,
-a successful <code>JSONTransaction</code> produces the generic type <code>T</code>.</p>
+a successful <code>JSONTransaction</code> produces the generic type <code>T</code> (also known
+herein as <code>DataType</code> via conformance to the <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code> protocol).</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15JSONTransaction11processJSONFzTGS0_x_P__x"></a>
+                    <a name="//apple_ref/swift/Property/processJSON" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15JSONTransaction11processJSONFzTGS0_x_P__x">processJSON</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Classes/JSONTransaction.html#/s:C25CleanroomDataTransactions15JSONTransaction20JSONPayloadProcessor">JSONPayloadProcessor</a></code> that will be used to convert a JSON
+ object (of type <code>Any</code>) to the <code>DataType</code> of the transaction. The default
+ implementation calls <code>extractPayloadFromParsedJSON()</code>, which simply
+ performs a typecast. If that is insufficient, you may either replace
+ the function stored in <code>processJSON</code> or subclass to provide an alternate
+ implementation of <code>extractPayloadFromParsedJSON()</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">processJSON</span><span class="p">:</span> <span class="kt"><a href="../Classes/JSONTransaction.html#/s:C25CleanroomDataTransactions15JSONTransaction20JSONPayloadProcessor">JSONPayloadProcessor</a></span> <span class="o">=</span> <span class="p">{</span> <span class="n">txn</span><span class="p">,</span> <span class="n">jsonObject</span> <span class="k">in</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15JSONTransaction20JSONPayloadProcessor"></a>
+                    <a name="//apple_ref/swift/Alias/JSONPayloadProcessor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15JSONTransaction20JSONPayloadProcessor">JSONPayloadProcessor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of a JSON payload processing function. This function
+ accepts a JSON object (of type <code>Any</code>) and attempts to convert it to 
+ <code>DataType</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONPayloadProcessor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">Any</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">DataType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -231,9 +293,9 @@ given URL.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions15JSONTransaction22extractPayloadFromJSONFzT11transactionGCS_15HTTPTransactionx_4dataV10Foundation4Data4metaVS_20HTTPResponseMetadata_x"></a>
-                    <a name="//apple_ref/swift/Method/extractPayloadFromJSON(transaction:data:meta:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions15JSONTransaction22extractPayloadFromJSONFzT11transactionGCS_15HTTPTransactionx_4dataV10Foundation4Data4metaVS_20HTTPResponseMetadata_x">extractPayloadFromJSON(transaction:data:meta:)</a>
+                    <a name="/s:FC25CleanroomDataTransactions15JSONTransaction22extractPayloadFromDataFzT11transactionGCS_15HTTPTransactionx_7contentV10Foundation4Data4metaVS_20HTTPResponseMetadata_x"></a>
+                    <a name="//apple_ref/swift/Method/extractPayloadFromData(transaction:content:meta:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions15JSONTransaction22extractPayloadFromDataFzT11transactionGCS_15HTTPTransactionx_7contentV10Foundation4Data4metaVS_20HTTPResponseMetadata_x">extractPayloadFromData(transaction:content:meta:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -241,16 +303,82 @@ given URL.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The payload processing function used by default for <code>JSONTransaction</code>
+instances.</p>
+
+<p>This function extracts a JSON object from binary <code>Data</code> using the
+<code><a href="../Classes/JSONTransaction.html#/s:FC25CleanroomDataTransactions15JSONTransaction10jsonObjectFzT4fromV10Foundation4Data_P_">jsonObject(from:)</a></code> function and—if successful—attempts to convert the
+result to type <code>DataType</code> using the <code><a href="../Classes/JSONTransaction.html#/s:C25CleanroomDataTransactions15JSONTransaction20JSONPayloadProcessor">JSONPayloadProcessor</a></code>.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>If <code>content</code> could not be interpreted into a JSON object, or if
+that JSON object could not be interpreted as an instance of type 
+<code>DataType</code>.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">extractPayloadFromData</span><span class="p">(</span><span class="nv">transaction</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">content</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">meta</span><span class="p">:</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span>
+        <span class="k">throws</span>
+        <span class="o">-&gt;</span> <span class="kt">DataType</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The transaction for which the function is executing. Under normal circumstances, this is the same as <code>self</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>content</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The content (body) of the HTTP response.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>meta</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The response metadata.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The payload, an instance of <code>DataType</code>.</p>
+
                       </div>
                     </section>
                   </div>
@@ -268,16 +396,52 @@ given URL.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Attempts to convert the content of an HTTP response into a JSON object.</p>
+
+<p>This implementation calls <code>JSONSerialization.jsonObject()</code> with no
+options. Subclasses may override to provide different behavior.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>If <code>content</code> could not be interpreted into a JSON object.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">jsonObject</span><span class="p">(</span><span class="n">from</span> <span class="nv">content</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span>
+        <span class="k">throws</span>
+        <span class="o">-&gt;</span> <span class="kt">Any</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>content</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The content (body) of the HTTP response.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The JSON object.</p>
+
                       </div>
                     </section>
                   </div>
@@ -285,9 +449,9 @@ given URL.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC25CleanroomDataTransactions15JSONTransaction11processJSONFzTP_4fromV10Foundation4Data_x"></a>
-                    <a name="//apple_ref/swift/Method/processJSON(_:from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC25CleanroomDataTransactions15JSONTransaction11processJSONFzTP_4fromV10Foundation4Data_x">processJSON(_:from:)</a>
+                    <a name="/s:FC25CleanroomDataTransactions15JSONTransaction28extractPayloadFromParsedJSONFzP_x"></a>
+                    <a name="//apple_ref/swift/Method/extractPayloadFromParsedJSON(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions15JSONTransaction28extractPayloadFromParsedJSONFzP_x">extractPayloadFromParsedJSON(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -295,16 +459,56 @@ given URL.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Attempts to interpret a JSON object as an object of type <code>DataType</code>.</p>
+
+<p>The default implementation simply attempts to cast <code>jsonObject</code> as type
+<code>DataType</code>. This is sufficient if you&rsquo;re expecting a <code><a href="../Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a></code>
+or a <code><a href="../Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a></code>. In other cases, subclassing or replacing the
+<code><a href="../Classes/JSONTransaction.html#/s:C25CleanroomDataTransactions15JSONTransaction20JSONPayloadProcessor">JSONPayloadProcessor</a></code> function in the <code><a href="../Classes/JSONTransaction.html#/s:vC25CleanroomDataTransactions15JSONTransaction11processJSONFzTGS0_x_P__x">processJSON</a></code> property is
+necessary.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>If <code>jsonObject</code> could not be interpreted as an instance of
+type <code>DataType</code>.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">extractPayloadFromParsedJSON</span><span class="p">(</span><span class="n">_</span> <span class="nv">jsonObject</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span>
+        <span class="k">throws</span>
+        <span class="o">-&gt;</span> <span class="kt">DataType</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonObject</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance <code>DataType</code>, representing the value extracted from the <code>jsonObject</code>.</p>
+
                       </div>
                     </section>
                   </div>

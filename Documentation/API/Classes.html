@@ -13,7 +13,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">CleanroomDataTransactions Docs</a> (98% documented)</p>
+        <p><a href="index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -173,7 +173,8 @@
                         <p>Connects to a network service to retrieve a JSON document.</p>
 
 <p>Because the root object of a JSON document may be one of several types,
-a successful <code>JSONTransaction</code> produces the generic type <code>T</code>.</p>
+a successful <code>JSONTransaction</code> produces the generic type <code>T</code> (also known
+herein as <code>DataType</code> via conformance to the <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> protocol).</p>
 
                         <a href="Classes/JSONTransaction.html" class="slightly-smaller">See more</a>
                       </div>
@@ -205,12 +206,11 @@ a successful <code>JSONTransaction</code> produces the generic type <code>T</cod
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> that uses an <code>URLRequest</code> to request data from
-(and potentially send data to) an HTTP-based service.</p>
+                        <p>A <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> that uses a <code>URLRequest</code> to request data from
+(and potentially send data to) an HTTP(S)-based service.</p>
 
-<p>A successful transaction produces an <code>Data</code> instance, and if the request
-was sent via HTTP or HTTPS, the transaction metadata will contain an
-<code><a href="Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></code> instance.</p>
+<p>A successful transaction produces an instance of type <code>T</code> (also known herein
+as <code>DataType</code> via conformance to the <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> protocol).</p>
 
                         <a href="Classes/HTTPTransaction.html" class="slightly-smaller">See more</a>
                       </div>

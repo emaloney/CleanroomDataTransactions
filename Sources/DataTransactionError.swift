@@ -39,6 +39,9 @@ public enum DataTransactionError: Error
     /** The transaction protocol has been implemented incorrectly. */
     case badImplementation
 
+    /** Transaction processing encountered an unexpected type. */
+    case incompatibleType
+
     /** Failed to create a `URLSessionTask` for the transaction. */
     case sessionTaskNotCreated
 
@@ -124,6 +127,9 @@ extension DataTransactionError: CustomStringConvertible
 
         case .badImplementation:
             return "Something isn’t right; in fact, one might go so far as to say that something is wrong."
+
+        case .incompatibleType:
+            return "The implementation encountered a type it wasn't expecting, and can't handle because it is not compatible."
 
         case .sessionTaskNotCreated:
             return "Could not create the task needed to perform this operation."

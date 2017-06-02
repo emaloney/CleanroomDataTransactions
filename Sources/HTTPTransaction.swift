@@ -9,12 +9,11 @@
 import Foundation
 
 /**
- A `DataTransaction` that uses an `URLRequest` to request data from
- (and potentially send data to) an HTTP-based service.
+ A `DataTransaction` that uses a `URLRequest` to request data from
+ (and potentially send data to) an HTTP(S)-based service.
  
- A successful transaction produces an `Data` instance, and if the request
- was sent via HTTP or HTTPS, the transaction metadata will contain an
- `HTTPResponseMetadata` instance.
+ A successful transaction produces an instance of type `T` (also known herein
+ as `DataType` via conformance to the `DataTransaction` protocol).
  */
 open class HTTPTransaction<T>: DataTransaction
 {
@@ -39,12 +38,12 @@ open class HTTPTransaction<T>: DataTransaction
 
     /** The signature of a payload processing function. This function accepts
      binary `Data` and attempts to convert it to `DataType`. */
-    public typealias PayloadProcessor = (HTTPTransaction<T>, Data, HTTPResponseMetadata) throws -> T
+    public typealias PayloadProcessor = (HTTPTransaction<T>, Data, HTTPResponseMetadata) throws -> DataType
 
     /** If the payload processor succeeds, the results are passed to the
      payload validator, giving the transaction one final chance to sanity-check
      the data and bail if there's a problem. */
-    public typealias PayloadValidator = (HTTPTransaction<T>, T, Data, HTTPResponseMetadata) throws -> Void
+    public typealias PayloadValidator = (HTTPTransaction<T>, DataType, Data, HTTPResponseMetadata) throws -> Void
 
     /** Indicates the type of transaction provided by the implementation. */
     public enum TransactionType {
@@ -86,8 +85,8 @@ open class HTTPTransaction<T>: DataTransaction
     /**  The `PayloadProcessor` that will be used to produce the receiver's
      `DataType` upon successful completion of the transaction. */
     public var processPayload: PayloadProcessor = { txn, data, _ in
-        guard let payload = data as? T else {
-            throw DataTransactionError.dataFormatError("Expected payload to be \(T.self) for a \(type(of: txn)) transaction (targeting \(txn.url)); got a \(type(of: data)) instead.")
+        guard let payload = data as? DataType else {
+            throw DataTransactionError.dataFormatError("Expected payload to be \(DataType.self) for a \(type(of: txn)) transaction (targeting \(txn.url)); got a \(type(of: data)) instead.")
         }
         return payload
     }

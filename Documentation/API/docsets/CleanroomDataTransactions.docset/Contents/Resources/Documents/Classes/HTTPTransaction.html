@@ -14,7 +14,7 @@
     <a title="HTTPTransaction Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (98% documented)</p>
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -158,12 +158,11 @@
 
                 </div>
               </div>
-            <p>A <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code> that uses an <code>URLRequest</code> to request data from
-(and potentially send data to) an HTTP-based service.</p>
+            <p>A <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code> that uses a <code>URLRequest</code> to request data from
+(and potentially send data to) an HTTP(S)-based service.</p>
 
-<p>A successful transaction produces an <code>Data</code> instance, and if the request
-was sent via HTTP or HTTPS, the transaction metadata will contain an
-<code><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></code> instance.</p>
+<p>A successful transaction produces an instance of type <code>T</code> (also known herein
+as <code>DataType</code> via conformance to the <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code> protocol).</p>
 
           </section>
           <section class="section task-group-section">
@@ -200,6 +199,34 @@ was sent via HTTP or HTTPS, the transaction metadata will contain an
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction14URLConstructor"></a>
+                    <a name="//apple_ref/swift/Alias/URLConstructor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction14URLConstructor">URLConstructor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of a function used to construct <code>URL</code> instances for 
+ the transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">URLConstructor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">URL</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor"></a>
                     <a name="//apple_ref/swift/Alias/PayloadProcessor" class="dashAnchor"></a>
                     <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor">PayloadProcessor</a>
@@ -218,7 +245,7 @@ was sent via HTTP or HTTPS, the transaction metadata will contain an
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadProcessor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">Data</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadProcessor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">Data</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">DataType</span></code></pre>
 
                         </div>
                       </div>
@@ -247,7 +274,7 @@ was sent via HTTP or HTTPS, the transaction metadata will contain an
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadValidator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">T</span><span class="p">,</span> <span class="kt">Data</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadValidator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">DataType</span><span class="p">,</span> <span class="kt">Data</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -276,34 +303,6 @@ was sent via HTTP or HTTPS, the transaction metadata will contain an
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ResponseValidator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">HTTPURLResponse</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">,</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction14URLConstructor"></a>
-                    <a name="//apple_ref/swift/Alias/URLConstructor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction14URLConstructor">URLConstructor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The signature of a function used to construct <code>URL</code> instances for 
- the transaction.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">URLConstructor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">URL</span></code></pre>
 
                         </div>
                       </div>
