@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTTPTransaction Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/HTTPTransaction" class="dashAnchor"></a>
+    <a title="HTTPTransaction Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (98% documented)</p>
+        <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CleanroomDataTransactions Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        HTTPTransaction Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FetchImageTransaction.html">FetchImageTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPTransaction.html">HTTPTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPTransaction/TransactionType.html">– TransactionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/JSONTransaction.html">JSONTransaction</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/DataTransactionError.html">DataTransactionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPResponseStatus.html">HTTPResponseStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPResponseStatus/Category.html">– Category</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TransactionResult.html">TransactionResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Data.html">Data</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DispatchQueue.html">DispatchQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/WKImage.html">WKImage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions13platformImageFzT8fromDataV10Foundation4Data_CSo7NSImage">platformImage(fromData:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/DataTransaction.html">DataTransaction</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/JSONKey.html">JSONKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Subscripts.html">Subscripts</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Subscripts.html#/s:iE25CleanroomDataTransactionsVs10Dictionary9subscriptFVS_7JSONKeyGSqq__">subscript(_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions20JSONArrayTransaction">JSONArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions33JSONOptionalDictionaryTransaction">JSONOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>HTTPTransaction</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DataTransaction.html">DataTransaction</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A <code><a href="../Protocols/DataTransaction.html">DataTransaction</a></code> that uses an <code>URLRequest</code> to request data from
+(and potentially send data to) an HTTP-based service.</p>
+
+<p>A successful transaction produces an <code>Data</code> instance, and if the request
+was sent via HTTP or HTTPS, the transaction metadata will contain an
+<code><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></code> instance.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC25CleanroomDataTransactions15HTTPTransaction15TransactionType"></a>
+                    <a name="//apple_ref/swift/Enum/TransactionType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC25CleanroomDataTransactions15HTTPTransaction15TransactionType">TransactionType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates the type of transaction provided by the implementation.</p>
+
+                        <a href="../Classes/HTTPTransaction/TransactionType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TransactionType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor"></a>
+                    <a name="//apple_ref/swift/Alias/PayloadProcessor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor">PayloadProcessor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of a payload processing function. This function accepts
+ binary <code>Data</code> and attempts to convert it to <code>DataType</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadProcessor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">Data</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadValidator"></a>
+                    <a name="//apple_ref/swift/Alias/PayloadValidator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadValidator">PayloadValidator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If the payload processor succeeds, the results are passed to the
+ payload validator, giving the transaction one final chance to sanity-check
+ the data and bail if there&rsquo;s a problem.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadValidator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">T</span><span class="p">,</span> <span class="kt">Data</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction17ResponseValidator"></a>
+                    <a name="//apple_ref/swift/Alias/ResponseValidator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction17ResponseValidator">ResponseValidator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of a function used to validate the response received
+ by an HTTP transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ResponseValidator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">HTTPURLResponse</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">,</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction14URLConstructor"></a>
+                    <a name="//apple_ref/swift/Alias/URLConstructor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction14URLConstructor">URLConstructor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of a function used to construct <code>URL</code> instances for 
+ the transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">URLConstructor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">URL</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction18RequestConstructor"></a>
+                    <a name="//apple_ref/swift/Alias/RequestConstructor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction18RequestConstructor">RequestConstructor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of a function used to construct <code>URLRequest</code>s for
+ the transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">RequestConstructor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">URL</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction19RequestConfigurator"></a>
+                    <a name="//apple_ref/swift/Alias/RequestConfigurator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction19RequestConfigurator">RequestConfigurator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of a function used to configure the <code>URLRequest</code> prior to
+ issuing the transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">RequestConfigurator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">inout</span> <span class="kt">URLRequest</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15HTTPTransaction3urlV10Foundation3URL"></a>
+                    <a name="//apple_ref/swift/Property/url" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15HTTPTransaction3urlV10Foundation3URL">url</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The URL of the service to be used by the transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15HTTPTransaction10uploadDataGSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Property/uploadData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15HTTPTransaction10uploadDataGSqV10Foundation4Data_">uploadData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional data to send to the service when executing the
+ transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">uploadData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15HTTPTransaction15transactionTypeGOS0_15TransactionTypex__"></a>
+                    <a name="//apple_ref/swift/Property/transactionType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15HTTPTransaction15transactionTypeGOS0_15TransactionTypex__">transactionType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates the type of transaction provided by the receiver.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">transactionType</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction/TransactionType.html">TransactionType</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15HTTPTransaction12constructURLFzGS0_x_V10Foundation3URL"></a>
+                    <a name="//apple_ref/swift/Property/constructURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15HTTPTransaction12constructURLFzGS0_x_V10Foundation3URL">constructURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A function called to construct the <code>URL</code> used for the transaction.
+ The default implementation simply returns the value of the transaction&rsquo;s
+ <code><a href="../Classes/HTTPTransaction.html#/s:vC25CleanroomDataTransactions15HTTPTransaction3urlV10Foundation3URL">url</a></code> property.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">constructURL</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html#/s:C25CleanroomDataTransactions15HTTPTransaction14URLConstructor">URLConstructor</a></span> <span class="o">=</span> <span class="p">{</span> <span class="n">txn</span> <span class="k">in</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15HTTPTransaction16constructRequestFzTGS0_x_V10Foundation3URL_VS1_10URLRequest"></a>
+                    <a name="//apple_ref/swift/Property/constructRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15HTTPTransaction16constructRequestFzTGS0_x_V10Foundation3URL_VS1_10URLRequest">constructRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A function called to construct the <code>URLRequest</code> used to execute the
+ transaction. The default implementation returns a simple <code>URLRequest</code>
+ constructed from the passed-in <code>URL</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">constructRequest</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html#/s:C25CleanroomDataTransactions15HTTPTransaction18RequestConstructor">RequestConstructor</a></span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span><span class="p">,</span> <span class="n"><a href="../Classes/HTTPTransaction.html#/s:vC25CleanroomDataTransactions15HTTPTransaction3urlV10Foundation3URL">url</a></span> <span class="k">in</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15HTTPTransaction16configureRequestFzTGS0_x_RV10Foundation10URLRequest_T_"></a>
+                    <a name="//apple_ref/swift/Property/configureRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15HTTPTransaction16configureRequestFzTGS0_x_RV10Foundation10URLRequest_T_">configureRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A function called to configure the <code>URLRequest</code> prior to executing
+ the transaction. The default implementation does nothing.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">configureRequest</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html#/s:C25CleanroomDataTransactions15HTTPTransaction19RequestConfigurator">RequestConfigurator</a></span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15HTTPTransaction14processPayloadFzTGS0_x_V10Foundation4DataVS_20HTTPResponseMetadata_x"></a>
+                    <a name="//apple_ref/swift/Property/processPayload" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15HTTPTransaction14processPayloadFzTGS0_x_V10Foundation4DataVS_20HTTPResponseMetadata_x">processPayload</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Classes/HTTPTransaction.html#/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor">PayloadProcessor</a></code> that will be used to produce the receiver&rsquo;s
+ <code>DataType</code> upon successful completion of the transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">processPayload</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html#/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor">PayloadProcessor</a></span> <span class="o">=</span> <span class="p">{</span> <span class="n">txn</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">_</span> <span class="k">in</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15HTTPTransaction15validatePayloadFzTGS0_x_xV10Foundation4DataVS_20HTTPResponseMetadata_T_"></a>
+                    <a name="//apple_ref/swift/Property/validatePayload" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15HTTPTransaction15validatePayloadFzTGS0_x_xV10Foundation4DataVS_20HTTPResponseMetadata_T_">validatePayload</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code><a href="../Classes/HTTPTransaction.html#/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadValidator">PayloadValidator</a></code> that will be used to validate the <code>DataType</code>
+ produced by the <code><a href="../Classes/HTTPTransaction.html#/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor">PayloadProcessor</a></code> upon successful completion of the
+ transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">validatePayload</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html#/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadValidator">PayloadValidator</a></span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="k">in</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15HTTPTransaction20sessionConfigurationCSo23URLSessionConfiguration"></a>
+                    <a name="//apple_ref/swift/Property/sessionConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15HTTPTransaction20sessionConfigurationCSo23URLSessionConfiguration">sessionConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>URLSessionConfiguration</code> used to create the <code>URLSession</code> for
+ the transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">sessionConfiguration</span><span class="p">:</span> <span class="kt">URLSessionConfiguration</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC25CleanroomDataTransactions15HTTPTransaction16validateResponseFzTGS0_x_CSo15HTTPURLResponseVS_20HTTPResponseMetadataV10Foundation4Data_T_"></a>
+                    <a name="//apple_ref/swift/Property/validateResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC25CleanroomDataTransactions15HTTPTransaction16validateResponseFzTGS0_x_CSo15HTTPURLResponseVS_20HTTPResponseMetadataV10Foundation4Data_T_">validateResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="../Classes/HTTPTransaction.html#/s:C25CleanroomDataTransactions15HTTPTransaction17ResponseValidator">ResponseValidator</a></code> function used to validate the HTTP response 
+ received when executing a transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">validateResponse</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html#/s:C25CleanroomDataTransactions15HTTPTransaction17ResponseValidator">ResponseValidator</a></span> <span class="o">=</span> <span class="p">{</span> <span class="n">_</span><span class="p">,</span> <span class="n">resp</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="n">data</span> <span class="k">in</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC25CleanroomDataTransactions15HTTPTransactioncFT3urlV10Foundation3URL15transactionTypeGOS0_15TransactionTypex__6uploadGSqVS1_4Data_15processingQueueCSo13DispatchQueue_GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(url:transactionType:upload:processingQueue:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC25CleanroomDataTransactions15HTTPTransactioncFT3urlV10Foundation3URL15transactionTypeGOS0_15TransactionTypex__6uploadGSqVS1_4Data_15processingQueueCSo13DispatchQueue_GS0_x_">init(url:transactionType:upload:processingQueue:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new transaction that will connect to the given service.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">transactionType</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction/TransactionType.html">TransactionType</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">api</span><span class="p">,</span> <span class="n">upload</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">processingQueue</span> <span class="nv">queue</span><span class="p">:</span> <span class="kt">DispatchQueue</span> <span class="o">=</span> <span class="o">.</span><span class="n">transactionProcessing</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25CleanroomDataTransactions15DataTransaction6cancelFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/cancel()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25CleanroomDataTransactions15DataTransaction6cancelFT_T_">cancel()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new transaction that will connect to the given service.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25CleanroomDataTransactions15DataTransaction18executeTransactionFT10completionFGOS_17TransactionResultwx8DataTypewx12MetadataType_T__T_"></a>
+                    <a name="//apple_ref/swift/Method/executeTransaction(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25CleanroomDataTransactions15DataTransaction18executeTransactionFT10completionFGOS_17TransactionResultwx8DataTypewx12MetadataType_T__T_">executeTransaction(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new transaction that will connect to the given service.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">executeTransaction</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">Callback</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A function that will be called upon completion of the transaction.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2016-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
