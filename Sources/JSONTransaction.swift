@@ -38,12 +38,27 @@ open class JSONTransaction<T>: HTTPTransaction<T>
      
      - parameter url: The URL to use for conducting the transaction.
 
+     - parameter method: The HTTP request method. When not explicitly set,
+     defaults to "`GET`" unless `data` is non-`nil`, in which case the value
+     defaults to "`POST`".
+
      - parameter data: Optional binary data to send to the network
      service.
+     
+     - parameter mimeType: The MIME type of `data`. If present, this value
+     is sent as the `Content-Type` header for the HTTP request.
+
+     - parameter queue: A `DispatchQueue` to use for processing transaction
+     responses.
      */
-    public init(url: URL, upload data: Data? = nil)
+    public init(url: URL, method: String? = nil, upload data: Data? = nil, mimeType: String? = nil, processingQueue queue: DispatchQueue = .transactionProcessing)
     {
-        super.init(url: url, transactionType: .api, upload: data)
+        var mime = mimeType
+        if mime == nil && data != nil {
+            mime = "application/json"
+        }
+
+        super.init(url: url, method: method, upload: data, mimeType: mime, transactionType: .api, processingQueue: queue)
 
         self.processPayload = extractPayloadFromData
     }

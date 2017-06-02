@@ -57,9 +57,16 @@ open class HTTPTransaction<T>: DataTransaction
     /** The URL of the service to be used by the transaction. */
     public let url: URL
 
+    /** The HTTP request method to use for the transaction. */
+    public let method: String
+
     /** Optional data to send to the service when executing the
      transaction. */
     public let uploadData: Data?
+
+    /** The MIME type of the `uploadData` (if any). If present, this value is
+     sent as HTTP request's `Content-Type` header. */
+    public let mimeType: String?
 
     /** Indicates the type of transaction provided by the receiver. */
     public let transactionType: TransactionType
@@ -117,18 +124,36 @@ open class HTTPTransaction<T>: DataTransaction
      
      - parameter url: The URL to use for conducting the transaction.
 
-     - parameter transactionType: Specifies the transaction type.
-     
+     - parameter method: The HTTP request method. When not explicitly set,
+     defaults to "`GET`" unless `data` is non-`nil`, in which case the value
+     defaults to "`POST`".
+
      - parameter data: Optional data to send to the service.
-     
+
+     - parameter mimeType: The MIME type of `data`. If present, this value
+     is sent as the `Content-Type` header for the HTTP request.
+
+     - parameter transactionType: Specifies the transaction type.
+
      - parameter queue: A `DispatchQueue` to use for processing transaction
      responses.
      */
-    public init(url: URL, transactionType: TransactionType = .api, upload data: Data? = nil, processingQueue queue: DispatchQueue = .transactionProcessing)
+    public init(url: URL, method: String? = nil, upload data: Data? = nil, mimeType: String? = nil, transactionType: TransactionType = .api, processingQueue queue: DispatchQueue = .transactionProcessing)
     {
+        var requestMethod = method
+        if requestMethod == nil {
+            if data == nil {
+                requestMethod = "GET"
+            } else {
+                requestMethod = "POST"
+            }
+        }
+
         self.url = url
-        self.transactionType = transactionType
+        self.method = requestMethod!
         self.uploadData = data
+        self.mimeType = mimeType
+        self.transactionType = transactionType
         self.processingQueue = queue
     }
 
@@ -151,6 +176,22 @@ open class HTTPTransaction<T>: DataTransaction
         pinnedTransaction = nil
     }
 
+    /**
+     Configures the `URLRequest`.
+     
+     - note: Subclasses overriding this function should call `super`.
+     
+     - parameter request: The `URLRequest` to configure.
+     */
+    open func configure(request: inout URLRequest)
+    {
+        request.httpMethod = method
+
+        if let mimeType = mimeType {
+            request.addValue(mimeType, forHTTPHeaderField: "Content-Type")
+        }
+    }
+
     open func executeTransaction(completion: @escaping Callback)
     {
         do {
@@ -163,7 +204,8 @@ open class HTTPTransaction<T>: DataTransaction
             // create and configure the request
             let url = try constructURL(self)
             var req = try constructRequest(self, url)
-            try configureRequest(self, &req)
+            configure(request: &req)            // allow subclasses to configure the request
+            try configureRequest(self, &req)    // external users can configure the request via RequestConfigurator function
 
             // create a delegate-free session & fire the request
             let session = URLSession(configuration: sessionConfiguration)
