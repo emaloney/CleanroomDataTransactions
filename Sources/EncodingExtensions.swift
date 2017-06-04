@@ -51,7 +51,8 @@ extension String
         return urlFormEncoded.utf8Data
     }
 
-    fileprivate var utf8Data: Data {
+    /** Returns a version of the receiver in UTF-8 encoded `Data`. */
+    public var utf8Data: Data {
         return data(using: .utf8, allowLossyConversion: true)!  // lossy shouldn't ever happen with UTF8
     }
 }
