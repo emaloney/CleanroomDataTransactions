@@ -9,11 +9,11 @@
 /**
  Represents the possible outcomes of executing a given `DataTransaction`.
  */
-public enum TransactionResult<DataType, MetadataType>
+public enum TransactionResult<ResponseDataType, MetadataType>
 {
     /** Represents the result of a successfully executed transaction.
      The case includes the data and metadata returned by the transaction. */
-    case succeeded(DataType, MetadataType)
+    case succeeded(ResponseDataType, MetadataType)
 
     /** Represents the result of a failed executed transaction.
      The case includes a `DataTransactionError` representing the problem. */
@@ -26,14 +26,14 @@ public enum TransactionResult<DataType, MetadataType>
 public protocol DataTransaction
 {
     /** The data type returned by a successful transaction. */
-    associatedtype DataType
+    associatedtype ResponseDataType
 
     /** The metadata type returned along with a successful transaction. */
     associatedtype MetadataType
 
     /** The result type passed to the transaction completion callback
      function. */
-    typealias Result = TransactionResult<DataType, MetadataType>
+    typealias Result = TransactionResult<ResponseDataType, MetadataType>
 
     /** The signature of the callback function passed to
      `executeTransaction()`. */

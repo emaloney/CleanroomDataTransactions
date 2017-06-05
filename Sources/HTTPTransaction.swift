@@ -12,38 +12,37 @@ import Foundation
  A `DataTransaction` that uses a `URLRequest` to request data from
  (and potentially send data to) an HTTP(S)-based service.
  
- A successful transaction produces an instance of type `T` (also known herein
- as `DataType` via conformance to the `DataTransaction` protocol).
+ A successful transaction produces an instance of `ResponseDataType`.
  */
-open class HTTPTransaction<T>: DataTransaction
+open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
 {
-    public typealias DataType = T
+    public typealias ResponseDataType = HTTPResponseDataType
     public typealias MetadataType = HTTPResponseMetadata
 
     /** The signature of a function used to construct `URL` instances for 
      the transaction. */
-    public typealias URLConstructor = (HTTPTransaction<T>) throws -> URL
+    public typealias URLConstructor = (HTTPTransaction<ResponseDataType>) throws -> URL
 
     /** The signature of a function used to construct `URLRequest`s for
      the transaction. */
-    public typealias RequestConstructor = (HTTPTransaction<T>, URL) throws -> URLRequest
+    public typealias RequestConstructor = (HTTPTransaction<ResponseDataType>, URL) throws -> URLRequest
 
     /** The signature of a function used to configure the `URLRequest` prior to
      issuing the transaction. */
-    public typealias RequestConfigurator = (HTTPTransaction<T>, inout URLRequest) throws -> Void
+    public typealias RequestConfigurator = (HTTPTransaction<ResponseDataType>, inout URLRequest) throws -> Void
 
     /** The signature of a function used to validate the response received
      by an HTTP transaction. */
-    public typealias ResponseValidator = (HTTPTransaction<T>, HTTPURLResponse, HTTPResponseMetadata, Data) throws -> Void
+    public typealias ResponseValidator = (HTTPTransaction<ResponseDataType>, HTTPURLResponse, HTTPResponseMetadata, Data) throws -> Void
 
     /** The signature of a payload processing function. This function accepts
-     binary `Data` and attempts to convert it to `DataType`. */
-    public typealias PayloadProcessor = (HTTPTransaction<T>, Data, HTTPResponseMetadata) throws -> DataType
+     binary `Data` and attempts to convert it to `ResponseDataType`. */
+    public typealias PayloadProcessor = (HTTPTransaction<ResponseDataType>, Data, HTTPResponseMetadata) throws -> ResponseDataType
 
     /** If the payload processor succeeds, the results are passed to the
      payload validator, giving the transaction one final chance to sanity-check
      the data and bail if there's a problem. */
-    public typealias PayloadValidator = (HTTPTransaction<T>, DataType, Data, HTTPResponseMetadata) throws -> Void
+    public typealias PayloadValidator = (HTTPTransaction<ResponseDataType>, ResponseDataType, Data, HTTPResponseMetadata) throws -> Void
 
     /** Indicates the type of transaction provided by the implementation. */
     public enum TransactionType {
@@ -90,15 +89,15 @@ open class HTTPTransaction<T>: DataTransaction
     public var configureRequest: RequestConfigurator = { _, _ in }
 
     /**  The `PayloadProcessor` that will be used to produce the receiver's
-     `DataType` upon successful completion of the transaction. */
+     `ResponseDataType` upon successful completion of the transaction. */
     public var processPayload: PayloadProcessor = { txn, data, _ in
-        guard let payload = data as? DataType else {
-            throw DataTransactionError.dataFormatError("Expected payload to be \(DataType.self) for a \(type(of: txn)) transaction (targeting \(txn.url)); got a \(type(of: data)) instead.")
+        guard let payload = data as? ResponseDataType else {
+            throw DataTransactionError.dataFormatError("Expected payload to be \(ResponseDataType.self) for a \(type(of: txn)) transaction (targeting \(txn.url)); got a \(type(of: data)) instead.")
         }
         return payload
     }
 
-    /**  The `PayloadValidator` that will be used to validate the `DataType`
+    /**  The `PayloadValidator` used to validate the `ResponseDataType`
      produced by the `PayloadProcessor` upon successful completion of the
      transaction. */
     public var validatePayload: PayloadValidator = { _, _, _, _ in }
@@ -115,7 +114,7 @@ open class HTTPTransaction<T>: DataTransaction
         }
     }
 
-    private var pinnedTransaction: HTTPTransaction<T>?
+    private var pinnedTransaction: HTTPTransaction<ResponseDataType>?
     private var task: URLSessionTask?
     private let processingQueue: DispatchQueue
 

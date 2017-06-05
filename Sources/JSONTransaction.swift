@@ -9,18 +9,16 @@
 import Foundation
 
 /**
- Connects to a network service to retrieve a JSON document.
- 
- Because the root object of a JSON document may be one of several types,
- a successful `JSONTransaction` produces the generic type `T` (also known
- herein as `DataType` via conformance to the `DataTransaction` protocol).
+ Connects to a network service to retrieve a JSON document of the generic type
+ `JSONIntermediateType`. The `JSONPayloadProcessor` then attempts to convert
+ the JSON intermediate type into the final `HTTPDataType`.
  */
-open class JSONTransaction<T>: HTTPTransaction<T>
+open class JSONTransaction<JSONIntermediateType, ResponseDataType>: HTTPTransaction<ResponseDataType>
 {
     /** The signature of a JSON payload processing function. This function
-     accepts a JSON object (of type `Any`) and attempts to convert it to 
-     `DataType`. */
-    public typealias JSONPayloadProcessor = (JSONTransaction<T>, Any) throws -> DataType
+     accepts a JSON object (of type `JSONIntermediateType`) and attempts to 
+     convert it to `HTTPDataType`. */
+    public typealias JSONPayloadProcessor = (JSONTransaction<JSONIntermediateType, ResponseDataType>, JSONIntermediateType) throws -> ResponseDataType
 
     /**  The `JSONPayloadProcessor` that will be used to convert a JSON
      object (of type `Any`) to the `DataType` of the transaction. The default
@@ -51,7 +49,7 @@ open class JSONTransaction<T>: HTTPTransaction<T>
      - parameter queue: A `DispatchQueue` to use for processing transaction
      responses.
      */
-    public init(url: URL, method: String? = nil, upload data: Data? = nil, mimeType: String? = nil, processingQueue queue: DispatchQueue = .transactionProcessing)
+    public init(url: URL, method: String? = nil, upload data: Data? = nil, mimeType: String? = nil, jsonTypeExpected: Any.Type? = nil, processingQueue queue: DispatchQueue = .transactionProcessing)
     {
         var mime = mimeType
         if mime == nil && data != nil {
@@ -84,18 +82,20 @@ open class JSONTransaction<T>: HTTPTransaction<T>
      that JSON object could not be interpreted as an instance of type 
      `DataType`.
      */
-    open func extractPayloadFromData(transaction: HTTPTransaction<T>, content: Data, meta: HTTPResponseMetadata)
+    open func extractPayloadFromData(transaction: HTTPTransaction<ResponseDataType>, content: Data, meta: HTTPResponseMetadata)
         throws
-        -> DataType
+        -> ResponseDataType
     {
         // always used the passed-in transaction instead of self;
         // this way we're insulated against someone swapping the
         // function implementation instances
-        guard let txn = transaction as? JSONTransaction<DataType> else {
+        guard let txn = transaction as? JSONTransaction<JSONIntermediateType, ResponseDataType> else {
             throw DataTransactionError.incompatibleType
         }
 
-        let json = try txn.jsonObject(from: content)
+        guard let json = try txn.jsonObject(from: content) as? JSONIntermediateType else {
+            throw DataTransactionError.incompatibleType
+        }
 
         return try txn.processJSON(txn, json)
     }
@@ -136,12 +136,12 @@ open class JSONTransaction<T>: HTTPTransaction<T>
      - throws: If `jsonObject` could not be interpreted as an instance of
      type `DataType`.
      */
-    open func extractPayloadFromParsedJSON(_ jsonObject: Any)
+    open func extractPayloadFromParsedJSON(_ jsonObject: JSONIntermediateType)
         throws
-        -> DataType
+        -> ResponseDataType
     {
-        guard let payload = jsonObject as? DataType else {
-            throw DataTransactionError.jsonFormatError("Expecting JSON data to be a type of \(DataType.self); got \(type(of: jsonObject)) instead", jsonObject)
+        guard let payload = jsonObject as? ResponseDataType else {
+            throw DataTransactionError.jsonFormatError("Expecting JSON data to be a type of \(ResponseDataType.self); got \(type(of: jsonObject)) instead", jsonObject)
         }
 
         return payload
@@ -152,22 +152,22 @@ open class JSONTransaction<T>: HTTPTransaction<T>
  A concrete `JSONTransaction` that attempts to generate a `JSONDictionary`
  from JSON data returned by the server.
  */
-public typealias JSONDictionaryTransaction = JSONTransaction<JSONDictionary>
+public typealias JSONDictionaryTransaction = JSONTransaction<JSONDictionary, JSONDictionary>
 
 /**
  A concrete `JSONTransaction` that attempts to generate a `JSONArray`
  from JSON data returned by the server.
  */
-public typealias JSONArrayTransaction = JSONTransaction<JSONArray>
+public typealias JSONArrayTransaction = JSONTransaction<JSONArray, JSONArray>
 
 /**
  A concrete `JSONOptionalTransaction` that accepts an optional JSON
  payload that—if present—is expected to yield a `JSONDictionary`.
  */
-public typealias JSONOptionalDictionaryTransaction = JSONTransaction<JSONDictionary?>
+public typealias JSONOptionalDictionaryTransaction = JSONTransaction<JSONDictionary?, JSONDictionary?>
 
 /**
  A concrete `JSONOptionalTransaction` that accepts an optional JSON
  payload that—if present—is expected to yield a `JSONArray`.
  */
-public typealias JSONOptionalArrayTransaction = JSONTransaction<JSONArray?>
+public typealias JSONOptionalArrayTransaction = JSONTransaction<JSONArray?, JSONArray?>
