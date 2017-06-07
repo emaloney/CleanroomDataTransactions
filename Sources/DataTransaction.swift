@@ -29,7 +29,7 @@ public enum TransactionResult<ResponseDataType, MetadataType>
 /**
  An interface for an asynchronously-executing data transaction.
  */
-public protocol DataTransaction
+public protocol DataTransaction: class
 {
     /** The data type returned by a successful transaction. */
     associatedtype ResponseDataType
