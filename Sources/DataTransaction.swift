@@ -18,6 +18,12 @@ public enum TransactionResult<ResponseDataType, MetadataType>
     /** Represents the result of a failed executed transaction.
      The case includes a `DataTransactionError` representing the problem. */
     case failed(DataTransactionError)
+
+    /** Determines whether the receiver represents a successful result. */
+    public var isSuccess: Bool {
+        guard case .succeeded = self else { return false }
+        return true
+    }
 }
 
 /**
@@ -56,4 +62,14 @@ public protocol DataTransaction
      Attempts to cancel the transaction prior to completion.
      */
     func cancel()
+
+    /**
+     Called from within `executeTransaction()` when a transaction completes,
+     just prior to the `Callback` being invoked.
+     
+     - parameter result: The instance of `ResponseDataType` that resulted
+     from the transaction.
+     */
+    func transactionCompleted(_ result: Result)
 }
+

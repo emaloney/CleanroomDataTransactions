@@ -11,14 +11,28 @@ import Foundation
 /**
  Connects to a network service to retrieve a JSON document of the generic type
  `JSONIntermediateType`. The `JSONPayloadProcessor` then attempts to convert
- the JSON intermediate type into the final `HTTPDataType`.
+ the JSON intermediate type into the final `ResponseDataType`.
  */
 open class JSONTransaction<JSONIntermediateType, ResponseDataType>: HTTPTransaction<ResponseDataType>
 {
+    /** The signature of a function to remove envelope wrapping from the JSON
+     structure returned by the server. Certain JSON-based services embed the
+     `JSONIntermediateType` payload inside envelope metadata about the 
+     transaction. In such cases, it is necessary to remove the envelope and
+     return a `JSONIntermediateType` without it so the `JSONPayloadProcessor`
+     can properly parse the JSON into the `ResponseDataType`. */
+    public typealias JSONEnvelopeUnwrapper = (JSONTransaction<JSONIntermediateType, ResponseDataType>, JSONIntermediateType) throws -> JSONIntermediateType
+
     /** The signature of a JSON payload processing function. This function
      accepts a JSON object (of type `JSONIntermediateType`) and attempts to 
      convert it to `HTTPDataType`. */
     public typealias JSONPayloadProcessor = (JSONTransaction<JSONIntermediateType, ResponseDataType>, JSONIntermediateType) throws -> ResponseDataType
+
+    public var unwrapJSON: JSONEnvelopeUnwrapper = { _, jsonObject in
+        // in many cases, there isn't an envelope to unwrap; this default
+        // implementation just returns the incoming JSON, doing nothing.
+        return jsonObject
+    }
 
     /**  The `JSONPayloadProcessor` that will be used to convert a JSON
      object (of type `Any`) to the `DataType` of the transaction. The default
@@ -37,26 +51,26 @@ open class JSONTransaction<JSONIntermediateType, ResponseDataType>: HTTPTransact
      - parameter url: The URL to use for conducting the transaction.
 
      - parameter method: The HTTP request method. When not explicitly set,
-     defaults to "`GET`" unless `data` is non-`nil`, in which case the value
-     defaults to "`POST`".
+     defaults to `.get` unless `data` is non-`nil`, in which case the value
+     defaults to `.post`.
 
      - parameter data: Optional binary data to send to the network
      service.
      
-     - parameter mimeType: The MIME type of `data`. If present, this value
+     - parameter contentType: The MIME type of `data`. If present, this value
      is sent as the `Content-Type` header for the HTTP request.
 
      - parameter queue: A `DispatchQueue` to use for processing transaction
      responses.
      */
-    public init(url: URL, method: String? = nil, upload data: Data? = nil, mimeType: String? = nil, jsonTypeExpected: Any.Type? = nil, processingQueue queue: DispatchQueue = .transactionProcessing)
+    public init(url: URL, method: HTTPRequestMethod? = nil, upload data: Data? = nil, contentType: MIMEType? = nil, processingQueue queue: DispatchQueue = .transactionProcessing)
     {
-        var mime = mimeType
+        var mime = contentType
         if mime == nil && data != nil {
-            mime = "application/json"
+            mime = .json
         }
 
-        super.init(url: url, method: method, upload: data, mimeType: mime, transactionType: .api, processingQueue: queue)
+        super.init(url: url, method: method, upload: data, contentType: mime, transactionType: .api, processingQueue: queue)
 
         self.processPayload = extractPayloadFromData
     }
@@ -93,11 +107,15 @@ open class JSONTransaction<JSONIntermediateType, ResponseDataType>: HTTPTransact
             throw DataTransactionError.incompatibleType
         }
 
-        guard let json = try txn.jsonObject(from: content) as? JSONIntermediateType else {
+        guard let rawJSON = try txn.jsonObject(from: content) as? JSONIntermediateType else {
             throw DataTransactionError.incompatibleType
         }
 
-        return try txn.processJSON(txn, json)
+        // many endpoints wrap up payload in JSON metadata structures;
+        // this hook enables unwrapping it
+        let strippedJSON = try txn.unwrapJSON(txn, rawJSON)
+
+        return try txn.processJSON(txn, strippedJSON)
     }
 
     /**

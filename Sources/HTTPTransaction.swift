@@ -44,6 +44,14 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
      the data and bail if there's a problem. */
     public typealias PayloadValidator = (HTTPTransaction<ResponseDataType>, ResponseDataType, Data, HTTPResponseMetadata) throws -> Void
 
+    /** The signature of a function to be called upon successful completion
+     of a transaction, to allow cache storage of the transaction response. */
+    public typealias CacheStorageHook = (HTTPTransaction<ResponseDataType>, ResponseDataType, HTTPResponseMetadata) -> Void
+
+    /** The `CacheStorageHook` that will be passed the `ResponseDataType` when
+     a transaction completes successfully. */
+    public var storeInCache: CacheStorageHook?
+
     /** Indicates the type of transaction provided by the implementation. */
     public enum TransactionType {
         /** The transaction interacts with an API endpoint. */
@@ -57,7 +65,7 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
     public let url: URL
 
     /** The HTTP request method to use for the transaction. */
-    public let method: String
+    public let method: HTTPRequestMethod
 
     /** Optional data to send to the service when executing the
      transaction. */
@@ -65,7 +73,7 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
 
     /** The MIME type of the `uploadData` (if any). If present, this value is
      sent as HTTP request's `Content-Type` header. */
-    public let mimeType: String?
+    public let contentType: MIMEType?
 
     /** Indicates the type of transaction provided by the receiver. */
     public let transactionType: TransactionType
@@ -124,8 +132,8 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
      - parameter url: The URL to use for conducting the transaction.
 
      - parameter method: The HTTP request method. When not explicitly set,
-     defaults to "`GET`" unless `data` is non-`nil`, in which case the value
-     defaults to "`POST`".
+     defaults to `.get` unless `data` is non-`nil`, in which case the value
+     defaults to `.post`.
 
      - parameter data: Optional data to send to the service.
 
@@ -137,21 +145,12 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
      - parameter queue: A `DispatchQueue` to use for processing transaction
      responses.
      */
-    public init(url: URL, method: String? = nil, upload data: Data? = nil, mimeType: String? = nil, transactionType: TransactionType = .api, processingQueue queue: DispatchQueue = .transactionProcessing)
+    public init(url: URL, method: HTTPRequestMethod? = nil, upload data: Data? = nil, contentType: MIMEType? = nil, transactionType: TransactionType = .api, processingQueue queue: DispatchQueue = .transactionProcessing)
     {
-        var requestMethod = method
-        if requestMethod == nil {
-            if data == nil {
-                requestMethod = "GET"
-            } else {
-                requestMethod = "POST"
-            }
-        }
-
         self.url = url
-        self.method = requestMethod!
+        self.method = method ?? ((data == nil) ? .get : .post)
         self.uploadData = data
-        self.mimeType = mimeType
+        self.contentType = contentType
         self.transactionType = transactionType
         self.processingQueue = queue
     }
@@ -184,9 +183,9 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
      */
     open func configure(request: inout URLRequest)
     {
-        request.httpMethod = method
+        request.httpMethod = method.asString
 
-        if let mimeType = mimeType {
+        if let mimeType = contentType?.rawValue {
             request.addValue(mimeType, forHTTPHeaderField: "Content-Type")
         }
     }
@@ -234,10 +233,19 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
 
                         let payload = try self.processPayload(self, data, meta)
                         try self.validatePayload(self, payload, data, meta)
-                        self.call(completion, with: .succeeded(payload, meta))
+
+                        self.storeInCache?(self, payload, meta)
+
+                        let result = TransactionResult.succeeded(payload, meta)
+                        self.transactionCompleted(result)
+
+                        self.call(completion, with: result)
                     }
                     catch {
-                        self?.call(completion, with: .failed(.wrap(error)))
+                        let wrappedError = DataTransactionError.wrap(error)
+                        let result = TransactionResult<HTTPResponseDataType, HTTPResponseMetadata>.failed(wrappedError)
+                        self?.transactionCompleted(result)
+                        self?.call(completion, with: result)
                     }
                 }
             }
@@ -256,6 +264,13 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
         }
         catch {
             call(completion, with: .failed(.wrap(error)))
+        }
+    }
+
+    open func transactionCompleted(_ result: Result)
+    {
+        if case .succeeded(let data, let meta) = result {
+            storeInCache?(self, data, meta)
         }
     }
 }
