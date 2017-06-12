@@ -51,6 +51,9 @@
                 <a href="Enums/DataTransactionError.html">DataTransactionError</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/HTTPRequestMethod.html">HTTPRequestMethod</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/HTTPResponseStatus.html">HTTPResponseStatus</a>
               </li>
               <li class="nav-group-task">
@@ -78,6 +81,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/URLRequest.html">URLRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="Extensions/WKImage.html">WKImage</a>
@@ -108,6 +114,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/JSONKey.html">JSONKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MIMEType.html">MIMEType</a>
               </li>
             </ul>
           </li>
@@ -160,9 +169,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:25CleanroomDataTransactions25JSONDictionaryTransaction"></a>
-                    <a name="//apple_ref/swift/Alias/JSONDictionaryTransaction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
+                    <a name="/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/JSONOptionalArrayTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -170,15 +179,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A concrete <code><a href="Classes/JSONTransaction.html">JSONTransaction</a></code> that attempts to generate a <code><a href="Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a></code>
-from JSON data returned by the server.</p>
+                        <p>A concrete <code>JSONOptionalTransaction</code> that accepts an optional JSON
+payload that—if present—is expected to yield a <code><a href="Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONDictionaryTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/JSONTransaction.html">JSONTransaction</a></span><span class="o">&lt;</span><span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONOptionalArrayTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/JSONTransaction.html">JSONTransaction</a></span><span class="o">&lt;</span><span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a></span><span class="p">?,</span> <span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a></span><span class="p">?</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -206,7 +215,7 @@ payload that—if present—is expected to yield a <code><a href="Typealiases.ht
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONOptionalDictionaryTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/JSONTransaction.html">JSONTransaction</a></span><span class="o">&lt;</span><span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a></span><span class="p">?</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONOptionalDictionaryTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/JSONTransaction.html">JSONTransaction</a></span><span class="o">&lt;</span><span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a></span><span class="p">?,</span> <span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a></span><span class="p">?</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -234,7 +243,7 @@ from JSON data returned by the server.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONArrayTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/JSONTransaction.html">JSONTransaction</a></span><span class="o">&lt;</span><span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONArrayTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/JSONTransaction.html">JSONTransaction</a></span><span class="o">&lt;</span><span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a></span><span class="p">,</span> <span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -244,9 +253,9 @@ from JSON data returned by the server.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction"></a>
-                    <a name="//apple_ref/swift/Alias/JSONOptionalArrayTransaction" class="dashAnchor"></a>
-                    <a class="token" href="#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+                    <a name="/s:25CleanroomDataTransactions25JSONDictionaryTransaction"></a>
+                    <a name="//apple_ref/swift/Alias/JSONDictionaryTransaction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -254,15 +263,15 @@ from JSON data returned by the server.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A concrete <code>JSONOptionalTransaction</code> that accepts an optional JSON
-payload that—if present—is expected to yield a <code><a href="Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a></code>.</p>
+                        <p>A concrete <code><a href="Classes/JSONTransaction.html">JSONTransaction</a></code> that attempts to generate a <code><a href="Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a></code>
+from JSON data returned by the server.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONOptionalArrayTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/JSONTransaction.html">JSONTransaction</a></span><span class="o">&lt;</span><span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a></span><span class="p">?</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JSONDictionaryTransaction</span> <span class="o">=</span> <span class="kt"><a href="Classes/JSONTransaction.html">JSONTransaction</a></span><span class="o">&lt;</span><span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a></span><span class="p">,</span> <span class="kt"><a href="Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>

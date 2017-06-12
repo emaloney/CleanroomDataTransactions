@@ -8,21 +8,41 @@
 
 import Foundation
 
+/**
+ Represents the HTTP method used to issue a request.
+ */
 public enum HTTPRequestMethod
 {
+    /** Represents the HTTP `GET` method. */
     case get
+
+    /** Represents the HTTP `HEAD` method. */
     case head
+
+    /** Represents the HTTP `POST` method. */
     case post
+
+    /** Represents the HTTP `PUT` method. */
     case put
+
+    /** Represents the HTTP `DELETE` method. */
     case delete
+
+    /** Represents the HTTP `OPTIONS` method. */
     case options
+
+    /** Represents the HTTP `TRACE` method. */
     case trace
+
+    /** Represents the HTTP `CONNECT` method. */
     case connect
+
+    /** Represents any HTTP method not covered by the other `case`s. */
     case unknown(String)
 
     fileprivate init(string: String)
     {
-        switch string {
+        switch string.uppercased() {
         case "GET":         self = .get
         case "HEAD":        self = .head
         case "POST":        self = .post
@@ -35,6 +55,10 @@ public enum HTTPRequestMethod
         }
     }
 
+    /**
+     Returns a string representation of the `HTTPRequestMethod`. This is
+     always the fully-uppercased version of its name.
+     */
     public var asString: String {
         switch self {
         case .get:              return "GET"
@@ -52,6 +76,10 @@ public enum HTTPRequestMethod
 
 extension URLRequest
 {
+    /**
+     The `HTTPRequestMethod` of the receiving `URLRequest`, or `nil` if one
+     hasn't yet been set.
+     */
     public var httpRequestMethod: HTTPRequestMethod? {
         set {
             httpMethod = newValue?.asString

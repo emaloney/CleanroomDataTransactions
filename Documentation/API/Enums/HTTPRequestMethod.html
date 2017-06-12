@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>String Extension Reference</title>
+    <title>HTTPRequestMethod Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Extension/String" class="dashAnchor"></a>
-    <a title="String Extension Reference"></a>
+    <a name="//apple_ref/swift/Enum/HTTPRequestMethod" class="dashAnchor"></a>
+    <a title="HTTPRequestMethod Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomDataTransactions Reference</a>
         <img id="carat" src="../img/carat.png" />
-        String Extension Reference
+        HTTPRequestMethod Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -160,14 +160,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>String</h1>
+            <h1>HTTPRequestMethod</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">String</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">HTTPRequestMethod</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Represents the HTTP method used to issue a request.</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -175,9 +176,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS14urlPathEncodedSS"></a>
-                    <a name="//apple_ref/swift/Property/urlPathEncoded" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS14urlPathEncodedSS">urlPathEncoded</a>
+                    <a name="/s:FO25CleanroomDataTransactions17HTTPRequestMethod3getFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/get" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions17HTTPRequestMethod3getFMS0_S0_">get</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -185,27 +186,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a version of the receiver wherein characters not allowed in
- the path component of a URL are escaped with percent encoding.</p>
+                        <p>Represents the HTTP <code>GET</code> method.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlPathEncoded</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="k">get</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS18urlPathEncodedDataV10Foundation4Data"></a>
-                    <a name="//apple_ref/swift/Property/urlPathEncodedData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS18urlPathEncodedDataV10Foundation4Data">urlPathEncodedData</a>
+                    <a name="/s:FO25CleanroomDataTransactions17HTTPRequestMethod4headFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/head" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions17HTTPRequestMethod4headFMS0_S0_">head</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -213,28 +217,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a version of the receiver in UTF-8 encoded <code>Data</code> wherein 
- characters not allowed in the path component of a URL are escaped with
- percent encoding.</p>
+                        <p>Represents the HTTP <code>HEAD</code> method.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlPathEncodedData</span><span class="p">:</span> <span class="kt">Data</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">head</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS15urlQueryEncodedSS"></a>
-                    <a name="//apple_ref/swift/Property/urlQueryEncoded" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS15urlQueryEncodedSS">urlQueryEncoded</a>
+                    <a name="/s:FO25CleanroomDataTransactions17HTTPRequestMethod4postFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/post" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions17HTTPRequestMethod4postFMS0_S0_">post</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -242,27 +248,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a version of the receiver wherein characters not allowed in
- the query string of a URL are escaped with percent encoding.</p>
+                        <p>Represents the HTTP <code>POST</code> method.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlQueryEncoded</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">post</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS19urlQueryEncodedDataV10Foundation4Data"></a>
-                    <a name="//apple_ref/swift/Property/urlQueryEncodedData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS19urlQueryEncodedDataV10Foundation4Data">urlQueryEncodedData</a>
+                    <a name="/s:FO25CleanroomDataTransactions17HTTPRequestMethod3putFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/put" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions17HTTPRequestMethod3putFMS0_S0_">put</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -270,28 +279,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a version of the receiver in UTF-8 encoded <code>Data</code> wherein 
- characters not allowed in the query string of a URL are escaped with 
- percent encoding.</p>
+                        <p>Represents the HTTP <code>PUT</code> method.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlQueryEncodedData</span><span class="p">:</span> <span class="kt">Data</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">put</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS14urlFormEncodedSS"></a>
-                    <a name="//apple_ref/swift/Property/urlFormEncoded" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS14urlFormEncodedSS">urlFormEncoded</a>
+                    <a name="/s:FO25CleanroomDataTransactions17HTTPRequestMethod6deleteFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/delete" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions17HTTPRequestMethod6deleteFMS0_S0_">delete</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -299,28 +310,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a version of the receiver wherein characters that are not valid
- in HTTP form values are escaped with percent encoding. This format is
- typically used with the <code>application/x-www-form-urlencoded</code> MIME type.</p>
+                        <p>Represents the HTTP <code>DELETE</code> method.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlFormEncoded</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">delete</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS18urlFormEncodedDataV10Foundation4Data"></a>
-                    <a name="//apple_ref/swift/Property/urlFormEncodedData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS18urlFormEncodedDataV10Foundation4Data">urlFormEncodedData</a>
+                    <a name="/s:FO25CleanroomDataTransactions17HTTPRequestMethod7optionsFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/options" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions17HTTPRequestMethod7optionsFMS0_S0_">options</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -328,29 +341,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a version of the receiver in UTF-8 encoded <code>Data</code> wherein
- characters that are not valid in HTTP form values are escaped with percent
- encoding. This format is typically used with the 
- <code>application/x-www-form-urlencoded</code> MIME type.</p>
+                        <p>Represents the HTTP <code>OPTIONS</code> method.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">urlFormEncodedData</span><span class="p">:</span> <span class="kt">Data</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">options</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vE25CleanroomDataTransactionsSS8utf8DataV10Foundation4Data"></a>
-                    <a name="//apple_ref/swift/Property/utf8Data" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE25CleanroomDataTransactionsSS8utf8DataV10Foundation4Data">utf8Data</a>
+                    <a name="/s:FO25CleanroomDataTransactions17HTTPRequestMethod5traceFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/trace" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions17HTTPRequestMethod5traceFMS0_S0_">trace</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -358,14 +372,108 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a version of the receiver in UTF-8 encoded <code>Data</code>.</p>
+                        <p>Represents the HTTP <code>TRACE</code> method.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">utf8Data</span><span class="p">:</span> <span class="kt">Data</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">trace</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO25CleanroomDataTransactions17HTTPRequestMethod7connectFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/connect" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions17HTTPRequestMethod7connectFMS0_S0_">connect</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the HTTP <code>CONNECT</code> method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">connect</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO25CleanroomDataTransactions17HTTPRequestMethod7unknownFMS0_FSSS0_"></a>
+                    <a name="//apple_ref/swift/Element/unknown" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO25CleanroomDataTransactions17HTTPRequestMethod7unknownFMS0_FSSS0_">unknown</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents any HTTP method not covered by the other <code>case</code>s.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">unknown</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO25CleanroomDataTransactions17HTTPRequestMethod8asStringSS"></a>
+                    <a name="//apple_ref/swift/Property/asString" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO25CleanroomDataTransactions17HTTPRequestMethod8asStringSS">asString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a string representation of the <code>HTTPRequestMethod</code>. This is
+always the fully-uppercased version of its name.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">asString</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>

@@ -51,6 +51,9 @@
                 <a href="Enums/DataTransactionError.html">DataTransactionError</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/HTTPRequestMethod.html">HTTPRequestMethod</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/HTTPResponseStatus.html">HTTPResponseStatus</a>
               </li>
               <li class="nav-group-task">
@@ -78,6 +81,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/URLRequest.html">URLRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="Extensions/WKImage.html">WKImage</a>
@@ -108,6 +114,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/JSONKey.html">JSONKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/MIMEType.html">MIMEType</a>
               </li>
             </ul>
           </li>
@@ -170,11 +179,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connects to a network service to retrieve a JSON document.</p>
-
-<p>Because the root object of a JSON document may be one of several types,
-a successful <code>JSONTransaction</code> produces the generic type <code>T</code> (also known
-herein as <code>DataType</code> via conformance to the <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> protocol).</p>
+                        <p>Connects to a network service to retrieve a JSON document of the generic type
+<code>JSONIntermediateType</code>. The <code>JSONPayloadProcessor</code> then attempts to convert
+the JSON intermediate type into the final <code>ResponseDataType</code>.</p>
 
                         <a href="Classes/JSONTransaction.html" class="slightly-smaller">See more</a>
                       </div>
@@ -182,7 +189,7 @@ herein as <code>DataType</code> via conformance to the <code><a href="Protocols/
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">JSONTransaction</span><span class="o">&lt;</span><span class="kt">JSONIntermediateType</span><span class="p">,</span> <span class="kt">ResponseDataType</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">ResponseDataType</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -209,8 +216,7 @@ herein as <code>DataType</code> via conformance to the <code><a href="Protocols/
                         <p>A <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> that uses a <code>URLRequest</code> to request data from
 (and potentially send data to) an HTTP(S)-based service.</p>
 
-<p>A successful transaction produces an instance of type <code>T</code> (also known herein
-as <code>DataType</code> via conformance to the <code><a href="Protocols/DataTransaction.html">DataTransaction</a></code> protocol).</p>
+<p>A successful transaction produces an instance of <code>ResponseDataType</code>.</p>
 
                         <a href="Classes/HTTPTransaction.html" class="slightly-smaller">See more</a>
                       </div>
@@ -218,7 +224,7 @@ as <code>DataType</code> via conformance to the <code><a href="Protocols/DataTra
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/DataTransaction.html">DataTransaction</a></span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">HTTPResponseDataType</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/DataTransaction.html">DataTransaction</a></span></code></pre>
 
                         </div>
                       </div>

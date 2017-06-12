@@ -28,13 +28,17 @@ open class JSONTransaction<JSONIntermediateType, ResponseDataType>: HTTPTransact
      convert it to `HTTPDataType`. */
     public typealias JSONPayloadProcessor = (JSONTransaction<JSONIntermediateType, ResponseDataType>, JSONIntermediateType) throws -> ResponseDataType
 
+    /** The `JSONEnvelopeUnwrapper` that will be used to remove the JSON
+     payload from any JSON envelope it may be wrapped in. The default 
+     implementation assumes there is no envelope, and simply returns
+     the passed-in JSON object. */
     public var unwrapJSON: JSONEnvelopeUnwrapper = { _, jsonObject in
         // in many cases, there isn't an envelope to unwrap; this default
         // implementation just returns the incoming JSON, doing nothing.
         return jsonObject
     }
 
-    /**  The `JSONPayloadProcessor` that will be used to convert a JSON
+    /** The `JSONPayloadProcessor` that will be used to convert a JSON
      object (of type `Any`) to the `DataType` of the transaction. The default
      implementation calls `extractPayloadFromParsedJSON()`, which simply
      performs a typecast. If that is insufficient, you may either replace
