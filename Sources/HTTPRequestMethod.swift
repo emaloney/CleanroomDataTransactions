@@ -25,6 +25,9 @@ public enum HTTPRequestMethod
     /** Represents the HTTP `PUT` method. */
     case put
 
+    /** Represents the HTTP `PATCH` method. */
+    case patch
+
     /** Represents the HTTP `DELETE` method. */
     case delete
 
@@ -47,6 +50,7 @@ public enum HTTPRequestMethod
         case "HEAD":        self = .head
         case "POST":        self = .post
         case "PUT":         self = .put
+        case "PATCH":       self = .patch
         case "DELETE":      self = .delete
         case "OPTIONS":     self = .options
         case "TRACE":       self = .trace
@@ -65,6 +69,7 @@ public enum HTTPRequestMethod
         case .head:             return "HEAD"
         case .post:             return "POST"
         case .put:              return "PUT"
+        case .patch:            return "PATCH"
         case .delete:           return "DELETE"
         case .options:          return "OPTIONS"
         case .trace:            return "TRACE"
