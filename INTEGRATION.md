@@ -44,12 +44,12 @@ Within to your project’s root directory, Carthage-based projects will store a 
 To integrate CleanroomDataTransactions in your workspace, you would start by adding the following line to the `Cartfile`:
 
 ```
-github "emaloney/CleanroomDataTransactions" ~> 2.0.0
+github "emaloney/CleanroomDataTransactions" ~> 2.1.0
 ```
 
-This specifies that Carthage use the latest version of CleanroomDataTransactions that is API-compatible with 2.0, i.e. any 2.0.*x* version.
+This specifies that Carthage use the latest version of CleanroomDataTransactions that is API-compatible with 2.1.0, i.e. any 2.1.*x* version.
 
-**Note:** Be sure to check the [latest releases](https://github.com/emaloney/CleanroomDataTransactions/releases); there may be a newer version than 2.0 that is no longer API-compatible.
+**Note:** Be sure to check the [latest releases](https://github.com/emaloney/CleanroomDataTransactions/releases); there may be a newer version than 2.1.0 that is no longer API-compatible.
 
 ### 2. Download CleanroomDataTransactions using Carthage
 
