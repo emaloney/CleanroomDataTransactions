@@ -142,7 +142,7 @@ open class JSONTransaction<JSONIntermediateType, ResponseDataType>: HTTPTransact
     }
 
     /**
-     Attempts to interpret a JSON object as an object of type `DataType`.
+     Attempts to interpret a JSON object as an instance of `ResponseDataType`.
 
      The default implementation simply attempts to cast `jsonObject` as type
      `DataType`. This is sufficient if you're expecting a `JSONDictionary`
