@@ -13,8 +13,15 @@ import Foundation
  */
 public struct HTTPResponseMetadata
 {
-    /** The `URL` of the originating HTTP request. */
-    public let url: URL
+    /** The original `URL` before rewriting. */
+    public let originalURL: URL
+
+    /** The `URL` used to issue the request, after URL rewriting. */
+    public let issuedURL: URL
+
+    /** The final `URL` used to serve the request, after any server-side
+     redirects. */
+    public let finalURL: URL
 
     /** The status code of the HTTP response. */
     public let responseStatusCode: Int
@@ -31,8 +38,14 @@ public struct HTTPResponseMetadata
     /**
      Initializes an `HTTPResponseMetadata` instance.
      
-     - parameter url: The `URL` of the originating HTTP request.
-     
+     - parameter originalURL: The original `URL` before any URL rewriting.
+
+     - parameter issuedURL: The `URL` used to issue the request, after URL
+     any rewriting.
+
+     - parameter finalURL: The final `URL` used to serve the request, after any
+     server-side redirects.
+
      - parameter responseStatusCode: The status code of the HTTP response.
      
      - parameter mimeType: The MIME type of the HTTP response body, if any.
@@ -42,9 +55,11 @@ public struct HTTPResponseMetadata
      
      - parameter httpHeaders: The HTTP response header fields.
      */
-    public init(url: URL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [String: String])
+    public init(originalURL: URL, issuedURL: URL, finalURL: URL, responseStatusCode: Int, mimeType: String?, textEncoding: String?, httpHeaders: [String: String])
     {
-        self.url = url
+        self.originalURL = originalURL
+        self.issuedURL = issuedURL
+        self.finalURL = finalURL
         self.responseStatusCode = responseStatusCode
         self.mimeType = mimeType
         self.textEncoding = textEncoding

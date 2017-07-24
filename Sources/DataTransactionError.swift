@@ -49,6 +49,10 @@ public enum DataTransactionError: Error
      it was not used. */
     case httpRequired
 
+    /** The transaction could not be initiated because the request has no
+     `URL`. */
+    case noURL
+
     /** The transaction returned no data. */
     case noData
 
@@ -139,7 +143,10 @@ extension DataTransactionError: CustomStringConvertible
 
         case .noData:
             return "No data was returned for the request being processed."
-
+            
+        case .noURL:
+            return "The transaction could not be initiated because the request has no URL."
+            
         case .canceled:
             return "The request was canceled or deallocated."
 
@@ -164,9 +171,9 @@ extension DataTransactionError: CustomStringConvertible
         case .httpError(_, let meta, let data):
             if !data.isEmpty {
                 let dataStr = data.asStringUTF8 ?? "(data could not be converted to a UTF-8 string)"
-                return "HTTP error \(meta.responseStatusCode) returned by \(meta.url) with \(data.count) bytes of data: \(dataStr)"
+                return "HTTP error \(meta.responseStatusCode) returned by \(meta.issuedURL) with \(data.count) bytes of data: \(dataStr)"
             } else {
-                return "HTTP error \(meta.responseStatusCode) returned by \(meta.url)"
+                return "HTTP error \(meta.responseStatusCode) returned by \(meta.issuedURL)"
             }
         }
     }

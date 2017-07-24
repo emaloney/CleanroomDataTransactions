@@ -205,6 +205,10 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
             configure(request: &req)            // allow subclasses to configure the request
             try configureRequest(self, &req)    // external users can configure the request via RequestConfigurator function
 
+            guard let issuedURL = req.url else {
+                throw DataTransactionError.noURL
+            }
+
             // create a delegate-free session & fire the request
             let session = URLSession(configuration: sessionConfiguration)
 
@@ -227,7 +231,8 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
                             throw DataTransactionError.httpRequired
                         }
 
-                        let meta = HTTPResponseMetadata(url: url, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields as! [String: String])
+                        let finalURL = httpResp.url ?? issuedURL
+                        let meta = HTTPResponseMetadata(originalURL: url, issuedURL: issuedURL, finalURL: finalURL, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields as! [String: String])
 
                         try self.validateResponse(self, httpResp, meta, data)
 
