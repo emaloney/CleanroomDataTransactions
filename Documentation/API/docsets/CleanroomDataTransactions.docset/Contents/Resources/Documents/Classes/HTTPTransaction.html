@@ -105,6 +105,12 @@
               <li class="nav-group-task">
                 <a href="../Protocols/DataTransaction.html">DataTransaction</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HTTPTransactionConfigurator.html">HTTPTransactionConfigurator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HTTPTransactionTracer.html">HTTPTransactionTracer</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -112,6 +118,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HTTPTransactionControl.html">HTTPTransactionControl</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/JSONKey.html">JSONKey</a>
@@ -207,9 +216,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction17ResponseValidator"></a>
-                    <a name="//apple_ref/swift/Alias/ResponseValidator" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction17ResponseValidator">ResponseValidator</a>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction16CacheStorageHook"></a>
+                    <a name="//apple_ref/swift/Alias/CacheStorageHook" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction16CacheStorageHook">CacheStorageHook</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -217,71 +226,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The signature of a function used to validate the response received
- by an HTTP transaction.</p>
+                        <p>The signature of a function to be called upon successful completion
+ of a transaction, to allow cache storage of the transaction response.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ResponseValidator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">ResponseDataType</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">HTTPURLResponse</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">,</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor"></a>
-                    <a name="//apple_ref/swift/Alias/PayloadProcessor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor">PayloadProcessor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The signature of a payload processing function. This function accepts
- binary <code>Data</code> and attempts to convert it to <code>ResponseDataType</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadProcessor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">ResponseDataType</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">Data</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ResponseDataType</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction18RequestConstructor"></a>
-                    <a name="//apple_ref/swift/Alias/RequestConstructor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction18RequestConstructor">RequestConstructor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The signature of a function used to construct <code>URLRequest</code>s for
- the transaction.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">RequestConstructor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">ResponseDataType</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">URL</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">CacheStorageHook</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">ResponseDataType</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">ResponseDataType</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -310,6 +263,34 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">RequestConfigurator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">ResponseDataType</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">inout</span> <span class="kt">URLRequest</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction17ResponseValidator"></a>
+                    <a name="//apple_ref/swift/Alias/ResponseValidator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction17ResponseValidator">ResponseValidator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of a function used to validate the response received
+ by an HTTP transaction.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ResponseValidator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">ResponseDataType</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">HTTPURLResponse</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">,</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -376,9 +357,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction16CacheStorageHook"></a>
-                    <a name="//apple_ref/swift/Alias/CacheStorageHook" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction16CacheStorageHook">CacheStorageHook</a>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction18RequestConstructor"></a>
+                    <a name="//apple_ref/swift/Alias/RequestConstructor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction18RequestConstructor">RequestConstructor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -386,15 +367,43 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The signature of a function to be called upon successful completion
- of a transaction, to allow cache storage of the transaction response.</p>
+                        <p>The signature of a function used to construct <code>URLRequest</code>s for
+ the transaction.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">CacheStorageHook</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">ResponseDataType</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">ResponseDataType</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">RequestConstructor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">ResponseDataType</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">URL</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor"></a>
+                    <a name="//apple_ref/swift/Alias/PayloadProcessor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C25CleanroomDataTransactions15HTTPTransaction16PayloadProcessor">PayloadProcessor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The signature of a payload processing function. This function accepts
+ binary <code>Data</code> and attempts to convert it to <code>ResponseDataType</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PayloadProcessor</span> <span class="o">=</span> <span class="p">(</span><span class="kt">HTTPTransaction</span><span class="o">&lt;</span><span class="kt">ResponseDataType</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">Data</span><span class="p">,</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ResponseDataType</span></code></pre>
 
                         </div>
                       </div>

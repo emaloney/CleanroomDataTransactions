@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTTPTransactionTracer Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/HTTPTransactionTracer" class="dashAnchor"></a>
+    <a title="HTTPTransactionTracer Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CleanroomDataTransactions Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emaloney/CleanroomDataTransactions"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CleanroomDataTransactions Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        HTTPTransactionTracer Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FetchImageTransaction.html">FetchImageTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPTransaction.html">HTTPTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPTransaction/TransactionType.html">– TransactionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/JSONTransaction.html">JSONTransaction</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/DataTransactionError.html">DataTransactionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPRequestMethod.html">HTTPRequestMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPResponseStatus.html">HTTPResponseStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPResponseStatus/Category.html">– Category</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TransactionResult.html">TransactionResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Data.html">Data</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DispatchQueue.html">DispatchQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLRequest.html">URLRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/WKImage.html">WKImage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F25CleanroomDataTransactions13platformImageFzT8fromDataV10Foundation4Data_CSo7NSImage">platformImage(fromData:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/DataTransaction.html">DataTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HTTPTransactionConfigurator.html">HTTPTransactionConfigurator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HTTPTransactionTracer.html">HTTPTransactionTracer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HTTPTransactionControl.html">HTTPTransactionControl</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/JSONKey.html">JSONKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MIMEType.html">MIMEType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Subscripts.html">Subscripts</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Subscripts.html#/s:iE25CleanroomDataTransactionsVs10Dictionary9subscriptFVS_7JSONKeyGSqq__">subscript(_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions9JSONArray">JSONArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions20JSONArrayTransaction">JSONArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions14JSONDictionary">JSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions25JSONDictionaryTransaction">JSONDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions28JSONOptionalArrayTransaction">JSONOptionalArrayTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions33JSONOptionalDictionaryTransaction">JSONOptionalDictionaryTransaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:25CleanroomDataTransactions17PlatformImageType">PlatformImageType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>HTTPTransactionTracer</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">HTTPTransactionTracer</span></code></pre>
+
+                </div>
+              </div>
+            <p>Used to trace the execution of <code><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></code>s from beginning to end.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25CleanroomDataTransactions21HTTPTransactionTracer11willExecuteurFT11transactionGCS_15HTTPTransactionqd___2idV10Foundation4UUID_T_"></a>
+                    <a name="//apple_ref/swift/Method/willExecute(transaction:id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer11willExecuteurFT11transactionGCS_15HTTPTransactionqd___2idV10Foundation4UUID_T_">willExecute(transaction:id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called to notify the tracer that the given <code><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></code> is about to
+be executed.</p>
+
+<p>If this is called with a given <code>transactionID</code>, it will (eventually) be
+balanced by a call to <code>didComplete(transaction:result:meta:id)</code>.
+Additional trace functions may or may not be called depending on
+what happens with the transaction at runtime.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">willExecute</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">transaction</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">id</span> <span class="nv">transactionID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>HTTPTransaction</code> being reported to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transactionID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A unique identifier for this particular execution of <code>transaction</code>. As <code>transaction</code> executes a single time, the <code>transactionID</code> can be used to correlate different calls to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25CleanroomDataTransactions21HTTPTransactionTracer12didConfigureurFT7requestV10Foundation10URLRequest3forGCS_15HTTPTransactionqd___2idVS1_4UUID_T_"></a>
+                    <a name="//apple_ref/swift/Method/didConfigure(request:for:id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer12didConfigureurFT7requestV10Foundation10URLRequest3forGCS_15HTTPTransactionqd___2idVS1_4UUID_T_">didConfigure(request:for:id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called after a <code>URLRequest</code> for the given transaction has been fully
+configured, and just before the request is about to be issued.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">didConfigure</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="k">for</span> <span class="nv">transaction</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">id</span> <span class="nv">transactionID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The fully-configured <code>URLRequest</code> as it will be issued.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>HTTPTransaction</code> being reported to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transactionID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A unique identifier for this particular execution of <code>transaction</code>. As <code>transaction</code> executes a single time, the <code>transactionID</code> can be used to correlate different calls to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25CleanroomDataTransactions21HTTPTransactionTracer8didIssueurFT7requestV10Foundation10URLRequest3forGCS_15HTTPTransactionqd___2idVS1_4UUID_T_"></a>
+                    <a name="//apple_ref/swift/Method/didIssue(request:for:id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer8didIssueurFT7requestV10Foundation10URLRequest3forGCS_15HTTPTransactionqd___2idVS1_4UUID_T_">didIssue(request:for:id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called after a <code>URLRequest</code> has been issued, but before any sort of
+response has been received.</p>
+
+<p>Note that the transaction may complete prior to receiving an HTTP 
+response if an error occurs before then. As a result, a call to
+this function may not necessarily be balanced by a call to
+<code><a href="../Protocols/HTTPTransactionTracer.html#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer10didReceiveurFT8responseCSo15HTTPURLResponse2toV10Foundation10URLRequest3forGCS_15HTTPTransactionqd___4metaVS_20HTTPResponseMetadata4dataVS2_4Data2idVS2_4UUID_T_">didReceive(response:to:for:meta:data:id:)</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">didIssue</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="k">for</span> <span class="nv">transaction</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">id</span> <span class="nv">transactionID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>URLRequest</code> as it was issued.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>HTTPTransaction</code> being reported to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transactionID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A unique identifier for this particular execution of <code>transaction</code>. As <code>transaction</code> executes a single time, the <code>transactionID</code> can be used to correlate different calls to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25CleanroomDataTransactions21HTTPTransactionTracer10didReceiveurFT8responseCSo15HTTPURLResponse2toV10Foundation10URLRequest3forGCS_15HTTPTransactionqd___4metaVS_20HTTPResponseMetadata4dataVS2_4Data2idVS2_4UUID_T_"></a>
+                    <a name="//apple_ref/swift/Method/didReceive(response:to:for:meta:data:id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer10didReceiveurFT8responseCSo15HTTPURLResponse2toV10Foundation10URLRequest3forGCS_15HTTPTransactionqd___4metaVS_20HTTPResponseMetadata4dataVS2_4Data2idVS2_4UUID_T_">didReceive(response:to:for:meta:data:id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called after an <code>HTTPURLResponse</code> has been received in response to a
+prior <code>URLRequest</code> being issued.</p>
+
+<p>Note that the response may contain an HTTP error code.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">didReceive</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">response</span><span class="p">:</span> <span class="kt">HTTPURLResponse</span><span class="p">,</span> <span class="n">to</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="k">for</span> <span class="nv">transaction</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">meta</span><span class="p">:</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="n">id</span> <span class="nv">transactionID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>response</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>HTTPURLResponse</code> received in response to <code>request</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>URLRequest</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>HTTPTransaction</code> being reported to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>meta</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An <code>HTTPResponseMetadata</code> instance containing details about the HTTP response.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>Data</code> instance containing the body of the HTTP response, in unparsed binary form.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transactionID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A unique identifier for this particular execution of <code>transaction</code>. As <code>transaction</code> executes a single time, the <code>transactionID</code> can be used to correlate different calls to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25CleanroomDataTransactions21HTTPTransactionTracer11didValidateurFT8responseCSo15HTTPURLResponse2toV10Foundation10URLRequest3forGCS_15HTTPTransactionqd___4metaVS_20HTTPResponseMetadata4dataVS2_4Data2idVS2_4UUID_T_"></a>
+                    <a name="//apple_ref/swift/Method/didValidate(response:to:for:meta:data:id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer11didValidateurFT8responseCSo15HTTPURLResponse2toV10Foundation10URLRequest3forGCS_15HTTPTransactionqd___4metaVS_20HTTPResponseMetadata4dataVS2_4Data2idVS2_4UUID_T_">didValidate(response:to:for:meta:data:id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called after the <code>HTTPURLResponse</code> has been successfully validated.</p>
+
+<p>Although response validation can be configured by supplying a custom
+<code>ResponseValidator</code> to an <code><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></code>, the default implementation
+enforces that the response does not represent an HTTP error of some kind.
+In such cases, this function is called only when the HTTP response is
+known to be a non-error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">didValidate</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">response</span><span class="p">:</span> <span class="kt">HTTPURLResponse</span><span class="p">,</span> <span class="n">to</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="k">for</span> <span class="nv">transaction</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">meta</span><span class="p">:</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="n">id</span> <span class="nv">transactionID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>response</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>HTTPURLResponse</code> received in response to <code>request</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>URLRequest</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>HTTPTransaction</code> being reported to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>meta</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An <code>HTTPResponseMetadata</code> instance containing details about the HTTP response.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>Data</code> instance containing the body of the HTTP response, in unparsed binary form.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transactionID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A unique identifier for this particular execution of <code>transaction</code>. As <code>transaction</code> executes a single time, the <code>transactionID</code> can be used to correlate different calls to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25CleanroomDataTransactions21HTTPTransactionTracer10didExtracturFT7payloadqd__3forGCS_15HTTPTransactionqd___4metaVS_20HTTPResponseMetadata2idV10Foundation4UUID_T_"></a>
+                    <a name="//apple_ref/swift/Method/didExtract(payload:for:meta:id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer10didExtracturFT7payloadqd__3forGCS_15HTTPTransactionqd___4metaVS_20HTTPResponseMetadata2idV10Foundation4UUID_T_">didExtract(payload:for:meta:id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called after the payload has been extracted from the raw binary data
+contained in the HTTP response body.</p>
+
+<p>This function is called before the payload is validated.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">didExtract</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">payload</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;.</span><span class="kt">ResponseDataType</span><span class="p">,</span> <span class="k">for</span> <span class="nv">transaction</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">meta</span><span class="p">:</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">,</span> <span class="n">id</span> <span class="nv">transactionID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>payload</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>ResponseDataType</code> payload extracted from the response.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>HTTPTransaction</code> being reported to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>meta</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An <code>HTTPResponseMetadata</code> instance containing details about the HTTP response.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transactionID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A unique identifier for this particular execution of <code>transaction</code>. As <code>transaction</code> executes a single time, the <code>transactionID</code> can be used to correlate different calls to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25CleanroomDataTransactions21HTTPTransactionTracer11didValidateurFT7payloadqd__3forGCS_15HTTPTransactionqd___4metaVS_20HTTPResponseMetadata2idV10Foundation4UUID_T_"></a>
+                    <a name="//apple_ref/swift/Method/didValidate(payload:for:meta:id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer11didValidateurFT7payloadqd__3forGCS_15HTTPTransactionqd___4metaVS_20HTTPResponseMetadata2idV10Foundation4UUID_T_">didValidate(payload:for:meta:id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called after the response payload has been successfully validated.</p>
+
+<p>Payload validation is the last step performed by a successful transaction, 
+so a call to this function ensures there will be a subsequent call to
+<code><a href="../Protocols/HTTPTransactionTracer.html#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer11didCompleteurFT11transactionGCS_15HTTPTransactionqd___6resultGOS_17TransactionResultqd__VS_20HTTPResponseMetadata_4metaGSqS3__2idV10Foundation4UUID_T_">didComplete(transaction:result:meta:id:)</a></code> with a <code>.succeeded</code>
+<code>Result</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">didValidate</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">payload</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;.</span><span class="kt">ResponseDataType</span><span class="p">,</span> <span class="k">for</span> <span class="nv">transaction</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">meta</span><span class="p">:</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">,</span> <span class="n">id</span> <span class="nv">transactionID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>payload</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The validated <code>ResponseDataType</code> payload.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>HTTPTransaction</code> being reported to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>meta</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An <code>HTTPResponseMetadata</code> instance containing details about the HTTP response.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transactionID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A unique identifier for this particular execution of <code>transaction</code>. As <code>transaction</code> executes a single time, the <code>transactionID</code> can be used to correlate different calls to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25CleanroomDataTransactions21HTTPTransactionTracer11didCompleteurFT11transactionGCS_15HTTPTransactionqd___6resultGOS_17TransactionResultqd__VS_20HTTPResponseMetadata_4metaGSqS3__2idV10Foundation4UUID_T_"></a>
+                    <a name="//apple_ref/swift/Method/didComplete(transaction:result:meta:id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer11didCompleteurFT11transactionGCS_15HTTPTransactionqd___6resultGOS_17TransactionResultqd__VS_20HTTPResponseMetadata_4metaGSqS3__2idV10Foundation4UUID_T_">didComplete(transaction:result:meta:id:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called immediately before an executing transaction reports a final
+<code>Result</code> to its <code>Callback</code> function.</p>
+
+<p>This function will be eventually be called for every call to 
+<code><a href="../Protocols/HTTPTransactionTracer.html#/s:FP25CleanroomDataTransactions21HTTPTransactionTracer11willExecuteurFT11transactionGCS_15HTTPTransactionqd___2idV10Foundation4UUID_T_">willExecute(transaction:id:)</a></code> having the same <code>transactionID</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">didComplete</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">transaction</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">result</span><span class="p">:</span> <span class="kt"><a href="../Classes/HTTPTransaction.html">HTTPTransaction</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;.</span><span class="kt">Result</span><span class="p">,</span> <span class="nv">meta</span><span class="p">:</span> <span class="kt"><a href="../Structs/HTTPResponseMetadata.html">HTTPResponseMetadata</a></span><span class="p">?,</span> <span class="n">id</span> <span class="nv">transactionID</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>payload</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The validated <code>ResponseDataType</code> payload.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transaction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>HTTPTransaction</code> being reported to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>meta</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An <code>HTTPResponseMetadata</code> instance containing details about the HTTP response. Will be <code>nil</code> if transaction execution did not get as far as receiving an HTTP response.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transactionID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A unique identifier for this particular execution of <code>transaction</code>. As <code>transaction</code> executes a single time, the <code>transactionID</code> can be used to correlate different calls to the tracer.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2016-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
