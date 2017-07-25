@@ -1,5 +1,5 @@
 //
-//  URLTransaction.swift
+//  HTTPTransaction.swift
 //  CleanroomDataTransactions
 //
 //  Created by Evan Maloney on 7/28/15.
@@ -192,13 +192,23 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
 
     open func executeTransaction(completion: @escaping Callback)
     {
+        let tracer = HTTPTransactionControl.tracer
+        let txnID = UUID()
+
+        tracer?.willExecute(transaction: self, id: txnID)
+
         do {
             guard task == nil else {
                 throw DataTransactionError.alreadyInFlight
             }
 
             pinnedTransaction = self
-            
+
+            // configure ourselves
+            if let txnConfig = HTTPTransactionControl.configurator {
+                txnConfig.configure(transaction: self)
+            }
+
             // create and configure the request
             let url = try constructURL(self)
             var req = try constructRequest(self, url)
@@ -209,11 +219,14 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
                 throw DataTransactionError.noURL
             }
 
+            tracer?.didConfigure(request: req, for: self, id: txnID)
+
             // create a delegate-free session & fire the request
             let session = URLSession(configuration: sessionConfiguration)
 
             let handler: (Data?, URLResponse?, Error?) -> Void = { [weak self, queue = processingQueue] data, response, error in
                 queue.async {
+                    var respMeta: HTTPResponseMetadata?     // for the transactionCompleted in the catch block
                     do {
                         guard let `self` = self else {
                             throw DataTransactionError.canceled
@@ -233,23 +246,31 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
 
                         let finalURL = httpResp.url ?? issuedURL
                         let meta = HTTPResponseMetadata(originalURL: url, issuedURL: issuedURL, finalURL: finalURL, responseStatusCode: httpResp.statusCode, mimeType: httpResp.mimeType, textEncoding: httpResp.textEncodingName, httpHeaders: httpResp.allHeaderFields as! [String: String])
+                        respMeta = meta
+
+                        tracer?.didReceive(response: httpResp, to: req, for: self, meta: meta, data: data, id: txnID)
 
                         try self.validateResponse(self, httpResp, meta, data)
 
+                        tracer?.didValidate(response: httpResp, to: req, for: self, meta: meta, data: data, id: txnID)
+
                         let payload = try self.processPayload(self, data, meta)
+
+                        tracer?.didExtract(payload: payload, for: self, meta: meta, id: txnID)
+
                         try self.validatePayload(self, payload, data, meta)
 
-                        self.storeInCache?(self, payload, meta)
+                        tracer?.didValidate(payload: payload, for: self, meta: meta, id: txnID)
 
                         let result = TransactionResult.succeeded(payload, meta)
-                        self.transactionCompleted(result)
+                        self.transactionCompleted(result, meta: meta, id: txnID, tracer: tracer)
 
                         self.call(completion, with: result)
                     }
                     catch {
                         let wrappedError = DataTransactionError.wrap(error)
                         let result = TransactionResult<HTTPResponseDataType, HTTPResponseMetadata>.failed(wrappedError)
-                        self?.transactionCompleted(result)
+                        self?.transactionCompleted(result, meta: respMeta, id: txnID, tracer: tracer)
                         self?.call(completion, with: result)
                     }
                 }
@@ -264,12 +285,23 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
             guard let task = task else {
                 throw DataTransactionError.sessionTaskNotCreated
             }
-            
+
             task.resume()   // this kicks off the HTTP request
+
+            tracer?.didIssue(request: req, for: self, id: txnID)
         }
         catch {
-            call(completion, with: .failed(.wrap(error)))
+            let result: Result = .failed(.wrap(error))
+            transactionCompleted(result, meta: nil, id: txnID, tracer: tracer)
+            call(completion, with: result)
         }
+    }
+
+    private func transactionCompleted(_ result: Result, meta: HTTPResponseMetadata?, id: UUID, tracer: HTTPTransactionTracer?)
+    {
+        tracer?.didComplete(transaction: self, result: result, meta: meta, id: id)
+
+        transactionCompleted(result)
     }
 
     open func transactionCompleted(_ result: Result)

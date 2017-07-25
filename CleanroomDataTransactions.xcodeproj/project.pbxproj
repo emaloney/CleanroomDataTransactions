@@ -16,6 +16,9 @@
 		3B475CC01DB46D6A0047D397 /* ImageConstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475CAF1DB46D6A0047D397 /* ImageConstruction.swift */; };
 		3B475CC31DB46D6A0047D397 /* JSONTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475CB21DB46D6A0047D397 /* JSONTransaction.swift */; };
 		3B475CC51DB46D6A0047D397 /* HTTPTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475CB41DB46D6A0047D397 /* HTTPTransaction.swift */; };
+		3B49C6631F2717EF008A93BE /* HTTPTransactionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49C6621F2717EF008A93BE /* HTTPTransactionConfigurator.swift */; };
+		3B49C6651F271A53008A93BE /* HTTPTransactionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49C6641F271A53008A93BE /* HTTPTransactionControl.swift */; };
+		3B49C6671F27A17A008A93BE /* HTTPTransactionTracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49C6661F27A17A008A93BE /* HTTPTransactionTracer.swift */; };
 		3B4AD3A11EDF0E9C00533F3C /* JSONTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4AD3A01EDF0E9C00533F3C /* JSONTypes.swift */; };
 		3B4AD43D1EE0640700533F3C /* JSONExtractionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4AD43C1EE0640700533F3C /* JSONExtractionExtensions.swift */; };
 		3B4AD43F1EE0643400533F3C /* JSONKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4AD43E1EE0643400533F3C /* JSONKey.swift */; };
@@ -46,6 +49,9 @@
 		3B475CAF1DB46D6A0047D397 /* ImageConstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConstruction.swift; sourceTree = "<group>"; };
 		3B475CB21DB46D6A0047D397 /* JSONTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransaction.swift; sourceTree = "<group>"; };
 		3B475CB41DB46D6A0047D397 /* HTTPTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTransaction.swift; sourceTree = "<group>"; };
+		3B49C6621F2717EF008A93BE /* HTTPTransactionConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTransactionConfigurator.swift; sourceTree = "<group>"; };
+		3B49C6641F271A53008A93BE /* HTTPTransactionControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTransactionControl.swift; sourceTree = "<group>"; };
+		3B49C6661F27A17A008A93BE /* HTTPTransactionTracer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTransactionTracer.swift; sourceTree = "<group>"; };
 		3B4AD3A01EDF0E9C00533F3C /* JSONTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTypes.swift; sourceTree = "<group>"; };
 		3B4AD43C1EE0640700533F3C /* JSONExtractionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONExtractionExtensions.swift; sourceTree = "<group>"; };
 		3B4AD43E1EE0643400533F3C /* JSONKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONKey.swift; sourceTree = "<group>"; };
@@ -95,6 +101,9 @@
 				3B475CAC1DB46D6A0047D397 /* HTTPResponseMetadata.swift */,
 				3B475CAD1DB46D6A0047D397 /* HTTPResponseStatus.swift */,
 				3B475CB41DB46D6A0047D397 /* HTTPTransaction.swift */,
+				3B49C6621F2717EF008A93BE /* HTTPTransactionConfigurator.swift */,
+				3B49C6641F271A53008A93BE /* HTTPTransactionControl.swift */,
+				3B49C6661F27A17A008A93BE /* HTTPTransactionTracer.swift */,
 				3B475CAF1DB46D6A0047D397 /* ImageConstruction.swift */,
 				3B4AD43C1EE0640700533F3C /* JSONExtractionExtensions.swift */,
 				3B4AD43E1EE0643400533F3C /* JSONKey.swift */,
@@ -272,14 +281,17 @@
 				3B4AD43F1EE0643400533F3C /* JSONKey.swift in Sources */,
 				3BE9C6581E9F2382002F2412 /* DispatchQueueExtension.swift in Sources */,
 				3B475CB91DB46D6A0047D397 /* DataTransactionError.swift in Sources */,
+				3B49C6671F27A17A008A93BE /* HTTPTransactionTracer.swift in Sources */,
 				3B475CC51DB46D6A0047D397 /* HTTPTransaction.swift in Sources */,
 				3BF4691E1DB53EB900625500 /* EncodingExtensions.swift in Sources */,
 				3B4AD43D1EE0640700533F3C /* JSONExtractionExtensions.swift in Sources */,
 				3B475CBD1DB46D6A0047D397 /* HTTPResponseMetadata.swift in Sources */,
 				3B4AD3A11EDF0E9C00533F3C /* JSONTypes.swift in Sources */,
 				3B475CBE1DB46D6A0047D397 /* HTTPResponseStatus.swift in Sources */,
+				3B49C6651F271A53008A93BE /* HTTPTransactionControl.swift in Sources */,
 				3B475CBB1DB46D6A0047D397 /* FetchImageTransaction.swift in Sources */,
 				3B475CC01DB46D6A0047D397 /* ImageConstruction.swift in Sources */,
+				3B49C6631F2717EF008A93BE /* HTTPTransactionConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
