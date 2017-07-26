@@ -276,6 +276,7 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
                 }
             }
 
+            req.httpBody = uploadData
             if let uploadData = uploadData {
                 task = session.uploadTask(with: req, from: uploadData, completionHandler: handler)
             } else {
