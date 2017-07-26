@@ -78,6 +78,11 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
     /** Indicates the type of transaction provided by the receiver. */
     public let transactionType: TransactionType
 
+    /** Controls whether or not the transaction adds its own HTTP headers for
+     tracking the transaction, such as the `X-Cleanroom-Transaction-ID`
+     header. */
+    public var suppressTransactionHeaders = false
+
     /** A function called to construct the `URL` used for the transaction.
      The default implementation simply returns the value of the transaction's
      `url` property. */
@@ -212,6 +217,13 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
             // create and configure the request
             let url = try constructURL(self)
             var req = try constructRequest(self, url)
+
+            // set our "X-Cleanroom-Transaction-ID" HTTP header unless suppressed
+            if !suppressTransactionHeaders {
+                // we add our headers before configuration to allow overriding
+                req.addValue(txnID.uuidString, forHTTPHeaderField: "X-Cleanroom-Transaction-ID")
+            }
+
             configure(request: &req)            // allow subclasses to configure the request
             try configureRequest(self, &req)    // external users can configure the request via RequestConfigurator function
 
