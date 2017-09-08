@@ -10,9 +10,7 @@ CleanroomDataTransactions is part of [the Cleanroom Project](https://github.com/
 
 ### Swift compatibility
 
-**Important:** This is the `swift-4` branch. It uses **Swift 4.0** and **requires Xcode 9.0 beta** to compile.
-
-If you need Swift 3.1 compatibility, use the [`master`](https://github.com/emaloney/CleanroomDataTransactions) branch, which requires Xcode 8.3.
+This is the `master` branch. It uses **Swift 4.0** and **requires Xcode 9.0** to compile.
 
 
 #### Current status
@@ -20,11 +18,11 @@ If you need Swift 3.1 compatibility, use the [`master`](https://github.com/emalo
 Branch|Build status
 --------|------------------------
 [`master`](https://github.com/emaloney/CleanroomDataTransactions)|[![Build status: master branch](https://travis-ci.org/emaloney/CleanroomDataTransactions.svg?branch=master)](https://travis-ci.org/emaloney/CleanroomDataTransactions)
-[`swift-4`](https://github.com/emaloney/CleanroomDataTransactions/tree/swift-4)|[![Build status: swift-4 branch](https://travis-ci.org/emaloney/CleanroomDataTransactions.svg?branch=swift-4)](https://travis-ci.org/emaloney/CleanroomDataTransactions)
+
 
 ### License
 
-CleanroomDataTransactions is distributed under [the MIT license](https://github.com/emaloney/CleanroomDataTransactions/blob/swift-4/LICENSE).
+CleanroomDataTransactions is distributed under [the MIT license](https://github.com/emaloney/CleanroomDataTransactions/blob/master/LICENSE).
 
 CleanroomDataTransactions is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or apologies. *Caveat developer.*
 
@@ -38,12 +36,12 @@ The simplest way to integrate CleanroomDataTransactions is with the [Carthage](h
 First, add this line to your [`Cartfile`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
 ```
-github "emaloney/CleanroomDataTransactions" ~> 3.0.0
+github "emaloney/CleanroomDataTransactions" ~> 4.0.0
 ```
 
 Then, use the `carthage` command to [update your dependencies](https://github.com/Carthage/Carthage#upgrading-frameworks).
 
-Finally, you’ll need to [integrate CleanroomDataTransactions into your project](https://github.com/emaloney/CleanroomDataTransactions/blob/swift-4/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomDataTransactions/swift-4/Documentation/API/index.html) it provides.
+Finally, you’ll need to [integrate CleanroomDataTransactions into your project](https://github.com/emaloney/CleanroomDataTransactions/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomDataTransactions/master/Documentation/API/index.html) it provides.
 
 Once successfully integrated, just add the following statement to any Swift file where you want to use CleanroomDataTransactions:
 
@@ -51,11 +49,11 @@ Once successfully integrated, just add the following statement to any Swift file
 import CleanroomDataTransactions
 ```
 
-See [the Integration document](https://github.com/emaloney/CleanroomDataTransactions/blob/swift-4/INTEGRATION.md) for additional details on integrating CleanroomDataTransactions into your project.
+See [the Integration document](https://github.com/emaloney/CleanroomDataTransactions/blob/master/INTEGRATION.md) for additional details on integrating CleanroomDataTransactions into your project.
 
 ### API documentation
 
-For detailed information on using CleanroomDataTransactions, [API documentation](https://rawgit.com/emaloney/CleanroomDataTransactions/swift-4/Documentation/API/index.html) is available.
+For detailed information on using CleanroomDataTransactions, [API documentation](https://rawgit.com/emaloney/CleanroomDataTransactions/master/Documentation/API/index.html) is available.
 
 
 ## About
