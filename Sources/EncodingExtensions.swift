@@ -92,23 +92,38 @@ extension Dictionary where Key == String
         return urlFormEncoded.utf8Data
     }
 
+    private func encode(key: String, value: Any, using encodingFunction: (String) -> String, storeIn encoded: inout [String])
+    {
+        if let valStr = value as? String {
+            encoded += ["\(encodingFunction(key))=\(encodingFunction(valStr))"]
+        }
+        else if let valBool = value as? Bool, valBool {
+            encoded += [encodingFunction(key)]
+        }
+        else if let dict = value as? [String: Any] {
+            for (innerKey, innerVal) in dict {
+                encode(key: "\(key)[\(innerKey)]", value: innerVal, using: encodingFunction, storeIn: &encoded)
+            }
+        }
+        else if let array = value as? [String] {
+            array.forEach {
+                encode(key: key, value: $0, using: encodingFunction, storeIn: &encoded)
+            }
+        }
+        else if let valConv = value as? LosslessStringConvertible {
+            encoded += ["\(encodingFunction(key))=\(encodingFunction(valConv.description))"]
+        }
+        else {
+            encoded += ["\(encodingFunction(key))=\(encodingFunction(String(describing: value)))"]
+        }
+    }
+
     private func encoded(using encodingFunction: (String) -> String)
         -> String
     {
         var encoded = [String]()
         for (key, value) in self {
-            if let valStr = value as? String {
-                encoded += ["\(encodingFunction(key))=\(encodingFunction(valStr))"]
-            }
-            else if let valBool = value as? Bool, valBool {
-                encoded += ["\(encodingFunction(key))"]
-            }
-            else if let valConv = value as? LosslessStringConvertible {
-                encoded += ["\(encodingFunction(key))=\(encodingFunction(valConv.description))"]
-            }
-            else {
-                encoded += ["\(encodingFunction(key))=\(encodingFunction(String(describing: value)))"]
-            }
+            encode(key: key, value: value, using: encodingFunction, storeIn: &encoded)
         }
         return encoded.joined(separator: "&")
     }
