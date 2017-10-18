@@ -280,6 +280,7 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
                         self.call(completion, with: result)
                     }
                     catch {
+                        session.invalidateAndCancel()
                         let wrappedError = DataTransactionError.wrap(error)
                         let result = TransactionResult<HTTPResponseDataType, HTTPResponseMetadata>.failed(wrappedError)
                         self?.transactionCompleted(result, meta: respMeta, id: txnID, tracer: tracer)
@@ -294,12 +295,14 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
             } else {
                 task = session.dataTask(with: req, completionHandler: handler)
             }
-            
+
             guard let task = task else {
+                session.invalidateAndCancel()
                 throw DataTransactionError.sessionTaskNotCreated
             }
 
             task.resume()   // this kicks off the HTTP request
+            session.finishTasksAndInvalidate()
 
             tracer?.didIssue(request: req, for: self, id: txnID)
         }
