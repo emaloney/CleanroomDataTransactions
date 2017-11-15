@@ -83,6 +83,29 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
      header. */
     public var suppressTransactionHeaders = false
 
+    /**
+     The possible priority levels used for a transaction's HTTP request.
+     */
+    public enum Priority {
+        /** A high-priority request; takes precedence over `.default` and
+         `.low` priorities. */
+        case high
+
+        /** The default priority; neither `.high` nor `.low`. */
+        case `default`
+
+        /** A low-priority request; `.default` and `.high` priorities take
+         precendence over this. */
+        case low
+    }
+
+    /** The priority to be used for the transaction's HTTP request. */
+    public var requestPriority = Priority.default {
+        didSet {
+            task?.priority = requestPriority.taskPriority
+        }
+    }
+
     /** A function called to construct the `URL` used for the transaction.
      The default implementation simply returns the value of the transaction's
      `url` property. */
@@ -301,6 +324,9 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
                 throw DataTransactionError.sessionTaskNotCreated
             }
 
+            // set the initial priority
+            task.priority = requestPriority.taskPriority
+
             task.resume()   // this kicks off the HTTP request
             session.finishTasksAndInvalidate()
 
@@ -324,6 +350,17 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
     {
         if case .succeeded(let data, let meta) = result {
             storeInCache?(self, data, meta)
+        }
+    }
+}
+
+extension HTTPTransaction.Priority
+{
+    fileprivate var taskPriority: Float {
+        switch self {
+        case .high:     return URLSessionTask.highPriority
+        case .default:  return URLSessionTask.defaultPriority
+        case .low:      return URLSessionTask.lowPriority
         }
     }
 }
