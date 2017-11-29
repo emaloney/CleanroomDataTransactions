@@ -33,4 +33,7 @@ extension MIMEType
 
     /** Represents the MIME type "`application/json`". */
     public static let json              = MIMEType("application/json")
+
+    /** Represents the MIME type "`text/plain`" with a UTF-8 character set. */
+    public static let plaintextUTF8     = MIMEType("text/plain; charset=UTF-8")
 }
