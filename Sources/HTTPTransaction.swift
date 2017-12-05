@@ -31,6 +31,9 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
      issuing the transaction. */
     public typealias RequestConfigurator = (HTTPTransaction<ResponseDataType>, inout URLRequest) throws -> Void
 
+    /** The signature of a function used to approve HTTP redirects. */
+    public typealias RedirectApprover = (HTTPTransaction<ResponseDataType>, HTTPURLResponse, URL) -> Bool
+
     /** The signature of a function used to validate the response received
      by an HTTP transaction. */
     public typealias ResponseValidator = (HTTPTransaction<ResponseDataType>, HTTPURLResponse, HTTPResponseMetadata, Data) throws -> Void
@@ -123,6 +126,16 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
     /** A function called to configure the `URLRequest` prior to executing
      the transaction. The default implementation does nothing. */
     public var configureRequest: RequestConfigurator = { _, _ in }
+
+    /** A function called to approve HTTP an redirect. An HTTP redirect that is
+     not approved returns the redirect response itself. The default
+     implementation allows all redirects to proceed. */
+    public var shouldAllowRedirect: RedirectApprover = { _, _, _ in return true } {
+        didSet {
+            approvalDelegate = HTTPTransactionRedirectDelegate<ResponseDataType>(transaction: self, approver: shouldAllowRedirect)
+        }
+    }
+    private var approvalDelegate: HTTPTransactionRedirectDelegate<ResponseDataType>?
 
     /**  The `PayloadProcessor` that will be used to produce the receiver's
      `ResponseDataType` upon successful completion of the transaction. */
@@ -256,8 +269,8 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
 
             tracer?.didConfigure(request: req, for: self, id: txnID)
 
-            // create a delegate-free session & fire the request
-            let session = URLSession(configuration: sessionConfiguration)
+            // create a URLSession, then a task, finally fire the request
+            let session = URLSession(configuration: sessionConfiguration, delegate: approvalDelegate, delegateQueue: nil)
 
             let handler: (Data?, URLResponse?, Error?) -> Void = { [weak self, queue = processingQueue] data, response, error in
                 queue.async {
@@ -361,6 +374,35 @@ extension HTTPTransaction.Priority
         case .high:     return URLSessionTask.highPriority
         case .default:  return URLSessionTask.defaultPriority
         case .low:      return URLSessionTask.lowPriority
+        }
+    }
+}
+
+private class HTTPTransactionRedirectDelegate<ResponseDataType>: NSObject, URLSessionTaskDelegate
+{
+    typealias Transaction = HTTPTransaction<ResponseDataType>
+    typealias RedirectApprover = Transaction.RedirectApprover
+
+    unowned let transaction: Transaction
+    let shouldAllowRedirect: RedirectApprover
+
+    init(transaction: Transaction, approver: @escaping RedirectApprover)
+    {
+        self.transaction = transaction
+        self.shouldAllowRedirect = approver
+    }
+
+    func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> ())
+    {
+        guard let newURL = request.url else {
+            completionHandler(request)
+            return
+        }
+
+        if shouldAllowRedirect(transaction, response, newURL) {
+            completionHandler(request)
+        } else {
+            completionHandler(nil)
         }
     }
 }
