@@ -137,7 +137,7 @@ open class JSONTransaction<JSONIntermediateType, ResponseDataType>: HTTPTransact
      */
     open func jsonObject(from content: Data)
         throws
-        -> AnyObject
+        -> Any?
     {
         guard !content.isEmpty else {
             return nil
