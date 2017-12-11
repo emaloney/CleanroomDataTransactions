@@ -178,6 +178,49 @@ extension Dictionary
     }
 
     /**
+     Attempts to retrieve an `Int32` value from the dictionary using the given
+     `JSONKey`.
+
+     - note: This function always throws an error whenever the `Dictionary.Key`
+     generic type is not `String`.
+
+     - parameter key: The key whose associated value is to be retrieved.
+
+     - returns: The `Int32` value associated with `key`.
+
+     - throws: `DataTransactionError.jsonFormatError` if the receiver does
+     not contain a value associated with `key` that can be interpreted as an
+     `Int32`.
+     */
+    public func requiredInt32(_ key: JSONKey)
+        throws
+        -> Int32
+    {
+        return try requiredValue(key)
+    }
+
+    /**
+     Attempts to retrieve an `Int64` value from the dictionary using the given
+     `JSONKey`.
+     
+     - note: This function always throws an error whenever the `Dictionary.Key`
+     generic type is not `String`.
+     
+     - parameter key: The key whose associated value is to be retrieved.
+     
+     - returns: The `Int64` value associated with `key`.
+     
+     - throws: `DataTransactionError.jsonFormatError` if the receiver does
+     not contain a value associated with `key` that can be interpreted as an
+     `Int64`.
+     */
+    public func requiredInt64(_ key: JSONKey)
+        throws
+        -> Int64
+    {
+        return try requiredValue(key)
+    }
+    /**
      Attempts to retrieve a `Double` value from the dictionary using the given
      `JSONKey`.
 
