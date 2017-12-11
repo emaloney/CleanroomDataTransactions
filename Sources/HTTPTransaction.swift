@@ -8,6 +8,10 @@
 
 import Foundation
 
+/** An HTTP transaction that returns a `Data` instance containing the body
+ of the HTTP response. */
+typealias HTTPDataTransaction = HTTPTransaction<Data>
+
 /**
  A `DataTransaction` that uses a `URLRequest` to request data from
  (and potentially send data to) an HTTP(S)-based service.
