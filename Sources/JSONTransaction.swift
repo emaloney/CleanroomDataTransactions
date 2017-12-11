@@ -130,14 +130,19 @@ open class JSONTransaction<JSONIntermediateType, ResponseDataType>: HTTPTransact
 
      - parameter content: The content (body) of the HTTP response.
 
-     - returns: The JSON object.
+     - returns: The JSON object, or `nil` if `content` contains a `0` byte
+     count.
 
      - throws: If `content` could not be interpreted into a JSON object.
      */
     open func jsonObject(from content: Data)
         throws
-        -> Any
+        -> AnyObject
     {
+        guard !content.isEmpty else {
+            return nil
+        }
+
         return try JSONSerialization.jsonObject(with: content, options: [])
     }
 
