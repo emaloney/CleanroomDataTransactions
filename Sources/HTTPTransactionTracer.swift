@@ -11,7 +11,7 @@ import Foundation
 /**
  Used to trace the execution of `HTTPTransaction`s from beginning to end.
  */
-public protocol HTTPTransactionTracer
+public protocol HTTPTransactionTracer: class
 {
     /**
      Called to notify the tracer that the given `HTTPTransaction` is about to
@@ -48,6 +48,33 @@ public protocol HTTPTransactionTracer
      tracer.
      */
     func didConfigure<T>(request: URLRequest, for transaction: HTTPTransaction<T>, id transactionID: UUID)
+
+    /**
+     Called when the issuance of a `URLRequest` is delayed because the
+     network is not available.
+
+     On iOS 11+, if a transaction is configured via its `sessionConfiguration`
+     property to `waitForConnectivity`, transactions will be delayed for up
+     to `timeout` seconds waiting for the network to become available.
+
+     - parameter request: The `URLRequest` to be issued if the transaction
+     is eventually executed.
+
+     - parameter transaction: The `HTTPTransaction` being reported to the
+     tracer.
+
+     - parameter timeout: The maximum number of seconds that `transaction`
+     will wait for network connectivity to become available before failing with
+     an error.
+
+     - parameter transactionID: A unique identifier for this particular
+     execution of `transaction`. As `transaction` executes a single time,
+     the `transactionID` can be used to correlate different calls to the
+     tracer.
+
+     - note: This function is _only_ called when running on iOS 11 or higher.
+     */
+    func willWaitForNetwork<T>(request: URLRequest, for transaction: HTTPTransaction<T>, timeout: TimeInterval, id transactionID: UUID)
 
     /**
      Called after a `URLRequest` has been issued, but before any sort of

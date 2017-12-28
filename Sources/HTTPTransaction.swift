@@ -136,10 +136,10 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
      implementation allows all redirects to proceed. */
     public var shouldAllowRedirect: RedirectApprover = { _, _, _ in return true } {
         didSet {
-            approvalDelegate = HTTPTransactionRedirectDelegate<ResponseDataType>(transaction: self, approver: shouldAllowRedirect)
+            isUsingCustomRedirectApprover = true
         }
     }
-    private var approvalDelegate: HTTPTransactionRedirectDelegate<ResponseDataType>?
+    private var isUsingCustomRedirectApprover = false
 
     /**  The `PayloadProcessor` that will be used to produce the receiver's
      `ResponseDataType` upon successful completion of the transaction. */
@@ -274,7 +274,9 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
             tracer?.didConfigure(request: req, for: self, id: txnID)
 
             // create a URLSession, then a task, finally fire the request
-            let session = URLSession(configuration: sessionConfiguration, delegate: approvalDelegate, delegateQueue: nil)
+            let customRedirectApprover = isUsingCustomRedirectApprover ? shouldAllowRedirect : nil
+            let delegate = HTTPTransactionTaskDelegate<ResponseDataType>(transaction: self, id: txnID, tracer: tracer, redirectApprover: customRedirectApprover)
+            let session = URLSession(configuration: sessionConfiguration, delegate: delegate, delegateQueue: nil)
 
             let handler: (Data?, URLResponse?, Error?) -> Void = { [weak self, queue = processingQueue] data, response, error in
                 queue.async {
@@ -382,31 +384,75 @@ extension HTTPTransaction.Priority
     }
 }
 
-private class HTTPTransactionRedirectDelegate<ResponseDataType>: NSObject, URLSessionTaskDelegate
+private class HTTPTransactionTaskDelegate<ResponseDataType>: NSObject, URLSessionTaskDelegate
 {
     typealias Transaction = HTTPTransaction<ResponseDataType>
     typealias RedirectApprover = Transaction.RedirectApprover
 
-    unowned let transaction: Transaction
-    let shouldAllowRedirect: RedirectApprover
+    private weak var transaction: HTTPTransaction<ResponseDataType>?
+    private let transactionID: UUID
+    private weak var tracer: HTTPTransactionTracer?
+    private let redirectApprover: RedirectApprover?
 
-    init(transaction: Transaction, approver: @escaping RedirectApprover)
+    init(transaction: HTTPTransaction<ResponseDataType>, id transactionID: UUID, tracer: HTTPTransactionTracer?, redirectApprover: RedirectApprover?)
     {
         self.transaction = transaction
-        self.shouldAllowRedirect = approver
+        self.transactionID = transactionID
+        self.tracer = tracer
+        self.redirectApprover = redirectApprover
     }
 
     func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> ())
     {
-        guard let newURL = request.url else {
-            completionHandler(request)
+        guard let redirectApprover = redirectApprover else {
+            // no approver; approve by defalt
+            completionHandler(request)  // allows the redirect to proceed
             return
         }
 
-        if shouldAllowRedirect(transaction, response, newURL) {
-            completionHandler(request)
-        } else {
-            completionHandler(nil)
+        guard let transaction = transaction else {
+            // the transaction deallocated; let request complete normally to fill any caches
+            completionHandler(request)  // allows the redirect to proceed
+            return
         }
+
+        guard let newURL = request.url else {
+            // the request has no URL; that's weird! since we really
+            // don't know what to do here, let's just get out of the way
+            completionHandler(request)  // allows the redirect to proceed
+            return
+        }
+
+        // call the `redirectApprover` function
+        if redirectApprover(transaction, response, newURL) {
+            // the redirect is approved, pass back the request
+            completionHandler(request)  // allows the redirect to proceed
+        } else {
+            // redirect NOT approved!
+            // NOTE: causes redirect response to be returned by the transaction
+            completionHandler(nil)      // prevent redirect from being followed
+        }
+    }
+
+    func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask)
+    {
+        guard let tracer = tracer else {
+            // we only implement this function for the benefit of the tracer;
+            // if there's no tracer, bail out of this function
+            return
+        }
+
+        guard let transaction = transaction else {
+            // the transaction deallocated; nothing further to do
+            return
+        }
+
+        guard let request = task.currentRequest ?? task.originalRequest else {
+            // there's no request to report
+            // don't think this is theoretically possible
+            return
+        }
+
+        tracer.willWaitForNetwork(request: request, for: transaction, timeout: session.configuration.timeoutIntervalForResource, id: transactionID)
     }
 }
