@@ -137,10 +137,10 @@ open class JSONTransaction<JSONIntermediateType, ResponseDataType>: HTTPTransact
      */
     open func jsonObject(from content: Data)
         throws
-        -> Any?
+        -> Any
     {
         guard !content.isEmpty else {
-            return nil
+            return ()
         }
 
         return try JSONSerialization.jsonObject(with: content, options: [])
