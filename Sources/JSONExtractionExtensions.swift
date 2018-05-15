@@ -356,7 +356,7 @@ extension Dictionary
     {
         let extractedArray: [A] = try requiredArrayWithTypecast(key)
 
-        return extractedArray.flatMap { transform($0) }
+        return extractedArray.compactMap { transform($0) }
     }
 
     /**
@@ -413,8 +413,8 @@ extension Dictionary
         -> [T]?
     {
         guard let array: [A] = value(key) else { return nil }
-
-        return array.flatMap { transform($0) }
+        
+        return array.compactMap { transform($0) }
     }
 
     /**
