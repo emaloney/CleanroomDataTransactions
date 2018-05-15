@@ -356,11 +356,7 @@ extension Dictionary
     {
         let extractedArray: [A] = try requiredArrayWithTypecast(key)
 
-        #if swift(>=4.1)
         return extractedArray.compactMap { transform($0) }
-        #else
-        return extractedArray.flatMap { transform($0) }
-        #endif
     }
 
     /**
@@ -417,11 +413,8 @@ extension Dictionary
         -> [T]?
     {
         guard let array: [A] = value(key) else { return nil }
-        #if swift(>=4.1)
+        
         return array.compactMap { transform($0) }
-        #else
-        return array.flatMap { transform($0) }
-        #endif
     }
 
     /**
