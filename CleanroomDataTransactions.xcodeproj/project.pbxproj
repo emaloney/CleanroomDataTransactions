@@ -27,6 +27,7 @@
 		3BA950E21EE751B800FE7AEC /* MIMEType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA950E11EE751B800FE7AEC /* MIMEType.swift */; };
 		3BE9C6581E9F2382002F2412 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9C6571E9F2382002F2412 /* DispatchQueueExtension.swift */; };
 		3BF4691E1DB53EB900625500 /* EncodingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4691D1DB53EB900625500 /* EncodingExtensions.swift */; };
+		4B40DF8C215BEF3900550750 /* CleanroomDataTransactions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B40DF8B215BEF3800550750 /* CleanroomDataTransactions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B6D212D2101E04A00D9B3A4 /* JSONDecodableTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6D212C2101E04A00D9B3A4 /* JSONDecodableTransaction.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		3BE9C65D1E9F4088002F2412 /* Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Target.xcconfig; sourceTree = "<group>"; };
 		3BE9C65E1E9F4088002F2412 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 		3BF4691D1DB53EB900625500 /* EncodingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingExtensions.swift; sourceTree = "<group>"; };
+		4B40DF8B215BEF3800550750 /* CleanroomDataTransactions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CleanroomDataTransactions.h; sourceTree = "<group>"; };
 		4B6D212C2101E04A00D9B3A4 /* JSONDecodableTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodableTransaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 				3B475CB21DB46D6A0047D397 /* JSONTransaction.swift */,
 				3B4AD3A01EDF0E9C00533F3C /* JSONTypes.swift */,
 				3BA950E11EE751B800FE7AEC /* MIMEType.swift */,
+				4B40DF8B215BEF3800550750 /* CleanroomDataTransactions.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B40DF8C215BEF3900550750 /* CleanroomDataTransactions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
