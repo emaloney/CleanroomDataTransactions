@@ -9,7 +9,7 @@
 /**
  Represents the possible outcomes of executing a given `DataTransaction`.
  */
-public enum TransactionResult<ResponseDataType, MetadataType>
+public enum DataTransactionResult<ResponseDataType, MetadataType>
 {
     /** Represents the result of a successfully executed transaction.
      The case includes the data and metadata returned by the transaction. */
@@ -39,11 +39,11 @@ public protocol DataTransaction: class
 
     /** The result type passed to the transaction completion callback
      function. */
-    typealias Result = TransactionResult<ResponseDataType, MetadataType>
+    typealias TransactionResult = DataTransactionResult<ResponseDataType, MetadataType>
 
     /** The signature of the callback function passed to
      `executeTransaction()`. */
-    typealias Callback = (Result) -> Void
+    typealias Callback = (TransactionResult) -> Void
 
     /**
      Causes the transaction to be executed. The transaction may be performed
@@ -70,6 +70,6 @@ public protocol DataTransaction: class
      - parameter result: The instance of `ResponseDataType` that resulted
      from the transaction.
      */
-    func transactionCompleted(_ result: Result)
+    func transactionCompleted(_ result: TransactionResult)
 }
 

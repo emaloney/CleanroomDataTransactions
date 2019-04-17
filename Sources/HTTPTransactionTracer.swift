@@ -220,5 +220,5 @@ public protocol HTTPTransactionTracer: class
      the `transactionID` can be used to correlate different calls to the
      tracer.
      */
-    func didComplete<T>(transaction: HTTPTransaction<T>, result: HTTPTransaction<T>.Result, meta: HTTPResponseMetadata?, id transactionID: UUID)
+    func didComplete<T>(transaction: HTTPTransaction<T>, result: HTTPTransaction<T>.TransactionResult, meta: HTTPResponseMetadata?, id transactionID: UUID)
 }

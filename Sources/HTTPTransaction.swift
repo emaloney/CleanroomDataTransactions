@@ -211,7 +211,7 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
         task = nil
     }
 
-    private func call(_ completion: @escaping Callback, with result: Result)
+    private func call(_ completion: @escaping Callback, with result: TransactionResult)
     {
         completion(result)
 
@@ -324,7 +324,7 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
                     catch {
                         session.invalidateAndCancel()
                         let wrappedError = DataTransactionError.wrap(error)
-                        let result = TransactionResult<HTTPResponseDataType, HTTPResponseMetadata>.failed(wrappedError)
+                        let result = TransactionResult.failed(wrappedError)
                         self?.transactionCompleted(result, meta: respMeta, id: txnID, tracer: tracer)
                         self?.call(completion, with: result)
                     }
@@ -352,20 +352,20 @@ open class HTTPTransaction<HTTPResponseDataType>: DataTransaction
             tracer?.didIssue(request: req, for: self, id: txnID)
         }
         catch {
-            let result: Result = .failed(.wrap(error))
+            let result: TransactionResult = .failed(.wrap(error))
             transactionCompleted(result, meta: nil, id: txnID, tracer: tracer)
             call(completion, with: result)
         }
     }
 
-    private func transactionCompleted(_ result: Result, meta: HTTPResponseMetadata?, id: UUID, tracer: HTTPTransactionTracer?)
+    private func transactionCompleted(_ result: TransactionResult, meta: HTTPResponseMetadata?, id: UUID, tracer: HTTPTransactionTracer?)
     {
         tracer?.didComplete(transaction: self, result: result, meta: meta, id: id)
 
         transactionCompleted(result)
     }
 
-    open func transactionCompleted(_ result: Result)
+    open func transactionCompleted(_ result: TransactionResult)
     {
         if case .succeeded(let data, let meta) = result {
             storeInCache?(self, data, meta)
